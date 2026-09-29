@@ -1,6 +1,6 @@
 # MODULIQ ESPHome components
 
-Wspólna, prywatna biblioteka komponentów z `gkasprow/esphome`, `wizath/esphome`
+Wspólna, publiczna biblioteka komponentów z `gkasprow/esphome`, `wizath/esphome`
 i prac HIL nad ADS124S08. Źródła są w tym repozytorium: nie trzeba mieć kopii
 forków ani plików z komputera laboratoryjnego. To biblioteka komponentów,
 nie kolejny fork całego ESPHome ani repozytorium toolchainów.
@@ -14,11 +14,10 @@ nie kolejny fork całego ESPHome ani repozytorium toolchainów.
 
 ## Użycie na innym komputerze
 
-Zaloguj Git/GitHub CLI własnym kontem mającym dostęp do prywatnego repozytorium.
-Najprostszy wariant bez tokenów w YAML:
+Repozytorium można pobrać anonimowo, bez konta GitHub i bez tokenów:
 
 ```sh
-gh repo clone MODULIQ/esphome-components
+git clone https://github.com/codex-hil/esphome-components.git
 cd esphome-components
 git checkout --detach 5faed5546b33d06b61566787a4270ca925bd0164
 python3 scripts/verify.py
@@ -51,17 +50,13 @@ Albo pobierać bezpośrednio z GitHuba po pełnym SHA:
 external_components:
   - source:
       type: git
-      url: https://github.com/MODULIQ/esphome-components.git
+      url: https://github.com/codex-hil/esphome-components.git
       ref: 5faed5546b33d06b61566787a4270ca925bd0164
-      # Opcjonalne przy braku skonfigurowanego uwierzytelniania Git:
-      # username: !secret github_username
-      # password: !secret github_read_token
     components: [spi, addrspi, ads124s08_base]
     refresh: never
 ```
 
-Repozytorium jest prywatne. Każdy komputer/CI potrzebuje własnego dostępu do niego;
-nie przenosimy poświadczeń `codex-hil`. `secrets.yaml` jest ignorowany przez Git.
+Repozytorium jest publiczne; pobieranie komponentów nie wymaga poświadczeń.
 Wybieraj jawną listę komponentów: `spi`, `mmc5983` i `tca9548a` zastępują moduły
 wbudowane. Nie włączaj całej kolekcji przez `components: all`.
 
@@ -96,12 +91,21 @@ Dla rewizji `5faed5546b33d06b61566787a4270ca925bd0164`:
 
 - 18/18 komponentów przechodzi import schematów w ESPHome2026.9.0.
 - 6/6 przykładów kompiluje się dla klasycznego ESP32 z ESP-IDF5.5.5.
-- Pobranie prywatnego repo przez `external_components`, po SHA i z pustym cache,
+- Przed upublicznieniem: pobranie prywatnego repo przez `external_components`, po SHA i z pustym cache,
   zakończyło się poprawną walidacją konfiguracji.
 - Świeży klon z GitHuba, pusta przestrzeń build/cache i `scripts/build.sh`
   dały firmware w przypiętym środowisku Nix w 50.42s.
 - Weryfikacja źródeł i importów przeszła także na
-  [runnerze GitHuba](https://github.com/MODULIQ/esphome-components/actions/runs/36635934996), poza komputerem laboratoryjnym.
+  [runnerze GitHuba](https://github.com/codex-hil/esphome-components/actions/runs/36635934996), poza komputerem laboratoryjnym.
 
 [Raporty](reports) rozdzielają import, kompilację i wcześniejszą walidację HIL.
 W tym zadaniu nie programowano żadnego urządzenia.
+
+## Znane problemy i porównania
+
+- [MMC5983: zgłoszone błędne odczyty co drugi pomiar](docs/known-issues.md).
+- [ADS124S08: porównanie implementacji Wizatha i HIL](docs/ads124s08-comparison.md).
+
+Repozytorium przeniesiono z MODULIQ do codex-hil i upubliczniono na polecenie
+właściciela. Starsze raporty zachowują ówczesny adres i wynik testu prywatnego
+dostępu; nie opisują bieżącego wymogu uwierzytelniania.

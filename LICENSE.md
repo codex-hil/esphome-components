@@ -11,11 +11,11 @@ MIT, with any file-specific notices retained. The complete source license is in
 and file hashes are recorded in [catalog/components.json](catalog/components.json).
 Individual library notices (including third-party driver headers) also apply.
 
-`ads124s08_base` is a private-project snapshot of `codex-hil/esphome-hil@631bf39`,
-collected on the project owner's instruction. That source repository has no root
+`ads124s08_base` is a snapshot of `codex-hil/esphome-hil@631bf39`,
+collected and published on the project owner's explicit instruction. That source repository has no root
 LICENSE at import time; this collection does not silently assign it the fork's
 license or grant additional redistribution rights.
 
-Collection scripts/docs authored for this private MODULIQ project do not alter
+Collection scripts/docs authored for this MODULIQ collection do not alter
 the licenses of imported code. No upstream examples containing environment
 configuration, firmware, credentials or toolchain installations were imported.

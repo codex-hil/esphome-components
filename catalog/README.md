@@ -17,8 +17,8 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [hc138](../components/hc138) | Dekoder wyboru kanału SPI | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/hc138) |
 | [max112xx](../components/max112xx) | Rodzina ADC MAX112xx | PASS | [max112xx](../examples/max112xx.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/max112xx) |
 | [mcp3208](../components/mcp3208) | Ośmiokanałowy ADC | PASS | [mcp3208](../examples/mcp3208.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mcp3208) |
-| [mmc5983](../components/mmc5983) | Magnetometr; wariant zastępujący upstream | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983) |
-| [mmc5983_spi](../components/mmc5983_spi) | Magnetometr SPI | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983_spi) |
+| [mmc5983](../components/mmc5983) | Magnetometr; [zgłoszony problem odczytów](../docs/known-issues.md) | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983) |
+| [mmc5983_spi](../components/mmc5983_spi) | Magnetometr SPI; [zgłoszony problem odczytów](../docs/known-issues.md) | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983_spi) |
 | [tmc5130](../components/tmc5130) | Sterownik silnika krokowego | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/tmc5130) |
 | [spi](../components/spi) | Zmodyfikowana warstwa SPI dla magistral adresowanych | PASS | [bridge-adc](../examples/bridge-adc.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/spi) |
 | [tca9548a](../components/tca9548a) | Multiplekser I²C; wariant zgodności z external_components | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/tca9548a) |
@@ -46,6 +46,11 @@ DAC, ADC, TDC, SPI MUX i magnetometru. Gałęzie i alternatywne drzewa zachowuje
   ale nie został w tej kolekcji zbudowany ani sprawdzony na sprzęcie.
 - Archiwalne LAN865x, spi_test i resistance_sampler są poza `components/`.
   Wymagają oddzielnej oceny zgodności/dependencji; nie są częścią baseline.
+
+## Znane problemy
+
+[MMC5983: co drugi odczyt błędny — zgłoszenie użytkownika, bez diagnozy](../docs/known-issues.md).
+[Porównanie ADS124S08 i znalezione problemy](../docs/ads124s08-comparison.md).
 
 ## Sprzęt i autorstwo
 
