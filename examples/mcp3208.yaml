@@ -1,0 +1,28 @@
+# COMPILE-ONLY fixture; pins are illustrative, not an authorized wiring plan.
+esphome:
+  name: collection-mcp3208
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [mcp3208, spi]
+spi:
+  id: bus
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+  miso_pin: GPIO34
+mcp3208:
+  id: mcp3208_adc
+  cs_pin: GPIO27
+  reference_voltage: 3.3V
+
+sensor:
+  - platform: mcp3208
+    mcp3208_id: mcp3208_adc
+    name: MCP3208 Channel 0
+    channel: 0

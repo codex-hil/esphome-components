@@ -1,0 +1,60 @@
+{
+  "esphome": "2026.9.0",
+  "scope": "Python schema import only",
+  "components": {
+    "ad9959": {
+      "result": "PASS"
+    },
+    "addrspi": {
+      "result": "PASS"
+    },
+    "addrspi2": {
+      "result": "PASS"
+    },
+    "ads124s08": {
+      "result": "PASS"
+    },
+    "ads124s08_base": {
+      "result": "PASS"
+    },
+    "ads8166": {
+      "result": "PASS"
+    },
+    "as6500": {
+      "result": "PASS"
+    },
+    "dac8775": {
+      "result": "PASS"
+    },
+    "dacx0504": {
+      "result": "PASS"
+    },
+    "hc138": {
+      "result": "PASS"
+    },
+    "max112xx": {
+      "result": "PASS"
+    },
+    "max6966": {
+      "result": "PASS"
+    },
+    "mcp3208": {
+      "result": "PASS"
+    },
+    "mmc5983": {
+      "result": "PASS"
+    },
+    "mmc5983_spi": {
+      "result": "PASS"
+    },
+    "spi": {
+      "result": "PASS"
+    },
+    "tca9548a": {
+      "result": "PASS"
+    },
+    "tmc5130": {
+      "result": "PASS"
+    }
+  }
+}

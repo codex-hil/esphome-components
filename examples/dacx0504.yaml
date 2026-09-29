@@ -1,0 +1,31 @@
+# COMPILE-ONLY fixture; pins are illustrative, not an authorized wiring plan.
+esphome:
+  name: collection-dacx0504
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [dacx0504, spi]
+spi:
+  id: bus
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+  miso_pin: GPIO34
+dacx0504:
+  id: dac_outputs
+  model: DAC80504
+  cs_pin: GPIO27
+  reference: INTERNAL
+  reference_divider: 1
+  gain: 2
+
+output:
+  - platform: dacx0504
+    id: dac_output_0
+    dacx0504_id: dac_outputs
+    channel: 0

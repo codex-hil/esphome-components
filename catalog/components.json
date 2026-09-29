@@ -1,0 +1,467 @@
+{
+  "format": 1,
+  "baseline_esphome": "2026.9.0",
+  "components": [
+    {
+      "name": "ad9959",
+      "path": "components/ad9959",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/ad9959",
+        "tree": "441e46cc8d4491870495475c5759cf7bb1d670cf"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "eec8edc9b9cc3400195c9880d14cae2ea4acae5255a0c3d553bc9fa8badce3d2",
+        "ad9959.cpp": "4115e5b843019da277848f211716da98c8679f0ecb9d02cae0935c4f987e8050",
+        "ad9959.h": "a8219b77917cf0e655f0628b5a761bc50872e24321b367b162e1ce7cf46a495b",
+        "output.py": "b1e82f726260ce4843a127d31b98ad6861e64d2a8a3b3332517301ae2d82a5db"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "addrspi",
+      "path": "components/addrspi",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/addrspi",
+        "tree": "bad8de8e77ad93443328b5c24e17fd264152a7db"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
+        "addrspi.cpp": "09ac4efd85f59d1a028419b43c994609cff13bb8fff396741da6dbae8f50fe35",
+        "addrspi.h": "b93c91f355a0f4f87f237cfec27603d1009a9b77971c6d421ec836dad00249f2"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "addrspi2",
+      "path": "components/addrspi2",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/addrspi2",
+        "tree": "12750ffce81ca05a52c1b3477954d38390b62032"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "985331302865f0e240d81561980b6543ff624c772fd553e3ef473939b644a906",
+        "addrspi2.cpp": "f364b1327747686a151eb54086d55f7806ce67d64370bdbd1577d924be97e03a",
+        "addrspi2.h": "addf3837d963071147e2360f21bccc260e30dc04cbe79880e99d1534848b3059"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "ads124s08",
+      "path": "components/ads124s08",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/ads124s08",
+        "tree": "04a7eca7de082677dd5f1ad64f94271a78bef6ce"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "README.md": "f67d130dbbb977656597c3a473a513520579082a7d8f33b50c2efccf07c5ba40",
+        "__init__.py": "1588b041f19b201d2788f9052faeb53c196faac00f5405482165ac8a43aca7b2",
+        "ads124s08.cpp": "2835b46a573eb46b6097ef7f903584cd7e9d0eb9505b5248d21f30c64f83d29e",
+        "ads124s08.h": "52223f1a7ecf04f325e0d43326fdaf1d4403930499d066e6705548e1516221a2"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "ads8166",
+      "path": "components/ads8166",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/ads8166",
+        "tree": "0a9240f1dadfe6544dc244bd0cccbfa1f8e20bb3"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "3fd1199a2905c501149be00573fb4c34504365ca7f82ad2b3b1f3ae042af56fe",
+        "ads8166.cpp": "d36ed7c2b026882a5ac7f2a65d4d523ff1fd9f877f993bcb1dfde40d4852c52c",
+        "ads8166.h": "3c8bbc0412f78011607560f9485e082875fa68d7bbc1695d946618a3ef8f0fbd",
+        "sensor.py": "39a9a4eeeda32f99d5d701d637c38c75ebfd1623fd50df584cbc8619980225ee"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "as6500",
+      "path": "components/as6500",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/as6500",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "4bffea8156ae41190ef6fff35db83119066ed1e69e0a9f1bc9f4b03008abf62b",
+        "as6500.cpp": "9bb274ce8fe3f9a90ffc5a7e923dffc92fc8423238f98621d74032e5861ffd75",
+        "as6500.h": "8976bed9d33f9f7cf1aa866770a64ac66600fdf45712b924a5c5b0266203a6f1",
+        "sensor.py": "ef47bd3dc2493396be12a3a6192edd5a7156ed329ecb70b49a8704da0182fdf0"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "dac8775",
+      "path": "components/dac8775",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/dac8775",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "51128bff5569d802c71b1a49fede904f6c63ac248bfed8814b1daef0b2701404",
+        "dac8775.cpp": "af4efcf1ad33851f1e2f08e019c7c14529dfa185052dc5d8ceb0981cd901fc28",
+        "dac8775.h": "ca3809d8b2252f3bd00f5ce81f4a5ca09246e2bbd18c11b72f3bb4ae6ec7e97f",
+        "output.py": "3eb727f186cc0580807e784378e6157733f03a23439cf7b79ef4ce4c84751c21"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "dacx0504",
+      "path": "components/dacx0504",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/dacx0504",
+        "tree": "91cc6b3f3fcd411f658cdc918ae2cfe84c331024"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "080986840b0b3031a45bb0139d43a2ac57fd2590631bb97ce983f01562c75151",
+        "dacx0504.cpp": "eb1f8914ecbf84b1a051db088729501f0a4c5eab2c4208a04b69a5eb5a95a3fb",
+        "dacx0504.h": "4421d6fec02d53e5f2809d55dfe4294ac2d986f3c17c4d585387a1598bee1acf",
+        "output.py": "83148b989e25a6d16f5bee3f735c1dc2eb4752386a85f1c33fcfac194e9221d2"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "hc138",
+      "path": "components/hc138",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/hc138",
+        "tree": "22843c536ffd544a5ebc2ac329c4b1df22f3cf23"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "2229e4f74e9f037712bb45c39f5062127bd409b6ab5b83cc1966c318eb280e4c",
+        "hc138.cpp": "0026ca35c85add14c7c9f5857c489ef89ee518acc85c1d0150046b9ca6589c17",
+        "hc138.h": "20e1af95a1a46e698cbac477385579d5307963117c589102a11d3e5ca9816843",
+        "index.md": "4974cc4e7ce105983e83c5ee7baf8deb9068cbb784618d564b82870d35006fcc"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "max112xx",
+      "path": "components/max112xx",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/max112xx",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      "codeowners": [],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "max112xx.cpp": "6192c54bc86d139c5ad4075dabb0d04f5a082466197b3ed4958381aa906188d5",
+        "max112xx.h": "9f48e099a61e62affecb8f86ece04284f58f6c8529e69a8c5f9d16eb42ad1f90",
+        "sensor.py": "0e7bf385c3f0e6c69c2c9f706081b642bc7313ca95c573c1027a40fcfddd9217"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "mcp3208",
+      "path": "components/mcp3208",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/mcp3208",
+        "tree": "2c6870eed39361ed0b218fa2f608df0508c2b789"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "b2c9386dadd06c373cb3da4da1928afa3af22f6e109d111e9f0a453d0a344915",
+        "mcp3208.cpp": "5748b0b56f358d7287cdeeb3ba2b2b8f6016f56efda2da3e1aeefa732c890bf2",
+        "mcp3208.h": "dbf66071c3f174fc207812e54ba4ba5a4e122d12446a9f3b493b331f6c1c6a21",
+        "sensor.py": "f5b6f9b27e11dad06959f4d771ccac41974a3cb231a4f7c47ca64eb0a20aab27"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "mmc5983",
+      "path": "components/mmc5983",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/mmc5983",
+        "tree": "25368a151c61f817da427141748de43a5a8c2e54"
+      },
+      "codeowners": [
+        "@agoode"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "1db044f00e423195f1644020a92471c59e0ca35b30c7e981fbf278d6bf3c22be",
+        "mmc5983.cpp": "1754510523e16a16f783c7034580962dd36fae73ba3d1aee51da72e3127d294f",
+        "mmc5983.h": "047940e037ed5dfdbc878f048e325a3525f5ca67b3ae01c346669a12b423004b",
+        "sensor.py": "2cd5839c8f81e213f89dd50614e503da0857be688056c98e2c5aa4fe996d5066"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "mmc5983_spi",
+      "path": "components/mmc5983_spi",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/mmc5983_spi",
+        "tree": "5e6505fa1723ae87cd81389839f7ed474a854cee"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "e0d653d4fb6117aa3e0f432028cbbd9e16a5b58258ba85991dae153dd0a8f792",
+        "mmc5983_spi.cpp": "ded8e7e68e38c6a7e6d395437772762855540bbaae644792df30f847e837c115",
+        "mmc5983_spi.h": "efc7c936527fc323a823e740112dabf2568ecc425e397d8a8dd950f28d41b744",
+        "sensor.py": "661106161a037e6c8493483c0b76ee209a1bf27d7a42e08d446c61514e228579"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "tmc5130",
+      "path": "components/tmc5130",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/tmc5130",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "a488a33387459544010a6252af4cdd1d91eb2cf50293786f6991a9537a06f986",
+        "stepper.py": "8160e2106772690d6ded30c9475f7dc5cec26a28bcf4234eb8b800693dfe262a",
+        "tmc5130.cpp": "ca54ce82d01835608909f55f3955a2babc3c04eeda0e8a3d83d021c516f5e695",
+        "tmc5130.h": "baa0ba7bd645d98cdafaafc061131c7b2f20b41d1e26985c84b0af27a916c54d"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "spi",
+      "path": "components/spi",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/spi",
+        "tree": "3cec217d7e70c35af2cd835377df9efc3b055216"
+      },
+      "codeowners": [
+        "@esphome/core",
+        "@clydebarrow"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "a21138ab3c0e3cf48dd734bc7e20586f1af4d7d80b1f0b9ff5c2fa2004c6427f",
+        "spi.cpp": "83f9d294b65a9822ff7f9b7e69f9198c3fe8662c7be15e27641834c6d0e0ad22",
+        "spi.h": "bad6a7d95fb7240ea6914aaf1f267640ebb866e030abc290c333a793be73de97",
+        "spi_arduino.cpp": "099fbac2e63b2dcae08fcbaf65b657dc56558faf89238055a4eb0177831f867b",
+        "spi_esp_idf.cpp": "d8b22d7a53c226fb5bd703e60323f248c94a8479120590c7e0c6f3c9fbfce4cc"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "tca9548a",
+      "path": "components/tca9548a",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "branch_at_import": "esphome26.3",
+        "path": "esphome/components/tca9548a",
+        "tree": "9308d73fb41feeddf8e87d53ffd4963faf60c0aa"
+      },
+      "codeowners": [
+        "@andreashergert1984"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "d6542868556024a0e78d41caa67a4cfe9eb474c6e89b80e3dcf893315951fb3f",
+        "tca9548a.cpp": "08e74ec711b92db7e52fcc9f88c4729ce2e842e71f0326f30c8f72bdd5483842",
+        "tca9548a.h": "2941db2a044a57974466c7df25bca7d68e678ef5b858aaeba79719db46745bf3"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "max6966",
+      "path": "components/max6966",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "branch_at_import": "developement",
+        "path": "esphome/components/max6966",
+        "tree": "0e0cab51c2bbda06a418bdc0e0e9992ac48c6f8b"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "collected",
+      "files_sha256": {
+        "__init__.py": "e95d36296f783768ab494e32869e513d34a71ddcb612918321d23642b6de18e6",
+        "max6966.cpp": "03da2b9d4a673bd856c87c5ee0c0271c78c3d1b5430c2529d5a417cad490528b",
+        "max6966.h": "e96f9a4165e9d84170191b8731861ae201ede120107b814d1ccb79a371b3851c",
+        "output.cpp": "4825e45ff18fe72181ddadd28df1f7f550c474a022f3ce2ea0e6ac5e7d0bc457",
+        "output.h": "dd90f5421995044c7fe44c905c7dd908907be0f57be6f5c41b8fe80bdc5e210f",
+        "output.py": "0f90c5d7593645d37ebbcad73309bb91ad84da6ecf1150cde45ecc2a156517e8"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "ads124s08_base",
+      "path": "components/ads124s08_base",
+      "source": {
+        "repository": "codex-hil/esphome-hil",
+        "revision": "631bf39899a496578a0cafe1fc34cdad07509158",
+        "branch_at_import": "631bf39",
+        "path": "components/ads124s08_base",
+        "tree": "2ae240d42241b68a509d223dccb0008e687f901c"
+      },
+      "codeowners": [],
+      "status": "prior_hil_smoke",
+      "files_sha256": {
+        "__init__.py": "54ea55c598e3a8ca2dce8b1ed4ec2348a27472566578bf2018065c7bb179cb67",
+        "ads124s08_base.cpp": "31074e19658213d6cd5e5e6dd8d0bb41e2303320ceaf09747f73eacd718f7b13",
+        "ads124s08_base.h": "c00066720afe6a3403f91e5f14dcbe87618c04ecc182f86c0ea25952eda7e654",
+        "protocol.h": "39ba595076a5d7beb395041cdc02e6f77eab08e6306cb81cc28aa9188767c93a",
+        "sensor/__init__.py": "3126f2fcbcbea306b3ab170d4bea1370c48477b47bd5ff957399ce617f9eb4f7"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "resistance_sampler",
+      "path": "archive/resistance_sampler/components/resistance_sampler",
+      "source": {
+        "repository": "gkasprow/esphome",
+        "revision": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+        "branch_at_import": "release",
+        "path": "esphome/components/resistance_sampler",
+        "tree": "bd9ef3e84b18cd0f194c307bc25a746ac3a26a2c"
+      },
+      "codeowners": [
+        "@jesserockz"
+      ],
+      "status": "legacy_not_supported",
+      "files_sha256": {
+        "__init__.py": "93e1b9d16fc977c590fc9c73f365a15a6c0ab35f959427e2066814d490634cfd",
+        "resistance_sampler.h": "2338b78889b982a838625465044fd2bb80d9d00dcf2473fc2b288808c2be4c5e"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "spi_test",
+      "path": "archive/spi_test/components/spi_test",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "branch_at_import": "developement",
+        "path": "esphome/components/spi_test",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      "codeowners": [
+        "@wizath"
+      ],
+      "status": "test_only_not_supported",
+      "files_sha256": {
+        "__init__.py": "398e85ec6a595829d749dddce0d99943006593e371382d946d65d96386a2b4a2",
+        "spi_test.cpp": "c282894f786502212ce0b74630fbaa3f36d02e9b341fa86b2a6611d0048265b9",
+        "spi_test.h": "4cccc98fab96ea065168e7bb2ebdb779fa43408fb5dc9c30d78d2de94cb32c12"
+      },
+      "local_changes": []
+    },
+    {
+      "name": "ethernet_lan865x",
+      "path": "archive/lan865x/components/ethernet",
+      "source": {
+        "repository": "wizath/esphome",
+        "revision": "80169059ab6354651981ee582d2cf95b57728ead",
+        "branch_at_import": "lan865x",
+        "path": "esphome/components/ethernet",
+        "tree": "768a8507b809a8902e20081b67a0a6fc6368ac54"
+      },
+      "codeowners": [],
+      "status": "requires_dependency_audit",
+      "files_sha256": {
+        "__init__.py": "1ae03ff5650bb4fe024b9fa9051c530ad0122211acd2a02b241a86df1521a73d",
+        "esp_eth_mac_lan865x.c": "3aa76b2b09a1ad44a3cb2f051a0f7643de6f01b4b74c4275b910c994a1146be5",
+        "esp_eth_mac_lan865x.h": "8c92f7923dcc7a2967a2bb83d2f98feb226bfd87570088038001d0ae41ca313a",
+        "esp_eth_phy_jl1101.c": "590f91b891cb4e563ad58c247fc839e8268991ed110e81b02f06ceb7257cdc31",
+        "esp_eth_phy_lan865x.h": "eab952aa70955fdb5da249f24f45b98cd84c7f6a2f0a9496dc83a30c70fa216c",
+        "esp_eth_phy_lan86xx.c": "b807cd963740e5ad0abbb32470ecd764d0587152ee659db4858c4fe259f4a1a4",
+        "esp_eth_phy_lan86xx.h": "984ebdb2af5125abd7b229f01d75f754638eabec88ae8a8a83580eb0aa2df86b",
+        "ethernet_component.cpp": "8076a201044965890a6e22db218c0c2fd77fc57760e2262ca772f498c1bc1338",
+        "ethernet_component.h": "51da6f72512b79081f4bce973b7f7ebed0dd814a778c51d0a3b7b13af5d00944",
+        "lan865x_reg.h": "d1af13affc4a9b8f226b411d97d00626c226e80894764640e0ba2780865748e5"
+      },
+      "local_changes": []
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# COMPILE-ONLY fixture; pins are illustrative, not an authorized wiring plan.
+esphome:
+  name: collection-ads8166
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [ads8166, spi]
+spi:
+  id: bus
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+  miso_pin: GPIO34
+ads8166:
+  id: ads8166_adc
+  cs_pin: GPIO27
+  reference_voltage: 4.096V
+
+sensor:
+  - platform: ads8166
+    ads8166_id: ads8166_adc
+    name: ADS8166 Channel 0
+    channel: 0

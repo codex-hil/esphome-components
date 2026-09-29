@@ -1,0 +1,96 @@
+# CP2102 classic ESP32 -> CPLD -> two ADS124S08. No mezzanine required.
+esphome:
+  name: collection-bridge-adc
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+  level: DEBUG
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [ads124s08_base, spi, addrspi]
+spi:
+  id: bridge_spi
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+addrspi:
+  id: mux
+  spi_id: bridge_spi
+  address_pins: [GPIO16, GPIO17]
+  channels:
+    - bus_id: mux_ch0
+      channel: 0
+    - bus_id: mux_ch1
+      channel: 1
+switch:
+  - platform: gpio
+    pin: GPIO2
+    restore_mode: ALWAYS_OFF
+    internal: true
+    name: SPI_AD0
+  - platform: gpio
+    pin: GPIO4
+    restore_mode: ALWAYS_OFF
+    internal: true
+    name: SPI_AD1
+  - platform: gpio
+    pin: GPIO13
+    restore_mode: ALWAYS_OFF
+    internal: true
+    name: SPI_AD2
+  - platform: gpio
+    pin: GPIO18
+    restore_mode: ALWAYS_OFF
+    internal: true
+    name: SPI_AD3
+ads124s08_base:
+  - id: adc0
+    spi_id: mux_ch0
+    cs_pin:
+      number: GPIO15
+      allow_other_uses: true
+    update_interval: 1s
+    scan_offset: 0
+    raw:
+      name: ADC0 raw
+    status:
+      name: ADC0 status
+    source:
+      name: ADC0 source
+    crc_errors:
+      name: ADC0 CRC errors
+    short_raw:
+      name: ADC0 short raw
+    avdd_voltage:
+      name: ADC0 AVDD
+    dvdd_voltage:
+      name: ADC0 DVDD
+    die_temperature:
+      name: ADC0 die temperature
+  - id: adc1
+    spi_id: mux_ch1
+    cs_pin:
+      number: GPIO15
+      allow_other_uses: true
+    update_interval: 1s
+    scan_offset: 1
+    raw:
+      name: ADC1 raw
+    status:
+      name: ADC1 status
+    source:
+      name: ADC1 source
+    crc_errors:
+      name: ADC1 CRC errors
+    short_raw:
+      name: ADC1 short raw
+    avdd_voltage:
+      name: ADC1 AVDD
+    dvdd_voltage:
+      name: ADC1 DVDD
+    die_temperature:
+      name: ADC1 die temperature

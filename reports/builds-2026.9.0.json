@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-29",
+  "environment": "pinned Nix via codex-hil/esphome-hil@631bf39",
+  "scope": "compile only; no hardware operation",
+  "versions": {
+    "esphome": "2026.9.0",
+    "esp_idf": "5.5.5",
+    "xtensa_gcc": "14.2.0",
+    "python": "3.12.14"
+  },
+  "examples": {
+    "bridge-adc": {
+      "result": "PASS",
+      "seconds": 42.22,
+      "configuration_sha256": "b724360ebedf692634c0e99c2e484a5743d9a0ca705fa4fa8ec6337d79d5c5c8",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "5fa7eb071a984c84d8c4168e3e48c431ea5cf8c11beb969fdc0aa047f0edde99",
+          "bytes": 300256
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "4d45f7f39617ab52291e0cb3bd62f73b8a22ccd45652a6b00a4260dcd56ddb91",
+          "bytes": 234720
+        }
+      ],
+      "compiler_log_sha256": "5f371ff1e34101adf5ae814a03ab54990f2654d3b1bfe0f5aeaec523f3c6f256"
+    },
+    "addrspi2": {
+      "result": "PASS",
+      "seconds": 40.56,
+      "configuration_sha256": "9e0e1df4cfb3700629a9f6cc5c32207d51863af233c09a4cd22823921752a337",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "977e1fcf1116b76879bbda0ca36917454145d58c913d92a77a1580d2ddf62f37",
+          "bytes": 292352
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "1e4ac5c69592b2af80072a5079129beba1d6ee8d215d18a45c8b27bd85597218",
+          "bytes": 226816
+        }
+      ],
+      "compiler_log_sha256": "69fc7f6f42881dd6dd6f06195e6921c2e04952bc04ebddb0b0cb55e37656028e"
+    },
+    "ads8166": {
+      "result": "PASS",
+      "seconds": 40.6,
+      "configuration_sha256": "5a64342b5b79f82b3dd7408ca75bc3485c31475e8d73cd821864f1c13a96e921",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "e22b6ea82f36cd7d3c8c05fcb21b0a7136b1882f3d224341461d43233bf69c59",
+          "bytes": 290704
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "9357fc32ca4a7906efe3c72af6c90adb200b65e873d5a1cca3df220db4976619",
+          "bytes": 225168
+        }
+      ],
+      "compiler_log_sha256": "393d83bb6c6dd1ede1cf29d1ff20838a6e3bfaa39ae4ce0f07a6a5de27709242"
+    },
+    "dacx0504": {
+      "result": "PASS",
+      "seconds": 40.15,
+      "configuration_sha256": "86fa172c3ca49966f76211e25b5f39cc3440844e8201bf5c97d318d4dc9779a6",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "bdd80a3a37d09513f87a04cfdb65fa017743df2ecdfe0f7d669b6fdf97d6cca5",
+          "bytes": 289984
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "ed422993c7ded676ebbb599fe4b3fb991b8161477d018dadb5e0259a805b5362",
+          "bytes": 224448
+        }
+      ],
+      "compiler_log_sha256": "47d79b24f05cff5016264174cfa8394d4c57667b65907ea2b4f7b720835e1141"
+    },
+    "max112xx": {
+      "result": "PASS",
+      "seconds": 40.24,
+      "configuration_sha256": "be041c59581a5deab7942b652af9c7fe36dca549666b291eebf7704076ccf440",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "bb13449a28c90a69d1436e2fa7c9fdfdcdd93a3946adbd171884616f0cc5491b",
+          "bytes": 292064
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "2d54f23690506bad0b81ea7f8db1b16ff75b97dbad404e5dc787def5dbf39325",
+          "bytes": 226528
+        }
+      ],
+      "compiler_log_sha256": "7a1a31d2f8bd9b48ccefde9f01b2b981436c93ec017cef29c5d86dfe868590e5"
+    },
+    "mcp3208": {
+      "result": "PASS",
+      "seconds": 40.74,
+      "configuration_sha256": "1b6c04d11e927711ac465f4995cce7daba205cb8ce8821bb5984934bac6d55e3",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "cd453357e6e4c944cdb2d9bc49a4eef9813ffc669ef8b12b2e1dd677df0d8e0b",
+          "bytes": 290560
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "a995884ff4d690b43a56e0258d63be39191fc1e0635f2083b44527959765c790",
+          "bytes": 225024
+        }
+      ],
+      "compiler_log_sha256": "ff0a96c520f0d49e10dbbfee1fef2106c759100cd0b1634cee32021fcb0fd921"
+    }
+  },
+  "nix_identity": {
+    "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+    "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+    "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+  }
+}
