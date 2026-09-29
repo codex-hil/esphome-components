@@ -1,0 +1,48 @@
+# COMPILE-ONLY fixture; pins are illustrative, not an authorized wiring plan.
+esphome:
+  name: collection-addrspi2
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [addrspi2, spi]
+spi:
+  id: spi_bus
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+  miso_pin: GPIO34
+addrspi2:
+  id: moduliq_head
+  spi_id: spi_bus
+  cs_pin:
+    number: GPIO27
+    allow_other_uses: true
+  devices:
+    - bus_id: head_dac
+      address: 0x00
+    - bus_id: head_adc
+      address: 0x01
+
+spi_device:
+  id: transparent_spi_device
+  spi_id: head_dac
+  cs_pin:
+    number: GPIO27
+    allow_other_uses: true
+  spi_mode: MODE0
+
+interval:
+  - interval: 60s
+    then:
+      - lambda: |-
+          uint8_t dac_payload[3] = {0x08, 0x80, 0x00};
+          id(head_dac).write_transaction(dac_payload, sizeof(dac_payload));
+
+          uint8_t adc_tx[2] = {0x00, 0x00};
+          uint8_t adc_rx[2] = {};
+          id(head_adc).transfer_transaction(adc_tx, adc_rx, sizeof(adc_tx));

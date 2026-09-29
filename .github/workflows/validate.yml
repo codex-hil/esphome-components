@@ -1,0 +1,22 @@
+name: Verify collection
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Verify pinned source files
+        run: |
+          python3 scripts/verify.py
+          python3 scripts/catalog.py
+          git diff --exit-code -- catalog/README.md
+      - name: Install pinned ESPHome in a job-local venv
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install 'esphome==2026.9.0'
+      - name: Check component schema imports
+        run: .venv/bin/python scripts/import-check.py

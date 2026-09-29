@@ -1,0 +1,901 @@
+{
+  "date": "2026-09-29",
+  "scope": "gkasprow dev/release/integration and all current wizath branch tips; not an exhaustive historical upstream-branch audit",
+  "branches": {
+    "gkasprow/esphome:dev": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+    "gkasprow/esphome:integration": "6a869836ace49394dd336724fabb2ed199ca45c3",
+    "gkasprow/esphome:release": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+    "wizath/esphome:ad9959": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+    "wizath/esphome:as6500": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+    "wizath/esphome:component/hc138": "c4cc4a3df01500f38119ff7ee14846aaa7f22d6c",
+    "wizath/esphome:dac8775": "be5175e06292284fd57e4fa1e152a322c97646c0",
+    "wizath/esphome:dev": "2e82b9ddded3d15392bb0d8143740eda93e6ff7b",
+    "wizath/esphome:dev-drivers": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+    "wizath/esphome:dev-drivers-fix": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+    "wizath/esphome:developement": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+    "wizath/esphome:esphome26.3": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+    "wizath/esphome:hc138": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+    "wizath/esphome:hci138_fixed": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+    "wizath/esphome:lan865x": "80169059ab6354651981ee582d2cf95b57728ead",
+    "wizath/esphome:max11210": "91edd0f26fbcd26a6c5df2c180d4e0b491f79ce7",
+    "wizath/esphome:max6966": "4573a51baa2c9c4e3487245113e04744d0f95346",
+    "wizath/esphome:mmc5983": "9624f7d85ef1d171e5621212f97db6a75ea63bfb",
+    "wizath/esphome:mmc5983-spi": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+    "wizath/esphome:tmc5130": "de95a6fd4a535d641ebaf917334b43404f6f9166"
+  },
+  "variants": {
+    "ad9959": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "befff17be5e1a462107ccc477de402fa6fc78f36"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "9e29cbc638cf85f3bd3c1d1b3e51d529e0ab70d8"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "9e29cbc638cf85f3bd3c1d1b3e51d529e0ab70d8"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "befff17be5e1a462107ccc477de402fa6fc78f36"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "befff17be5e1a462107ccc477de402fa6fc78f36"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "441e46cc8d4491870495475c5759cf7bb1d670cf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "befff17be5e1a462107ccc477de402fa6fc78f36"
+      }
+    ],
+    "addrspi": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "bad8de8e77ad93443328b5c24e17fd264152a7db"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "19360fbc0f5e488fb867975e6f9b98f925e6e387"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "bad8de8e77ad93443328b5c24e17fd264152a7db"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "69d1a00041c9e5977976995b484013e35a781210"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "bad8de8e77ad93443328b5c24e17fd264152a7db"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "19360fbc0f5e488fb867975e6f9b98f925e6e387"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "69d1a00041c9e5977976995b484013e35a781210"
+      }
+    ],
+    "addrspi2": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "12750ffce81ca05a52c1b3477954d38390b62032"
+      }
+    ],
+    "ads124s08": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "04a7eca7de082677dd5f1ad64f94271a78bef6ce"
+      }
+    ],
+    "ads8166": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "0a9240f1dadfe6544dc244bd0cccbfa1f8e20bb3"
+      }
+    ],
+    "as6500": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "1c911a9289d2e299df1493a93febc0a3c240e2ce"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "0ecc605e4c14541f0b3d72b90926dffed87e1f35"
+      }
+    ],
+    "dac8775": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "e128ea662c20548db35e019c527c60e54b19ac1b"
+      }
+    ],
+    "dacx0504": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "91cc6b3f3fcd411f658cdc918ae2cfe84c331024"
+      }
+    ],
+    "hc138": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "b3102c03f5e0218dec3d23feadeee5fcce6731ab"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "component/hc138",
+        "revision": "c4cc4a3df01500f38119ff7ee14846aaa7f22d6c",
+        "tree": "a2cfc0545cc211976f616b57fc0114dcdb43e938"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "e60533463d458fee8d2c0c688bf52946c769bf0c"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "b3102c03f5e0218dec3d23feadeee5fcce6731ab"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "22843c536ffd544a5ebc2ac329c4b1df22f3cf23"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hc138",
+        "revision": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+        "tree": "8c9e88e328041aed77ea88570b27409d42855c94"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "lan865x",
+        "revision": "80169059ab6354651981ee582d2cf95b57728ead",
+        "tree": "a2cfc0545cc211976f616b57fc0114dcdb43e938"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max6966",
+        "revision": "4573a51baa2c9c4e3487245113e04744d0f95346",
+        "tree": "a2cfc0545cc211976f616b57fc0114dcdb43e938"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983",
+        "revision": "9624f7d85ef1d171e5621212f97db6a75ea63bfb",
+        "tree": "a2cfc0545cc211976f616b57fc0114dcdb43e938"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "e60533463d458fee8d2c0c688bf52946c769bf0c"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "d5c902befcebb83ec98e53b75bf98403904e7326"
+      }
+    ],
+    "max112xx": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max11210",
+        "revision": "91edd0f26fbcd26a6c5df2c180d4e0b491f79ce7",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "56b16e86aae43cfcf22da211023d5039b481e46a"
+      }
+    ],
+    "mcp3208": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "2c6870eed39361ed0b218fa2f608df0508c2b789"
+      }
+    ],
+    "mmc5983": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "9d7b324da991f41b530dff81b730452c92398bec"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "integration",
+        "revision": "6a869836ace49394dd336724fabb2ed199ca45c3",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "release",
+        "revision": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "component/hc138",
+        "revision": "c4cc4a3df01500f38119ff7ee14846aaa7f22d6c",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev",
+        "revision": "2e82b9ddded3d15392bb0d8143740eda93e6ff7b",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "29f02f76063cb8bd0be2210ab7f6e84e437053bf"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "25368a151c61f817da427141748de43a5a8c2e54"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hc138",
+        "revision": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "lan865x",
+        "revision": "80169059ab6354651981ee582d2cf95b57728ead",
+        "tree": "b398f5dc616a276b58e77296c983cb38ecfd9c67"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max11210",
+        "revision": "91edd0f26fbcd26a6c5df2c180d4e0b491f79ce7",
+        "tree": "b398f5dc616a276b58e77296c983cb38ecfd9c67"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max6966",
+        "revision": "4573a51baa2c9c4e3487245113e04744d0f95346",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983",
+        "revision": "9624f7d85ef1d171e5621212f97db6a75ea63bfb",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "9d7b324da991f41b530dff81b730452c92398bec"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "d48e130d4c45a7e02de5772bddb72164ec096adc"
+      }
+    ],
+    "mmc5983_spi": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "d5dcf26a849bd5a07026d83d34c70324df61daa0"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "5e6505fa1723ae87cd81389839f7ed474a854cee"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "d5dcf26a849bd5a07026d83d34c70324df61daa0"
+      }
+    ],
+    "tmc5130": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "cd184d51c0cf4af7ea2dd16b3aac3b3d92f0a366"
+      }
+    ],
+    "spi": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "8593e82a9b5edd76f9445b128d70e8539924b6b6"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "integration",
+        "revision": "6a869836ace49394dd336724fabb2ed199ca45c3",
+        "tree": "c342c340693e0ea8b98bd2a85917074398f1a9ff"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "release",
+        "revision": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+        "tree": "96297fd4d2d168676ccfb168243e0d9e682785f2"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "component/hc138",
+        "revision": "c4cc4a3df01500f38119ff7ee14846aaa7f22d6c",
+        "tree": "8593e82a9b5edd76f9445b128d70e8539924b6b6"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev",
+        "revision": "2e82b9ddded3d15392bb0d8143740eda93e6ff7b",
+        "tree": "b5961d1115ca3813f39cb16f16283b24ed933141"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "8593e82a9b5edd76f9445b128d70e8539924b6b6"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "8593e82a9b5edd76f9445b128d70e8539924b6b6"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "3cec217d7e70c35af2cd835377df9efc3b055216"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hc138",
+        "revision": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+        "tree": "b31c70a482d88a712829bebc3d849a1cbf67f885"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "lan865x",
+        "revision": "80169059ab6354651981ee582d2cf95b57728ead",
+        "tree": "b31c70a482d88a712829bebc3d849a1cbf67f885"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max11210",
+        "revision": "91edd0f26fbcd26a6c5df2c180d4e0b491f79ce7",
+        "tree": "eba0e8787398b505e0c019ebb847e9753c2489c6"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max6966",
+        "revision": "4573a51baa2c9c4e3487245113e04744d0f95346",
+        "tree": "b31c70a482d88a712829bebc3d849a1cbf67f885"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983",
+        "revision": "9624f7d85ef1d171e5621212f97db6a75ea63bfb",
+        "tree": "b31c70a482d88a712829bebc3d849a1cbf67f885"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "8593e82a9b5edd76f9445b128d70e8539924b6b6"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "d66f4f2bab1a3d42a481325b562c46560848b02b"
+      }
+    ],
+    "tca9548a": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "dev",
+        "revision": "510004ef9d378e49c9c40a30e856e8adc02f20c6",
+        "tree": "530f20ddc5b446979b7d705ea58a1c0b9066a05d"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "integration",
+        "revision": "6a869836ace49394dd336724fabb2ed199ca45c3",
+        "tree": "9707019abef4b1942b22368523a40aef248439d8"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "release",
+        "revision": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+        "tree": "9707019abef4b1942b22368523a40aef248439d8"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "component/hc138",
+        "revision": "c4cc4a3df01500f38119ff7ee14846aaa7f22d6c",
+        "tree": "9707019abef4b1942b22368523a40aef248439d8"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev",
+        "revision": "2e82b9ddded3d15392bb0d8143740eda93e6ff7b",
+        "tree": "9707019abef4b1942b22368523a40aef248439d8"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers",
+        "revision": "beb63fc5e6c7306b5b7866590eb415aff1480b58",
+        "tree": "a79a2a178406e9fbde2c0ce73a3d7a4dac06045e"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dev-drivers-fix",
+        "revision": "75728659f9b8b162307f87e2911c3fb6c1f9ed46",
+        "tree": "530f20ddc5b446979b7d705ea58a1c0b9066a05d"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "esphome26.3",
+        "revision": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+        "tree": "9308d73fb41feeddf8e87d53ffd4963faf60c0aa"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hc138",
+        "revision": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "lan865x",
+        "revision": "80169059ab6354651981ee582d2cf95b57728ead",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max11210",
+        "revision": "91edd0f26fbcd26a6c5df2c180d4e0b491f79ce7",
+        "tree": "fa3eb0590bfa7a83b6fa620d3d1031883d650eef"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max6966",
+        "revision": "4573a51baa2c9c4e3487245113e04744d0f95346",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983",
+        "revision": "9624f7d85ef1d171e5621212f97db6a75ea63bfb",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "mmc5983-spi",
+        "revision": "03fa7214e2596bbb90ec2d4555e294f0aec5e562",
+        "tree": "a79a2a178406e9fbde2c0ce73a3d7a4dac06045e"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "6fa75d78697c3c15e7ff2a0f129af3b6ee201db5"
+      }
+    ],
+    "max6966": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "44a055b384df79c68026391cbd903b76de6f20be"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "44a055b384df79c68026391cbd903b76de6f20be"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "44a055b384df79c68026391cbd903b76de6f20be"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "0e0cab51c2bbda06a418bdc0e0e9992ac48c6f8b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hc138",
+        "revision": "90830a26e2bccc48a8dc7f4ff003e7a14a986fcb",
+        "tree": "44a055b384df79c68026391cbd903b76de6f20be"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "44a055b384df79c68026391cbd903b76de6f20be"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "max6966",
+        "revision": "4573a51baa2c9c4e3487245113e04744d0f95346",
+        "tree": "0e0cab51c2bbda06a418bdc0e0e9992ac48c6f8b"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "0e0cab51c2bbda06a418bdc0e0e9992ac48c6f8b"
+      }
+    ],
+    "spi_test": [
+      {
+        "repository": "wizath/esphome",
+        "branch": "ad9959",
+        "revision": "f7460bb62b9226acd0a3fa79d4eebbcd5b5ef3b4",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "as6500",
+        "revision": "ce63da6bfeef7a84b6168f1dc5c10fe8162e26d3",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "dac8775",
+        "revision": "be5175e06292284fd57e4fa1e152a322c97646c0",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "developement",
+        "revision": "fdd5c666286da9e90be05ef6d182b99aff3d7d51",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "hci138_fixed",
+        "revision": "8d3b60ff48217b9da5f42140c1093f0c779797ba",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      },
+      {
+        "repository": "wizath/esphome",
+        "branch": "tmc5130",
+        "revision": "de95a6fd4a535d641ebaf917334b43404f6f9166",
+        "tree": "214c581308dba2c0527c0f153afcdc26c059bd66"
+      }
+    ],
+    "resistance_sampler": [
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "integration",
+        "revision": "6a869836ace49394dd336724fabb2ed199ca45c3",
+        "tree": "bd9ef3e84b18cd0f194c307bc25a746ac3a26a2c"
+      },
+      {
+        "repository": "gkasprow/esphome",
+        "branch": "release",
+        "revision": "fecae2f740c597d8d5348a2e79f04ab48102ffb5",
+        "tree": "bd9ef3e84b18cd0f194c307bc25a746ac3a26a2c"
+      }
+    ]
+  },
+  "excluded_inherited_upstream": [
+    "atm90e36",
+    "event_emitter",
+    "rp2040",
+    "rp2040_pio",
+    "bme280"
+  ]
+}

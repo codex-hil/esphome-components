@@ -1,0 +1,7 @@
+.esphome/
+.state/
+.venv/
+__pycache__/
+*.pyc
+secrets.yaml
+artifacts/

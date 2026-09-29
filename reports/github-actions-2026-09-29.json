@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "scope": "Ubuntu24.04 GitHub-hosted runner; file integrity/catalog consistency and18 schema imports; no firmware compile or hardware test in CI",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 36635934996,
+    "headSha": "5faed5546b33d06b61566787a4270ca925bd0164",
+    "status": "completed",
+    "url": "https://github.com/MODULIQ/esphome-components/actions/runs/36635934996"
+  }
+}
