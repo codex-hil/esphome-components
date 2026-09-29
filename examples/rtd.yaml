@@ -1,0 +1,36 @@
+# Software fixture: synthetic resistance only; no ADC, GPIO or excitation.
+esphome:
+  name: collection-rtd
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [rtd]
+sensor:
+  - platform: template
+    id: pt100_resistance
+    unit_of_measurement: Ohm
+    accuracy_decimals: 5
+    internal: true
+    lambda: return 138.5055f;
+    update_interval: 5s
+  - platform: rtd
+    sensor: pt100_resistance
+    nominal_resistance: 100 Ohm
+    name: PT100 temperature
+  - platform: template
+    id: pt1000_resistance
+    unit_of_measurement: Ohm
+    accuracy_decimals: 5
+    internal: true
+    lambda: return 602.5584f;
+    update_interval: 5s
+  - platform: rtd
+    sensor: pt1000_resistance
+    nominal_resistance: 1000 Ohm
+    name: PT1000 temperature

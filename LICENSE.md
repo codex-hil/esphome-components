@@ -19,3 +19,8 @@ license or grant additional redistribution rights.
 Collection scripts/docs authored for this MODULIQ collection do not alter
 the licenses of imported code. No upstream examples containing environment
 configuration, firmware, credentials or toolchain installations were imported.
+
+The locally authored `components/rtd` uses GPL-3.0-only for C++ and MIT for
+Python, as identified by SPDX headers. It independently implements the standard
+Callendar–Van Dusen equations; its numerical model is also used in Wizath’s ADC
+driver. It does not change any imported component’s license.

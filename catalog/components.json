@@ -462,6 +462,27 @@
         "lan865x_reg.h": "d1af13affc4a9b8f226b411d97d00626c226e80894764640e0ba2780865748e5"
       },
       "local_changes": []
+    },
+    {
+      "name": "rtd",
+      "path": "components/rtd",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/rtd"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "b1534f1b8f1b7c47fd354365d50de57fe7d59b8ff023c16c45af8ccb858ceccc",
+        "rtd.cpp": "c5492930c59ad1d634af481ed76c9403cf5ce8dab564ce23b503dd0380f8cd61",
+        "rtd.h": "0fe358125866323eb92d75974eac1e674dac0672cf28eec53727cad8adbc7f6b",
+        "rtd_math.h": "1448775df9e896288fc1522ca269918ace9c943c332bf39894bda675c38db382",
+        "sensor.py": "2142342b56c6aa64c37bef5855ea0f0728f4bf83ca76de1582a61b91be43b659"
+      },
+      "local_changes": [
+        "Standalone IEC 60751 PT100/PT1000 resistance-to-temperature converter."
+      ]
     }
   ]
 }

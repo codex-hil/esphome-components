@@ -47,6 +47,9 @@
     "mmc5983_spi": {
       "result": "PASS"
     },
+    "rtd": {
+      "result": "PASS"
+    },
     "spi": {
       "result": "PASS"
     },

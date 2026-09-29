@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "scope": "Software only; no hardware programming",
+  "esphome": "2026.9.0",
+  "math": {
+    "sweep_points": 21002,
+    "nominal_ohms": [
+      100,
+      1000
+    ],
+    "range_celsius": [
+      -200,
+      850
+    ],
+    "maximum_error_celsius": 7.3242e-05,
+    "tests": "Published table points, independent forward polynomial, monotonicity, float boundaries, NaN/Inf"
+  },
+  "adapter": "PASS: initial state, callbacks, invalidation, recovery, multiple subscribers",
+  "schema": "PASS: 5 test methods including required options, units, unsupported R0, self-reference and polling rejection",
+  "command": "./scripts/test-rtd.sh",
+  "hardware": "PENDING: RTD simulator and mezzanine"
+}
