@@ -109,3 +109,6 @@ W tym zadaniu nie programowano żadnego urządzenia.
 Repozytorium przeniesiono z MODULIQ do codex-hil i upubliczniono na polecenie
 właściciela. Starsze raporty zachowują ówczesny adres i wynik testu prywatnego
 dostępu; nie opisują bieżącego wymogu uwierzytelniania.
+
+Anonimowe pobieranie publicznego źródła przez ESPHome potwierdzono z pustym HOME
+i wyłączoną konfiguracją uwierzytelniania Git: [raport](reports/public-source-2026-09-29.json).

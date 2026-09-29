@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "repository": "codex-hil/esphome-components",
+  "visibility": "public",
+  "revision": "2450775fa890a9c30e1e504ef9285ccbc7eb2585",
+  "method": "ESPHome external_components git source with full SHA and refresh never",
+  "authentication": "anonymous: fresh empty HOME, system/global Git config disabled, prompt disabled, environment contains no credentials",
+  "fresh_cache": true,
+  "checked_out_revisions": [
+    "2450775fa890a9c30e1e504ef9285ccbc7eb2585"
+  ],
+  "esphome": "2026.9.0",
+  "log_sha256": "a45dc761fe66a837b294ebf0afe177eb7d2d51d6cbdd3490c8ae3a34862b4b9c"
+}
