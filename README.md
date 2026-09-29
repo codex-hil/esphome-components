@@ -62,7 +62,7 @@ wbudowane. Nie włączaj całej kolekcji przez `components: all`.
 
 ## Rozwój i aktualizacje
 
-`components/` zawiera18 wybranych komponentów; `archive/` trzy historyczne lub
+`components/` zawiera19 wybranych komponentów; `archive/` trzy historyczne lub
 eksperymentalne dodatki, poza domyślną ścieżką ładowania. Oba drivery ADS124S08
 zachowują różne nazwy: `ads124s08` z forka Wizatha oraz `ads124s08_base` z HIL.
 Nie są zamienne konfiguracją i nie dzielą tego samego zakresu walidacji.
@@ -112,3 +112,14 @@ dostępu; nie opisują bieżącego wymogu uwierzytelniania.
 
 Anonimowe pobieranie publicznego źródła przez ESPHome potwierdzono z pustym HOME
 i wyłączoną konfiguracją uwierzytelniania Git: [raport](reports/public-source-2026-09-29.json).
+
+## RTD: PT100 i PT1000
+
+Nowy niezależny [komponent `rtd`](docs/rtd.md) przelicza rezystancję w omach
+na temperaturę. [Przykład](examples/rtd.yaml) korzysta z syntetycznych danych;
+testy symulatorem RTD i mezaninką pozostają do wykonania.
+
+```sh
+./scripts/test-rtd.sh # wymaga kompilatora C++17 i Pythona z ESPHome
+./scripts/build.sh examples/rtd.yaml
+```

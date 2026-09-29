@@ -116,6 +116,24 @@
         }
       ],
       "compiler_log_sha256": "ff0a96c520f0d49e10dbbfee1fef2106c759100cd0b1634cee32021fcb0fd921"
+    },
+    "rtd": {
+      "result": "PASS",
+      "seconds": 40.47,
+      "config_sha256": "8d6b5db5a3310f379c47fefce63c412e0f4420730ba3c52d8cbaf923eeeca378",
+      "artifacts": [
+        {
+          "filename": "firmware.factory.bin",
+          "bytes": 256848,
+          "sha256": "5a0ec6207a9a871aab2a9af01ccf235065870fb7cc0f35bfcc36b4a2e9f9b3ed"
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "bytes": 191312,
+          "sha256": "b79807ca9aa2aeaf8965ebf0cb2b15d4f925b5a7fc0bb03a733a35441a3cf7f4"
+        }
+      ],
+      "compiler_log_sha256": "43646eca297a4ef3e688ed99e77cc8ebd4fb73794a3c4aa4245b194be95cd3cd"
     }
   },
   "nix_identity": {

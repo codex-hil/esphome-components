@@ -27,6 +27,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [resistance_sampler](../archive/resistance_sampler/components/resistance_sampler) | Historyczny interfejs próbkowania rezystancji | nie testowano | nie testowano | [gkasprow/esphome@fecae2f7](https://github.com/gkasprow/esphome/tree/fecae2f740c597d8d5348a2e79f04ab48102ffb5/esphome/components/resistance_sampler) |
 | [spi_test](../archive/spi_test/components/spi_test) | Eksperymentalny generator transakcji SPI | nie testowano | nie testowano | [wizath/esphome@fdd5c666](https://github.com/wizath/esphome/tree/fdd5c666286da9e90be05ef6d182b99aff3d7d51/esphome/components/spi_test) |
 | [ethernet_lan865x](../archive/lan865x/components/ethernet) | Historyczny wariant Ethernet LAN865x | nie testowano | nie testowano | [wizath/esphome@80169059](https://github.com/wizath/esphome/tree/80169059ab6354651981ee582d2cf95b57728ead/esphome/components/ethernet) |
+| [rtd](../components/rtd) | Rezystancja → temperatura PT100/PT1000; IEC 60751 | PASS | [rtd](../examples/rtd.yaml): PASS | [Rozwój lokalny](../components/rtd) |
 
 ## Wybór wariantów i zależności
 

@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 manifest = json.loads((ROOT / "catalog/components.json").read_text())
 count = 0
 for entry in manifest["components"]:
-    assert len(entry["source"]["revision"]) == 40, entry["name"]
+    if entry["source"].get("kind") != "local":
+        assert len(entry["source"]["revision"]) == 40, entry["name"]
     directory = ROOT / entry["path"]
     expected = entry["files_sha256"]
     actual = {str(f.relative_to(directory)) for f in directory.rglob("*")

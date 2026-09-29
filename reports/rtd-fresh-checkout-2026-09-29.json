@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "exit_code": 0,
+  "seconds": 47.55,
+  "source_repository": "codex-hil/esphome-components",
+  "source_revision": "cb2791ce6bc465c8611fafca26e4c1072ed12396",
+  "entrypoint": "./scripts/build.sh examples/rtd.yaml",
+  "environment": "pinned Nix environment prepared by codex-hil/esphome-hil@631bf39",
+  "fresh_source": "new GitHub clone",
+  "fresh_state": true,
+  "nix_identity": {
+    "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+    "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+    "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+  },
+  "firmware": [
+    {
+      "filename": "firmware.factory.bin",
+      "bytes": 256848,
+      "sha256": "a61b30b2e5fd195ce06f1536dbe04fbf0f807aacda37743f20a1b997db09971f"
+    },
+    {
+      "filename": "firmware.ota.bin",
+      "bytes": 191312,
+      "sha256": "8b11e3cfd7745b2c785aea8f307c2835f92dce35318dc350ede9690bdfb26c6e"
+    }
+  ],
+  "log_sha256": "fd32382f29ae3d934afe0e46a8ca5d716b7543db8654224cc1c86ba46683ee08"
+}
