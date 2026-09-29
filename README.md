@@ -20,7 +20,7 @@ Najprostszy wariant bez tokenów w YAML:
 ```sh
 gh repo clone MODULIQ/esphome-components
 cd esphome-components
-git checkout --detach <PELNY_SHA_WYBRANEJ_WERSJI>
+git checkout --detach 5faed5546b33d06b61566787a4270ca925bd0164
 python3 scripts/verify.py
 python3 -m venv .venv
 . .venv/bin/activate
@@ -52,7 +52,7 @@ external_components:
   - source:
       type: git
       url: https://github.com/MODULIQ/esphome-components.git
-      ref: PELNY_40_ZNAKOWY_SHA
+      ref: 5faed5546b33d06b61566787a4270ca925bd0164
       # Opcjonalne przy braku skonfigurowanego uwierzytelniania Git:
       # username: !secret github_username
       # password: !secret github_read_token
@@ -89,3 +89,19 @@ sprawdza import schematów; to jeszcze nie kompilacja ani test sprzętu.
 na ESPHome2026.9.0. Testy sprzętowe pozostają w repozytorium HIL.
 
 [Licencje i pochodzenie](LICENSE.md). Nie zmieniamy przypisania autorów.
+
+## Sprawdzone pobieranie i budowanie
+
+Dla rewizji `5faed5546b33d06b61566787a4270ca925bd0164`:
+
+- 18/18 komponentów przechodzi import schematów w ESPHome2026.9.0.
+- 6/6 przykładów kompiluje się dla klasycznego ESP32 z ESP-IDF5.5.5.
+- Pobranie prywatnego repo przez `external_components`, po SHA i z pustym cache,
+  zakończyło się poprawną walidacją konfiguracji.
+- Świeży klon z GitHuba, pusta przestrzeń build/cache i `scripts/build.sh`
+  dały firmware w przypiętym środowisku Nix w 50.42s.
+- Weryfikacja źródeł i importów przeszła także na
+  [runnerze GitHuba](https://github.com/MODULIQ/esphome-components/actions/runs/36635934996), poza komputerem laboratoryjnym.
+
+[Raporty](reports) rozdzielają import, kompilację i wcześniejszą walidację HIL.
+W tym zadaniu nie programowano żadnego urządzenia.

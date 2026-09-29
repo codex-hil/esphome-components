@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "source_repository": "MODULIQ/esphome-components",
+  "revision": "5faed5546b33d06b61566787a4270ca925bd0164",
+  "method": "ESPHome external_components git source with full SHA and refresh never; initially empty ESPHOME_DATA_DIR",
+  "components": [
+    "spi",
+    "addrspi",
+    "ads124s08_base"
+  ],
+  "private_authentication": "own codex-hil Git credentials; no credential in YAML",
+  "checked_out_revisions": [
+    "5faed5546b33d06b61566787a4270ca925bd0164"
+  ],
+  "validation": "ESPHome2026.9.0 config",
+  "log_sha256": "5c84a5686cc404f8b714723a962f0c1a993577869da17bc989e55dd0d2172b07"
+}

@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "exit_code": 0,
+  "seconds": 50.42,
+  "source_repository": "MODULIQ/esphome-components",
+  "source_revision": "5faed5546b33d06b61566787a4270ca925bd0164",
+  "entrypoint": "./scripts/build.sh examples/bridge-adc.yaml",
+  "environment": "pinned Nix environment prepared by codex-hil/esphome-hil@631bf39",
+  "fresh_source": "new GitHub clone",
+  "fresh_state": true,
+  "nix_identity": {
+    "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+    "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+    "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+  },
+  "firmware": [
+    {
+      "filename": "firmware.factory.bin",
+      "bytes": 300256,
+      "sha256": "40f11cf7de3ed9abe574d9ba39cd2a5fbee66ac7b0eb639b4e18637d6022d3a4"
+    },
+    {
+      "filename": "firmware.ota.bin",
+      "bytes": 234720,
+      "sha256": "12d77edda9c4d24fa83ea038ca9f831c5578fc7c4560518db0301177078955c3"
+    }
+  ],
+  "log_sha256": "358ddb9b7b27f3aa4a20ab46d0f2cfaff960544875d9c309234be4a3cc614636"
+}
