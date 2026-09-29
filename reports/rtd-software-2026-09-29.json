@@ -18,5 +18,10 @@
   "adapter": "PASS: initial state, callbacks, invalidation, recovery, multiple subscribers",
   "schema": "PASS: 5 test methods including required options, units, unsupported R0, self-reference and polling rejection",
   "command": "./scripts/test-rtd.sh",
-  "hardware": "PENDING: RTD simulator and mezzanine"
+  "hardware": "PENDING: RTD simulator and mezzanine",
+  "source_revision": "cb2791ce6bc465c8611fafca26e4c1072ed12396",
+  "github_ci": {
+    "result": "PASS",
+    "url": "https://github.com/codex-hil/esphome-components/actions/runs/36637972519"
+  }
 }

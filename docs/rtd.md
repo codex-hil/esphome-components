@@ -7,7 +7,7 @@ pozostają w warstwie pomiarowej. NTC korzysta z komponentu `ntc` ESPHome.
 
 ```yaml
 external_components:
-  - source: github://codex-hil/esphome-components@feature/rtd
+  - source: github://codex-hil/esphome-components@cb2791ce6bc465c8611fafca26e4c1072ed12396
     components: [rtd]
 
 sensor:
@@ -18,8 +18,7 @@ sensor:
     name: "Temperatura RTD"
 ```
 
-Gałąź służy rozwojowi. Dla powtarzalnego firmware przypnij pełny SHA commitu
-zawierającego komponent. Kompletny [przykład do kompilacji](../examples/rtd.yaml)
+Przykład przypina pełny SHA implementacji. Gałąź `feature/rtd` służy rozwojowi. Kompletny [przykład do kompilacji](../examples/rtd.yaml)
 ma syntetyczne źródła dla obu typów; nie wymaga płytki ani pinów.
 
 `sensor` i `nominal_resistance` są obowiązkowe. Akceptowane R₀ to wyłącznie
@@ -60,3 +59,8 @@ fizycznego pomiaru. Testy sprzętowe czekają na symulator RTD i mezaninkę.
 Źródła modelu: [TI, A Basic Guide to RTD Measurements](https://www.ti.com/lit/pdf/sbaa275).
 Niezależne punkty tabelaryczne −100, −50, 0, 50, 100°C:
 [Analog Devices, Positive Analog Feedback Compensates PT100 Transducer](https://www.analog.com/en/resources/technical-articles/positive-analog-feedback-compensates-pt100-transducer.html).
+
+Wyniki: [testy programowe i CI](../reports/rtd-software-2026-09-29.json),
+[budowanie ze świeżego klonu, 47.55 s](../reports/rtd-fresh-checkout-2026-09-29.json).
+Weryfikacja dotyczy poprawności budowania i działania matematyki, nie bitowej
+identyczności firmware; ESPHome zapisuje m.in. czas budowy w obrazie.
