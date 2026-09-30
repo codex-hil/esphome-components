@@ -1,0 +1,66 @@
+# Standalone readout on the RTD16 rev1.0 fixture; no SPI dependency or ADC access.
+esphome:
+  name: cpld-readout
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [moduliq_cpld_i2c]
+i2c:
+  id: bridge_i2c
+  sda: GPIO33
+  scl: GPIO32
+  scan: false
+moduliq_cpld_i2c:
+  id: readout
+  module_address: 0
+  board_profile: rtd16_rev10
+  project_id:
+    name: Project ID
+  revision_id:
+    name: Revision ID
+  power_request:
+    name: Power request
+  errin:
+    name: ERRIN
+  upper_gpio:
+    name: Upper pads
+  lower_gpio:
+    name: Lower pads
+  fault_mask:
+    name: Fault mask
+  fault_status:
+    name: Fault status
+  status:
+    name: Readout status
+  error_counters:
+    - channel: 0
+      sensor:
+        name: ERRIN0 interval modulo256
+    - channel: 1
+      sensor:
+        name: ERRIN1 interval modulo256
+    - channel: 2
+      sensor:
+        name: ERRIN2 interval modulo256
+    - channel: 3
+      sensor:
+        name: ERRIN3 interval modulo256
+  # Labels below identify digital codes only; replace with the actual head ID table.
+  digital_ids:
+    - bank: upper
+      mask: 0x07
+      codes: {0: "code0", 1: "code1", 2: "code2", 3: "code3", 4: "code4", 5: "code5", 6: "code6", 7: "code7"}
+      sensor:
+        name: AFE1 digital ID
+    - bank: upper
+      mask: 0x70
+      shift: 4
+      codes: {0: "code0", 1: "code1", 2: "code2", 3: "code3", 4: "code4", 5: "code5", 6: "code6", 7: "code7"}
+      sensor:
+        name: AFE2 digital ID

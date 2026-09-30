@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "driver_contract_only_not_implemented",
+  "status": "driver_implemented_hardware_pending",
   "component_count": 3,
   "hdl_reference": {
     "repository": "https://github.com/MODULIQ/CPLD_bridge",
@@ -14,7 +14,7 @@
     "details": "docs/esphome-driver-handoff.md"
   },
   "documentation": "docs/esphome-three-components.md",
-  "names_are_proposed": true,
+  "names_are_proposed": false,
   "components": [
     {
       "name": "moduliq_cpld_i2c",
@@ -283,5 +283,11 @@
     "mode": 0,
     "bit_order": "MSB first",
     "frame": "8-bit command + 8-bit data or dummy; writes commit on last data rising edge; CS aborts framing only"
+  },
+  "implementation": {
+    "documentation": "docs/cpld-components-usage.md",
+    "software_report": "reports/cpld-software-2026-09-30.json",
+    "hardware_verified": false,
+    "ownership_policy": "ADC rejects upper-bank mutations; Flash permanently reserves OUT1..4 in its pinmux; one GPIO helper owns CFG"
   }
 }

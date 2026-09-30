@@ -483,6 +483,66 @@
       "local_changes": [
         "Standalone IEC 60751 PT100/PT1000 resistance-to-temperature converter."
       ]
+    },
+    {
+      "name": "moduliq_cpld_i2c",
+      "path": "components/moduliq_cpld_i2c",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_i2c",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "79e9b94600dd20c1fd037ba87ba13d0c685cb7db96cb7ccd89d7e5b8194e54d6",
+        "moduliq_cpld_i2c.cpp": "00b689b6d972e3c37e1f5a004ab070210c947c01072b014ed979a6383ac26664",
+        "moduliq_cpld_i2c.h": "fc69b20a116f5dcfda9a25f915e3654c1db6087cfb9e6e3e56b64e70d7af4369"
+      },
+      "local_changes": [
+        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+      ]
+    },
+    {
+      "name": "moduliq_cpld_gpio",
+      "path": "components/moduliq_cpld_gpio",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_gpio",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "e4307d3404f514d8c6db6852b69b1935da56cc3fd74e899874a76084b617cfb3",
+        "moduliq_cpld_gpio.cpp": "48d4aba9d8d811dd616e9dba9f587153b820c87d375f9da37a60291a2646bfe8",
+        "moduliq_cpld_gpio.h": "f0fd41c00d424ceea2ddc6eb331404e31df6bbb47d7364a892c45bf4010cb4a6"
+      },
+      "local_changes": [
+        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+      ]
+    },
+    {
+      "name": "moduliq_cpld_flash",
+      "path": "components/moduliq_cpld_flash",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_flash",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "59a9d84c4d002c908539dc51d65be3952afdf0744c9f31dacf1b8f3f8f6289d1",
+        "moduliq_cpld_flash.cpp": "af4d0ef3e0d9e5ef43f4fdd272185316bbb3ae156d41a07e7ae8a037a8a54063",
+        "moduliq_cpld_flash.h": "c47dff05023df133916cc7a6191ee164960ed05da7e7528f206cfdf39bbd13da"
+      },
+      "local_changes": [
+        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+      ]
     }
   ]
 }

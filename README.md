@@ -62,7 +62,7 @@ wbudowane. Nie włączaj całej kolekcji przez `components: all`.
 
 ## Rozwój i aktualizacje
 
-`components/` zawiera19 wybranych komponentów; `archive/` trzy historyczne lub
+`components/` zawiera22 wybrane komponenty; `archive/` trzy historyczne lub
 eksperymentalne dodatki, poza domyślną ścieżką ładowania. Oba drivery ADS124S08
 zachowują różne nazwy: `ads124s08` z forka Wizatha oraz `ads124s08_base` z HIL.
 Nie są zamienne konfiguracją i nie dzielą tego samego zakresu walidacji.
@@ -124,18 +124,20 @@ testy symulatorem RTD i mezaninką pozostają do wykonania.
 ./scripts/build.sh examples/rtd.yaml
 ```
 
-## Planowane trzy komponenty CPLD Bridge
+## Trzy komponenty CPLD Bridge
 
-[Kontrakt driverów i zależności](docs/cpld-bridge.md) oraz
-[przypięta mapa interfejsów](docs/cpld-register-contract.json) opisują:
+Implementacja: `moduliq_cpld_i2c` (readout, cyfrowe ID, liczniki i opcjonalny
+ADC), `moduliq_cpld_gpio` (CS3, dwa banki, push-pull/open-drain) oraz
+`moduliq_cpld_flash` (transport CS2 i acquire/release przez wspólny CFG na CS3).
+[Instrukcja i przykłady](docs/cpld-components-usage.md),
+[kontrakt](docs/cpld-bridge.md), [raport software](reports/cpld-software-2026-09-30.json).
 
-1. I²C readout: identyfikacja płyty/headów/mezaninek, GPIO, liczniki ERRIN
-   i opcjonalny wolny ADC rezystorów ID.
-2. Expander GPIO na CS3: dwa banki, DIR, push-pull/open-drain.
-3. Współdzielona Flash na CS2: transfery pamięci i acquire/release przez CFG na CS3.
+GPIO działa po resecie. ADC_CTRL.ENABLE czasowo rezerwuje górny bank;
+wyniki są czytane jednym burstem przed disable. RTD16 chroni DRDY na REG_IN3/7.
+ADS124S08 pozostają na CS0/CS1 mode1/100kHz. Hardware, analogowy ADC oraz
+współdzielona Flash wymagają osobnego etapu HIL; w tej pracy nie programowano sprzętu.
 
-To uzgodniona architektura **do implementacji**, nie działające komponenty YAML.
-GPIO pozostaje aktywne po resecie w wariancie z ADC; dopiero I²C ADC_CTRL.ENABLE
-rezerwuje górny bank. Komponenty GPIO/Flash muszą współdzielić CFG, a readout/GPIO
-koordynować własność banku ADC. Dotychczasowe drivery ADS124S08 na CS0/CS1 są
-odrębnymi urządzeniami i pozostają bez zmian.
+```sh
+./scripts/test-cpld.sh
+../esphome-hil/scripts/build.sh examples/cpld-rtd16.yaml
+```

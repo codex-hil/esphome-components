@@ -1,15 +1,15 @@
 # Trzy komponenty ESPHome dla MODULIQ CPLD Bridge
 
-Przypięty snapshot kontraktu CPLD: [`e8d225a`](https://github.com/MODULIQ/CPLD_bridge/blob/e8d225aecaec8ec17b3054724a4d4936dca1ec43/docs/esphome-three-components.md).
-Zakres tej zmiany to dokumentacja przyszłych trzech komponentów; nie dodano
-ich katalogów w `components/`, schematów YAML ani twierdzeń o PASS kompilacji/HIL.
-Komponenty transportu `spi` i `addrspi` już istnieją w tej bibliotece.
+Implementacja trzech komponentów jest dostępna w `components/`.
+[Instrukcja, przykłady i polityka własności](cpld-components-usage.md)
+opisują działające schematy YAML i API. Zakres weryfikacji to testy software
+oraz kompilacje w przypiętym Nix; sprzęt nie był programowany ani testowany.
+Kontrakt audytowano przy `MODULIQ/CPLD_bridge` commit
+`2b0752faf76c84b76e593727a427b732e0b44b99`, na bazie dokumentacji biblioteki
+`113a2d7`. Wspólny helper jest częścią GPIO, bez czwartego publicznego komponentu.
 
-Uzgodniony podział obejmuje dokładnie trzy komponenty. Poniższe nazwy są
-propozycją przyszłych komponentów, **nie nazwami zaimplementowanych schematów
-YAML**. Drivery nie zostały jeszcze napisane. Wspólny helper do adresowania,
-rezerwacji pinów i aktualizacji CFG jest szczegółem implementacji, a nie
-czwartym komponentem publicznym.
+Poniżej zachowujemy wymagania kontraktu HDL. Jawne decyzje implementacji
+(odrzucanie kolizji ADC, rezerwacja Flash, publikacja po cleanup) są w instrukcji.
 
 | Komponent | Transport | Odpowiedzialność |
 |---|---|---|
@@ -107,7 +107,7 @@ zewnętrzny chip na tym CS nie może wtedy korzystać z selekcji. SPI mode0,
 MSB first, komenda+dane/dummy, jeden CS niski przez16 bitów. Odpowiedź odczytu
 jest w drugim bajcie. Adresy i reset w [gpio-register-map.json](https://github.com/MODULIQ/CPLD_bridge/blob/e8d225aecaec8ec17b3054724a4d4936dca1ec43/hw/gpio-register-map.json).
 
-Publiczne piny: proponowane indeksy0..7 = dolny REG_OUT, 8..15 = górny REG_IN.
+Publiczne piny: indeksy0..7 = dolny REG_OUT, 8..15 = górny REG_IN.
 Driver obsługuje DIR, push-pull/open-drain i odczyt fizycznych padów. Shadow DATA
 oraz cache padów to różne wartości; zapis jednego pinu zachowuje resztę bajtu.
 Setup najpierw czyta istniejące DATA/DIR/OD/CFG/STATUS, zamiast zapisywać ślepo
@@ -192,8 +192,7 @@ Programowanie/erase i weryfikacja danych są osobnym przyszłym zakresem drivera
   na kanale3, Flash swojego skonfigurowanego trybu na kanale2. Rejestruj osobne
   urządzenia SPI z ich własnym trybem, bez globalnego przestawiania magistrali.
 
-Następny etap: implementacja trzech driverów, walidacja YAML/profili, testy
-transakcji hostowych i współbieżności oraz kompilacja w przypiętym środowisku
-ESPHome. Najpierw readout cyfrowych ID/liczników i GPIO; następnie opcjonalne ADC
-oraz Flash na odpowiednich PCB. Nie twierdź, że nowe drivery są przetestowane,
-aż rzeczywiście zostaną napisane i użyte na sprzęcie.
+Następny etap sprzętowy pozostaje oddzielny: walidacja transportów z niezależną
+obserwacją, ADC na właściwym PCB oraz Flash z dokładnym profilem pamięci i targetu.
+[Raport software](../reports/cpld-software-2026-09-30.json) nie nadaje tym
+komponentom statusu HIL.
