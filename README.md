@@ -123,3 +123,19 @@ testy symulatorem RTD i mezaninką pozostają do wykonania.
 ./scripts/test-rtd.sh # wymaga kompilatora C++17 i Pythona z ESPHome
 ./scripts/build.sh examples/rtd.yaml
 ```
+
+## Planowane trzy komponenty CPLD Bridge
+
+[Kontrakt driverów i zależności](docs/cpld-bridge.md) oraz
+[przypięta mapa interfejsów](docs/cpld-register-contract.json) opisują:
+
+1. I²C readout: identyfikacja płyty/headów/mezaninek, GPIO, liczniki ERRIN
+   i opcjonalny wolny ADC rezystorów ID.
+2. Expander GPIO na CS3: dwa banki, DIR, push-pull/open-drain.
+3. Współdzielona Flash na CS2: transfery pamięci i acquire/release przez CFG na CS3.
+
+To uzgodniona architektura **do implementacji**, nie działające komponenty YAML.
+GPIO pozostaje aktywne po resecie w wariancie z ADC; dopiero I²C ADC_CTRL.ENABLE
+rezerwuje górny bank. Komponenty GPIO/Flash muszą współdzielić CFG, a readout/GPIO
+koordynować własność banku ADC. Dotychczasowe drivery ADS124S08 na CS0/CS1 są
+odrębnymi urządzeniami i pozostają bez zmian.
