@@ -1,0 +1,59 @@
+# Standalone readout on the generic CPLD fixture; no SPI dependency or ADC access.
+esphome:
+  name: cpld-readout
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [moduliq_cpld_i2c]
+i2c:
+  id: bridge_i2c
+  sda: GPIO33
+  scl: GPIO32
+  scan: false
+moduliq_cpld_i2c:
+  id: readout
+  module_address: 0
+  project_id:
+    name: Project ID
+  revision_id:
+    name: Revision ID
+  power_request:
+    name: Power request
+  errin:
+    name: ERRIN
+  upper_gpio:
+    name: Upper pads
+  lower_gpio:
+    name: Lower pads
+  fault_mask:
+    name: Fault mask
+  fault_status:
+    name: Fault status
+  status:
+    name: Readout status
+  error_counters:
+    - channel: 0
+      sensor:
+        name: ERRIN0 interval modulo256
+    - channel: 1
+      sensor:
+        name: ERRIN1 interval modulo256
+    - channel: 2
+      sensor:
+        name: ERRIN2 interval modulo256
+    - channel: 3
+      sensor:
+        name: ERRIN3 interval modulo256
+  # Illustrative ID field; masks and code tables are provided by the board YAML.
+  digital_ids:
+    - bank: upper
+      mask: 0x07
+      codes: {0: "code0", 1: "code1"}
+      sensor:
+        name: Digital head ID

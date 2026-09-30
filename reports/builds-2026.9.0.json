@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-09-30",
   "environment": "pinned Nix via codex-hil/esphome-hil@631bf39",
   "scope": "compile only; no hardware operation",
   "versions": {
@@ -134,6 +134,60 @@
         }
       ],
       "compiler_log_sha256": "43646eca297a4ef3e688ed99e77cc8ebd4fb73794a3c4aa4245b194be95cd3cd"
+    },
+    "cpld-readout": {
+      "result": "PASS",
+      "seconds": 17.6,
+      "configuration_sha256": "a156ec890d5de5cb9005829a8b441cd9143013acd863213f402a53331165a71f",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "09911c7f9c64f67ed6322e7bb5a4d31d4c4c111149dd542dec541b8c188f3007",
+          "bytes": 279920
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "48a475734cc696cc11c9bd226cc7145eb4f8d5745d06c5f99c978764f56fe94e",
+          "bytes": 214384
+        }
+      ],
+      "log_sha256": "e48ee5c47f7595007efeca78e80b2adb03b254d8702545a5aa68decad0601a8b"
+    },
+    "cpld-adc-flash": {
+      "result": "PASS",
+      "seconds": 13.42,
+      "configuration_sha256": "885554cb60cb842d04f27b84086b78663b4249715e7624b08900b16159f181d2",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "fc1c3df32eed7947841cd21a9d532d6d54b9fa6926dd8387d5c2bf0643bb97c8",
+          "bytes": 315280
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "7c9e43320ad9053b88ef50cd99a64652bee574167151aa237f3e9402325223ff",
+          "bytes": 249744
+        }
+      ],
+      "log_sha256": "de4ab08ca22ee807c48884161fd4609faf21cbd7bb09ac4b174054328c23e612"
+    },
+    "cpld-gpio": {
+      "result": "PASS",
+      "seconds": 44.31,
+      "configuration_sha256": "c6c0923652efdc93f8501ccb316d9cef5fb5c189cac09296700497a2a2d32c41",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "8667bb94b1a33e6f803c271f16aff355375caacf47639595387efe00fbb04e9a",
+          "bytes": 312704
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "e13ee90b025cb992fc85f076e9c9a23fa1436faac776b7b5f3316c918438ec22",
+          "bytes": 247168
+        }
+      ],
+      "log_sha256": "d92383a07206a95ecbe5a7c72e558f04e4eb258aa76b46874679854ec0f37f0a"
     }
   },
   "nix_identity": {

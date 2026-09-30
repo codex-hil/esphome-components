@@ -47,6 +47,15 @@
     "mmc5983_spi": {
       "result": "PASS"
     },
+    "moduliq_cpld_flash": {
+      "result": "PASS"
+    },
+    "moduliq_cpld_gpio": {
+      "result": "PASS"
+    },
+    "moduliq_cpld_i2c": {
+      "result": "PASS"
+    },
     "rtd": {
       "result": "PASS"
     },

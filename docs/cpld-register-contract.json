@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "driver_contract_only_not_implemented",
+  "status": "driver_implemented_hardware_pending",
   "component_count": 3,
   "hdl_reference": {
     "repository": "https://github.com/MODULIQ/CPLD_bridge",
@@ -14,7 +14,7 @@
     "details": "docs/esphome-driver-handoff.md"
   },
   "documentation": "docs/esphome-three-components.md",
-  "names_are_proposed": true,
+  "names_are_proposed": false,
   "components": [
     {
       "name": "moduliq_cpld_i2c",
@@ -23,9 +23,9 @@
       "requires_spi": false,
       "responsibilities": [
         "PROJECT_ID/REV_ID/PWR_REQ",
-        "GPIO snapshots and board-profile digital head/mezzanine IDs",
+        "GPIO snapshots and YAML-configured digital head/mezzanine IDs",
         "single-owner destructive error-counter readout",
-        "optional slow ADC raw-code readout and board-profile resistor-ID decoding"
+        "optional slow ADC raw-code readout and YAML-configured resistor-ID decoding"
       ],
       "registers": [
         {
@@ -140,7 +140,7 @@
       "adc_default_runtime_enable": false,
       "adc_control_owner": "readout component",
       "adc_results_read_before_disable": true,
-      "id_decode": "board profile masks/bitfields or calibrated ADC code bands; no universal resistor table",
+      "id_decode": "Explicit YAML masks/bitfields or calibrated ADC code bands; no implicit PCB/DRDY roles",
       "counter_retry_is_idempotent": false
     },
     {
@@ -159,8 +159,8 @@
       },
       "adc_enable_override": "upper pad outputs disabled only while I2C ADC_CTRL.ENABLE=1; GPIO registers retained",
       "adc_disable_behavior": "latest GPIO DIR/OD/data become effective again",
-      "protected_rtd16_inputs": "upper bits3/7, mask0x88",
-      "flash_pinmux": "OUT3/4 reserved; OUT1/2 alias CFG2/1 in Flash mode"
+      "flash_pinmux": "OUT3/4 reserved; OUT1/2 alias CFG2/1 in Flash mode",
+      "input_protection": "Explicit YAML lower_input_mask/upper_input_mask; no fixed DRDY mapping"
     },
     {
       "name": "moduliq_cpld_flash",
@@ -198,9 +198,10 @@
     "One destructive counter reader",
     "ADC reserves upper GPIO only, Flash reserves its lower pins and CS2; preserve unrelated GPIO",
     "Shared CFG read-modify-write preserves every non-owned bit",
-    "Keep existing ADS124S08 on CS0/CS1 mode1; GPIO CS3 mode0; Flash uses its device mode",
     "REV_ID is not HDL capabilities/version",
-    "No driver or hardware validation claim from documentation alone"
+    "No driver or hardware validation claim from documentation alone",
+    "Other SPI drivers own their configuration and readiness; CPLD drivers do not access or validate temperature ADCs.",
+    "PROJECT_ID is data for YAML policy; no board profile or automatic GPIO/readout link is inferred."
   ],
   "source_snapshot": {
     "repository": "https://github.com/MODULIQ/CPLD_bridge",
@@ -283,5 +284,13 @@
     "mode": 0,
     "bit_order": "MSB first",
     "frame": "8-bit command + 8-bit data or dummy; writes commit on last data rising edge; CS aborts framing only"
+  },
+  "implementation": {
+    "documentation": "docs/cpld-components-usage.md",
+    "software_report": "reports/cpld-independent-software-2026-09-30.json",
+    "hardware_verified": false,
+    "ownership_policy": "ADC rejects upper-bank mutations; Flash permanently reserves OUT1..4 in its pinmux; one GPIO helper owns CFG",
+    "activation": "YAML/runtime activation only; GPIO, Flash and optional identification ADC default disabled; I2C always independent",
+    "temperature_adc_coupling": false
   }
 }

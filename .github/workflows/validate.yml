@@ -22,3 +22,5 @@ jobs:
         run: .venv/bin/python scripts/import-check.py
       - name: Test RTD math, state handling and schema
         run: PATH="$PWD/.venv/bin:$PATH" ./scripts/test-rtd.sh
+      - name: Test CPLD drivers, ownership and YAML (software only)
+        run: ./tests/run-cpld-software.sh "$PWD/.venv/bin/python"

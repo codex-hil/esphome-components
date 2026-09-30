@@ -62,7 +62,7 @@ wbudowane. Nie włączaj całej kolekcji przez `components: all`.
 
 ## Rozwój i aktualizacje
 
-`components/` zawiera19 wybranych komponentów; `archive/` trzy historyczne lub
+`components/` zawiera22 wybrane komponenty; `archive/` trzy historyczne lub
 eksperymentalne dodatki, poza domyślną ścieżką ładowania. Oba drivery ADS124S08
 zachowują różne nazwy: `ads124s08` z forka Wizatha oraz `ads124s08_base` z HIL.
 Nie są zamienne konfiguracją i nie dzielą tego samego zakresu walidacji.
@@ -124,18 +124,24 @@ testy symulatorem RTD i mezaninką pozostają do wykonania.
 ./scripts/build.sh examples/rtd.yaml
 ```
 
-## Planowane trzy komponenty CPLD Bridge
+## Trzy niezależne komponenty CPLD Bridge
 
-[Kontrakt driverów i zależności](docs/cpld-bridge.md) oraz
-[przypięta mapa interfejsów](docs/cpld-register-contract.json) opisują:
+`moduliq_cpld_i2c` obsługuje identyfikację/statusy/liczniki i opcjonalny ADC
+identyfikacyjny CPLD. `moduliq_cpld_gpio` obsługuje CS3, a `moduliq_cpld_flash`
+transport CS2 i acquire/release przez jawnie wskazany helper CFG na CS3.
+Nie konfigurują ani nie odpytują ADC temperatury Texas Instruments.
+Nie przypisują pinom roli DRDY ani nie narzucają konfiguracji innych urządzeń SPI.
 
-1. I²C readout: identyfikacja płyty/headów/mezaninek, GPIO, liczniki ERRIN
-   i opcjonalny wolny ADC rezystorów ID.
-2. Expander GPIO na CS3: dwa banki, DIR, push-pull/open-drain.
-3. Współdzielona Flash na CS2: transfery pamięci i acquire/release przez CFG na CS3.
+I²C jest dostępne na wszystkich płytkach. GPIO, Flash i ADC identyfikacyjny
+są domyślnie wyłączone w software. YAML wybiera ich użycie i moment aktywacji
+po odczycie PROJECT_ID; nie ma automatycznych profili płyt ani powiązania po GA.
+[Instrukcja i przykłady](docs/cpld-components-usage.md),
+[raport software](reports/cpld-independent-software-2026-09-30.json).
 
-To uzgodniona architektura **do implementacji**, nie działające komponenty YAML.
-GPIO pozostaje aktywne po resecie w wariancie z ADC; dopiero I²C ADC_CTRL.ENABLE
-rezerwuje górny bank. Komponenty GPIO/Flash muszą współdzielić CFG, a readout/GPIO
-koordynować własność banku ADC. Dotychczasowe drivery ADS124S08 na CS0/CS1 są
-odrębnymi urządzeniami i pozostają bez zmian.
+```sh
+./scripts/test-cpld.sh
+../esphome-hil/scripts/build.sh examples/cpld-gpio.yaml
+```
+
+Weryfikacja obejmuje software i kompilację. W tej pracy nie programowano,
+nie resetowano i nie odczytywano sprzętu.

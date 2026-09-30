@@ -1,0 +1,202 @@
+{
+  "date": "2026-09-30",
+  "result": "PASS",
+  "scope": "Software validation and compilation only; no hardware operations",
+  "source": {
+    "repository": "codex-hil/esphome-components",
+    "base_revision": "41006928e153e2e6a4d8e41156f2a2fdebd72a6e",
+    "branch": "feature/cpld-three-components",
+    "state": "working tree identified by explicit source hashes",
+    "source_fingerprint_sha256": "a0d04ac5510d45adcc7d202cf4be417078425a0fc04d2510bf7d01b7cd897883",
+    "files_sha256": {
+      "components/moduliq_cpld_flash/__init__.py": "77482e67686b35f0ddef09596b9d6e68c84eaa0f9087f3ebe46652c8dc49d4ea",
+      "components/moduliq_cpld_flash/moduliq_cpld_flash.cpp": "755e799c0a4741aa89ae5024e7f972c370e432d28ad943661355fee0a7da3ed6",
+      "components/moduliq_cpld_flash/moduliq_cpld_flash.h": "79d69d0ee7457b08ce880df072c00fb9c7c57effd24c0e2cc87fb00a172cc1f9",
+      "components/moduliq_cpld_gpio/__init__.py": "362ef822b3c1bc6fc387b9cddc5bc876d90f1aef01788dbeba58966a3d798d41",
+      "components/moduliq_cpld_gpio/moduliq_cpld_gpio.cpp": "f9e44c7d436ce73ac9701510b710f82cdcdb7d2d9491bed2418a5a72ebd80de1",
+      "components/moduliq_cpld_gpio/moduliq_cpld_gpio.h": "d6b0b9e37ee2248a644671edb4d11c9e71d14c15dc3796dae8b4354163eced65",
+      "components/moduliq_cpld_i2c/__init__.py": "ac714ae6fa46a8ea8e552eca537ca83fb82c012ab30bedadcd4bef68492a0d6c",
+      "components/moduliq_cpld_i2c/moduliq_cpld_i2c.cpp": "d27c9254a6fa58670b54064a7edacd83323957792d43bd4c91995df2dd833f32",
+      "components/moduliq_cpld_i2c/moduliq_cpld_i2c.h": "4782776a5e3e7523fa48fa75af6eb2aee001458280b669566f2cabcbb6cef3d1",
+      "examples/cpld-adc-flash.yaml": "885554cb60cb842d04f27b84086b78663b4249715e7624b08900b16159f181d2",
+      "examples/cpld-gpio.yaml": "c6c0923652efdc93f8501ccb316d9cef5fb5c189cac09296700497a2a2d32c41",
+      "examples/cpld-readout.yaml": "a156ec890d5de5cb9005829a8b441cd9143013acd863213f402a53331165a71f",
+      "scripts/test-cpld.sh": "3b1f66ca2355997cd54f566a40f92e5d7931c92c51fe7e3052d69ad5f7bc2139",
+      "tests/cpld_components.cpp": "36ee676773c36c66a1210b21f40e53b65bf1d620417874681b4ed2725a106a39",
+      "tests/cpld_stubs/esphome/components/i2c/i2c.h": "bd4f8ae9188867fbaf49b2270eb1228b07d447c17fab670c1c5d745daea86bc6",
+      "tests/cpld_stubs/esphome/components/sensor/sensor.h": "6ca97df21ee663c2590b8f5c14408218a23df3efcd94023d61f43a2569f01e8d",
+      "tests/cpld_stubs/esphome/components/spi/spi.h": "eef86ac0d88a11ced40c5bec8b739f0e8e94601bce12ea32fc7c178eb2cfca1f",
+      "tests/cpld_stubs/esphome/components/text_sensor/text_sensor.h": "583beb34c967bda34f243b690beb434f0182968ea118f68b8c281697491c6865",
+      "tests/cpld_stubs/esphome/core/component.h": "0680bec5d2d5a8f96e64902c561d1ba4d43c65645fd8cd74143edbc81cb09eb8",
+      "tests/cpld_stubs/esphome/core/gpio.h": "807ff2d1a048172e0438f055a3a36333651f7a14f9cd8e13b435733bf463b278",
+      "tests/cpld_stubs/esphome/core/hal.h": "81209c52b7bf569998e3f93b394c23a28062e6d4ef1078cd327d520253eeb3ab",
+      "tests/cpld_stubs/esphome/core/log.h": "2b7deece75d67d62a361ccdcff2dce1e0aaf4cfab130e123226d7b62a766d92c",
+      "tests/run-cpld-software.sh": "f7e5a095311be975c4c475b588c67b1e91fd7fa63b44f7b478c9bfff83817b95",
+      "tests/test_cpld_schema.py": "1e307e8feda344e4d2e95ff6480774c8c617da1b3824042ca3c3bc67ed0abc5e"
+    },
+    "original_baseline_revision": "113a2d7ba2746eb9e3091d8c41ca1853ee88ea4a"
+  },
+  "audit": {
+    "cpld_repository": "MODULIQ/CPLD_bridge",
+    "revision": "2b0752faf76c84b76e593727a427b732e0b44b99",
+    "branch": "feature/rev11-project-pll",
+    "inputs_sha256": {
+      "docs/esphome-three-components.md": "034b20b0862552376f8e6f5d895edf8feaf5edb854c310e41d27674e252f1a11",
+      "docs/esphome-driver-handoff.md": "8487465752e0f7bbfa45fb9e1e65cb8fd3473b2bd2a7cce4f638962556e83c04",
+      "hw/esphome-component-contract.json": "c7f78ca8ac621d8f5b295ec8820019e794977de0fd2696bcc6512aeed3991405",
+      "hw/gpio-register-map.json": "aec33d42d123db56f3553d254c03feb3b9989b8bf6a32738dab1cabe70042e11",
+      "hw/rev10/profile.json": "160696334f5b13f9abc0676f0aa7344a6f9c601c8eb0f2b0569c5da1736b2535",
+      "hw/rev11/profile.json": "5ae5c4a0d74a47e1cce4bb172c9f723c3c3a487fa6d2afb013d37ab4fbab4632"
+    },
+    "findings": [
+      "CPLD register and framing maps retained; board-specific driver policy superseded by owner clarification.",
+      "No board_profile, fixed DRDY mask, temperature ADC configuration/channel validation or automatic GA-based readout/GPIO linking.",
+      "GPIO/Flash and optional CPLD identification ADC are disabled by default; YAML controls activation.",
+      "Explicit gpio_id only coordinates identification ADC ownership; Flash retains necessary CFG control through a single explicit CS3 helper."
+    ]
+  },
+  "environment": {
+    "repository": "codex-hil/esphome-hil",
+    "revision": "631bf39899a496578a0cafe1fc34cdad07509158",
+    "esphome": "2026.9.0",
+    "esp_idf": "5.5.5",
+    "nix_identity": {
+      "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+      "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+      "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+    },
+    "toolchain_log_sha256": "56ffd382accdf09a71c17222b464df2b44af07d9facc7662b58fe4cae1b5bd40",
+    "toolchain_output": [
+      "3.12.14 (main, Aug 12 2026, 13:57:54) [GCC 15.3.0]",
+      "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+      "2026.9.0",
+      "g++ (GCC) 15.3.0",
+      "Copyright (C) 2025 Free Software Foundation, Inc."
+    ]
+  },
+  "software_tests": {
+    "result": "PASS",
+    "command": "./scripts/test-cpld.sh",
+    "cpp_scenario_groups": 29,
+    "python_test_methods": 14,
+    "standalone_i2c_without_gpio_compile": "PASS",
+    "actual_cpp_sources": [
+      "moduliq_cpld_i2c",
+      "moduliq_cpld_gpio",
+      "moduliq_cpld_flash",
+      "addrspi"
+    ],
+    "coverage": [
+      "Disabled GPIO performs no device registration or bus transaction; disabled Flash performs no acquire/probe.",
+      "Identification ADC configuration remains inert until explicit activation; readout-only polling accesses no ADC registers.",
+      "All PROJECT_ID/REV_ID values are accepted as application data; digital bitfields have only YAML-defined meanings.",
+      "YAML may configure GPIO and readout independently, even with different GA; explicit gpio_id verifies only its target GA.",
+      "Generic YAML input masks protect any externally driven pins, without temperature/DRDY roles.",
+      "Deferred GPIO pin mode and initial output value are applied safely after activation.",
+      "GPIO activation, deactivation, lease protection, shadow preservation, pad readout, push-pull/open-drain and uncertain-bank recovery.",
+      "Identification ADC 16-byte burst before disable, all-channel validity, little endian, timeout rollover and failed cleanup retry.",
+      "Runtime ADC cancellation continues cleanup after deactivation; publication callback reentry is guarded.",
+      "Clear-on-read counters retain interval/modulo semantics; failed reads publish NaN and are not immediately retried.",
+      "Flash CS2 session control preserves CFG bits/target lines; acquire/release failures retain cleanup obligations.",
+      "Flash disabled during an active frame defers release until CS is high and retries in the loop.",
+      "Independent SPI clients retain their own modes; nested addrspi selects module and chip before CS.",
+      "Real YAML permits GPIO/Flash without I2C, standalone readout, unrelated driver channels and optional-only linkage.",
+      "Real YAML rejects wrong CPLD transport/channel/CS, duplicates, invalid ID masks, ADC bands and explicit protected output pins."
+    ],
+    "log": "/home/codex-hil/workspaces/esphome-components/artifacts/cpld/tests-decoupled.log",
+    "log_sha256": "5d08d354dcf93d846fa3ff382af99098a68113abf7279add25f63d02d0d31948"
+  },
+  "regression": {
+    "rtd": "Earlier unchanged-source RTD regression passed; no RTD/SPI/addrspi/temperature ADC source changes in this correction.",
+    "log_sha256": "32826d94a75019dfe9166adaa00e80ed41dbfbbd2e85c584d1c4e2b6235abc5a",
+    "existing_spi_addrspi_ads124s08_sources_modified": false
+  },
+  "imports": {
+    "result": "PASS",
+    "component_count": 22,
+    "report": "reports/imports-2026.9.0.json"
+  },
+  "builds": {
+    "cpld-readout": {
+      "result": "PASS",
+      "seconds": 17.6,
+      "configuration_sha256": "a156ec890d5de5cb9005829a8b441cd9143013acd863213f402a53331165a71f",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "09911c7f9c64f67ed6322e7bb5a4d31d4c4c111149dd542dec541b8c188f3007",
+          "bytes": 279920
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "48a475734cc696cc11c9bd226cc7145eb4f8d5745d06c5f99c978764f56fe94e",
+          "bytes": 214384
+        }
+      ],
+      "log_sha256": "e48ee5c47f7595007efeca78e80b2adb03b254d8702545a5aa68decad0601a8b",
+      "log": "/home/codex-hil/workspaces/esphome-hil/artifacts/20260930T213855.222517Z-build/run.log"
+    },
+    "cpld-gpio": {
+      "result": "PASS",
+      "seconds": 44.31,
+      "configuration_sha256": "c6c0923652efdc93f8501ccb316d9cef5fb5c189cac09296700497a2a2d32c41",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "8667bb94b1a33e6f803c271f16aff355375caacf47639595387efe00fbb04e9a",
+          "bytes": 312704
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "e13ee90b025cb992fc85f076e9c9a23fa1436faac776b7b5f3316c918438ec22",
+          "bytes": 247168
+        }
+      ],
+      "log_sha256": "d92383a07206a95ecbe5a7c72e558f04e4eb258aa76b46874679854ec0f37f0a",
+      "log": "/home/codex-hil/workspaces/esphome-hil/artifacts/20260930T213913.173308Z-build/run.log"
+    },
+    "cpld-adc-flash": {
+      "result": "PASS",
+      "seconds": 13.42,
+      "configuration_sha256": "885554cb60cb842d04f27b84086b78663b4249715e7624b08900b16159f181d2",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "fc1c3df32eed7947841cd21a9d532d6d54b9fa6926dd8387d5c2bf0643bb97c8",
+          "bytes": 315280
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "7c9e43320ad9053b88ef50cd99a64652bee574167151aa237f3e9402325223ff",
+          "bytes": 249744
+        }
+      ],
+      "log_sha256": "de4ab08ca22ee807c48884161fd4609faf21cbd7bb09ac4b174054328c23e612",
+      "log": "/home/codex-hil/workspaces/esphome-hil/artifacts/20260930T213957.835055Z-build/run.log"
+    }
+  },
+  "hardware": {
+    "operations_performed": false,
+    "reset": false,
+    "programming": false,
+    "bus_reads": false,
+    "new_driver_validation": "NOT RUN",
+    "adc_analog_validation": "NOT RUN",
+    "shared_flash_validation": "NOT RUN"
+  },
+  "limitations": [
+    "SPI delegate provides no ACK/error return; readback and STATUS are partial management checks, not memory data verification.",
+    "Flash provides raw transport/session ownership; no erase/program/geometry/boot implementation without an exact target profile.",
+    "ADC code ID bands and digital ID labels need actual PCB calibration/tables; example values are illustrative.",
+    "CPLD reset or unavailable CS3/I2C can prevent confirmed release; MCU reset does not guarantee hardware release.",
+    "Working build state reused; firmware bit identity and clean remote replay are not claimed.",
+    "Driver software activation does not change physical mode straps or implicitly release GPIO pad levels.",
+    "Actual project tables, optional block capabilities, externally driven input masks and target isolation procedures belong to YAML/application policy."
+  ],
+  "owner_clarification": [
+    "The three drivers must not access or configure Texas Instruments temperature ADCs.",
+    "DRDY belongs to a separate IO expander and is not used by the temperature ADC readiness method.",
+    "YAML selects CPLD blocks and activation after reading PROJECT_ID.",
+    "All boards have I2C; some have a disabled local GPIO expander and some have shared Flash."
+  ]
+}

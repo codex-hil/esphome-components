@@ -483,6 +483,66 @@
       "local_changes": [
         "Standalone IEC 60751 PT100/PT1000 resistance-to-temperature converter."
       ]
+    },
+    {
+      "name": "moduliq_cpld_i2c",
+      "path": "components/moduliq_cpld_i2c",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_i2c",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "ac714ae6fa46a8ea8e552eca537ca83fb82c012ab30bedadcd4bef68492a0d6c",
+        "moduliq_cpld_i2c.cpp": "d27c9254a6fa58670b54064a7edacd83323957792d43bd4c91995df2dd833f32",
+        "moduliq_cpld_i2c.h": "4782776a5e3e7523fa48fa75af6eb2aee001458280b669566f2cabcbb6cef3d1"
+      },
+      "local_changes": [
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
+      ]
+    },
+    {
+      "name": "moduliq_cpld_gpio",
+      "path": "components/moduliq_cpld_gpio",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_gpio",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "362ef822b3c1bc6fc387b9cddc5bc876d90f1aef01788dbeba58966a3d798d41",
+        "moduliq_cpld_gpio.cpp": "f9e44c7d436ce73ac9701510b710f82cdcdb7d2d9491bed2418a5a72ebd80de1",
+        "moduliq_cpld_gpio.h": "d6b0b9e37ee2248a644671edb4d11c9e71d14c15dc3796dae8b4354163eced65"
+      },
+      "local_changes": [
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
+      ]
+    },
+    {
+      "name": "moduliq_cpld_flash",
+      "path": "components/moduliq_cpld_flash",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_flash",
+        "hdl_contract_revision": "2b0752faf76c84b76e593727a427b732e0b44b99"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "77482e67686b35f0ddef09596b9d6e68c84eaa0f9087f3ebe46652c8dc49d4ea",
+        "moduliq_cpld_flash.cpp": "755e799c0a4741aa89ae5024e7f972c370e432d28ad943661355fee0a7da3ed6",
+        "moduliq_cpld_flash.h": "79d69d0ee7457b08ce880df072c00fb9c7c57effd24c0e2cc87fb00a172cc1f9"
+      },
+      "local_changes": [
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
+      ]
     }
   ]
 }
