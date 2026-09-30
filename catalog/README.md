@@ -68,3 +68,11 @@ autorzy ESPHome zachowują swoje oznaczenia. Pełne licencje: [LICENSE.md](../LI
 
 Ten plik generuje `python3 scripts/catalog.py`. Zmiany wyników należy opierać
 na rzeczywistych raportach, nie na samym istnieniu kodu.
+
+## Plan rozwoju CPLD Bridge — poza katalogiem zaimplementowanych komponentów
+
+Właściciel uzgodnił trzy nowe komponenty: I²C readout identyfikacji/statusów
+z opcjonalnym ADC, expander GPIO na CS3 i współdzieloną Flash na CS2.
+[Kontrakt i plan implementacji](../docs/cpld-bridge.md) opisuje istniejący HDL,
+rejestry, pinmux i współpracę driverów. Te drivery nie są jeszcze zaimplementowane
+ani uwzględnione w manifestach/liczbie komponentów lub wynikach PASS powyżej.

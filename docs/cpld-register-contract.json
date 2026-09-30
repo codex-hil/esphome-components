@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "status": "driver_contract_only_not_implemented",
+  "component_count": 3,
+  "hdl_reference": {
+    "repository": "https://github.com/MODULIQ/CPLD_bridge",
+    "branch": "feature/rev11-project-pll",
+    "revision": "18c18ff51ce8a689fd4717d73e6e8332b5c58c64"
+  },
+  "hardware_reference": {
+    "hdl_revision": "fae8341b24469e88b0ff439cdc96f7589da59a50",
+    "new_adc_hardware_verified": false,
+    "shared_flash_hardware_verified": false,
+    "details": "docs/esphome-driver-handoff.md"
+  },
+  "documentation": "docs/esphome-three-components.md",
+  "names_are_proposed": true,
+  "components": [
+    {
+      "name": "moduliq_cpld_i2c",
+      "transport": "existing I2C slave",
+      "address_7bit": "0x50 + GA",
+      "requires_spi": false,
+      "responsibilities": [
+        "PROJECT_ID/REV_ID/PWR_REQ",
+        "GPIO snapshots and board-profile digital head/mezzanine IDs",
+        "single-owner destructive error-counter readout",
+        "optional slow ADC raw-code readout and board-profile resistor-ID decoding"
+      ],
+      "registers": [
+        {
+          "address": "0x00",
+          "name": "PROJECT_ID",
+          "access": "R"
+        },
+        {
+          "address": "0x01",
+          "name": "REV_ID",
+          "access": "R"
+        },
+        {
+          "address": "0x02",
+          "name": "PWR_REQ_ERRIN",
+          "access": "R",
+          "fields": {
+            "3:0": "PWR_REQ",
+            "7:4": "ERRIN"
+          }
+        },
+        {
+          "address": "0x03",
+          "name": "REG_IN_PADS",
+          "access": "R"
+        },
+        {
+          "address": "0x04",
+          "name": "REG_OUT_PADS",
+          "access": "R"
+        },
+        {
+          "address": "0x10..0x13",
+          "name": "ERRIN_COUNTERS",
+          "access": "read-clears",
+          "count": 4,
+          "bits": 8,
+          "overflow": "modulo256",
+          "event": "sampled rising edge",
+          "clear_priority": "clear wins over increment in the same clock cycle"
+        },
+        {
+          "address": "0x20",
+          "name": "FAULT_MASK",
+          "access": "R/W",
+          "valid_mask": "0x0F"
+        },
+        {
+          "address": "0x21",
+          "name": "FAULT_STATUS",
+          "access": "R",
+          "fields": {
+            "3:0": "ERRIN",
+            "7": "sticky fault",
+            "6": "unconnected pll_locked in current top; not reliable"
+          }
+        },
+        {
+          "address": "0x22",
+          "name": "FAULT_CLEAR",
+          "access": "W command",
+          "clear_mask": "0x80"
+        },
+        {
+          "address": "0x30",
+          "name": "ADC_CTRL",
+          "access": "R/W + command",
+          "fields": {
+            "1": "ENABLE R/W reset0",
+            "0": "START W command reads0"
+          },
+          "writes": {
+            "0x00": "disable/abort/clear ADC, restore GPIO",
+            "0x01": "disabled, START ignored",
+            "0x02": "enable only",
+            "0x03": "enable + START"
+          },
+          "read_values": [
+            "0x00",
+            "0x02"
+          ]
+        },
+        {
+          "address": "0x31",
+          "name": "ADC_STATUS",
+          "access": "R",
+          "fields": {
+            "0": "BUSY",
+            "1": "DONE"
+          },
+          "done_cleared_by": [
+            "accepted START",
+            "disable",
+            "reset"
+          ]
+        },
+        {
+          "address": "0x32..0x41",
+          "name": "ADC_RESULTS",
+          "access": "R",
+          "channels": 8,
+          "storage_bits": 16,
+          "byte_order": "little endian",
+          "channel_stride_bytes": 2,
+          "unused_bits": "zero",
+          "atomic_read": "single 16-byte sequential burst"
+        }
+      ],
+      "adc_optional": true,
+      "adc_available_from_revision_id_alone": false,
+      "adc_input_bank": "REG_IN[7:0]",
+      "adc_default_runtime_enable": false,
+      "adc_control_owner": "readout component",
+      "adc_results_read_before_disable": true,
+      "id_decode": "board profile masks/bitfields or calibrated ADC code bands; no universal resistor table",
+      "counter_retry_is_idempotent": false
+    },
+    {
+      "name": "moduliq_cpld_gpio",
+      "transport": "addressed SPI",
+      "subaddress": 3,
+      "requires_latched_cs3_mode": 1,
+      "spi_mode": 0,
+      "bit_order": "MSB first",
+      "transaction": "8-bit command + 8-bit data/dummy under one CS",
+      "response_byte": 2,
+      "command_map": "https://github.com/MODULIQ/CPLD_bridge/blob/e8d225aecaec8ec17b3054724a4d4936dca1ec43/hw/gpio-register-map.json",
+      "proposed_pin_indices": {
+        "0..7": "REG_OUT[0..7]",
+        "8..15": "REG_IN[0..7]"
+      },
+      "adc_enable_override": "upper pad outputs disabled only while I2C ADC_CTRL.ENABLE=1; GPIO registers retained",
+      "adc_disable_behavior": "latest GPIO DIR/OD/data become effective again",
+      "protected_rtd16_inputs": "upper bits3/7, mask0x88",
+      "flash_pinmux": "OUT3/4 reserved; OUT1/2 alias CFG2/1 in Flash mode"
+    },
+    {
+      "name": "moduliq_cpld_flash",
+      "transport": "addressed SPI data on CS2, CFG control on CS3",
+      "subaddress": 2,
+      "requires_latched_cs2_mode": 1,
+      "control_subaddress": 3,
+      "requires_latched_cs3_mode": 1,
+      "spi_mode": "selected by exact memory/device profile; not inferred",
+      "cfg_read_command": "0x23",
+      "cfg_write_command": "0x12",
+      "ownership_bit": 0,
+      "acquire": "CFG | 0x01",
+      "release": "CFG & 0xFE after host CS deassertion",
+      "release_preserves": "all other CFG bits and GPIO DIR/OD/data",
+      "pads": {
+        "MOSI": "REG_OUT3, pin58",
+        "CLK": "REG_OUT4, pin59",
+        "CSn": "SPI_CSn2, pin40",
+        "MISO": "SPI_MISO2, pin34 input-only"
+      },
+      "target_controls": {
+        "OUT1": "CFG[2]",
+        "OUT2": "CFG[1]"
+      },
+      "target_control_levels_unchanged_by_release": true,
+      "shared_cfg_owner": "one serialized helper shared with GPIO; no independent CFG shadow",
+      "memory_part_geometry_boot_sequence": "requires board/device profile",
+      "program_erase_hardware_verified": false
+    }
+  ],
+  "shared_rules": [
+    "Exactly three public components; common context/helpers are internal",
+    "I2C readout does not require CS3; Flash ownership control does",
+    "One destructive counter reader",
+    "ADC reserves upper GPIO only, Flash reserves its lower pins and CS2; preserve unrelated GPIO",
+    "Shared CFG read-modify-write preserves every non-owned bit",
+    "Keep existing ADS124S08 on CS0/CS1 mode1; GPIO CS3 mode0; Flash uses its device mode",
+    "REV_ID is not HDL capabilities/version",
+    "No driver or hardware validation claim from documentation alone"
+  ],
+  "source_snapshot": {
+    "repository": "https://github.com/MODULIQ/CPLD_bridge",
+    "revision": "e8d225aecaec8ec17b3054724a4d4936dca1ec43",
+    "contract_url": "https://github.com/MODULIQ/CPLD_bridge/blob/e8d225aecaec8ec17b3054724a4d4936dca1ec43/hw/esphome-component-contract.json",
+    "relative_paths_refer_to": "CPLD_bridge at source_snapshot.revision"
+  },
+  "gpio_spi_registers": [
+    {
+      "name": "LOWER_DATA",
+      "write": "0x10",
+      "read": "0x21",
+      "reset": "0x00"
+    },
+    {
+      "name": "UPPER_DATA",
+      "write": "0x11",
+      "read": "0x22",
+      "reset": "0x00"
+    },
+    {
+      "name": "CFG",
+      "write": "0x12",
+      "read": "0x23",
+      "reset": "0x06",
+      "bits": {
+        "0": "FLASH_OE: 1=host owns Flash outputs, 0=release CS2/OUT3/OUT4",
+        "1": "FPGA_CRESET output level on OUT2 in Flash mode",
+        "2": "FPGA_PROGRAM_Bn output level on OUT1 in Flash mode",
+        "7:3": "Reserved, stored/read back; no pad effect"
+      }
+    },
+    {
+      "name": "LOWER_DIR",
+      "write": "0x13",
+      "read": "0x26",
+      "reset": "0xFF"
+    },
+    {
+      "name": "UPPER_DIR",
+      "write": "0x14",
+      "read": "0x27",
+      "reset": "0x00"
+    },
+    {
+      "name": "LOWER_OD",
+      "write": "0x15",
+      "read": "0x28",
+      "reset": "0x00"
+    },
+    {
+      "name": "UPPER_OD",
+      "write": "0x16",
+      "read": "0x29",
+      "reset": "0x00"
+    },
+    {
+      "name": "UPPER_PADS",
+      "read": "0x20",
+      "notes": "Two-stage synchronization in SPI clock domain; physical input snapshot at final command edge"
+    },
+    {
+      "name": "LOWER_PADS",
+      "read": "0x25",
+      "notes": "Two-stage synchronization in SPI clock domain; physical input snapshot at final command edge"
+    },
+    {
+      "name": "STATUS",
+      "read": "0x24",
+      "bits": {
+        "5": "latched SPI_CS2_MODE",
+        "4": "latched SPI_CS3_MODE",
+        "3": "CFG[0] Flash ownership",
+        "7:6,2:0": "0"
+      }
+    }
+  ],
+  "gpio_spi_protocol": {
+    "interface": "SPI subaddress 3 when latched SPI_CS3_MODE=1",
+    "mode": 0,
+    "bit_order": "MSB first",
+    "frame": "8-bit command + 8-bit data or dummy; writes commit on last data rising edge; CS aborts framing only"
+  }
+}
