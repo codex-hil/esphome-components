@@ -1,0 +1,211 @@
+{
+  "date": "2026-09-30",
+  "result": "PASS",
+  "scope": "Software implementation, host tests, flashrom interoperability on emulated NOR, ESP32 compilation; no hardware operations",
+  "source": {
+    "repository": "codex-hil/esphome-components",
+    "base_revision": "afd4633c2df5353278d2b560e3b22b255b3d0794",
+    "branch": "feature/moduliq-serprog",
+    "files_sha256": {
+      "components/addrspi/__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
+      "components/addrspi/addrspi.cpp": "9bf3acb2879dd2ee0c07e6d9fa459e12e22b9f1f6b2de0df0d6d1ada68bd6f06",
+      "components/addrspi/addrspi.h": "43eac6febf655fc2b8c8c566ff451832181d842384abfd15903ae0571c323e66",
+      "components/moduliq_cpld_flash/__init__.py": "77482e67686b35f0ddef09596b9d6e68c84eaa0f9087f3ebe46652c8dc49d4ea",
+      "components/moduliq_cpld_flash/moduliq_cpld_flash.cpp": "6efa990333ec2dbb511d4cae520ce975aa09a94c8a6ecd03d0138f0e1ccbe4f5",
+      "components/moduliq_cpld_flash/moduliq_cpld_flash.h": "6be71e97e2d273751ebaede71ebfdc54064adb1a4d239515aca650ed44cdf70d",
+      "components/moduliq_cpld_gpio/__init__.py": "362ef822b3c1bc6fc387b9cddc5bc876d90f1aef01788dbeba58966a3d798d41",
+      "components/moduliq_cpld_gpio/moduliq_cpld_gpio.cpp": "f9e44c7d436ce73ac9701510b710f82cdcdb7d2d9491bed2418a5a72ebd80de1",
+      "components/moduliq_cpld_gpio/moduliq_cpld_gpio.h": "d6b0b9e37ee2248a644671edb4d11c9e71d14c15dc3796dae8b4354163eced65",
+      "components/moduliq_cpld_i2c/__init__.py": "ac714ae6fa46a8ea8e552eca537ca83fb82c012ab30bedadcd4bef68492a0d6c",
+      "components/moduliq_cpld_i2c/moduliq_cpld_i2c.cpp": "d27c9254a6fa58670b54064a7edacd83323957792d43bd4c91995df2dd833f32",
+      "components/moduliq_cpld_i2c/moduliq_cpld_i2c.h": "4782776a5e3e7523fa48fa75af6eb2aee001458280b669566f2cabcbb6cef3d1",
+      "components/moduliq_serprog/__init__.py": "9ecea287f89ad8b4412555097d67a4b88071a6fc406ebe42089a04ad3a432174",
+      "components/moduliq_serprog/moduliq_serprog.cpp": "047a5007d06e5511a2c5fa39dfafb5ca1e5fdfee387516b397b3f42ef5bc3def",
+      "components/moduliq_serprog/moduliq_serprog.h": "8de43a4a939c442d56c936b764020c451d26e5eb703a620bad0b7f741df50945",
+      "components/moduliq_serprog/protocol.cpp": "c4dca4cf10adca660ae8576df09c5f410358d840ce32bbf11bbb3aef043f4f10",
+      "components/moduliq_serprog/protocol.h": "ba955c837c34f934f1e0e15c6f5be5cd27f86e2d448b29f8fe96318a0925af50",
+      "components/spi/__init__.py": "a21138ab3c0e3cf48dd734bc7e20586f1af4d7d80b1f0b9ff5c2fa2004c6427f",
+      "components/spi/spi.cpp": "83f9d294b65a9822ff7f9b7e69f9198c3fe8662c7be15e27641834c6d0e0ad22",
+      "components/spi/spi.h": "bad6a7d95fb7240ea6914aaf1f267640ebb866e030abc290c333a793be73de97",
+      "components/spi/spi_arduino.cpp": "099fbac2e63b2dcae08fcbaf65b657dc56558faf89238055a4eb0177831f867b",
+      "components/spi/spi_esp_idf.cpp": "d8b22d7a53c226fb5bd703e60323f248c94a8479120590c7e0c6f3c9fbfce4cc",
+      "examples/cpld-serprog.yaml": "883d757d1ba271bcc5b302a6270260ee65dce7e07bbc78c1ebc734aa84c9f460",
+      "scripts/test-serprog-flashrom.sh": "ad86e7375f1c60769f2dd4719c6b1989f4ce9a28d64d26fd420bae2c25232f05",
+      "scripts/test-serprog.sh": "3e0cb720af2affd38df72d45fc911ac6cb4f480733656786214be48088408c47",
+      "tests/cpld_components.cpp": "7f41f706374ebd8d3ccffbae9470d75ef9357b5508dcb24ec0f77a77a8ae933b",
+      "tests/cpld_stubs/esphome/components/i2c/i2c.h": "bd4f8ae9188867fbaf49b2270eb1228b07d447c17fab670c1c5d745daea86bc6",
+      "tests/cpld_stubs/esphome/components/sensor/sensor.h": "6ca97df21ee663c2590b8f5c14408218a23df3efcd94023d61f43a2569f01e8d",
+      "tests/cpld_stubs/esphome/components/socket/socket.h": "485ff415ba68a99af792ba012bd1881af05c68f76c7678927becfc7becd9288f",
+      "tests/cpld_stubs/esphome/components/spi/spi.h": "e7b77cb234829c093d3f6d88106d03879e0cb9cf8d6fdbaf07e7cfb54b662a6b",
+      "tests/cpld_stubs/esphome/components/text_sensor/text_sensor.h": "583beb34c967bda34f243b690beb434f0182968ea118f68b8c281697491c6865",
+      "tests/cpld_stubs/esphome/core/automation.h": "42a83b88cfed59e63a3dd35c9a2dda3fbe3910c8108419f81fff3e8d003d9df1",
+      "tests/cpld_stubs/esphome/core/component.h": "0680bec5d2d5a8f96e64902c561d1ba4d43c65645fd8cd74143edbc81cb09eb8",
+      "tests/cpld_stubs/esphome/core/gpio.h": "807ff2d1a048172e0438f055a3a36333651f7a14f9cd8e13b435733bf463b278",
+      "tests/cpld_stubs/esphome/core/hal.h": "81209c52b7bf569998e3f93b394c23a28062e6d4ef1078cd327d520253eeb3ab",
+      "tests/cpld_stubs/esphome/core/log.h": "2b7deece75d67d62a361ccdcff2dce1e0aaf4cfab130e123226d7b62a766d92c",
+      "tests/run-cpld-software.sh": "f7e5a095311be975c4c475b588c67b1e91fd7fa63b44f7b478c9bfff83817b95",
+      "tests/run-serprog-flashrom.sh": "8ab882c6f59073c1fdde6a599fa40552aaad54c5a201de79f1774fb5f44914a9",
+      "tests/run-serprog-software.sh": "1ed02b09868463c6556979ab297d23bda541ea15dc5a3c5c54a77b9001946eba",
+      "tests/serprog_component.cpp": "c268529e836803399098dba4c631ccd111aa3c77f40548b109df8fc66d1843b5",
+      "tests/serprog_flashrom_server.cpp": "48e8cb4d0146de1be7a3b913b1e442add6cc2957ff7b67433a2b96bd18a23f94",
+      "tests/serprog_protocol.cpp": "06d9b4ce1b19c0b0fcf181d6b1cd00e224e2006d7584f103f982cef028bf10fc",
+      "tests/test_cpld_schema.py": "1e307e8feda344e4d2e95ff6480774c8c617da1b3824042ca3c3bc67ed0abc5e",
+      "tests/test_serprog_flashrom.py": "b66198f0bbbd3e6aa70ca1b8080cf1a11d85cb5853c287fb19d3573f8f99588b",
+      "tests/test_serprog_schema.py": "1e48d09cda9b8aad13941fe59847c22e2ff6e04ddd99cf4ed3f03e39136ba73f"
+    },
+    "fingerprint_sha256": "b84cf937f6cde1d1e97288cc95192512a402bd3da193739cc37992b857f55a16"
+  },
+  "audit": {
+    "flashrom_repository": "https://github.com/flashrom/flashrom",
+    "flashrom_revision": "204d0f2184d1c3a268f99443b1034ba18ffe3ad8",
+    "inputs_sha256": {
+      "doc/supported_hw/supported_prog/serprog/serprog-protocol.rst": "b17b7b39b980c5bc9eb70955f145fb903fd67337ccb77112563c824fb40c39bb",
+      "programmers/serprog.c": "f94faeba0d109a1c7b0e6ee23765bf863153fd8b88eb3345eb2755c0328c2906",
+      "spi.c": "9ffb46a6eb83e7df666740acaa1621b25f1f9a07c34d90917f094677bc4a5e26",
+      "spi25.c": "2ba859307d154ea817c53a196a6bef2853b9999979c4972e4d9129c9d8904db2"
+    },
+    "findings": [
+      "Serprog v1 SPI-only requires O_SPIOP and capability negotiation; parallel opbuf is not needed.",
+      "CS spans complete write and read phases; no TCP waits while CS is low.",
+      "Raw transactions cannot determine generic internal busy state. YAML confirms target readiness and memory idle; no opcode database or guessed erase deadline.",
+      "The Flash driver needs a software session reservation in addition to its verified GPIO/CFG lease.",
+      "Independent nested addrspi caches are unsafe on shared address wires; address levels must be reapplied for each frame.",
+      "SPI delegates have no transfer error return; memory protocol/data verification stays with flashrom and cleanup policy."
+    ]
+  },
+  "environment": {
+    "repository": "codex-hil/esphome-hil",
+    "revision": "631bf39899a496578a0cafe1fc34cdad07509158",
+    "nix_identity": {
+      "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+      "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+      "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+    },
+    "esphome": "2026.9.0",
+    "esp_idf": "5.5.5",
+    "python": "3.12.14",
+    "xtensa_gcc": "14.2.0"
+  },
+  "host_tests": {
+    "serprog": {
+      "result": "PASS",
+      "schema_cases": 5,
+      "coverage": [
+        "capability map and lengths",
+        "little-endian framing",
+        "fragmented input and output",
+        "maximum write/read and oversized/zero lengths",
+        "pending readiness and stale tokens",
+        "competitor rejection",
+        "partial requests and preparation timeout",
+        "busy disconnect and disable",
+        "verified release failure/retry",
+        "two simultaneous memory leases with alternating frames on one physical bus and shared address wires",
+        "reentrant Flash calls",
+        "deterministic malformed input with 20000 bytes"
+      ],
+      "log_sha256": "fd8b16d085b444495c893e540dcaf901345cc2104e1c7c824e24c1c4e19dbf2d"
+    },
+    "cpld_regression": {
+      "result": "PASS",
+      "cpp_scenario_groups": 29,
+      "python_cases": 14,
+      "log_sha256": "ad6704ad6b167abbe0635f590cc3a8496b771fe2d7a051455132e90e13da27ae"
+    },
+    "sanitizers": {
+      "result": "PASS",
+      "flags": [
+        "address",
+        "undefined"
+      ],
+      "scope": "production serprog parser, boundaries and deterministic malformed streams",
+      "log_sha256": "9814a053cc995ed02494ba7f19237378effbbfab0309922ccb9dfcabf00bea0c"
+    }
+  },
+  "flashrom_interoperability": {
+    "result": "pass",
+    "client_version": "flashrom v1.7.0 on Linux 6.17.0-20-generic (x86_64)",
+    "client_binary": "/nix/store/n5lqi0bjgjdz43s4vq6w5c83axijcjz9-flashrom-1.7.0/bin/flashrom",
+    "operations": [
+      {
+        "operation": "probe",
+        "exit_code": 0
+      },
+      {
+        "operation": "read-erased",
+        "exit_code": 0
+      },
+      {
+        "operation": "write",
+        "exit_code": 0
+      },
+      {
+        "operation": "verify",
+        "exit_code": 0
+      },
+      {
+        "operation": "read-programmed",
+        "exit_code": 0
+      },
+      {
+        "operation": "erase",
+        "exit_code": 0
+      },
+      {
+        "operation": "read-after-erase",
+        "exit_code": 0
+      }
+    ],
+    "nor_emulator": {
+      "reads": 896,
+      "programs": 512,
+      "erases": 2,
+      "released": 9
+    },
+    "transport": "production moduliq_serprog + CPLDFlash + addrspi, POSIX socket adapter, inert SPI",
+    "disconnect_during_erase": "pass; competitor rejected while busy, reconnect after idle",
+    "hardware_programmed": false,
+    "nixpkgs_revision": "1bc55b9def8165e82073919945c3239903fe4dc2",
+    "binary_sha256": "6050237e5ebdde87bfc3af1bb0c723e91703ef850658b6fc306d988714157c61",
+    "logs_sha256": {
+      "erase.log": "648bd4ce27f286497b1ccf72c1022f2cec319f3256ab4bc0c3a10dde9d488a62",
+      "probe.log": "eb81d0defdae217ffeea5150314febcbd3261e2353c935a11270753677f27d67",
+      "read-after-erase.log": "1fe91277a904a88e117c32a1eb95926e1be39237c807c7f0d9d0452490bfb993",
+      "read-erased.log": "f59cb6baf283cd718302c8e926b315b629e03c1e26bab250f6ba438eee7a1578",
+      "read-programmed.log": "22b838d902ea2e7fb9d8f18db48f5092a238dc9b57a79f22220c2478025ec096",
+      "verify.log": "1fecd6b6bd8716f2329c3ba616f8330d0403a39c521b99bfb4c73c65261dc7b0",
+      "write.log": "828aba7d12b2fcea1c0c021d1ce8e1c17ff4a1e40dbbbdfdd7f57c54e8c389e0"
+    }
+  },
+  "esp32_build": {
+    "result": "PASS",
+    "seconds": 18.62,
+    "configuration_sha256": "883d757d1ba271bcc5b302a6270260ee65dce7e07bbc78c1ebc734aa84c9f460",
+    "firmware": [
+      {
+        "filename": "firmware.factory.bin",
+        "sha256": "34f0932ca6fb169d3d8c6f0f8d931ced95e59626a90c6bee6188e4fac2fa3b91",
+        "bytes": 775744
+      },
+      {
+        "filename": "firmware.ota.bin",
+        "sha256": "ecde606c5bb819254591b043bfa41e58d9358d87fb812a86ae3d299fe85ed6bc",
+        "bytes": 710208
+      }
+    ],
+    "compiler_log_sha256": "b91b4defed871bb4e0f252d9aa34cfb4fa85078851b0b8e6fda13c048a94bc06"
+  },
+  "hardware": {
+    "programmed": false,
+    "reset": false,
+    "serial_or_bus_access": false,
+    "physical_validation": "NOT RUN; explicitly excluded by task"
+  },
+  "limitations": [
+    "Example board preparation/readiness and restore procedure must be provided by PROJECT_ID policy before hardware use.",
+    "Only the bounded SPI half-duplex/automatic-CS command set is supported. Board SPI mode/rate remain in YAML.",
+    "No claim that every flashrom chip algorithm fits the bounded transfer lengths.",
+    "No physical runtime, bus observation or safety guarantee across hardware resets/power loss.",
+    "Clean independent checkout reproduction was not rerun; this is software validation, not new HIL commissioning."
+  ]
+}

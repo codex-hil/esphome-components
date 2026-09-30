@@ -188,6 +188,24 @@
         }
       ],
       "log_sha256": "d92383a07206a95ecbe5a7c72e558f04e4eb258aa76b46874679854ec0f37f0a"
+    },
+    "cpld-serprog": {
+      "result": "PASS",
+      "seconds": 18.62,
+      "configuration_sha256": "883d757d1ba271bcc5b302a6270260ee65dce7e07bbc78c1ebc734aa84c9f460",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "34f0932ca6fb169d3d8c6f0f8d931ced95e59626a90c6bee6188e4fac2fa3b91",
+          "bytes": 775744
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "ecde606c5bb819254591b043bfa41e58d9358d87fb812a86ae3d299fe85ed6bc",
+          "bytes": 710208
+        }
+      ],
+      "compiler_log_sha256": "b91b4defed871bb4e0f252d9aa34cfb4fa85078851b0b8e6fda13c048a94bc06"
     }
   },
   "nix_identity": {

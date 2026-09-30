@@ -40,10 +40,13 @@
       "status": "collected",
       "files_sha256": {
         "__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
-        "addrspi.cpp": "09ac4efd85f59d1a028419b43c994609cff13bb8fff396741da6dbae8f50fe35",
-        "addrspi.h": "b93c91f355a0f4f87f237cfec27603d1009a9b77971c6d421ec836dad00249f2"
+        "addrspi.cpp": "9bf3acb2879dd2ee0c07e6d9fa459e12e22b9f1f6b2de0df0d6d1ada68bd6f06",
+        "addrspi.h": "43eac6febf655fc2b8c8c566ff451832181d842384abfd15903ae0571c323e66"
       },
-      "local_changes": []
+      "local_changes": [
+        "Forward write_array and readiness through nested SPI delegates for raw serprog frames.",
+        "Reapply address wires on every frame; per-instance channel caches are unsafe when mux instances share pins."
+      ]
     },
     {
       "name": "addrspi2",
@@ -537,11 +540,32 @@
       "status": "software-tested; hardware pending",
       "files_sha256": {
         "__init__.py": "77482e67686b35f0ddef09596b9d6e68c84eaa0f9087f3ebe46652c8dc49d4ea",
-        "moduliq_cpld_flash.cpp": "755e799c0a4741aa89ae5024e7f972c370e432d28ad943661355fee0a7da3ed6",
-        "moduliq_cpld_flash.h": "79d69d0ee7457b08ce880df072c00fb9c7c57effd24c0e2cc87fb00a172cc1f9"
+        "moduliq_cpld_flash.cpp": "6efa990333ec2dbb511d4cae520ce975aa09a94c8a6ecd03d0138f0e1ccbe4f5",
+        "moduliq_cpld_flash.h": "6be71e97e2d273751ebaede71ebfdc54064adb1a4d239515aca650ed44cdf70d"
       },
       "local_changes": [
         "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
+      ]
+    },
+    {
+      "name": "moduliq_serprog",
+      "path": "components/moduliq_serprog",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_serprog"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "9ecea287f89ad8b4412555097d67a4b88071a6fc406ebe42089a04ad3a432174",
+        "moduliq_serprog.cpp": "047a5007d06e5511a2c5fa39dfafb5ca1e5fdfee387516b397b3f42ef5bc3def",
+        "moduliq_serprog.h": "8de43a4a939c442d56c936b764020c451d26e5eb703a620bad0b7f741df50945",
+        "protocol.cpp": "c4dca4cf10adca660ae8576df09c5f410358d840ce32bbf11bbb3aef043f4f10",
+        "protocol.h": "ba955c837c34f934f1e0e15c6f5be5cd27f86e2d448b29f8fe96318a0925af50"
+      },
+      "local_changes": [
+        "Optional serprog v1 TCP with raw SPI, YAML readiness and deferred release; see docs/moduliq-serprog.md."
       ]
     }
   ]

@@ -40,6 +40,8 @@ struct SPIBus : spi::SPIComponent {
   bool ignore_release=false, ignore_data=false;
   int corrupt_cfg_reads=0, corrupt_after_acquire=0;
   std::function<void()> during_flash, before_begin;
+  std::function<uint8_t(const std::vector<uint8_t> &)> flash_read;
+  std::function<void(const std::vector<uint8_t> &)> flash_end;
   SPIBus() {
     reg[0x21]=0xA5; reg[0x22]=0x5A; reg[0x23]=0xA6;
     reg[0x26]=0xFF; reg[0x27]=0xFF; reg[0x28]=0xA0; reg[0x29]=0x11;
@@ -64,11 +66,13 @@ void Delegate::end_transaction() {
   assert(bus->active);
   if(frame.channel==3) assert(frame.tx.size()==2);
   bus->active=false; bus->cs.value=true; bus->frames.push_back(frame);
+  if (frame.channel==2 && bus->flash_end) bus->flash_end(frame.tx);
 }
 uint8_t Delegate::transfer(uint8_t value) {
   assert(bus->active); frame.tx.push_back(value);
   if(frame.channel!=3) {
     if(frame.channel==2 && bus->during_flash) bus->during_flash();
+    if (frame.channel==2 && bus->flash_read) return bus->flash_read(frame.tx);
     return value ^ 0xFF;
   }
   if(frame.tx.size()!=2) return 0;
@@ -365,7 +369,11 @@ void yaml_activation_tests() {
   assert(f.bus.frames.empty());
   groups += 3;
 }
+
+#ifndef SERPROG_HARNESS
 int main() {
   gpio_tests(); adc_tests(); readout_tests(); flash_tests(); nested_address_test(); yaml_activation_tests();
   std::cout << "PASS: " << groups << " CPLD C++ scenario groups; actual drivers + addrspi; no hardware\n";
 }
+
+#endif

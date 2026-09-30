@@ -31,6 +31,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [moduliq_cpld_i2c](../components/moduliq_cpld_i2c) | CPLD I²C: identyfikacja/statusy/liczniki i opcjonalny ADC | PASS | [cpld-readout](../examples/cpld-readout.yaml): PASS; [cpld-gpio](../examples/cpld-gpio.yaml): PASS; [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_i2c) |
 | [moduliq_cpld_gpio](../components/moduliq_cpld_gpio) | CPLD CS3: dwa banki GPIO, DIR/OD i wspólny CFG | PASS | [cpld-gpio](../examples/cpld-gpio.yaml): PASS; [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_gpio) |
 | [moduliq_cpld_flash](../components/moduliq_cpld_flash) | CPLD CS2: współdzielona Flash, transport i acquire/release przez CS3 | PASS | [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_flash) |
+| [moduliq_serprog](../components/moduliq_serprog) | serprog TCP: surowe SPI dla flashrom, polityka targetu w YAML | PASS | [cpld-serprog](../examples/cpld-serprog.yaml): PASS | [Rozwój lokalny](../components/moduliq_serprog) |
 
 ## Wybór wariantów i zależności
 

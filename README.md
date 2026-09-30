@@ -145,3 +145,11 @@ po odczycie PROJECT_ID; nie ma automatycznych profili płyt ani powiązania po G
 
 Weryfikacja obejmuje software i kompilację. W tej pracy nie programowano,
 nie resetowano i nie odczytywano sprzętu.
+
+## Opcjonalny programator Flash przez TCP
+
+[`moduliq_serprog`](docs/moduliq-serprog.md) przekazuje surowe transakcje SPI
+klienta flashrom przez istniejący driver Flash. YAML wybiera aktywację po
+PROJECT_ID, potwierdza gotowość targetu i zakończenie operacji pamięci przed jej
+oddaniem. [Przykład](examples/cpld-serprog.yaml) jest domyślnie wyłączony.
+Testy obejmują rzeczywisty klient flashrom i emulowaną NOR; sprzętu nie programowano.

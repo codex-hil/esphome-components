@@ -14,6 +14,8 @@ class SPIClient {};
 class SPIDelegate {
  public:
   virtual ~SPIDelegate()=default;
+  virtual bool is_ready() { return true; }
+  virtual void write_array(const uint8_t *data,size_t size) { for(size_t i=0;i<size;i++) transfer(data[i]); }
   virtual void begin_transaction()=0;
   virtual void end_transaction()=0;
   virtual uint8_t transfer(uint8_t)=0;
@@ -35,6 +37,7 @@ class SPIDevice : public SPIClient {
   void set_mode(SPIMode mode) { mode_=mode; }
   void set_data_rate(uint32_t rate) { rate_=rate; }
   void spi_setup() { delegate_=parent_->register_device(this,mode_,O,rate_,cs_,false,false); }
+  bool spi_is_ready() { return delegate_ && delegate_->is_ready(); }
   void enable() { delegate_->begin_transaction(); }
   void disable() { delegate_->end_transaction(); }
   uint8_t transfer_byte(uint8_t data) { return delegate_->transfer(data); }

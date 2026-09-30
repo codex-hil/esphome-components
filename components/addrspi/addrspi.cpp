@@ -42,9 +42,8 @@ void ADDRSPIComponent::select_channel(uint8_t channel) {
     return;
   }
 
-  if (channel == current_channel_) {
-    return;  // Already on correct channel
-  }
+  // Distinct nested mux instances may share physical address pins. Their local
+  // cached channels cannot establish the current wire levels; reapply every frame.
 
   ESP_LOGD(TAG, "Selecting channel %d", channel);
   current_channel_ = channel;
@@ -88,6 +87,8 @@ void ADDRSPISPIDelegate::transfer(const uint8_t *txbuf, uint8_t *rxbuf, size_t l
 void ADDRSPISPIDelegate::write(uint16_t data, size_t num_bits) { delegate_->write(data, num_bits); }
 
 void ADDRSPISPIDelegate::write16(uint16_t data) { delegate_->write16(data); }
+
+void ADDRSPISPIDelegate::write_array(const uint8_t *data, size_t length) { delegate_->write_array(data, length); }
 
 void ADDRSPISPIDelegate::read_array(uint8_t *data, size_t length) { delegate_->read_array(data, length); }
 

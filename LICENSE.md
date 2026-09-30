@@ -24,3 +24,8 @@ The locally authored `components/rtd` uses GPL-3.0-only for C++ and MIT for
 Python, as identified by SPDX headers. It independently implements the standard
 Callendar–Van Dusen equations; its numerical model is also used in Wizath’s ADC
 driver. It does not change any imported component’s license.
+
+The locally authored `components/moduliq_serprog` uses GPL-3.0-only for C++
+and MIT for Python. Its independent protocol implementation follows the public
+serprog specification; the flashrom client source is an audit input, not vendored
+implementation code. Changes to imported addrspi preserve its existing license.

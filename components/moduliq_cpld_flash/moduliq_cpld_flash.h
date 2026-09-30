@@ -26,8 +26,21 @@ class CPLDFlash : public Component,
   bool release();
   // Recommended bounded transaction: always attempts release, including invalid-buffer paths.
   bool transaction(const uint8_t *tx, uint8_t *rx, size_t size, bool target_ready);
+  // Cooperative-loop session lease, retained through disconnected-device cleanup.
+  bool reserve_session(const void *owner);
+  bool acquire_session(const void *owner, bool target_ready);
+  bool transfer_session(const void *owner, const uint8_t *tx, size_t write_size, uint8_t *rx, size_t read_size);
+  bool release_session(const void *owner, bool device_idle);
+  bool end_session(const void *owner);
+  static constexpr size_t MAX_TRANSFER = 4096;
   bool owned() const { return owned_; }
  protected:
+  bool acquire_(bool target_ready);
+  bool release_();
+  bool transfer_split_(const uint8_t *tx, size_t write_size, uint8_t *rx, size_t read_size);
+  const void *session_owner_{nullptr};
+  bool session_dirty_{false};
+  static CPLDFlash *bus_active_;
   void report_(const char *state, bool warning);
   moduliq_cpld_gpio::CPLDGPIO *gpio_{nullptr};
   text_sensor::TextSensor *status_{nullptr};

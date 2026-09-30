@@ -15,6 +15,7 @@ class ADDRSPISPIDelegate : public spi::SPIDelegate {
   ADDRSPISPIDelegate(ADDRSPIComponent *parent, uint8_t channel, spi::SPIDelegate *delegate)
       : parent_(parent), channel_(channel), delegate_(delegate) {}
 
+  bool is_ready() override { return delegate_ && delegate_->is_ready(); }
   void begin_transaction() override;
   void end_transaction() override;
   uint8_t transfer(uint8_t data) override;
@@ -23,6 +24,7 @@ class ADDRSPISPIDelegate : public spi::SPIDelegate {
   void write(uint16_t data, size_t num_bits) override;
   void write16(uint16_t data) override;
   void read_array(uint8_t *data, size_t length) override;
+  void write_array(const uint8_t *data, size_t length) override;
 
  protected:
   ADDRSPIComponent *parent_;

@@ -1,0 +1,154 @@
+# Compile-only policy example; no target procedure inferred from PROJECT_ID.
+esphome:
+  name: cpld-serprog
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+mdns:
+  disabled: true
+logger:
+  level: DEBUG
+external_components:
+- source:
+    type: local
+    path: ../components
+  components:
+  - spi
+  - addrspi
+  - moduliq_cpld_i2c
+  - moduliq_cpld_gpio
+  - moduliq_cpld_flash
+  - moduliq_serprog
+spi:
+  id: bridge_spi
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+addrspi:
+- id: module_mux
+  spi_id: bridge_spi
+  address_pins:
+  - GPIO2
+  - GPIO4
+  - GPIO13
+  - GPIO18
+  channels:
+  - bus_id: module0
+    channel: 0
+- id: mux
+  spi_id: module0
+  address_pins:
+  - GPIO16
+  - GPIO17
+  channels:
+  - bus_id: mux_ch2
+    channel: 2
+  - bus_id: mux_ch3
+    channel: 3
+i2c:
+  id: bridge_i2c
+  sda: GPIO33
+  scl: GPIO32
+  scan: false
+moduliq_cpld_gpio:
+  id: bridge_gpio
+  spi_id: mux_ch3
+  cs_pin:
+    number: GPIO15
+    allow_other_uses: true
+  module_address: 0
+  upper_input_mask: 255
+  enabled: false
+moduliq_cpld_i2c:
+  id: readout
+  i2c_id: bridge_i2c
+  module_address: 0
+  project_id:
+    name: Project ID
+    on_value:
+      then:
+      - lambda: "// Illustrative PROJECT_ID; replace with the exact application board\
+          \ table.\n// Keep GPIO/Flash enabled until on_released if a session is draining.\n\
+          bool supported = x == 0x42;\nid(flash_programmer).set_enabled(supported);\n\
+          if (supported) {\n  id(bridge_gpio).set_enabled(true);\n  id(target_flash).set_enabled(true);\n\
+          }"
+moduliq_cpld_flash:
+  id: target_flash
+  gpio_id: bridge_gpio
+  target_profile: compile_only_no_hardware_assumptions
+  spi_id: mux_ch2
+  cs_pin:
+    number: GPIO15
+    allow_other_uses: true
+  spi_mode: MODE0
+  data_rate: 100kHz
+  status:
+    name: Shared Flash ownership
+  enabled: false
+output:
+- platform: gpio
+  id: example_open_drain
+  pin:
+    moduliq_cpld_gpio: bridge_gpio
+    number: 5
+    mode:
+      output: true
+      open_drain: true
+wifi:
+  ssid: compile-only-network
+  password: compile-only-password
+globals:
+- id: target_is_ready
+  type: bool
+  restore_value: false
+  initial_value: 'false'
+moduliq_serprog:
+  id: flash_programmer
+  flash_id: target_flash
+  port: 6054
+  enabled: false
+  on_prepare:
+    then:
+    - lambda: id(prepare_target).execute(session);
+  on_release_requested:
+    then:
+    - script.stop: prepare_target
+    - lambda: id(wait_flash_idle).execute(session);
+  on_released:
+    then:
+    - script.stop: wait_flash_idle
+    - lambda: '// Restore the exact board only here, after verified ownership handback.
+
+        id(target_is_ready) = false;'
+script:
+- id: prepare_target
+  mode: single
+  parameters:
+    session_token: uint32_t
+  then:
+  - lambda: '// Run the PROJECT_ID-specific isolation/reset procedure here.
+
+      // Its independently confirmed readiness must set target_is_ready=true.
+
+      // This compile-only example deliberately provides no readiness confirmation.'
+  - wait_until:
+      condition:
+        lambda: return id(target_is_ready);
+      timeout: 20s
+  - lambda: if (id(target_is_ready)) id(flash_programmer).confirm_target_ready(session_token);
+- id: wait_flash_idle
+  mode: single
+  parameters:
+    session_token: uint32_t
+  then:
+  - while:
+      condition:
+        lambda: return id(flash_programmer).release_pending() && id(flash_programmer).current_session() == session_token;
+      then:
+      - lambda: "// Example policy ONLY for a board-confirmed SPI NOR profile using\
+          \ RDSR 0x05,\n// busy bit0. Not valid for every memory. No program/erase\
+          \ algorithms here.\nuint8_t command = 0x05, status = 0xFF;\nif (id(flash_programmer).cleanup_transfer(session_token,\
+          \ &command, 1, &status, 1)\n    && status != 0xFF && (status & 1) == 0)\n\
+          \  id(flash_programmer).confirm_release_ready(session_token);"
+      - delay: 100ms

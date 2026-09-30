@@ -56,6 +56,9 @@
     "moduliq_cpld_i2c": {
       "result": "PASS"
     },
+    "moduliq_serprog": {
+      "result": "PASS"
+    },
     "rtd": {
       "result": "PASS"
     },

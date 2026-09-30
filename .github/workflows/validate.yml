@@ -24,3 +24,5 @@ jobs:
         run: PATH="$PWD/.venv/bin:$PATH" ./scripts/test-rtd.sh
       - name: Test CPLD drivers, ownership and YAML (software only)
         run: ./tests/run-cpld-software.sh "$PWD/.venv/bin/python"
+      - name: Test serprog protocol, TCP lifecycle and YAML (software only)
+        run: ./tests/run-serprog-software.sh "$PWD/.venv/bin/python"
