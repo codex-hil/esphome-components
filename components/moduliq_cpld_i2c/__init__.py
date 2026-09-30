@@ -38,6 +38,7 @@ ADC_CHANNEL = cv.Schema({
     cv.Optional("bands", default=[]): cv.ensure_list(BAND),
 })
 ADC = cv.Schema({
+    cv.Optional("enabled", default=False): cv.boolean,
     cv.Required("bits"): cv.one_of(8, 9, 10, int=True),
     cv.Optional("timeout", default="500ms"): cv.positive_time_period_milliseconds,
     cv.Optional("channels", default=[]): cv.ensure_list(ADC_CHANNEL),
@@ -45,7 +46,6 @@ ADC = cv.Schema({
 SCHEMA = {
     cv.GenerateID(): cv.declare_id(Readout),
     cv.Required("module_address"): cv.int_range(min=0, max=15),
-    cv.Required("board_profile"): cv.one_of("generic", "rtd16_rev10"),
     cv.Optional("gpio_id"): cv.use_id(GPIO),
     cv.Optional("status"): text_sensor.text_sensor_schema(),
     cv.Optional("digital_ids", default=[]): cv.ensure_list(DIGITAL),
@@ -71,14 +71,10 @@ def validate(config):
             raise cv.Invalid("xor_mask must be inside the digital ID mask")
         if any(code & ~(mask >> shift) for code in field["codes"]):
             raise cv.Invalid("Digital ID code is outside mask/shift")
-        if config["board_profile"] == "rtd16_rev10" and field["bank"] == "upper" and mask & 0x88:
-            raise cv.Invalid("RTD16 DRDY bits3/7 are not digital ID bits")
     counters = [item["channel"] for item in config["error_counters"]]
     if len(counters) != len(set(counters)):
         raise cv.Invalid("Each destructive error counter has one consumer")
     if "adc" in config:
-        if config["board_profile"] == "rtd16_rev10":
-            raise cv.Invalid("RTD16 rev1.0 image/wiring has no identification ADC")
         adc = config["adc"]
         if adc["timeout"].total_milliseconds < {8: 40, 9: 90, 10: 220}[adc["bits"]]:
             raise cv.Invalid("ADC timeout is shorter than the default HDL sweep plus margin")
@@ -118,8 +114,8 @@ def final_validate(config):
             raise cv.Invalid("One readout/ADC/counter owner per I2C module")
     if "gpio_id" in config:
         parent = declared(config["gpio_id"])
-        if parent["module_address"] != config["module_address"] or parent["board_profile"] != config["board_profile"]:
-            raise cv.Invalid("gpio_id must refer to the same GA and board profile")
+        if parent["module_address"] != config["module_address"]:
+            raise cv.Invalid("gpio_id must refer to the same module_address (GA)")
     return config
 
 
@@ -130,7 +126,6 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await i2c.register_i2c_device(var, config)
-    cg.add(var.set_rtd16(config["board_profile"] == "rtd16_rev10"))
     if "gpio_id" in config:
         cg.add(var.set_gpio(await cg.get_variable(config["gpio_id"])))
     for index, key in enumerate(NUMERIC):
@@ -148,6 +143,7 @@ async def to_code(config):
     if "adc" in config:
         adc = config["adc"]
         cg.add(var.configure_adc(adc["bits"], adc["timeout"].total_milliseconds))
+        cg.add(var.set_adc_enabled(adc["enabled"]))
         for item in adc["channels"]:
             channel = item["channel"]
             if "raw" in item:

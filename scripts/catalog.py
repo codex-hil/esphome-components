@@ -7,7 +7,7 @@ entries = json.loads((R/'catalog/components.json').read_text())['components']
 imports = json.loads((R/'reports/imports-2026.9.0.json').read_text())['components']
 buildfile = R/'reports/builds-2026.9.0.json'
 builds = json.loads(buildfile.read_text())['examples'] if buildfile.exists() else {}
-coverage = {'cpld-readout':['moduliq_cpld_i2c'], 'cpld-rtd16':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
+coverage = {'cpld-readout':['moduliq_cpld_i2c'], 'cpld-gpio':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
             'ads8166':['ads8166'], 'dacx0504':['dacx0504'], 'max112xx':['max112xx'], 'mcp3208':['mcp3208']}
 desc = {
  'moduliq_cpld_i2c':'CPLD I²C: identyfikacja/statusy/liczniki i opcjonalny ADC',

@@ -97,11 +97,12 @@ struct Fixture {
     mux.set_spi_parent(&bus);
     mux.set_address_pins({&bus.address[0],&bus.address[1]}); mux.setup();
     for(uint8_t i=0;i<4;i++) { channels[i].set_parent(&mux); channels[i].set_channel(i); }
+    gpio.set_initial_enabled(true);
     gpio.set_spi_parent(&channels[3]); gpio.set_cs_pin(&bus.cs);
     gpio.set_input_masks(0,upper_mask); gpio.setup();
   }
   void init_flash(CPLDFlash &flash) {
-    flash.set_gpio(&gpio); flash.set_spi_parent(&channels[2]); flash.set_cs_pin(&bus.cs);
+    flash.set_enabled(true); flash.set_gpio(&gpio); flash.set_spi_parent(&channels[2]); flash.set_cs_pin(&bus.cs);
     flash.set_target_profile("test_part"); flash.set_mode(spi::MODE3); flash.setup();
   }
 };
@@ -143,7 +144,7 @@ struct I2CBus : i2c::I2CBus {
 void init_reader(CPLDReadout &reader,I2CBus &bus,Fixture *fixture=nullptr,bool adc=false) {
   reader.set_i2c_bus(&bus);
   if(fixture) reader.set_gpio(&fixture->gpio);
-  if(adc) reader.configure_adc(10,500);
+  if(adc) { reader.configure_adc(10,500); reader.set_adc_enabled(true); }
   reader.setup(); assert(!reader.is_failed());
 }
 int groups=0;
@@ -170,7 +171,7 @@ void gpio_tests() {
   f.gpio.release_upper(&owner2); assert(f.gpio.upper_reserved());
   f.gpio.release_upper(&owner1); assert(f.gpio.write_pin(8,true));
   assert(!f.gpio.configure_pin(9,gpio::FLAG_INPUT|gpio::FLAG_OUTPUT));
-  Fixture unavailable(0); assert(unavailable.gpio.is_failed());
+  Fixture unavailable(0); assert(!unavailable.gpio.ready());
   Fixture failed_bank;
   CPLDFlash flash; failed_bank.init_flash(flash); assert(flash.acquire(true));
   failed_bank.bus.ignore_data=true;
@@ -234,16 +235,17 @@ void readout_tests() {
   I2CBus bus; CPLDReadout r; sensor::Sensor count,pwr,err,fault; text_sensor::TextSensor id;
   r.set_counter(0,&count); r.set_numeric(2,&pwr); r.set_numeric(3,&err); r.set_numeric(7,&fault);
   r.add_digital_id(true,0x70,4,0x70,&id); r.add_digital_code(0,5,"mezz5");
-  r.set_rtd16(true); init_reader(r,bus);
+  init_reader(r,bus);
   bus.reg[0x10]=255; r.update(); assert(count.states.back()==255 && bus.reg[0x10]==0);
   assert(pwr.states.back()==5 && err.states.back()==11 && fault.states.back()==0x8F);
   assert(id.states.back()=="mezz5");
   r.update(); assert(count.states.back()==0);
   bus.fail_read_reg=0x10; bus.fail_reads=1; bus.reg[0x10]=9;
   int reads=bus.reads(0x10); r.update(); assert(bus.reads(0x10)==reads+1 && std::isnan(count.states.back()));
-  for(const auto &op:bus.ops) assert(op.reg<0x30); // Old RTD image never sees ADC_CTRL.
-  I2CBus wrong; wrong.reg[1]=0x11; CPLDReadout mismatch; mismatch.set_i2c_bus(&wrong); mismatch.set_rtd16(true); mismatch.setup();
-  assert(mismatch.is_failed());
+  for(const auto &op:bus.ops) assert(op.reg<0x30); // Without explicit ADC activation, only the I2C readout block is touched.
+  I2CBus other_board; other_board.reg[0]=0x42; other_board.reg[1]=0x99;
+  CPLDReadout generic; init_reader(generic,other_board);
+  assert(!generic.is_failed()); // All PROJECT_ID/REV_ID values are data for YAML.
   // ADC readout is also valid without a GPIO/SPI component or reservation helper.
   I2CBus standalone; CPLDReadout adc; sensor::Sensor raw;
   adc.set_adc_raw(0,&raw); init_reader(adc,standalone,nullptr,true);
@@ -292,15 +294,15 @@ void flash_tests() {
   assert(flash.transaction(tx,rx,4,true)); assert(f.gpio.upper_reserved());
   i2c.done(); test_millis+=5; r.loop(); assert(!f.gpio.upper_reserved());
   // Separate addrspi clients maintain their own device modes.
-  spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST,spi::CLOCK_POLARITY_LOW,spi::CLOCK_PHASE_TRAILING,static_cast<spi::SPIDataRate>(100000)> ads[2];
-  for(uint8_t i=0;i<2;i++) { ads[i].set_spi_parent(&f.channels[i]); ads[i].spi_setup(); ads[i].enable(); ads[i].transfer_byte(0x12); ads[i].disable(); }
+  spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST,spi::CLOCK_POLARITY_LOW,spi::CLOCK_PHASE_TRAILING,static_cast<spi::SPIDataRate>(100000)> clients[2];
+  for(uint8_t i=0;i<2;i++) { clients[i].set_spi_parent(&f.channels[i]); clients[i].spi_setup(); clients[i].enable(); clients[i].transfer_byte(0x12); clients[i].disable(); }
   auto n=f.bus.frames.size(); assert(f.bus.frames[n-2].channel==0 && f.bus.frames[n-2].mode==spi::MODE1);
   assert(f.bus.frames[n-1].channel==1 && f.bus.frames[n-1].mode==spi::MODE1);
   bool saw_flash_mode3=false; for(const auto &frame:f.bus.frames) if(frame.channel==2) { assert(frame.mode==spi::MODE3); saw_flash_mode3=true; }
   assert(saw_flash_mode3);
   // Already-owned hardware must not be stolen or cleared by a failed acquire.
   f.bus.reg[0x23]=0xA1; assert(!flash.acquire(true)); assert(f.bus.reg[0x23]==0xA1);
-  Fixture no_flash(0x10); CPLDFlash unavailable; no_flash.init_flash(unavailable); assert(unavailable.is_failed());
+  Fixture no_flash(0x10); CPLDFlash unavailable; no_flash.init_flash(unavailable); assert(!unavailable.acquire(true));
   groups+=7;
 }
 void nested_address_test() {
@@ -318,15 +320,52 @@ void nested_address_test() {
   bus.before_begin = [&]() {
     assert(ga[0].value && !ga[1].value && !ga[2].value && ga[3].value);
   };
-  CPLDGPIO gpio; gpio.set_spi_parent(&chip3); gpio.set_input_masks(0,0xFF); gpio.setup();
+  CPLDGPIO gpio; gpio.set_initial_enabled(true); gpio.set_spi_parent(&chip3); gpio.set_input_masks(0,0xFF); gpio.setup();
   assert(gpio.ready());
-  CPLDFlash flash; flash.set_gpio(&gpio); flash.set_spi_parent(&chip2); flash.setup();
+  CPLDFlash flash; flash.set_enabled(true); flash.set_gpio(&gpio); flash.set_spi_parent(&chip2); flash.setup();
   uint8_t tx[]={0x9F,0},rx[2];
   assert(flash.transaction(tx,rx,2,true));
   assert(rx[0]==0x60 && bus.reg[0x23]==0xA6);
   groups++;
 }
+void yaml_activation_tests() {
+  Fixture f;
+  assert(f.gpio.set_enabled(false));
+  f.bus.frames.clear();
+  CPLDFlash flash; flash.set_gpio(&f.gpio); flash.set_spi_parent(&f.channels[2]); flash.setup();
+  assert(!flash.acquire(true) && !f.gpio.read_pin(0,f.bus.address[0].value));
+  assert(!f.gpio.write_pin(0,true) && f.bus.frames.empty());
+  moduliq_cpld_gpio::CPLDGPIOPin pin; pin.set_parent(&f.gpio); pin.set_pin(5);
+  pin.set_flags(gpio::FLAG_OUTPUT | gpio::FLAG_OPEN_DRAIN); pin.setup(); pin.digital_write(false);
+  assert(f.bus.frames.empty());
+  assert(f.gpio.set_enabled(true));
+  assert((f.bus.reg[0x21]&0x20)==0 && (f.bus.reg[0x26]&0x20) && (f.bus.reg[0x28]&0x20));
+  flash.set_enabled(true); assert(flash.acquire(true));
+  assert(!f.gpio.set_enabled(false)); // Disabling the shared owner cannot abandon an active lease.
+  assert(flash.set_enabled(false)); assert(f.gpio.set_enabled(false));
+  f.bus.frames.clear();
+  assert(!flash.acquire(true) && f.bus.frames.empty());
+  assert(f.gpio.set_enabled(true)); flash.set_enabled(true); assert(flash.acquire(true));
+  f.bus.during_flash = [&]() { assert(!flash.set_enabled(false)); };
+  uint8_t tx[]={0x9F,0},rx[2]; assert(flash.transfer(tx,rx,2));
+  f.bus.during_flash = {}; test_millis += 100; flash.loop();
+  assert(!flash.owned() && (f.bus.reg[0x23]&1)==0);
+  I2CBus bus; CPLDReadout r; r.configure_adc(10,500); init_reader(r,bus);
+  r.update(); for (auto &op : bus.ops) assert(op.reg < 0x30);
+  assert(r.set_adc_enabled(true)); r.update();
+  bus.fail_write_reg=0x30; bus.fail_writes=1;
+  assert(!r.set_adc_enabled(false)); // Cancellation must continue cleanup even after software deactivation.
+  test_millis += 100; r.loop(); assert(bus.reg[0x30]==0);
+  bus.ops.clear(); r.update(); for (auto &op : bus.ops) assert(op.reg < 0x30);
+  // A fresh disabled GPIO never even registers a device or probes a disabled expander.
+  auto registrations = f.bus.delegates.size();
+  CPLDGPIO untouched; untouched.set_spi_parent(&f.channels[3]); untouched.setup();
+  assert(f.bus.delegates.size() == registrations);
+  f.bus.frames.clear(); assert(!untouched.ready()); assert(!untouched.write_pin(1,true));
+  assert(f.bus.frames.empty());
+  groups += 3;
+}
 int main() {
-  gpio_tests(); adc_tests(); readout_tests(); flash_tests(); nested_address_test();
+  gpio_tests(); adc_tests(); readout_tests(); flash_tests(); nested_address_test(); yaml_activation_tests();
   std::cout << "PASS: " << groups << " CPLD C++ scenario groups; actual drivers + addrspi; no hardware\n";
 }

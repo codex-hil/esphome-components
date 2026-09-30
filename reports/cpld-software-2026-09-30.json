@@ -187,5 +187,7 @@
     "ADC code ID bands and digital ID labels need actual PCB calibration/tables; example values are illustrative.",
     "CPLD reset or unavailable CS3/I2C can prevent confirmed release; MCU reset does not guarantee hardware release.",
     "Working build state reused; firmware bit identity and clean remote replay are not claimed."
-  ]
+  ],
+  "historical_scope": "Original implementation before owner clarification; generic independent implementation supersedes its board/temperature assumptions.",
+  "superseded_by": "reports/cpld-independent-software-2026-09-30.json"
 }

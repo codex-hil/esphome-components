@@ -29,19 +29,23 @@ bool CPLDReadout::disable_adc_() {
   uint8_t ctrl = 0xFF;
   return write_byte(0x30, 0) && read_(0x30, &ctrl, 1) && ctrl == 0;
 }
+bool CPLDReadout::set_adc_enabled(bool value) {
+  if (value && !adc_configured_) return false;
+  if (value && !adc_enabled_) adc_needs_cleanup_ = true;
+  adc_enabled_ = value;
+  if (!value && state_ == ADCState::WAITING) finish_adc_(false, "adc_cancelled");
+  return state_ != ADCState::CLEANUP;
+}
 void CPLDReadout::setup() {
   uint8_t identity[2];
   if (!read_(0, identity, sizeof(identity))) { report_("identity_read_failed", true); mark_failed(); return; }
-  if (rtd16_ && (identity[0] != 3 || identity[1] != 0x10)) {
-    report_("board_profile_mismatch", true); mark_failed(); return;
-  }
-  // Only an explicitly ADC-capable profile is touched. Old images get no 0x30 access.
+  // Only YAML/application activation allows access to the optional CPLD ADC block.
   if (adc_enabled_) {
     if (!reserve_()) { report_("adc_reservation_failed", true); mark_failed(); return; }
     if (!disable_adc_()) {
       state_ = ADCState::CLEANUP; pending_reason_ = "adc_initial_disable_failed";
       report_(pending_reason_, true);
-    } else unreserve_();
+    } else { adc_needs_cleanup_ = false; unreserve_(); }
   }
 }
 void CPLDReadout::update() {
@@ -79,6 +83,14 @@ void CPLDReadout::update() {
   if (!readout_valid_) report_("readout_incomplete", true);
   else report_("ok", false);
   if (!adc_enabled_) return;
+  if (adc_needs_cleanup_) {
+    if (!reserve_()) { report_("adc_reservation_failed", true); return; }
+    if (!disable_adc_()) {
+      state_ = ADCState::CLEANUP; pending_reason_ = "adc_initial_disable_failed";
+      polled_ms_ = millis(); report_(pending_reason_, true); return;
+    }
+    adc_needs_cleanup_ = false; unreserve_();
+  }
   if (!reserve_()) { report_("adc_reservation_failed", true); return; }
   pending_valid_ = false; measurement_pending_ = true;
   started_ms_ = polled_ms_ = millis();
@@ -118,7 +130,7 @@ void CPLDReadout::loop() {
     polled_ms_ = now;
     if (!reserved_ && !reserve_()) return;
     if (disable_adc_()) {
-      unreserve_(); state_ = ADCState::IDLE;
+      adc_needs_cleanup_ = false; unreserve_(); state_ = ADCState::IDLE;
       if (measurement_pending_) publish_adc_();
       else report_("ok", false);
     }
@@ -140,7 +152,7 @@ void CPLDReadout::loop() {
   finish_adc_(true, "ok");
 }
 void CPLDReadout::on_shutdown() {
-  if (adc_enabled_ && reserved_ && disable_adc_()) unreserve_();
+  if (reserved_ && disable_adc_()) unreserve_();
 }
 void CPLDReadout::dump_config() {
   ESP_LOGCONFIG(TAG, "CPLD I2C readout address 0x%02X; optional ADC %s", address_, adc_enabled_ ? "enabled explicitly" : "disabled");

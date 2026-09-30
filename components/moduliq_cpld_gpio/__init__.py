@@ -14,12 +14,6 @@ Pin = ns.class_("CPLDGPIOPin", cg.GPIOPin)
 
 
 def profile(config):
-    if config["board_profile"] == "rtd16_rev10":
-        config.setdefault("upper_input_mask", 0xFF)
-        if config["upper_input_mask"] & 0x88 != 0x88:
-            raise cv.Invalid("RTD16 REG_IN3/7 are DRDY and must remain inputs (mask 0x88)")
-    elif "upper_input_mask" not in config:
-        raise cv.Invalid("generic board_profile requires explicit upper_input_mask for external drivers/ID straps")
     if config["spi_mode"] != "MODE0":
         raise cv.Invalid("CPLD GPIO requires SPI mode0")
     if config["data_rate"] > 100000:
@@ -30,8 +24,8 @@ def profile(config):
 CONFIG_SCHEMA = cv.All(cv.Schema({
     cv.GenerateID(): cv.declare_id(GPIO),
     cv.Required("module_address"): cv.int_range(min=0, max=15),
-    cv.Required("board_profile"): cv.one_of("generic", "rtd16_rev10"),
-    cv.Optional("upper_input_mask"): cv.hex_uint8_t,
+    cv.Optional("enabled", default=False): cv.boolean,
+    cv.Optional("upper_input_mask", default=0): cv.hex_uint8_t,
     cv.Optional("lower_input_mask", default=0): cv.hex_uint8_t,
 }).extend(cv.COMPONENT_SCHEMA).extend(spi.spi_device_schema(True, "100kHz", "MODE0")), profile)
 
@@ -86,12 +80,6 @@ def final_validate(config):
     for other in full.get("moduliq_cpld_gpio", []):
         if other["id"] != config["id"] and other["spi_id"] == config["spi_id"]:
             raise cv.Invalid("Only one GPIO/CFG owner is allowed per addressed CS3 bus")
-    for reader in full.get("moduliq_cpld_i2c", []):
-        if reader["module_address"] == config["module_address"]:
-            if reader.get("gpio_id") != config["id"]:
-                raise cv.Invalid("Readout and GPIO of this module must be linked with gpio_id")
-            if reader["board_profile"] != config["board_profile"]:
-                raise cv.Invalid("Readout/GPIO board profiles must match")
     if any(flash["gpio_id"] == config["id"] for flash in full.get("moduliq_cpld_flash", [])):
         for pin in walk(full):
             if pin.get("moduliq_cpld_gpio") == config["id"] and pin.get("number") in (1, 2, 3, 4):
@@ -102,10 +90,6 @@ def final_validate(config):
             if entry["bus_id"] == mux["spi_id"]:
                 if entry["channel"] != config["module_address"] or len(module_mux["address_pins"]) != 4:
                     raise cv.Invalid("Outer addrspi must select module_address (GA) using four address pins")
-    for adc in full.get("ads124s08_base", []):
-        for entry in mux["channels"]:
-            if entry["bus_id"] == adc["spi_id"] and entry["channel"] not in (0, 1):
-                raise cv.Invalid("ADS124S08 on this bridge must remain on CS0/CS1")
     return config
 
 
@@ -117,6 +101,7 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await spi.register_spi_device(var, config)
+    cg.add(var.set_initial_enabled(config["enabled"]))
     cg.add(var.set_input_masks(config["lower_input_mask"], config["upper_input_mask"]))
 
 
@@ -138,7 +123,7 @@ def pin_final_validate(pin, parent):
     number = pin[CONF_NUMBER]
     mask = parent["upper_input_mask" if number >= 8 else "lower_input_mask"]
     if pin[CONF_MODE][CONF_OUTPUT] and mask & (1 << (number % 8)):
-        raise cv.Invalid("This pin is an externally driven input in the board profile")
+        raise cv.Invalid("This pin is an externally driven input in the YAML input mask")
 
 
 

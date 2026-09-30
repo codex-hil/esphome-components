@@ -124,20 +124,24 @@ testy symulatorem RTD i mezaninką pozostają do wykonania.
 ./scripts/build.sh examples/rtd.yaml
 ```
 
-## Trzy komponenty CPLD Bridge
+## Trzy niezależne komponenty CPLD Bridge
 
-Implementacja: `moduliq_cpld_i2c` (readout, cyfrowe ID, liczniki i opcjonalny
-ADC), `moduliq_cpld_gpio` (CS3, dwa banki, push-pull/open-drain) oraz
-`moduliq_cpld_flash` (transport CS2 i acquire/release przez wspólny CFG na CS3).
+`moduliq_cpld_i2c` obsługuje identyfikację/statusy/liczniki i opcjonalny ADC
+identyfikacyjny CPLD. `moduliq_cpld_gpio` obsługuje CS3, a `moduliq_cpld_flash`
+transport CS2 i acquire/release przez jawnie wskazany helper CFG na CS3.
+Nie konfigurują ani nie odpytują ADC temperatury Texas Instruments.
+Nie przypisują pinom roli DRDY ani nie narzucają konfiguracji innych urządzeń SPI.
+
+I²C jest dostępne na wszystkich płytkach. GPIO, Flash i ADC identyfikacyjny
+są domyślnie wyłączone w software. YAML wybiera ich użycie i moment aktywacji
+po odczycie PROJECT_ID; nie ma automatycznych profili płyt ani powiązania po GA.
 [Instrukcja i przykłady](docs/cpld-components-usage.md),
-[kontrakt](docs/cpld-bridge.md), [raport software](reports/cpld-software-2026-09-30.json).
-
-GPIO działa po resecie. ADC_CTRL.ENABLE czasowo rezerwuje górny bank;
-wyniki są czytane jednym burstem przed disable. RTD16 chroni DRDY na REG_IN3/7.
-ADS124S08 pozostają na CS0/CS1 mode1/100kHz. Hardware, analogowy ADC oraz
-współdzielona Flash wymagają osobnego etapu HIL; w tej pracy nie programowano sprzętu.
+[raport software](reports/cpld-independent-software-2026-09-30.json).
 
 ```sh
 ./scripts/test-cpld.sh
-../esphome-hil/scripts/build.sh examples/cpld-rtd16.yaml
+../esphome-hil/scripts/build.sh examples/cpld-gpio.yaml
 ```
+
+Weryfikacja obejmuje software i kompilację. W tej pracy nie programowano,
+nie resetowano i nie odczytywano sprzętu.

@@ -9,15 +9,18 @@ void CPLDFlash::report_(const char *state, bool warning) {
   else status_clear_warning();
   if (status_) status_->publish_state(state);
 }
-void CPLDFlash::setup() {
-  spi_setup();
-  if (!gpio_ || !gpio_->ready() || !gpio_->flash_mode()) {
-    report_("flash_pinmux_unavailable", true); mark_failed(); return;
+void CPLDFlash::setup() { report_(enabled_ ? "idle" : "disabled", false); }
+bool CPLDFlash::set_enabled(bool enabled) {
+  enabled_ = enabled;
+  if (!enabled && active_) {
+    cleanup_pending_ = true; retried_ms_ = millis(); return false;
   }
-  report_("idle", false);
+  if (!enabled && (owned_ || cleanup_pending_)) return release();
+  return true;
 }
 bool CPLDFlash::acquire(bool target_ready) {
-  if (is_failed() || !target_ready || owned_ || active_ || cleanup_pending_) return false;
+  if (!enabled_ || is_failed() || !gpio_ || !gpio_->ready() || !target_ready || owned_ || active_ || cleanup_pending_) return false;
+  if (!spi_initialized_) { spi_setup(); spi_initialized_ = true; }
   // GPIO owns the only CFG shadow/RMW. Failure may mean the write reached hardware.
   if (!gpio_->acquire_flash(this)) {
     if (gpio_->has_flash_lease(this)) {
@@ -32,7 +35,7 @@ bool CPLDFlash::acquire(bool target_ready) {
   return true;
 }
 bool CPLDFlash::transfer(const uint8_t *tx, uint8_t *rx, size_t size) {
-  if (!owned_ || cleanup_pending_ || active_) return false;
+  if (!enabled_ || !owned_ || cleanup_pending_ || active_) return false;
   if (!tx || size == 0 || size > 4096 || !gpio_->verify_flash_owner(this)) { release(); return false; }
   active_ = true;
   enable();

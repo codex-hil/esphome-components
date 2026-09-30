@@ -1,4 +1,4 @@
-# Standalone readout on the RTD16 rev1.0 fixture; no SPI dependency or ADC access.
+# Standalone readout on the generic CPLD fixture; no SPI dependency or ADC access.
 esphome:
   name: cpld-readout
 esp32:
@@ -19,7 +19,6 @@ i2c:
 moduliq_cpld_i2c:
   id: readout
   module_address: 0
-  board_profile: rtd16_rev10
   project_id:
     name: Project ID
   revision_id:
@@ -51,16 +50,10 @@ moduliq_cpld_i2c:
     - channel: 3
       sensor:
         name: ERRIN3 interval modulo256
-  # Labels below identify digital codes only; replace with the actual head ID table.
+  # Illustrative ID field; masks and code tables are provided by the board YAML.
   digital_ids:
     - bank: upper
       mask: 0x07
-      codes: {0: "code0", 1: "code1", 2: "code2", 3: "code3", 4: "code4", 5: "code5", 6: "code6", 7: "code7"}
+      codes: {0: "code0", 1: "code1"}
       sensor:
-        name: AFE1 digital ID
-    - bank: upper
-      mask: 0x70
-      shift: 4
-      codes: {0: "code0", 1: "code1", 2: "code2", 3: "code3", 4: "code4", 5: "code5", 6: "code6", 7: "code7"}
-      sensor:
-        name: AFE2 digital ID
+        name: Digital head ID

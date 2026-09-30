@@ -496,12 +496,12 @@
       "codeowners": [],
       "status": "software-tested; hardware pending",
       "files_sha256": {
-        "__init__.py": "79e9b94600dd20c1fd037ba87ba13d0c685cb7db96cb7ccd89d7e5b8194e54d6",
-        "moduliq_cpld_i2c.cpp": "00b689b6d972e3c37e1f5a004ab070210c947c01072b014ed979a6383ac26664",
-        "moduliq_cpld_i2c.h": "fc69b20a116f5dcfda9a25f915e3654c1db6087cfb9e6e3e56b64e70d7af4369"
+        "__init__.py": "ac714ae6fa46a8ea8e552eca537ca83fb82c012ab30bedadcd4bef68492a0d6c",
+        "moduliq_cpld_i2c.cpp": "d27c9254a6fa58670b54064a7edacd83323957792d43bd4c91995df2dd833f32",
+        "moduliq_cpld_i2c.h": "4782776a5e3e7523fa48fa75af6eb2aee001458280b669566f2cabcbb6cef3d1"
       },
       "local_changes": [
-        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
       ]
     },
     {
@@ -516,12 +516,12 @@
       "codeowners": [],
       "status": "software-tested; hardware pending",
       "files_sha256": {
-        "__init__.py": "e4307d3404f514d8c6db6852b69b1935da56cc3fd74e899874a76084b617cfb3",
-        "moduliq_cpld_gpio.cpp": "48d4aba9d8d811dd616e9dba9f587153b820c87d375f9da37a60291a2646bfe8",
-        "moduliq_cpld_gpio.h": "f0fd41c00d424ceea2ddc6eb331404e31df6bbb47d7364a892c45bf4010cb4a6"
+        "__init__.py": "362ef822b3c1bc6fc387b9cddc5bc876d90f1aef01788dbeba58966a3d798d41",
+        "moduliq_cpld_gpio.cpp": "f9e44c7d436ce73ac9701510b710f82cdcdb7d2d9491bed2418a5a72ebd80de1",
+        "moduliq_cpld_gpio.h": "d6b0b9e37ee2248a644671edb4d11c9e71d14c15dc3796dae8b4354163eced65"
       },
       "local_changes": [
-        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
       ]
     },
     {
@@ -536,12 +536,12 @@
       "codeowners": [],
       "status": "software-tested; hardware pending",
       "files_sha256": {
-        "__init__.py": "59a9d84c4d002c908539dc51d65be3952afdf0744c9f31dacf1b8f3f8f6289d1",
-        "moduliq_cpld_flash.cpp": "af4d0ef3e0d9e5ef43f4fdd272185316bbb3ae156d41a07e7ae8a037a8a54063",
-        "moduliq_cpld_flash.h": "c47dff05023df133916cc7a6191ee164960ed05da7e7528f206cfdf39bbd13da"
+        "__init__.py": "77482e67686b35f0ddef09596b9d6e68c84eaa0f9087f3ebe46652c8dc49d4ea",
+        "moduliq_cpld_flash.cpp": "755e799c0a4741aa89ae5024e7f972c370e432d28ad943661355fee0a7da3ed6",
+        "moduliq_cpld_flash.h": "79d69d0ee7457b08ce880df072c00fb9c7c57effd24c0e2cc87fb00a172cc1f9"
       },
       "local_changes": [
-        "Three-component CPLD driver implementation; see docs/cpld-components-usage.md and reports/cpld-software-2026-09-30.json."
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
       ]
     }
   ]

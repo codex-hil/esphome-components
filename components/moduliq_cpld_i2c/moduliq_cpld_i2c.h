@@ -23,7 +23,7 @@ class CPLDReadout : public PollingComponent, public i2c::I2CDevice {
   void on_shutdown() override;
   void dump_config() override;
   void set_gpio(moduliq_cpld_gpio::CPLDGPIO *gpio) { gpio_ = gpio; }
-  void set_rtd16(bool value) { rtd16_ = value; }
+  bool set_adc_enabled(bool value);
   void set_numeric(uint8_t index, sensor::Sensor *value) { numeric_[index] = value; }
   void set_counter(uint8_t channel, sensor::Sensor *value) { counters_[channel] = value; }
   void set_status(text_sensor::TextSensor *value) { status_ = value; }
@@ -31,7 +31,7 @@ class CPLDReadout : public PollingComponent, public i2c::I2CDevice {
     digital_.push_back({upper, mask, shift, xor_mask, sensor, {}});
   }
   void add_digital_code(size_t index, uint8_t code, const std::string &id) { digital_[index].codes.emplace_back(code, id); }
-  void configure_adc(uint8_t bits, uint32_t timeout) { adc_enabled_ = true; adc_bits_ = bits; timeout_ms_ = timeout; }
+  void configure_adc(uint8_t bits, uint32_t timeout) { adc_configured_ = true; adc_bits_ = bits; timeout_ms_ = timeout; }
   void set_adc_raw(uint8_t channel, sensor::Sensor *value) { adc_raw_[channel] = value; }
   void set_adc_id(uint8_t channel, text_sensor::TextSensor *value) { adc_ids_[channel] = value; }
   void add_adc_band(uint8_t channel, uint16_t min, uint16_t max, const std::string &id) {
@@ -56,7 +56,8 @@ class CPLDReadout : public PollingComponent, public i2c::I2CDevice {
   std::vector<ADCBand> bands_[8];
   std::array<uint16_t, 8> results_{};
   ADCState state_{ADCState::IDLE};
-  bool adc_enabled_{false}, rtd16_{false}, reserved_{false}, pending_valid_{false}, measurement_pending_{false};
+  bool adc_enabled_{false}, adc_configured_{false}, reserved_{false}, pending_valid_{false}, measurement_pending_{false};
+  bool adc_needs_cleanup_{false};
   bool readout_valid_{true}, updating_{false}, publishing_{false};
   uint8_t adc_bits_{8};
   uint32_t timeout_ms_{500}, started_ms_{0}, polled_ms_{0};

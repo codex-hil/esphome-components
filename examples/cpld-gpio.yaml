@@ -1,6 +1,6 @@
 # CPLD-only example: no temperature ADC, no DRDY wiring assumptions.
 esphome:
-  name: cpld-adc-flash
+  name: cpld-gpio
 esp32:
   board: esp32dev
   framework:
@@ -16,7 +16,6 @@ external_components:
   - addrspi
   - moduliq_cpld_i2c
   - moduliq_cpld_gpio
-  - moduliq_cpld_flash
 spi:
   id: bridge_spi
   clk_pin: GPIO14
@@ -39,8 +38,6 @@ addrspi:
   - GPIO16
   - GPIO17
   channels:
-  - bus_id: mux_ch2
-    channel: 2
   - bus_id: mux_ch3
     channel: 3
 i2c:
@@ -53,10 +50,9 @@ moduliq_cpld_gpio:
   spi_id: mux_ch3
   cs_pin:
     number: GPIO15
-    allow_other_uses: true
   module_address: 0
   upper_input_mask: 255
-  enabled: false
+  enabled: true
 moduliq_cpld_i2c:
   id: readout
   i2c_id: bridge_i2c
@@ -67,50 +63,6 @@ moduliq_cpld_i2c:
     name: CPLD lower pads
   status:
     name: CPLD readout status
-  adc:
-    bits: 10
-    timeout: 500ms
-    channels:
-    - channel: 0
-      raw:
-        name: ID ADC0 raw
-      id:
-        name: ID ADC0 label
-      bands:
-      - min: 100
-        max: 200
-        id: example_band
-    enabled: false
-  gpio_id: bridge_gpio
-  project_id:
-    name: Project ID
-    on_value:
-      then:
-      - lambda: '// Illustrative IDs only: replace with the application board table.
-
-          // This YAML owns selection; the three drivers do not identify a TI ADC
-          or use DRDY.
-
-          bool gpio_board = x == 0x42 || x == 0x43;
-
-          id(target_flash).set_enabled(x == 0x42);
-
-          id(readout).set_adc_enabled(x == 0x43);
-
-          id(bridge_gpio).set_enabled(gpio_board);'
-moduliq_cpld_flash:
-  id: target_flash
-  gpio_id: bridge_gpio
-  target_profile: compile_only_no_hardware_assumptions
-  spi_id: mux_ch2
-  cs_pin:
-    number: GPIO15
-    allow_other_uses: true
-  spi_mode: MODE0
-  data_rate: 100kHz
-  status:
-    name: Shared Flash ownership
-  enabled: false
 output:
 - platform: gpio
   id: example_open_drain

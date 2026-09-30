@@ -137,57 +137,57 @@
     },
     "cpld-readout": {
       "result": "PASS",
-      "seconds": 3.77,
-      "configuration_sha256": "7e36d723c58534b15275f98bcf0a8c5ab95f3592a7c349f61550c51619a4c619",
+      "seconds": 17.6,
+      "configuration_sha256": "a156ec890d5de5cb9005829a8b441cd9143013acd863213f402a53331165a71f",
       "firmware": [
         {
           "filename": "firmware.factory.bin",
-          "sha256": "0efe7b2e73277bb742e9fcc0fc710bbf25b21195f99d9a302ca20f5e956fb1f3",
-          "bytes": 280512
+          "sha256": "09911c7f9c64f67ed6322e7bb5a4d31d4c4c111149dd542dec541b8c188f3007",
+          "bytes": 279920
         },
         {
           "filename": "firmware.ota.bin",
-          "sha256": "3ce7c937fa0cf197081c723bdf92c620a1389738b8298d3fe54688180f179b8f",
-          "bytes": 214976
+          "sha256": "48a475734cc696cc11c9bd226cc7145eb4f8d5745d06c5f99c978764f56fe94e",
+          "bytes": 214384
         }
       ],
-      "log_sha256": "9d78af1e50e49607ba4c60650e1fe5986ce2b109baaadd18c85adc995da06fba"
-    },
-    "cpld-rtd16": {
-      "result": "PASS",
-      "seconds": 13.51,
-      "configuration_sha256": "96685bea8731323eb6f940d5e33af2d65f88ab59e67e98967327a15f2ebbad2e",
-      "firmware": [
-        {
-          "filename": "firmware.factory.bin",
-          "sha256": "d5160e8fa6761f8ad5c1f7ad2fc885ea379979fb774d78da7427c694426d8601",
-          "bytes": 319312
-        },
-        {
-          "filename": "firmware.ota.bin",
-          "sha256": "22539e09c16a609a4bcb3058ba868e06a22937c342dbecda4f3cb79af19e1a0d",
-          "bytes": 253776
-        }
-      ],
-      "log_sha256": "a8588d5d788d95e7f148f3e000f44c21e489bf80fdc7f99f2564a1cf543caf5b"
+      "log_sha256": "e48ee5c47f7595007efeca78e80b2adb03b254d8702545a5aa68decad0601a8b"
     },
     "cpld-adc-flash": {
       "result": "PASS",
-      "seconds": 13.63,
-      "configuration_sha256": "3395fc557543ac3e10992d8ae3bb7da2be558149ac8c02c63ced5ee01fe3e89a",
+      "seconds": 13.42,
+      "configuration_sha256": "885554cb60cb842d04f27b84086b78663b4249715e7624b08900b16159f181d2",
       "firmware": [
         {
           "filename": "firmware.factory.bin",
-          "sha256": "0df41d0e6518c98506766b8f07c287483790bb512eb99440bfc6e9bab3dde41d",
-          "bytes": 320496
+          "sha256": "fc1c3df32eed7947841cd21a9d532d6d54b9fa6926dd8387d5c2bf0643bb97c8",
+          "bytes": 315280
         },
         {
           "filename": "firmware.ota.bin",
-          "sha256": "f1ae67a6e495a001a87709e465c69d26920a93dc2fadc953acc9afd858826bf8",
-          "bytes": 254960
+          "sha256": "7c9e43320ad9053b88ef50cd99a64652bee574167151aa237f3e9402325223ff",
+          "bytes": 249744
         }
       ],
-      "log_sha256": "00c5e4421697d6b9135cfaf91fa7ff24bf7b75d171270f86b623fb0ea8c838d9"
+      "log_sha256": "de4ab08ca22ee807c48884161fd4609faf21cbd7bb09ac4b174054328c23e612"
+    },
+    "cpld-gpio": {
+      "result": "PASS",
+      "seconds": 44.31,
+      "configuration_sha256": "c6c0923652efdc93f8501ccb316d9cef5fb5c189cac09296700497a2a2d32c41",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "8667bb94b1a33e6f803c271f16aff355375caacf47639595387efe00fbb04e9a",
+          "bytes": 312704
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "e13ee90b025cb992fc85f076e9c9a23fa1436faac776b7b5f3316c918438ec22",
+          "bytes": 247168
+        }
+      ],
+      "log_sha256": "d92383a07206a95ecbe5a7c72e558f04e4eb258aa76b46874679854ec0f37f0a"
     }
   },
   "nix_identity": {

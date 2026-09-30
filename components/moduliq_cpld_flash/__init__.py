@@ -19,6 +19,7 @@ def explicit_transport(config):
 
 CONFIG_SCHEMA = cv.All(cv.Schema({
     cv.GenerateID(): cv.declare_id(Flash),
+    cv.Optional("enabled", default=False): cv.boolean,
     cv.Required("gpio_id"): cv.use_id(GPIO),
     cv.Required("target_profile"): cv.All(cv.string_strict, cv.Length(min=1)),
     cv.Optional("status"): text_sensor.text_sensor_schema(),
@@ -33,8 +34,6 @@ def final_validate(config):
     flash_bus = addressed_bus(config, 2)
     if parent["id"] != flash_bus["id"] or cs_number(config) != cs_number(gpio):
         raise cv.Invalid("Flash CS2 and GPIO CS3 must share addrspi mux and host CS")
-    if gpio["board_profile"] == "rtd16_rev10":
-        raise cv.Invalid("RTD16 rev1.0 fixture uses CS2_MODE=0 and is not a shared-Flash profile")
     for other in full.get("moduliq_cpld_flash", []):
         if other["id"] != config["id"] and other["gpio_id"] == config["gpio_id"]:
             raise cv.Invalid("Only one Flash owner per CPLD module")
@@ -48,6 +47,7 @@ async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
     await spi.register_spi_device(var, config)
+    cg.add(var.set_enabled(config["enabled"]))
     cg.add(var.set_gpio(await cg.get_variable(config["gpio_id"])))
     cg.add(var.set_target_profile(config["target_profile"]))
     if "status" in config:

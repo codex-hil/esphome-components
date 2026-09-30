@@ -14,6 +14,8 @@ class CPLDFlash : public Component,
   void set_target_profile(const std::string &profile) { profile_ = profile; }
   void set_status(text_sensor::TextSensor *sensor) { status_ = sensor; }
   void setup() override;
+  bool set_enabled(bool enabled);
+  bool is_enabled() const { return enabled_; }
   void loop() override;
   void on_shutdown() override { release(); }
   void dump_config() override;
@@ -30,6 +32,7 @@ class CPLDFlash : public Component,
   moduliq_cpld_gpio::CPLDGPIO *gpio_{nullptr};
   text_sensor::TextSensor *status_{nullptr};
   std::string profile_;
+  bool enabled_{false}, spi_initialized_{false};
   bool owned_{false}, active_{false}, cleanup_pending_{false};
   uint32_t retried_ms_{0};
 };
