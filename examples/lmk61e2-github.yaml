@@ -1,0 +1,47 @@
+# Standalone example: downloads the tested component from GitHub.
+esphome:
+  name: lmk61e2-clock
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+wifi:
+  ssid: YOUR_SSID
+  password: YOUR_PASSWORD
+logger:
+api:
+external_components:
+  - source:
+      type: git
+      url: https://github.com/codex-hil/esphome-components
+      ref: f2b3a0f45fb4ab1de4c55d910d2fd39e2a6b533d
+    components: [lmk61e2]
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  frequency: 100kHz
+lmk61e2:
+  id: clock_generator
+  address: 0x59
+  frequency: 100MHz
+  output_format: LVPECL
+  output_enabled: true
+  allow_fractional: true
+  frequency_number:
+    name: Clock frequency
+    mode: box
+  format_select:
+    name: Clock output format
+  output_switch:
+    name: Clock output enabled
+  actual_frequency:
+    name: Clock nominal frequency
+  pll_ok:
+    name: Clock PLL status OK
+button:
+  - platform: template
+    name: Clock 122.88 MHz
+    on_press:
+      - lmk61e2.set_frequency:
+          id: clock_generator
+          frequency: 122.88MHz
