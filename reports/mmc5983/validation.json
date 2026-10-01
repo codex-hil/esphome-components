@@ -22,6 +22,12 @@
   "ch0_root_cause": "unlocalized; no valid ID on this path",
   "rare_wrong_sample_report": "not reproduced or definitively resolved",
   "independent_bus_observation": false,
-  "clean_replay": false,
+  "clean_replay": {
+    "status": "pass",
+    "hil_commit": "bb521a3",
+    "seconds": 51.28,
+    "configuration_sha256": "a4246a4bbb2b1d24004f6b4b98cd300410d497a076e3bf350675e5a565a86354",
+    "flashed": false
+  },
   "cpld_programmed": false
 }
