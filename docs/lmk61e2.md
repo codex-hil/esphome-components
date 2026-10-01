@@ -1,6 +1,6 @@
 # Komponent ESPHome LMK61E2
 
-Komponent ustawia częstotliwość LMK61E2 po I²C i udostępnia format oraz włączenie wyjścia w ESPHome i Home Assistant. Rdzeń C++ działa niezależnie od ESPHome, MSP430 i transportu. Przetestowano go na LMK61E2EVM przez USB2ANY z pomiarem MSO4104 CH4. Firmware ESP32 skompilowano na ESPHome 2026.9.0; nie wykonano jeszcze testu fizycznego ESP32 jako hosta I²C.
+Komponent ustawia częstotliwość LMK61E2 po I²C i udostępnia format oraz włączenie wyjścia w ESPHome i Home Assistant. Rdzeń C++ działa niezależnie od ESPHome, MSP430 i transportu. Przetestowano go na LMK61E2EVM przez USB2ANY z pomiarem MSO4104 CH4. Firmware ESP32-P4 skompilowano na ESPHome 2026.9.0 i wgrano przez OTA. [Test bezpośredniego I²C na P4](../reports/lmk61e2-p4-hil-2026-10-01.json) potwierdził dziesięć nastaw oraz sterowanie wyjściem z pomiarem MSO4104 CH4.
 
 ## Parametry i sterowanie
 
@@ -65,7 +65,7 @@ Przed zapisem rdzeń czyta poprzednią konfigurację i identyfikuje układ. Na c
 - [Wyniki wspólnego rdzenia na EVM](../reports/lmk61e2-hil-2026-10-01.json): 10 częstotliwości 10–200 MHz, w tym 122,88 MHz, poprawne statusy PLL i sprawdzenie sterowania DIFFCTL. Przy wyłączeniu DIFFCTL=0x81, przy włączeniu 0x01. Pomiar szumu przy wyłączeniu około 0,1 Vpp nie jest specyfikacją tłumienia.
 - Po testach przywrócono 100 MHz. NVM counter R48 pozostał 6; EEPROM i firmware MSP430 nietknięte.
 
-Nie porównano jeszcze wyników z uruchomionym TICS Pro i nie wykonano kwalifikacji bardzo niskiego jitteru. Nie flashowano ESP32 ani MSP430. Docelowy ESP32 łączy się bezpośrednio z LMK przez I²C 3,3 V ze wspólną masą; należy zapewnić dostęp do szyny bez równoległego sterowania przez MSP430. Komponent nie korzysta z USB EVM.
+Nie porównano jeszcze wyników z uruchomionym TICS Pro i nie wykonano kwalifikacji bardzo niskiego jitteru. Wgrano firmware ESP32-P4; firmware MSP430 pozostawiono bez zmian. Docelowy ESP32 łączy się bezpośrednio z LMK przez I²C 3,3 V ze wspólną masą; należy zapewnić dostęp do szyny bez równoległego sterowania przez MSP430. Komponent nie korzysta z USB EVM.
 
 ## Odtworzenie sprawdzeń
 
@@ -77,3 +77,9 @@ esphome config examples/lmk61e2.yaml
 esphome compile examples/lmk61e2.yaml
 ```
 
+
+## Waveshare ESP32-P4-ETH
+
+Połączenie: GPIO7/SDA → EVM J4 pin 1, GPIO8/SCL → J4 pin 2, GND → J4 pin 5. Obie płytki zasilane z własnego USB, bez łączenia szyn zasilania. I²C 100 kHz, LMK address 0x59. MSP430 pozostaje bezczynny; nie używać równolegle USB2ANY do I²C.
+
+Testy bezpośredniego I²C: 10, 20, 25, 50, 80, 100, 122.88, 125, 156.25 i 200 MHz. Wszystkie miały PLL OK i pomiar w granicach funkcjonalnego kryterium ±1000 ppm. Wyniki z krótkiej akwizycji nie stanowią kalibrowanego pomiaru ppm ani kwalifikacji jitteru. Po teście przywrócono 100 MHz / LVPECL / wyjście włączone. Pomiar odbywał się na zatrzymanej akwizycji, aby metadane i próbki odnosiły się do tego samego rekordu.
