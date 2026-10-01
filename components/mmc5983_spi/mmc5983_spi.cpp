@@ -7,6 +7,11 @@ namespace mmc5983_spi {
 
 static const char *const TAG = "mmc5983";
 
+void MMC5983SPIComponent::record_read_error_() {
+  if (error_count_ != UINT32_MAX) error_count_++;
+  this->status_set_warning();
+}
+
 void MMC5983SPIComponent::setup() {
   this->spi_setup();
 
@@ -17,6 +22,7 @@ void MMC5983SPIComponent::setup() {
   for (uint8_t attempt = 0; attempt < 5; attempt++) {
     product_id = this->read_register(MMC5983_REG_PRODUCT_ID);
     if (product_id == MMC5983_PRODUCT_ID) break;
+    this->record_read_error_();
     ESP_LOGW(TAG, "Identification attempt %u returned 0x%02X", attempt + 1, product_id);
     delay(2);
   }
@@ -36,6 +42,7 @@ void MMC5983SPIComponent::setup() {
   ESP_LOGD(TAG, "Reset: PID=%02X status=%02X", reset_id, reset_status);
   if (reset_id != MMC5983_PRODUCT_ID || (reset_status & 0xEC) ||
       !(reset_status & MMC5983_STATUS_OTP_READ_DONE)) {
+    this->record_read_error_();
     ESP_LOGE(TAG, "Reset/OTP verification failed");
     this->mark_failed();
     return;
@@ -64,7 +71,7 @@ void MMC5983SPIComponent::update() {
   if (this->is_failed())
     return;
   if (this->read_register(MMC5983_REG_PRODUCT_ID) != MMC5983_PRODUCT_ID) {
-    this->status_set_warning();
+    this->record_read_error_();
     ESP_LOGW(TAG, "Product ID lost; skipping measurement");
     return;
   }
@@ -82,7 +89,7 @@ void MMC5983SPIComponent::update() {
   uint8_t status = this->read_register(MMC5983_REG_STATUS);
   ESP_LOGD(TAG, "Magnetic status: %02X", status);
   if ((status & 0xEC) || !(status & MMC5983_STATUS_MEAS_M_DONE)) {
-    this->status_set_warning();
+    this->record_read_error_();
     ESP_LOGW(TAG, "Measurement not ready, status: 0x%02X", status);
     return;
   }
@@ -106,7 +113,7 @@ void MMC5983SPIComponent::update() {
       float temperature = -75.0f + (temp_raw * 0.8f);
       this->temperature_sensor_->publish_state(temperature);
     } else {
-      this->status_set_warning();
+      this->record_read_error_();
       ESP_LOGW(TAG, "Temperature not ready, status: 0x%02X", status);
     }
   }
@@ -188,7 +195,7 @@ bool MMC5983SPIComponent::read_magnetic_data() {
   uint32_t z_raw = (uint32_t(frame[5]) << 10) | (uint32_t(frame[6]) << 2) | ((frame[7] >> 2) & 3);
   ESP_LOGD(TAG, "Frame: %02X %02X %02X %02X %02X %02X %02X", frame[1], frame[2], frame[3], frame[4], frame[5], frame[6], frame[7]);
   if (frame[7] & 3) {
-    this->status_set_warning();
+    this->record_read_error_();
     return false;
   }
   this->status_clear_warning();

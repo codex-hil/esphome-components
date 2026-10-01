@@ -40,3 +40,19 @@ still uses blocking conversion waits; it is not an asynchronous polling redesign
 Software regression (pinned Nix): `bash tests/run-mmc-software.sh`. The fake bus
 checks absent/transient ID, OTP/reset failure, coherent decode, identity loss and
 invalid reserved output bits. These are software tests, separate from hardware.
+
+## Diagnostic error counter
+
+Each MMC instance has an optional `error_count` diagnostic sensor with `state_class: total_increasing` and zero decimal places. Its independent `update_interval` defaults to10min; measurement polling is unchanged. Publishing reads only the in-memory counter, never SPI, and does not clear it. The saturating32-bit counter resets on ESP32 restart (no flash persistence). It increments once per detected rejected stage: each invalid startup-ID attempt, failed reset/OTP verification, lost runtime ID, invalid/not-ready magnetic or temperature status, and invalid reserved XYZ bits. A rejected XYZ stage is counted once, not again by its caller. Recovered startup errors are included; an initial value of1 followed by no growth is distinct from runtime errors. This counts detected failures, not arbitrary plausible data corruption or physical field changes.
+
+```yaml
+sensor:
+  - platform: mmc5983_spi
+    mmc5983_spi_id: mag2
+    error_count:
+      name: "Mag2 Read Errors"
+      update_interval: 10min
+    # Existing XYZ/temperature entries can remain here.
+```
+
+Simulated-bus regression verifies accumulation across startup retries, lost ID, bad status and malformed XYZ, recovery without clearing the counter, and publication without SPI traffic. The physical diagnostic configuration publishes every10s to verify behavior promptly; production can use10min. HA transport has not been exercised by the offline diagnostic firmware.
