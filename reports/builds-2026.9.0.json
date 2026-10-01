@@ -188,6 +188,13 @@
         }
       ],
       "log_sha256": "d92383a07206a95ecbe5a7c72e558f04e4eb258aa76b46874679854ec0f37f0a"
+    },
+    "lmk61e2": {
+      "result": "PASS",
+      "date": "2026-10-01",
+      "environment": "ESPHome 2026.9.0, ESP-IDF 5.5.5; local ESP32 build",
+      "configuration_sha256": "0b25772081100bdec5b1a46e67301caf6c35be8ebeed889a5c38bcd54a836898",
+      "compiler_log_sha256": "dba8fc3b706cea0a4b13b6ded3567b7b43a57da5b9d0edf11d8ebd2b55a5527c"
     }
   },
   "nix_identity": {

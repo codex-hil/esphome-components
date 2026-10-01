@@ -1,0 +1,500 @@
+{
+  "tests": [
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 10000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 500,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 9999991.285410644,
+        "median_frequency_hz": 9999926.471128896,
+        "vpp": 0.8799999999999999,
+        "cycles": 18,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -0.8714589355696134,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 20000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 250,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 19999890.110493902,
+        "median_frequency_hz": 20000000.0,
+        "vpp": 0.8,
+        "cycles": 39,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -5.494475304845814,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 25000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 200,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 24999817.78558465,
+        "median_frequency_hz": 25000000.0,
+        "vpp": 0.78,
+        "cycles": 49,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -7.2885766139174635,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 50000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 100,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 49999542.94635487,
+        "median_frequency_hz": 50000000.0,
+        "vpp": 0.78,
+        "cycles": 98,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -9.141072902507652,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 80000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 60,
+        "integer": 48,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 80000155.79387692,
+        "median_frequency_hz": 80000000.0,
+        "vpp": 0.7,
+        "cycles": 158,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": 1.9474234613792163,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 100000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 50,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 99997775.42226394,
+        "median_frequency_hz": 100000000.0,
+        "vpp": 0.7000000000000001,
+        "cycles": 198,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -22.24577736065214,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 122880000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 41,
+        "integer": 50,
+        "numerator": 238,
+        "denominator": 625,
+        "doubler": 2,
+        "mash_order": 3,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 122879629.09876391,
+        "median_frequency_hz": 122873345.93573076,
+        "vpp": 0.72,
+        "cycles": 244,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -3.018401986354391,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 125000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 40,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 124998762.43304762,
+        "median_frequency_hz": 124999999.99999999,
+        "vpp": 0.72,
+        "cycles": 248,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -9.900535619000728,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 156250000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 32,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 156250218.88198584,
+        "median_frequency_hz": 156250000.0,
+        "vpp": 0.6799999999999999,
+        "cycles": 312,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": 1.4008447093427634,
+      "pass": true
+    },
+    {
+      "phase": "shared-cpp-core",
+      "target_hz": 200000000.0,
+      "decoded": {
+        "vendor_id": 4107,
+        "product_id": 51,
+        "revision_id": 2,
+        "outdiv": 25,
+        "integer": 50,
+        "numerator": 0,
+        "denominator": 1,
+        "doubler": 2,
+        "mash_order": 0,
+        "output_select": 1,
+        "output_power_down": false,
+        "xo_capctrl_raw": [
+          0,
+          128
+        ]
+      },
+      "measurement": {
+        "frequency_hz": 199998037.82733884,
+        "median_frequency_hz": 200000000.0,
+        "vpp": 0.7000000000000001,
+        "cycles": 398,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "status": {
+        "raw": 200,
+        "loss_of_lock": false,
+        "calibration_active": false
+      },
+      "error_ppm": -9.810863305759199,
+      "pass": true
+    }
+  ],
+  "restored": true,
+  "eeprom_writes": 0,
+  "firmware_writes": 0,
+  "scope": "TEKTRONIX,MSO4104,C020817,CF:91.1CT FV:v2.68 DPO4AUTO:V1.00 DPO4COMP:V1.00 DPO4USB:V1.00",
+  "firmware": "2.7.0.0",
+  "original": {
+    "21": 1,
+    "22": 0,
+    "23": 46,
+    "25": 0,
+    "26": 46,
+    "27": 0,
+    "28": 0,
+    "29": 0,
+    "30": 0,
+    "31": 0,
+    "32": 1,
+    "33": 12,
+    "34": 40,
+    "35": 3,
+    "36": 4,
+    "37": 0,
+    "38": 0,
+    "39": 0,
+    "42": 5
+  },
+  "nvm_before": {
+    "48": 6,
+    "49": 16,
+    "56": 0
+  },
+  "scope_original": {
+    "HEADER": "0",
+    "DATA:SOURCE": "CH1",
+    "DATA:ENCDG": "RIBINARY",
+    "DATA:WIDTH": "1",
+    "DATA:START": "1",
+    "DATA:STOP": "10000"
+  },
+  "disabled_diffctl": 129,
+  "disabled_vpp": 0.1,
+  "reenabled_diffctl": 1,
+  "restored_registers": {
+    "21": 1,
+    "22": 0,
+    "23": 46,
+    "25": 0,
+    "26": 46,
+    "27": 0,
+    "28": 0,
+    "29": 0,
+    "30": 0,
+    "31": 0,
+    "32": 1,
+    "33": 12,
+    "34": 40,
+    "35": 3,
+    "36": 4,
+    "37": 0,
+    "38": 0,
+    "39": 0,
+    "42": 5
+  },
+  "nvm_after": {
+    "48": 6,
+    "49": 16,
+    "56": 0
+  },
+  "restored_measurement": {
+    "frequency_hz": 99999809.65469459,
+    "median_frequency_hz": 100000000.0,
+    "vpp": 0.7000000000000001,
+    "cycles": 199,
+    "preamble": {
+      "XINCR": "200.0000E-12",
+      "YMULT": "20.0000E-3",
+      "YZERO": "0.0E+0",
+      "YOFF": "-500.0000E-3"
+    },
+    "sample_count": 10000
+  },
+  "restored_status": {
+    "raw": 200,
+    "loss_of_lock": false,
+    "calibration_active": false
+  }
+}

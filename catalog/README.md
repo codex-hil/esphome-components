@@ -31,6 +31,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [moduliq_cpld_i2c](../components/moduliq_cpld_i2c) | CPLD I²C: identyfikacja/statusy/liczniki i opcjonalny ADC | PASS | [cpld-readout](../examples/cpld-readout.yaml): PASS; [cpld-gpio](../examples/cpld-gpio.yaml): PASS; [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_i2c) |
 | [moduliq_cpld_gpio](../components/moduliq_cpld_gpio) | CPLD CS3: dwa banki GPIO, DIR/OD i wspólny CFG | PASS | [cpld-gpio](../examples/cpld-gpio.yaml): PASS; [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_gpio) |
 | [moduliq_cpld_flash](../components/moduliq_cpld_flash) | CPLD CS2: współdzielona Flash, transport i acquire/release przez CS3 | PASS | [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_flash) |
+| [lmk61e2](../components/lmk61e2) | Programowalny oscylator I²C; planner częstotliwości, format i enable | nie testowano | [lmk61e2](../examples/lmk61e2.yaml): PASS | [Rozwój lokalny](../components/lmk61e2) |
 
 ## Wybór wariantów i zależności
 
@@ -58,7 +59,7 @@ DAC, ADC, TDC, SPI MUX i magnetometru. Gałęzie i alternatywne drzewa zachowuje
 
 ## Sprzęt i autorstwo
 
-W tej operacji nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/
+LMK61E2: [testy rdzenia na EVM i oscyloskopie](../reports/lmk61e2-hil-2026-10-01.json); transport ESP32 wymaga osobnej walidacji. Wcześniejsze testy `spi`/`addrspi`/
 `ads124s08_base` na module0 i dwóch ADC są opisane w
 [raporcie HIL](https://github.com/codex-hil/esphome-hil/blob/631bf39/reports/ads124s08-mux-2026-09-29.json).
 Dotyczyły MUX/CRC i diagnostyki, z IDAC wyłączonym; nie potwierdzają pomiaru

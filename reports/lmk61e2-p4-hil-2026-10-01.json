@@ -1,0 +1,224 @@
+{
+  "transport": "ESP32-P4 direct I2C, GPIO7/GPIO8, address 0x59",
+  "tests": [
+    {
+      "requested_mhz": 10,
+      "nominal_mhz": 10.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 9999970.760319414,
+        "median_frequency_hz": 10000000.0,
+        "vpp": 0.8599999999999999,
+        "cycles": 19,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -2.9239680586767847,
+      "pass": true
+    },
+    {
+      "requested_mhz": 20,
+      "nominal_mhz": 20.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 19999928.35621441,
+        "median_frequency_hz": 20000000.0,
+        "vpp": 0.8200000000000001,
+        "cycles": 39,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -3.582189279427439,
+      "pass": true
+    },
+    {
+      "requested_mhz": 25,
+      "nominal_mhz": 25.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 24999999.999999996,
+        "median_frequency_hz": 25000000.0,
+        "vpp": 0.78,
+        "cycles": 48,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -1.1102230246251565e-10,
+      "pass": true
+    },
+    {
+      "requested_mhz": 50,
+      "nominal_mhz": 50.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 50000225.4699922,
+        "median_frequency_hz": 50000000.0,
+        "vpp": 0.8,
+        "cycles": 99,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": 4.5093998439771354,
+      "pass": true
+    },
+    {
+      "requested_mhz": 80,
+      "nominal_mhz": 80.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 79999910.97519992,
+        "median_frequency_hz": 80000000.0,
+        "vpp": 0.68,
+        "cycles": 158,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -1.112810000925002,
+      "pass": true
+    },
+    {
+      "requested_mhz": 100,
+      "nominal_mhz": 100.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 99999291.33345918,
+        "median_frequency_hz": 100000000.0,
+        "vpp": 0.68,
+        "cycles": 199,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -7.086665408162496,
+      "pass": true
+    },
+    {
+      "requested_mhz": 122.88,
+      "nominal_mhz": 122.87999725341797,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 122879087.62664823,
+        "median_frequency_hz": 122886067.06068233,
+        "vpp": 0.74,
+        "cycles": 244,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -7.424913344489248,
+      "pass": true
+    },
+    {
+      "requested_mhz": 125,
+      "nominal_mhz": 125.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 124999519.97112143,
+        "median_frequency_hz": 124999999.99999999,
+        "vpp": 0.72,
+        "cycles": 248,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -3.8402310285068353,
+      "pass": true
+    },
+    {
+      "requested_mhz": 156.25,
+      "nominal_mhz": 156.25,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 156250150.4812994,
+        "median_frequency_hz": 156250000.0,
+        "vpp": 0.66,
+        "cycles": 312,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": 0.9630803161631007,
+      "pass": true
+    },
+    {
+      "requested_mhz": 200,
+      "nominal_mhz": 200.0,
+      "pll_ok": true,
+      "measurement": {
+        "frequency_hz": 199997947.27014378,
+        "median_frequency_hz": 200000000.0,
+        "vpp": 0.7000000000000001,
+        "cycles": 399,
+        "preamble": {
+          "XINCR": "200.0000E-12",
+          "YMULT": "20.0000E-3",
+          "YZERO": "0.0E+0",
+          "YOFF": "-500.0000E-3"
+        },
+        "sample_count": 10000
+      },
+      "error_ppm": -10.263649281139209,
+      "pass": true
+    }
+  ],
+  "restored": true,
+  "eeprom_writes": 0,
+  "msp430_commands": 0,
+  "scope": "TEKTRONIX,MSO4104,C020817,CF:91.1CT FV:v2.68 DPO4AUTO:V1.00 DPO4COMP:V1.00 DPO4USB:V1.00",
+  "disabled_vpp": 0.1,
+  "disabled_api_state": false,
+  "restored_measurement": {
+    "frequency_hz": 99999788.09114625,
+    "median_frequency_hz": 100000000.0,
+    "vpp": 0.66,
+    "cycles": 198,
+    "preamble": {
+      "XINCR": "200.0000E-12",
+      "YMULT": "20.0000E-3",
+      "YZERO": "0.0E+0",
+      "YOFF": "-500.0000E-3"
+    },
+    "sample_count": 10000
+  }
+}

@@ -24,3 +24,7 @@ jobs:
         run: PATH="$PWD/.venv/bin:$PATH" ./scripts/test-rtd.sh
       - name: Test CPLD drivers, ownership and YAML (software only)
         run: ./tests/run-cpld-software.sh "$PWD/.venv/bin/python"
+      - name: Test LMK61E2 planner and rollback
+        run: |
+          g++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined tests/lmk61e2_planner.cpp -o /tmp/lmk61e2-test
+          /tmp/lmk61e2-test
