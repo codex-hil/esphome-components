@@ -10,16 +10,36 @@ static const char *const TAG = "mmc5983";
 void MMC5983SPIComponent::setup() {
   this->spi_setup();
 
-  uint8_t product_id = this->read_register(MMC5983_REG_PRODUCT_ID);
+  delay(20);  // Power-up/OTP startup is 10 ms; allow margin.
+  uint8_t product_id = 0;
+  // A first transaction through the isolated bridge can fail at startup.
+  // Retry identification only; never issue writes to an unidentified device.
+  for (uint8_t attempt = 0; attempt < 5; attempt++) {
+    product_id = this->read_register(MMC5983_REG_PRODUCT_ID);
+    if (product_id == MMC5983_PRODUCT_ID) break;
+    ESP_LOGW(TAG, "Identification attempt %u returned 0x%02X", attempt + 1, product_id);
+    delay(2);
+  }
   if (product_id != MMC5983_PRODUCT_ID) {
-    ESP_LOGW(TAG, "Product ID mismatch: 0x%02X (expected 0x%02X) - continuing anyway", product_id, MMC5983_PRODUCT_ID);
+    ESP_LOGE(TAG, "Product ID mismatch: 0x%02X (expected 0x%02X)", product_id, MMC5983_PRODUCT_ID);
+    this->mark_failed();
+    return;
   }
 
   ESP_LOGCONFIG(TAG, "Product ID: 0x%02X", product_id);
 
   // Software reset
   this->write_register(MMC5983_REG_CTRL1, MMC5983_CTRL1_SW_RST);
-  delay(10);
+  delay(20);
+  uint8_t reset_id = this->read_register(MMC5983_REG_PRODUCT_ID);
+  uint8_t reset_status = this->read_register(MMC5983_REG_STATUS);
+  ESP_LOGD(TAG, "Reset: PID=%02X status=%02X", reset_id, reset_status);
+  if (reset_id != MMC5983_PRODUCT_ID || (reset_status & 0xEC) ||
+      !(reset_status & MMC5983_STATUS_OTP_READ_DONE)) {
+    ESP_LOGE(TAG, "Reset/OTP verification failed");
+    this->mark_failed();
+    return;
+  }
 
   // Initialize control registers
   this->write_register(MMC5983_REG_CTRL0, 0x00);
@@ -41,6 +61,13 @@ void MMC5983SPIComponent::dump_config() {
 }
 
 void MMC5983SPIComponent::update() {
+  if (this->is_failed())
+    return;
+  if (this->read_register(MMC5983_REG_PRODUCT_ID) != MMC5983_PRODUCT_ID) {
+    this->status_set_warning();
+    ESP_LOGW(TAG, "Product ID lost; skipping measurement");
+    return;
+  }
   // Perform SET operation for calibration
   this->perform_set();
   delay(1);
@@ -53,7 +80,9 @@ void MMC5983SPIComponent::update() {
 
   // Check if measurement is done
   uint8_t status = this->read_register(MMC5983_REG_STATUS);
-  if (!(status & MMC5983_STATUS_MEAS_M_DONE)) {
+  ESP_LOGD(TAG, "Magnetic status: %02X", status);
+  if ((status & 0xEC) || !(status & MMC5983_STATUS_MEAS_M_DONE)) {
+    this->status_set_warning();
     ESP_LOGW(TAG, "Measurement not ready, status: 0x%02X", status);
     return;
   }
@@ -67,33 +96,41 @@ void MMC5983SPIComponent::update() {
   // Read temperature if sensor is configured
   if (this->temperature_sensor_ != nullptr) {
     this->write_register(MMC5983_REG_CTRL0, MMC5983_CTRL0_TM_T);
-    delay(2);
+    delay(10);
 
     status = this->read_register(MMC5983_REG_STATUS);
-    if (status & MMC5983_STATUS_MEAS_T_DONE) {
+    ESP_LOGD(TAG, "Temperature status: %02X", status);
+    if (!(status & 0xEC) && (status & MMC5983_STATUS_MEAS_T_DONE)) {
       uint8_t temp_raw = this->read_register(MMC5983_REG_TOUT);
       // Temperature range: -75~125°C, 0.8°C/LSB, 0x00 = -75°C
       float temperature = -75.0f + (temp_raw * 0.8f);
       this->temperature_sensor_->publish_state(temperature);
+    } else {
+      this->status_set_warning();
+      ESP_LOGW(TAG, "Temperature not ready, status: 0x%02X", status);
     }
   }
 }
 
 uint8_t MMC5983SPIComponent::read_register(uint8_t reg) {
-  // Format: 0x80 | register_address for read command
+  uint8_t frame[2] = {static_cast<uint8_t>(0x80 | (reg & 0x3F)), 0};
   this->enable();
-  this->write_byte(0x80 | reg);
-  uint8_t value = this->read_byte();
+  delayMicroseconds(10);
+  this->transfer_array(frame, sizeof(frame));
+  delayMicroseconds(10);
   this->disable();
-  return value;
+  delayMicroseconds(100);
+  return frame[1];
 }
 
 void MMC5983SPIComponent::write_register(uint8_t reg, uint8_t value) {
-  // Format: register address directly (no bit shifting)
+  uint8_t frame[2] = {static_cast<uint8_t>(reg & 0x3F), value};
   this->enable();
-  this->write_byte(reg);
-  this->write_byte(value);
+  delayMicroseconds(10);
+  this->transfer_array(frame, sizeof(frame));
+  delayMicroseconds(10);
   this->disable();
+  delayMicroseconds(100);
 }
 
 uint32_t MMC5983SPIComponent::get_measurement_x() {
@@ -139,10 +176,22 @@ void MMC5983SPIComponent::perform_reset() {
 }
 
 bool MMC5983SPIComponent::read_magnetic_data() {
-  // Read magnetic field data like SparkFun library - individual register reads
-  uint32_t x_raw = this->get_measurement_x();
-  uint32_t y_raw = this->get_measurement_y();
-  uint32_t z_raw = this->get_measurement_z();
+  uint8_t frame[8] = {0x80, 0, 0, 0, 0, 0, 0, 0};
+  this->enable();
+  delayMicroseconds(10);
+  this->transfer_array(frame, sizeof(frame));
+  delayMicroseconds(10);
+  this->disable();
+  delayMicroseconds(100);
+  uint32_t x_raw = (uint32_t(frame[1]) << 10) | (uint32_t(frame[2]) << 2) | (frame[7] >> 6);
+  uint32_t y_raw = (uint32_t(frame[3]) << 10) | (uint32_t(frame[4]) << 2) | ((frame[7] >> 4) & 3);
+  uint32_t z_raw = (uint32_t(frame[5]) << 10) | (uint32_t(frame[6]) << 2) | ((frame[7] >> 2) & 3);
+  ESP_LOGD(TAG, "Frame: %02X %02X %02X %02X %02X %02X %02X", frame[1], frame[2], frame[3], frame[4], frame[5], frame[6], frame[7]);
+  if (frame[7] & 3) {
+    this->status_set_warning();
+    return false;
+  }
+  this->status_clear_warning();
 
   // Convert to Gauss (subtract null field and divide by sensitivity)
   // Data is unsigned, null field = 131072 (2^17)

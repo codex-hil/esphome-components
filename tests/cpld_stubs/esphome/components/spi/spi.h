@@ -38,6 +38,7 @@ class SPIDevice : public SPIClient {
   void enable() { delegate_->begin_transaction(); }
   void disable() { delegate_->end_transaction(); }
   uint8_t transfer_byte(uint8_t data) { return delegate_->transfer(data); }
+  void transfer_array(uint8_t *data, size_t size) { delegate_->transfer(data, size); }
  protected:
   SPIComponent *parent_{nullptr}; SPIDelegate *delegate_{nullptr}; GPIOPin *cs_{nullptr};
   SPIMode mode_{SPIMode(2*P+H)}; uint32_t rate_{R};

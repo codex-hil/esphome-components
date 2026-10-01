@@ -21,7 +21,11 @@ CONFIG_SCHEMA = (
         }
     )
     .extend(cv.polling_component_schema("60s"))
-    .extend(spi.spi_device_schema(cs_pin_required=True))
+    .extend(
+        spi.spi_device_schema(
+            cs_pin_required=True, default_mode="MODE3", default_data_rate="100kHz"
+        )
+    )
 )
 
 

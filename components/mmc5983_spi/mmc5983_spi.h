@@ -52,8 +52,8 @@ static const float MMC5983_SENSITIVITY = 16384.0f;  // counts/Gauss
 static const uint32_t MMC5983_NULL_FIELD = 131072;  // 18-bit zero field output
 
 class MMC5983SPIComponent : public PollingComponent,
-                            public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW,
-                                                  spi::CLOCK_PHASE_LEADING, spi::DATA_RATE_2MHZ> {
+                            public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_HIGH,
+                                                  spi::CLOCK_PHASE_TRAILING, static_cast<spi::SPIDataRate>(100000)> {
  public:
   void setup() override;
   void update() override;

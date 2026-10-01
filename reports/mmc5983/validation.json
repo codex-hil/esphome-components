@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-01",
+  "original_source": "5961cc9c933759ec3f0425a9652a8d47009191c4",
+  "transport_source": "16cb61e697b712d1ac20be9fb2b0b0fdcc37930c",
+  "software": "Nix MMC fake-bus PASS; shared stub regression29C++ groups and14Python schema tests PASS",
+  "compilation": "Nix ESPHome2026.9.0 ESP-IDF5.5.5 ESP32 PASS",
+  "hardware": {
+    "channels": [
+      1,
+      2
+    ],
+    "mode": 3,
+    "rate_hz": 100000,
+    "capture_seconds": 120,
+    "samples_per_channel": 119,
+    "communication_errors": 0,
+    "magnetic_status_count_0x11": 238,
+    "temperature_status_count_0x12": 238,
+    "max_axis_step_gauss": 0.003174,
+    "factory_bin_sha256": "00d6fb2214f56dbe426c3c0d1e46e222540f4f01784358422a8aea2e899c59e4"
+  },
+  "ch0_root_cause": "unlocalized; no valid ID on this path",
+  "rare_wrong_sample_report": "not reproduced or definitively resolved",
+  "independent_bus_observation": false,
+  "clean_replay": false,
+  "cpld_programmed": false
+}
