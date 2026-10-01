@@ -7,9 +7,10 @@ entries = json.loads((R/'catalog/components.json').read_text())['components']
 imports = json.loads((R/'reports/imports-2026.9.0.json').read_text())['components']
 buildfile = R/'reports/builds-2026.9.0.json'
 builds = json.loads(buildfile.read_text())['examples'] if buildfile.exists() else {}
-coverage = {'cpld-readout':['moduliq_cpld_i2c'], 'cpld-gpio':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
+coverage = {'lmk61e2':['lmk61e2'], 'cpld-readout':['moduliq_cpld_i2c'], 'cpld-gpio':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
             'ads8166':['ads8166'], 'dacx0504':['dacx0504'], 'max112xx':['max112xx'], 'mcp3208':['mcp3208']}
 desc = {
+ 'lmk61e2':'Programowalny oscylator I²C; planner częstotliwości, format i enable',
  'moduliq_cpld_i2c':'CPLD I²C: identyfikacja/statusy/liczniki i opcjonalny ADC',
  'moduliq_cpld_gpio':'CPLD CS3: dwa banki GPIO, DIR/OD i wspólny CFG',
  'moduliq_cpld_flash':'CPLD CS2: współdzielona Flash, transport i acquire/release przez CS3',
@@ -58,7 +59,7 @@ lines += ['', '## Wybór wariantów i zależności', '',
  '- Archiwalne LAN865x, spi_test i resistance_sampler są poza `components/`.',
  '  Wymagają oddzielnej oceny zgodności/dependencji; nie są częścią baseline.', '',
  '## Znane problemy', '', '[MMC5983: co drugi odczyt błędny — zgłoszenie użytkownika, bez diagnozy](../docs/known-issues.md).', '[Porównanie ADS124S08 i znalezione problemy](../docs/ads124s08-comparison.md).', '', '## Sprzęt i autorstwo', '',
- 'W tej operacji nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/',
+ 'LMK61E2: [testy rdzenia na EVM i oscyloskopie](../reports/lmk61e2-hil-2026-10-01.json); transport ESP32 wymaga osobnej walidacji. Wcześniejsze testy `spi`/`addrspi`/',
  '`ads124s08_base` na module0 i dwóch ADC są opisane w',
  '[raporcie HIL](https://github.com/codex-hil/esphome-hil/blob/631bf39/reports/ads124s08-mux-2026-09-29.json).',
  'Dotyczyły MUX/CRC i diagnostyki, z IDAC wyłączonym; nie potwierdzają pomiaru',

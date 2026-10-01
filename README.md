@@ -145,3 +145,7 @@ po odczycie PROJECT_ID; nie ma automatycznych profili płyt ani powiązania po G
 
 Weryfikacja obejmuje software i kompilację. W tej pracy nie programowano,
 nie resetowano i nie odczytywano sprzętu.
+
+### LMK61E2 oscillator
+
+[I²C component, planner and configuration](docs/lmk61e2.md). [Example](examples/lmk61e2.yaml). Fractional mode is experimental and opt-in. No EEPROM writes.

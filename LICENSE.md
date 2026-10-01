@@ -24,3 +24,7 @@ The locally authored `components/rtd` uses GPL-3.0-only for C++ and MIT for
 Python, as identified by SPDX headers. It independently implements the standard
 Callendar–Van Dusen equations; its numerical model is also used in Wizath’s ADC
 driver. It does not change any imported component’s license.
+
+## LMK61E2
+
+Original implementation, MIT license; see `components/lmk61e2/LICENSE`.

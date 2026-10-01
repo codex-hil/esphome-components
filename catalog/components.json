@@ -543,6 +543,27 @@
       "local_changes": [
         "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
       ]
+    },
+    {
+      "name": "lmk61e2",
+      "path": "components/lmk61e2",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/lmk61e2"
+      },
+      "codeowners": [
+        "@codex-hil"
+      ],
+      "status": "developed",
+      "files_sha256": {
+        "LICENSE": "8e4cd92ddffd7c9b7935f7c92cae133abcea8ce5ce3e704c028263fbd5715bc5",
+        "__init__.py": "50859470889b3569d09ffe3ae531bd44cdf153c00c9d0d8dc003f801d2ae3a81",
+        "lmk61e2.cpp": "ba6840582f69cf0c94c47a1b85f3e94d649d5dbb54865ebb90ec8f159cb8f61f",
+        "lmk61e2.h": "6b4159a077ee51e4c06248443e742a3cc0dc4a24b077ec6bfe5f8e79542087a3",
+        "planner.h": "a303ecee34aa74d9023a34865d620e52184bcac1f86272d6547ff06af1b3421c"
+      },
+      "local_changes": []
     }
   ]
 }
