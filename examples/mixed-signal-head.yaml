@@ -1,0 +1,142 @@
+# Build/review fixture using verified ESP32 routing. No CPLD programming.
+# Power stage stays disconnected during commissioning. HC165 disabled until /PL fix.
+esphome:
+  name: moduliq-mixed-signal-head
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+  level: INFO
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [spi, addrspi, addrspi2, mcp3208, dacx0504, spi_shift_register]
+spi:
+  id: wire_spi
+  interface: hardware
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+# Both parallel selectors apply before every physical /CS assertion.
+addrspi:
+  - id: module_selector
+    spi_id: wire_spi
+    address_pins: [GPIO2, GPIO4, GPIO13, GPIO18]
+    channels:
+      - bus_id: module_zero
+        channel: 0
+  - id: cpld_chip_selector
+    spi_id: module_zero
+    address_pins: [GPIO16, GPIO17]
+    channels:
+      - bus_id: hub_channel_two
+        channel: 2
+addrspi2:
+  shared_device: true
+  id: head
+  max_data_rate: 200kHz  # LTC6820 SLOW=HIGH: master period >=5 us.
+  spi_id: hub_channel_two
+  cs_pin: &head_cs
+    number: GPIO15
+    allow_other_uses: true
+  data_rate: 100kHz
+  spi_mode: MODE0
+  devices:
+    - bus_id: head_inputs
+      address: 0x00
+    - bus_id: head_outputs
+      address: 0x01
+    - bus_id: head_adc_x
+      address: 0x02
+    - bus_id: head_adc_y
+      address: 0x03
+    - bus_id: head_adc_z
+      address: 0x04
+    - bus_id: head_dac
+      address: 0x05
+mcp3208:
+  - id: adc_x
+    spi_id: head_adc_x
+    cs_pin: *head_cs
+    data_rate: 100kHz
+    reference_voltage: 3V
+  - id: adc_y
+    spi_id: head_adc_y
+    cs_pin: *head_cs
+    data_rate: 100kHz
+    reference_voltage: 3V
+  - id: adc_z
+    sample_rate: 100Hz  # Total conversion rate, independent of publishing.
+    spi_id: head_adc_z
+    cs_pin: *head_cs
+    data_rate: 100kHz
+    reference_voltage: 3V
+sensor:
+  - platform: mcp3208
+    mcp3208_id: adc_z
+    channel: 3
+    name: "Z VOUT P"
+    update_interval: 1s
+  - platform: mcp3208
+    mcp3208_id: adc_z
+    channel: 4
+    name: "Z VOUT N"
+    update_interval: 1s
+  - platform: mcp3208
+    mcp3208_id: adc_z
+    channel: 6
+    name: "Z ERROR before divider"
+    update_interval: 1s
+    filters:
+      - multiply: 2.0
+dacx0504:
+  id: dac
+  spi_id: head_dac
+  cs_pin: *head_cs
+  model: DAC80504
+  spi_mode: MODE0
+  data_rate: 100kHz
+  reference: EXTERNAL
+  reference_voltage: 3V
+  reference_divider: 2
+  gain: 2
+  fast_sdo: true
+  verify_registers: true
+  synchronous_update: false
+  initial_values: [0.5, 0.5, 0.5, 0.5]
+spi_shift_register:
+  - id: gpio_out
+    spi_id: head_outputs
+    cs_pin: *head_cs
+    model: HC595
+    initial_value: 0x07  # DIS A/B/C HIGH
+  - id: gpio_in
+    spi_id: head_inputs
+    cs_pin: *head_cs
+    model: HC165
+    load_pulse_verified: false  # Enable only after inverter and bit-order test.
+    update_interval: 1s
+binary_sensor:
+  - platform: spi_shift_register
+    spi_shift_register_id: gpio_in
+    channel: 0
+    name: "Power stage OK A"
+output:
+  - platform: dacx0504
+    id: z_voltage
+    dacx0504_id: dac
+    channel: 2
+    min_voltage: 0V
+    max_voltage: 3V
+  - platform: dacx0504
+    id: common_voltage
+    dacx0504_id: dac
+    channel: 3
+    min_voltage: 0V
+    max_voltage: 3V
+  - platform: spi_shift_register
+    id: disable_b
+    spi_shift_register_id: gpio_out
+    channel: 1

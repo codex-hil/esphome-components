@@ -1,0 +1,2229 @@
+HOST> route 0 2
+I (13) boot: ESP-IDF v5.5.5 2nd stage bootloader
+I (13) boot: compile time Jan  1 1980 00:00:00
+I (13) boot: Multicore bootloader
+I (14) boot: chip revision: v3.1
+I (16) boot.esp32: SPI Speed      : 40MHz
+I (20) boot.esp32: SPI Mode       : DIO
+I (24) boot.esp32: SPI Flash Size : 4MB
+I (27) boot: Enabling RNG early entropy source...
+I (32) boot: Partition Table:
+I (34) boot: ## Label            Usage          Type ST Offset   Length
+I (41) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (47) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (54) boot:  2 factory          factory app      00 00 00010000 00100000
+I (60) boot: End of partition table
+I (64) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b100h ( 45312) map
+I (86) esp_image: segment 1: paddr=0001b128 vaddr=3ffb0000 size=02c10h ( 11280) load
+I (91) esp_image: segment 2: paddr=0001dd40 vaddr=40080000 size=022d8h (  8920) load
+I (95) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=127e4h ( 75748) map
+I (124) esp_image: segment 4: paddr=0003280c vaddr=400822d8 size=0d1d0h ( 53712) load
+I (145) esp_image: segment 5: paddr=0003f9e4 vaddr=50000000 size=00020h (    32) load
+I (153) boot: Loaded app from partition at offset 0x10000
+I (153) boot: Disabling RNG early entropy source...
+I (165) cpu_start: Multicore app
+I (173) cpu_start: GPIO 3 and 1 are used as console UART I/O pins
+I (174) cpu_start: Pro cpu start user code
+I (174) cpu_start: cpu freq: 160000000 Hz
+I (176) app_init: Application information:
+I (179) app_init: Project name:     moduliq_head_probe
+I (184) app_init: App version:      1
+I (188) app_init: Compile time:     Jan  1 1980 00:00:00
+I (193) app_init: ELF file SHA256:  bfd795eac...
+I (197) app_init: ESP-IDF:          v5.5.5
+I (201) efuse_init: Min chip rev:     v0.0
+I (205) efuse_init: Max chip rev:     v3.99
+I (209) efuse_init: Chip rev:         v3.1
+I (213) heap_init: Initializing. RAM available for dynamic allocation:
+I (219) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (224) heap_init: At 3FFB3520 len 0002CAE0 (178 KiB): DRAM
+I (229) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (235) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (240) heap_init: At 4008F4A8 len 00010B58 (66 KiB): IRAM
+I (247) spi_flash: detected chip: generic
+I (249) spi_flash: flash io: dio
+I (253) main_task: Started on CPU0
+I (253) main_task: Calling app_main()
+MODULIQ raw probe: no boot SPI/GPIO init. CPLD programming is not supported.
+Commands: route <module> <chip>; burst <HH HH ...>; stats
+ROUTE err=ESP_OK
+HOST> burst 05 81 00 00
+FRAME n=1 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05810000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=2 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF810497 errors=0
+HOST> burst 05 83 00 00
+FRAME n=3 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05830000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=4 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF830500 errors=0
+HOST> burst 05 84 00 00
+FRAME n=5 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05840000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=6 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF84010F errors=0
+HOST> burst 05 87 00 00
+FRAME n=7 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05870000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=8 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF870000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=9 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=10 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=11 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=12 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=13 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=14 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=15 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000000 errors=0
+HOST> burst 02 06 40 00
+FRAME n=16 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000000 errors=0
+HOST> burst 02 06 80 00
+FRAME n=17 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000000 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=18 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=19 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000000 errors=0
+HOST> burst 02 07 40 00
+FRAME n=20 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000000 errors=0
+HOST> burst 02 07 80 00
+FRAME n=21 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=22 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=23 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=24 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=25 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=26 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=27 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=28 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=29 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=30 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=31 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=32 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=33 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=34 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=35 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=36 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=37 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=38 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=39 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=40 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=41 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=42 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=43 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=44 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=45 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000000 errors=0
+HOST> burst 02 06 40 00
+FRAME n=46 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000000 errors=0
+HOST> burst 02 06 80 00
+FRAME n=47 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000000 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=48 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=49 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000000 errors=0
+HOST> burst 02 07 40 00
+FRAME n=50 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000000 errors=0
+HOST> burst 02 07 80 00
+FRAME n=51 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=52 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=53 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=54 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=55 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=56 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=57 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=58 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=59 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=60 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=61 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=62 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=63 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=64 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=65 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=66 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=67 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=68 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=69 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=70 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=71 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=72 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=73 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=74 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=75 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000000 errors=0
+HOST> burst 02 06 40 00
+FRAME n=76 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000000 errors=0
+HOST> burst 02 06 80 00
+FRAME n=77 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000000 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=78 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=79 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000000 errors=0
+HOST> burst 02 07 40 00
+FRAME n=80 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000001 errors=0
+HOST> burst 02 07 80 00
+FRAME n=81 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=82 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=83 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=84 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=85 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=86 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=87 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=88 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=89 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=90 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=91 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=92 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=93 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=94 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=95 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=96 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=97 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=98 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=99 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=100 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=101 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=102 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=103 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=104 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=105 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000001 errors=0
+HOST> burst 02 06 40 00
+FRAME n=106 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000001 errors=0
+HOST> burst 02 06 80 00
+FRAME n=107 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000001 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=108 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=109 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000001 errors=0
+HOST> burst 02 07 40 00
+FRAME n=110 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000000 errors=0
+HOST> burst 02 07 80 00
+FRAME n=111 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=112 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=113 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=114 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=115 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=116 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=117 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=118 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=119 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=120 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=121 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=122 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=123 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=124 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=125 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=126 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=127 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=128 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=129 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=130 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=131 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=132 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=133 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=134 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=135 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000001 errors=0
+HOST> burst 02 06 40 00
+FRAME n=136 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000001 errors=0
+HOST> burst 02 06 80 00
+FRAME n=137 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000001 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=138 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=139 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000001 errors=0
+HOST> burst 02 07 40 00
+FRAME n=140 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000001 errors=0
+HOST> burst 02 07 80 00
+FRAME n=141 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=142 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=143 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=144 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=145 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=146 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=147 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=148 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=149 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=150 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=151 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=152 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=153 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=154 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=155 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=156 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=157 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=158 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=159 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=160 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=161 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=162 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=163 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=164 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=165 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000001 errors=0
+HOST> burst 02 06 40 00
+FRAME n=166 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000001 errors=0
+HOST> burst 02 06 80 00
+FRAME n=167 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000001 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=168 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=169 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000001 errors=0
+HOST> burst 02 07 40 00
+FRAME n=170 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000001 errors=0
+HOST> burst 02 07 80 00
+FRAME n=171 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=172 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=173 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=174 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=175 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=176 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=177 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=178 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=179 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=180 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=181 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=182 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=183 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=184 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=185 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=186 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=187 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=188 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=189 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=190 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=191 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=192 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=193 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=194 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=195 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000002 errors=0
+HOST> burst 02 06 40 00
+FRAME n=196 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE002 errors=0
+HOST> burst 02 06 80 00
+FRAME n=197 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE002 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=198 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=199 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000002 errors=0
+HOST> burst 02 07 40 00
+FRAME n=200 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE002 errors=0
+HOST> burst 02 07 80 00
+FRAME n=201 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=202 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=203 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=204 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=205 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=206 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=207 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=208 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=209 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=210 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=211 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=212 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=213 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=214 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=215 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFD errors=0
+HOST> burst 04 07 40 00
+FRAME n=216 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=217 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=218 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=219 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=220 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=221 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=222 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=223 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=224 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=225 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000002 errors=0
+HOST> burst 02 06 40 00
+FRAME n=226 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE002 errors=0
+HOST> burst 02 06 80 00
+FRAME n=227 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE002 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=228 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=229 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000002 errors=0
+HOST> burst 02 07 40 00
+FRAME n=230 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE002 errors=0
+HOST> burst 02 07 80 00
+FRAME n=231 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=232 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=233 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=234 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=235 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=236 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=237 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=238 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=239 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=240 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=241 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=242 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=243 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=244 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=245 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=246 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=247 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=248 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=249 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=250 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=251 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=252 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=253 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=254 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=255 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000002 errors=0
+HOST> burst 02 06 40 00
+FRAME n=256 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE002 errors=0
+HOST> burst 02 06 80 00
+FRAME n=257 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE002 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=258 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=259 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000002 errors=0
+HOST> burst 02 07 40 00
+FRAME n=260 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE002 errors=0
+HOST> burst 02 07 80 00
+FRAME n=261 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=262 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=263 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=264 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=265 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=266 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=267 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=268 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=269 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=270 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=271 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=272 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=273 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=274 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=275 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=276 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=277 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=278 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=279 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=280 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=281 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=282 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=283 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=284 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=285 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000002 errors=0
+HOST> burst 02 06 40 00
+FRAME n=286 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE003 errors=0
+HOST> burst 02 06 80 00
+FRAME n=287 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE003 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=288 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=289 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000003 errors=0
+HOST> burst 02 07 40 00
+FRAME n=290 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE002 errors=0
+HOST> burst 02 07 80 00
+FRAME n=291 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=292 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=293 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=294 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=295 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=296 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=297 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=298 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=299 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=300 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=301 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=302 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=303 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=304 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=305 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=306 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=307 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=308 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=309 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=310 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=311 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=312 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=313 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=314 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=315 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000003 errors=0
+HOST> burst 02 06 40 00
+FRAME n=316 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE003 errors=0
+HOST> burst 02 06 80 00
+FRAME n=317 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE003 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=318 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=319 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000003 errors=0
+HOST> burst 02 07 40 00
+FRAME n=320 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE003 errors=0
+HOST> burst 02 07 80 00
+FRAME n=321 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=322 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=323 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=324 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=325 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=326 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=327 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=328 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=329 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=330 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=331 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=332 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=333 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=334 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=335 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=336 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=337 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=338 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=339 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=340 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=341 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=342 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=343 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=344 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=345 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000003 errors=0
+HOST> burst 02 06 40 00
+FRAME n=346 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE003 errors=0
+HOST> burst 02 06 80 00
+FRAME n=347 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE003 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=348 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=349 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000003 errors=0
+HOST> burst 02 07 40 00
+FRAME n=350 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE003 errors=0
+HOST> burst 02 07 80 00
+FRAME n=351 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=352 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=353 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=354 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=355 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=356 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=357 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=358 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=359 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=360 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=361 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=362 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=363 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=364 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=365 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=366 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=367 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=368 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=369 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=370 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=371 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=372 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=373 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=374 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=375 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000003 errors=0
+HOST> burst 02 06 40 00
+FRAME n=376 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE003 errors=0
+HOST> burst 02 06 80 00
+FRAME n=377 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE003 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=378 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=379 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE003 errors=0
+HOST> burst 02 07 40 00
+FRAME n=380 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE003 errors=0
+HOST> burst 02 07 80 00
+FRAME n=381 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=382 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=383 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=384 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=385 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=386 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=387 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=388 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=389 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=390 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=391 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=392 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=393 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=394 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=395 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=396 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=397 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=398 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=399 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=400 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=401 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=402 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=403 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=404 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=405 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000003 errors=0
+HOST> burst 02 06 40 00
+FRAME n=406 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE003 errors=0
+HOST> burst 02 06 80 00
+FRAME n=407 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE003 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=408 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=409 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000003 errors=0
+HOST> burst 02 07 40 00
+FRAME n=410 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE003 errors=0
+HOST> burst 02 07 80 00
+FRAME n=411 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=412 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=413 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=414 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=415 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=416 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=417 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=418 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=419 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=420 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=421 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=422 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=423 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=424 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=425 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=426 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=427 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=428 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=429 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=430 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=431 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=432 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=433 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=434 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=435 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000003 errors=0
+HOST> burst 02 06 40 00
+FRAME n=436 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=FFFFE004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=437 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=438 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=439 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=440 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000003 errors=0
+HOST> burst 02 07 80 00
+FRAME n=441 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=442 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=443 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=444 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=445 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=446 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=447 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=448 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=449 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=450 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=451 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=452 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=453 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=454 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=455 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=456 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=457 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=458 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=459 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=460 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=461 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=462 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=463 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=464 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=465 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=466 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=467 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=468 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=469 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=470 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=471 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=472 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=473 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=474 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=475 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=476 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=477 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=478 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=479 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=480 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=481 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=482 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=483 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=484 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=485 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=486 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=487 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=488 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=489 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=490 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=491 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=492 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=493 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=494 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=495 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=496 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=497 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=498 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=499 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=500 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=501 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=502 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=503 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=504 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=505 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=506 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=507 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=508 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=509 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=510 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=511 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=512 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=513 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=514 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=515 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=516 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=517 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=518 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=519 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=520 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=521 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=522 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=523 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=524 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=525 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=526 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=527 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=528 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=529 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=530 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=531 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=532 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=533 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=534 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=535 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=536 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=537 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=538 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=539 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=540 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=541 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=542 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=543 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=544 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=545 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=546 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=547 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=548 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=549 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=550 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=551 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=552 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=553 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=554 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=555 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=556 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=557 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=558 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000001 errors=0
+HOST> burst 02 07 00 00
+FRAME n=559 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=00000004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=560 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=561 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=562 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=563 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=564 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=565 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=566 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=567 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=568 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=569 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=570 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=571 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=572 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=573 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=574 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=575 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=576 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=577 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=578 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=579 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=580 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=581 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=582 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=583 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=584 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=585 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=586 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=587 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=588 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=589 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE004 errors=0
+HOST> burst 02 07 40 00
+FRAME n=590 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=591 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=592 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=593 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=594 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=595 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=596 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=597 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=598 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=599 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=600 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=601 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=602 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=603 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=604 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=605 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=606 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=607 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=608 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=609 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=610 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=611 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=612 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=613 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=614 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=615 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=616 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=617 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000004 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=618 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=619 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=620 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=621 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=622 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=623 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=624 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=625 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=626 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=627 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=628 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=629 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=630 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=631 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=632 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=633 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=634 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=635 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=636 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=637 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=638 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=639 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=640 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=641 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=642 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=643 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=644 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=645 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=646 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000004 errors=0
+HOST> burst 02 06 80 00
+FRAME n=647 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=648 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=649 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=650 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=651 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=652 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=653 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=654 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=655 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=656 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=657 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=658 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=659 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=660 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=661 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=662 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=663 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=664 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=665 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFD errors=0
+HOST> burst 04 07 40 00
+FRAME n=666 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=667 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=668 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=669 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=670 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=671 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=672 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=673 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=674 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=675 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000004 errors=0
+HOST> burst 02 06 40 00
+FRAME n=676 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=677 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=678 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=679 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=680 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=681 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=682 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=683 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=684 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=685 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=686 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=687 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=688 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=689 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=690 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=691 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=692 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=693 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=694 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=695 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=696 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=697 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=698 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=699 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=700 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=701 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=702 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=703 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=704 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=705 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=706 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=707 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=708 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=709 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=710 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=711 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=712 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=713 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=714 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=715 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=716 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=717 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=718 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=719 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=720 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=721 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=722 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=723 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=724 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=725 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=726 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=727 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=728 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=729 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=730 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=731 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=732 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=733 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=734 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=735 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=736 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=737 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=738 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=739 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=740 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000004 errors=0
+HOST> burst 02 07 80 00
+FRAME n=741 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=742 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=743 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=744 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=745 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=746 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=747 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=748 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=749 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=750 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=751 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=752 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=753 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=754 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=755 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=756 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=757 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=758 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=759 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=760 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=761 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=762 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=763 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=764 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=765 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=766 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=767 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=768 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=769 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=770 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=771 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=772 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=773 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=774 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=775 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=776 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=777 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=778 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=779 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=780 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=781 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=782 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=783 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=784 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=785 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=786 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=787 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=788 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=789 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=790 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=791 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=792 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=793 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=794 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=795 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=796 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=797 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=798 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=799 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=800 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=801 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=802 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=803 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=804 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=805 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=806 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=807 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=808 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=809 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=810 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=811 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=812 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=813 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=814 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=815 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFD errors=0
+HOST> burst 04 07 40 00
+FRAME n=816 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=817 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=818 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=819 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=820 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=821 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=822 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=823 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=824 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=825 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=826 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=827 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=828 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=829 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=830 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=831 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=832 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=833 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=834 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=835 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=836 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=837 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=838 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000001 errors=0
+HOST> burst 03 07 80 00
+FRAME n=839 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=840 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=841 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=842 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=843 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=844 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=845 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=846 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=847 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=848 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=849 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=850 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=851 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=852 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=853 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=854 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=855 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=856 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=857 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=858 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=859 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=860 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=861 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=862 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=863 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=864 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=865 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=866 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=867 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=868 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=869 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=870 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=871 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=872 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=873 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=874 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=875 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=876 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=877 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=878 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=879 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=880 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=881 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=882 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=883 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=884 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=885 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=886 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=887 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=888 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=889 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=890 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=891 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=892 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=893 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=894 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=895 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=896 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=897 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=898 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=899 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=900 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=901 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=902 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=903 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=904 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=905 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=906 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=907 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=908 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=909 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=910 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=911 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=912 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=913 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=914 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=915 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=916 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=917 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=918 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000002 errors=0
+HOST> burst 02 07 00 00
+FRAME n=919 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=920 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=921 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=922 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=923 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=924 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=925 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=926 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=927 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=928 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=929 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=930 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=931 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=932 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=933 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=934 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=935 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=936 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=937 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=938 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 40 00
+FRAME n=939 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A4000 rx=00000000 errors=0
+HOST> burst 05 0B C0 00
+FRAME n=940 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BC000 rx=000A4000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=941 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BC000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=942 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A4000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=943 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=944 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BC000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=945 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=946 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=947 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=948 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000003 errors=0
+HOST> burst 02 07 00 00
+FRAME n=949 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE005 errors=0
+HOST> burst 02 07 40 00
+FRAME n=950 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=00000006 errors=0
+HOST> burst 02 07 80 00
+FRAME n=951 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=952 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=953 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=954 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=955 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=956 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=957 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=958 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000001 errors=0
+HOST> burst 03 07 80 00
+FRAME n=959 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=960 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=961 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=962 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=963 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=964 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000003FE errors=0
+HOST> burst 04 07 00 00
+FRAME n=965 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=FFFFEBFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=966 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=967 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=968 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=969 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B FF FF
+FRAME n=970 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050BFFFF rx=000A8000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=971 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000BFFFF errors=0
+HOST> burst 05 00 00 00
+FRAME n=972 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A8000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=973 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=974 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8BFFFF errors=0
+HOST> burst 02 06 00 00
+FRAME n=975 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=976 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=977 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000005 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=978 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=00000003 errors=0
+HOST> burst 02 07 00 00
+FRAME n=979 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE006 errors=0
+HOST> burst 02 07 40 00
+FRAME n=980 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE006 errors=0
+HOST> burst 02 07 80 00
+FRAME n=981 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=FFFFE000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=982 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=983 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=984 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=985 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000000 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=986 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=987 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=988 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000001 errors=0
+HOST> burst 03 07 80 00
+FRAME n=989 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=990 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=991 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=992 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=993 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=994 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=000007FD errors=0
+HOST> burst 04 07 00 00
+FRAME n=995 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000FFE errors=0
+HOST> burst 04 07 40 00
+FRAME n=996 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=997 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=998 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A C0 00
+FRAME n=999 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AC000 rx=00000000 errors=0
+HOST> burst 05 0B 00 00
+FRAME n=1000 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B0000 rx=000AC000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=1001 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B0000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1002 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AC000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=1003 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1004 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B0000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=1005 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=1006 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=1007 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000006 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=1008 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE003 errors=0
+HOST> burst 02 07 00 00
+FRAME n=1009 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE006 errors=0
+HOST> burst 02 07 40 00
+FRAME n=1010 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=1011 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=1012 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=1013 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=1014 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=1015 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000001 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=1016 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=1017 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000000 errors=0
+HOST> burst 03 07 40 00
+FRAME n=1018 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=1019 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=1020 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=1021 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=1022 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=1023 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=1024 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000BFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=1025 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=00000000 errors=0
+HOST> burst 04 07 40 00
+FRAME n=1026 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=00000000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=1027 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=1028 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A FF FF
+FRAME n=1029 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050AFFFF rx=00000000 errors=0
+HOST> burst 05 0B 40 00
+FRAME n=1030 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B4000 rx=000AFFFF errors=0
+HOST> burst 05 8A 00 00
+FRAME n=1031 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B4000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1032 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8AFFFF errors=0
+HOST> burst 05 8B 00 00
+FRAME n=1033 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1034 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B4000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=1035 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=1036 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000005 errors=0
+HOST> burst 02 06 80 00
+FRAME n=1037 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=00000006 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=1038 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE003 errors=0
+HOST> burst 02 07 00 00
+FRAME n=1039 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE006 errors=0
+HOST> burst 02 07 40 00
+FRAME n=1040 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=1041 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=1042 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=1043 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=1044 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=1045 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000001 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=1046 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=1047 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000001 errors=0
+HOST> burst 03 07 40 00
+FRAME n=1048 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=1049 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=1050 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=1051 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=1052 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=1053 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=1054 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000FFD errors=0
+HOST> burst 04 07 00 00
+FRAME n=1055 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000003FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=1056 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=1057 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=1058 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 00 00
+FRAME n=1059 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A0000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=1060 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A0000 errors=0
+HOST> burst 05 8A 00 00
+FRAME n=1061 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058A0000 rx=000B8000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1062 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8A0000 errors=0
+HOST> burst 05 8B 00 00
+FRAME n=1063 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=058B0000 rx=00000000 errors=0
+HOST> burst 05 00 00 00
+FRAME n=1064 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=05000000 rx=FF8B8000 errors=0
+HOST> burst 02 06 00 00
+FRAME n=1065 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02060000 rx=00000005 errors=0
+HOST> burst 02 06 40 00
+FRAME n=1066 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02064000 rx=00000006 errors=0
+HOST> burst 02 06 80 00
+FRAME n=1067 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02068000 rx=FFFFE006 errors=0
+HOST> burst 02 06 C0 00
+FRAME n=1068 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0206C000 rx=FFFFE003 errors=0
+HOST> burst 02 07 00 00
+FRAME n=1069 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02070000 rx=FFFFE006 errors=0
+HOST> burst 02 07 40 00
+FRAME n=1070 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02074000 rx=FFFFE005 errors=0
+HOST> burst 02 07 80 00
+FRAME n=1071 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=02078000 rx=00000000 errors=0
+HOST> burst 02 07 C0 00
+FRAME n=1072 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0207C000 rx=00000000 errors=0
+HOST> burst 03 06 00 00
+FRAME n=1073 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03060000 rx=00000000 errors=0
+HOST> burst 03 06 40 00
+FRAME n=1074 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03064000 rx=00000000 errors=0
+HOST> burst 03 06 80 00
+FRAME n=1075 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03068000 rx=00000001 errors=0
+HOST> burst 03 06 C0 00
+FRAME n=1076 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0306C000 rx=00000000 errors=0
+HOST> burst 03 07 00 00
+FRAME n=1077 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03070000 rx=00000001 errors=0
+HOST> burst 03 07 40 00
+FRAME n=1078 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03074000 rx=00000000 errors=0
+HOST> burst 03 07 80 00
+FRAME n=1079 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=03078000 rx=00000000 errors=0
+HOST> burst 03 07 C0 00
+FRAME n=1080 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0307C000 rx=00000000 errors=0
+HOST> burst 04 06 00 00
+FRAME n=1081 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04060000 rx=00000000 errors=0
+HOST> burst 04 06 40 00
+FRAME n=1082 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04064000 rx=00000000 errors=0
+HOST> burst 04 06 80 00
+FRAME n=1083 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04068000 rx=00000000 errors=0
+HOST> burst 04 06 C0 00
+FRAME n=1084 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0406C000 rx=00000000 errors=0
+HOST> burst 04 07 00 00
+FRAME n=1085 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04070000 rx=000007FE errors=0
+HOST> burst 04 07 40 00
+FRAME n=1086 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04074000 rx=FFFFE000 errors=0
+HOST> burst 04 07 80 00
+FRAME n=1087 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=04078000 rx=00000000 errors=0
+HOST> burst 04 07 C0 00
+FRAME n=1088 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=0407C000 rx=00000000 errors=0
+HOST> burst 05 0A 80 00
+FRAME n=1089 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050A8000 rx=00000000 errors=0
+HOST> burst 05 0B 80 00
+FRAME n=1090 module=0 chip=2 mode=0 hz=100000 err=ESP_OK tx=050B8000 rx=000A8000 errors=0

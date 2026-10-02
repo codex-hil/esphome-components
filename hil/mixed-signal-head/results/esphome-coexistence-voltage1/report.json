@@ -1,0 +1,128 @@
+{
+  "timestamp_utc": "2026-10-02T17:10:05.995599+00:00",
+  "status": "PASS",
+  "port": "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+  "expected_mac": "68:25:dd:4c:49:e4",
+  "cpld_modified": false,
+  "HC165": "NOT_TESTED_HARDWARE_PL_FIX_PENDING",
+  "configuration_sha256": "d830aa12f40f65c54ac64605fca90c833f1d1658e52dc2dd1d759acd749721a3",
+  "test_header_sha256": "0e16effdeea0d9abfccf605af0431fc8f06ce50c2324555bdee7cf05af4b9aa6",
+  "source_sha256": {
+    "components/spi/__init__.py": "a21138ab3c0e3cf48dd734bc7e20586f1af4d7d80b1f0b9ff5c2fa2004c6427f",
+    "components/spi/spi.cpp": "83f9d294b65a9822ff7f9b7e69f9198c3fe8662c7be15e27641834c6d0e0ad22",
+    "components/spi/spi.h": "bad6a7d95fb7240ea6914aaf1f267640ebb866e030abc290c333a793be73de97",
+    "components/spi/spi_arduino.cpp": "099fbac2e63b2dcae08fcbaf65b657dc56558faf89238055a4eb0177831f867b",
+    "components/spi/spi_esp_idf.cpp": "d8b22d7a53c226fb5bd703e60323f248c94a8479120590c7e0c6f3c9fbfce4cc",
+    "components/addrspi/__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
+    "components/addrspi/addrspi.cpp": "9bf3acb2879dd2ee0c07e6d9fa459e12e22b9f1f6b2de0df0d6d1ada68bd6f06",
+    "components/addrspi/addrspi.h": "43eac6febf655fc2b8c8c566ff451832181d842384abfd15903ae0571c323e66",
+    "components/addrspi2/__init__.py": "fa0902fc195fbd8f5c2ce8892e86448f4a6e1f11de0513ee72542756b2f92eab",
+    "components/addrspi2/addrspi2.cpp": "7045a52185211b9ec5a4925d1ad30b60123ecae1c76240da750d7548b40f649f",
+    "components/addrspi2/addrspi2.h": "5cc661a055f75ef6bc35d29ec7d7b59ffc10b2ecaefc651686342fc69233903a",
+    "components/mcp3208/__init__.py": "bc53402278973c81c1f567dc1dbe0519cd6b53b8c8770eff2180287b1074385c",
+    "components/mcp3208/mcp3208.cpp": "592112a1c7d4f64c2973f7c4681e605f79981e07c05a657c6636ffca2ff78569",
+    "components/mcp3208/mcp3208.h": "4b26673342505b68d136093fe8a32bdce542cb45b60ea60b057556e2f49cf0ae",
+    "components/mcp3208/sensor.py": "446ae7f0a041405a98145370ef8f4a489d57b35189a568d8f7615fcf3c255b09",
+    "components/dacx0504/__init__.py": "0b149b2c57a49441fd11767cd3a9f2529ff2a89ea3d957b1b7da802b72a53a6f",
+    "components/dacx0504/dacx0504.cpp": "d24a46b0d68becd87aec8b2ff76290d15d06600bf3a450cef482202a559d31e9",
+    "components/dacx0504/dacx0504.h": "93fdd6e073a311e806d867a1fc5f8a3bb521b92c15d26be3327f7390e1b88717",
+    "components/dacx0504/output.py": "973318b119a41340b15d5030686c3ab5225131b7e198a904c33ea00caede943a",
+    "components/spi_shift_register/__init__.py": "4a1ad15437511bc68c22b9cc0a17f0ae910a44433115123f717479eb55a15e68",
+    "components/spi_shift_register/binary_sensor.py": "7acf7a186fb7321e8f6f5836d65e54460a7ce31f9fe3c615bb5a928cb2f4e9c6",
+    "components/spi_shift_register/output.py": "53a2b4dbd46b684bfd6944400430a04b6bd7532b498d29df99525e7dcf38c0fc",
+    "components/spi_shift_register/spi_shift_register.cpp": "0d4afeb0fb31c781c83728f7cd86341fc862ae1b9c48da2a2988853d89dda904",
+    "components/spi_shift_register/spi_shift_register.h": "5ee05cc16dc3716e343c4e6b778a92f1055bd501aa3448d24433a163be379c68",
+    "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/__init__.py": "769ab6852dca68fda8b1928db6c19d091c04b35829a714137db6b99449f625d3",
+    "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/mmc5983_spi.cpp": "e0d589a5b7c63212a983dbb7ac92308f0638f5c1fef76f925ef9a10ccff233ab",
+    "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/mmc5983_spi.h": "519551b94c9fd32b4bcfdab972e685c31d4deb7277914c178d3bf1bfda3455f5",
+    "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/sensor.py": "570eef808731305d3fa3a9a6cda1a6318fd80da5e454edfb079bca0a6a8e9a10"
+  },
+  "SMU_points": [
+    {
+      "point": 0,
+      "dac2_code": 0,
+      "dac3_code": 32768,
+      "adc_z3_V": 0.0,
+      "adc_z4_V": 1.498535,
+      "SMU_V": -0.00014,
+      "nominal_V": 0.0,
+      "error_V": -0.00014,
+      "status": "PASS"
+    },
+    {
+      "point": 1,
+      "dac2_code": 16384,
+      "dac3_code": 32768,
+      "adc_z3_V": 0.748535,
+      "adc_z4_V": 1.498535,
+      "SMU_V": 0.74941,
+      "nominal_V": 0.75,
+      "error_V": -0.0005899999999999794,
+      "status": "PASS"
+    },
+    {
+      "point": 2,
+      "dac2_code": 32768,
+      "dac3_code": 32768,
+      "adc_z3_V": 1.495605,
+      "adc_z4_V": 1.498535,
+      "SMU_V": 1.49926,
+      "nominal_V": 1.5,
+      "error_V": -0.0007399999999999629,
+      "status": "PASS"
+    },
+    {
+      "point": 3,
+      "dac2_code": 49152,
+      "dac3_code": 32768,
+      "adc_z3_V": 2.24707,
+      "adc_z4_V": 1.498535,
+      "SMU_V": 2.24914,
+      "nominal_V": 2.25,
+      "error_V": -0.0008599999999998609,
+      "status": "PASS"
+    },
+    {
+      "point": 4,
+      "dac2_code": 65535,
+      "dac3_code": 32768,
+      "adc_z3_V": 2.99707,
+      "adc_z4_V": 1.498535,
+      "SMU_V": 2.99897,
+      "nominal_V": 2.9999542236328125,
+      "error_V": -0.0009842236328125864,
+      "status": "PASS"
+    }
+  ],
+  "SMU_during_regression": "CONNECTED_MEASUREMENT",
+  "SMU_IDN": "Keysight Technologies,B2910BL,MY63320305,5.0.2429.8966",
+  "SMU_setup": {
+    ":OUTP?": "0",
+    ":OUTP:ON:AUTO?": "0",
+    ":OUTP:OFF:MODE?": "HIZ",
+    ":SOUR:FUNC:MODE?": "CURR",
+    ":SOUR:CURR?": "+0.00000000E+000",
+    ":SOUR:CURR:RANG?": "+1.00000000E-008",
+    ":SENS:REM?": "0",
+    ":SENS:VOLT:PROT?": "+3.30000000E+000",
+    ":SYST:ERR?": "+0,\"No error\""
+  },
+  "firmware_sha256": {
+    "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexist-voltage/build/bootloader/bootloader.bin": "4f1d06dd8a028d8e968e4cfa79fb4cb72492838adc9db7fb6960f0234f48e294",
+    "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexist-voltage/build/moduliq-coexist-voltage.bin": "a6a9ec9dc9674befa140049281210ab8ca5680434509adf0d91da5149784e34e",
+    "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexist-voltage/build/partition_table/partition-table.bin": "45e2c4086233cc7a1167262b7ad6d44288e6b131e7b7f0061ddd2438997b807d",
+    "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexist-voltage/build/ota_data_initial.bin": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "final_line": "\u001b[0;32m[I][coexist_hil:029]: FINAL PASS voltage_sweep=5 gpio_patterns=00,55,AA,FF physical_gpio=REQUIRES_SCOPE mag_errors=0 dac2=8000 dac3=8000 gpio=07\u001b[0m",
+  "uart_sha256": "ae89a0ce5f568991fd7da5c9ea7e9d658e1ac5a82a444b038856e91cb1b282e8",
+  "error_lines": [],
+  "warning_lines": [
+    "\u001b[0;33m[W][app:171]: Chip rev >= 3.0 detected. Set minimum_chip_revision: \"3.1\" under esp32 > framework > advanced to reduce binary size\u001b[0m",
+    "\u001b[0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced\u001b[0m"
+  ],
+  "SMU_final": {
+    ":OUTP?": "0",
+    ":OUTP:OFF:MODE?": "HIZ",
+    ":SYST:ERR?": "+0,\"No error\""
+  }
+}

@@ -14,7 +14,8 @@ CONFIG_SCHEMA = (
     cv.Schema(
         {
             cv.GenerateID(): cv.declare_id(MCP3208),
-            cv.Optional(CONF_REFERENCE_VOLTAGE, default="3.3V"): cv.voltage,
+            cv.Optional(CONF_REFERENCE_VOLTAGE, default="3.3V"): cv.All(cv.voltage, cv.Range(min=0.1, max=5.5)),
+            cv.Optional("sample_rate"): cv.All(cv.frequency, cv.Range(min=1, max=2000)),
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
@@ -27,3 +28,6 @@ async def to_code(config):
     await cg.register_component(var, config)
     await spi.register_spi_device(var, config)
     cg.add(var.set_reference_voltage(config[CONF_REFERENCE_VOLTAGE]))
+
+    if "sample_rate" in config:
+        cg.add(var.set_sample_rate(config["sample_rate"]))

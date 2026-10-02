@@ -1,0 +1,220 @@
+{
+  "capture": "router01",
+  "threshold_V": 1.65,
+  "uncertainty": "Sample interval recorded; probe/channel skew and analog accuracy not calibrated.",
+  "channels": {
+    "1": {
+      "edges": [
+        {
+          "time_s": -7.015325806451614e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -7.003862790697676e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -6.015299999999999e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -6.003840476190476e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -5.015309375e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -5.003829545454543e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -4.015306060606061e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -4.003838636363634e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -3.015259374999999e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -3.0038022727272727e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -2.0152593749999992e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -2.0038073170731708e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -1.0152885714285721e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": -1.0037883720930214e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -1.5141666666665648e-07,
+          "kind": "rise"
+        },
+        {
+          "time_s": -3.6447368421033046e-08,
+          "kind": "fall"
+        },
+        {
+          "time_s": 9.847406250000005e-06,
+          "kind": "rise"
+        },
+        {
+          "time_s": 9.96197727272727e-06,
+          "kind": "fall"
+        },
+        {
+          "time_s": 1.984777419354841e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 1.996221951219512e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 2.984764516129033e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 2.9962209302325602e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 3.984751612903228e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 3.996206818181818e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 4.984825000000002e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 4.996253846153848e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 5.984823684210524e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 5.996256756756756e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 6.984790909090913e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 6.996233333333331e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": 7.984778787878792e-05,
+          "kind": "rise"
+        },
+        {
+          "time_s": 7.996237499999998e-05,
+          "kind": "fall"
+        }
+      ],
+      "sample_interval_s": 4e-09,
+      "high_widths_s": [
+        1.146301575393827e-07,
+        1.1459523809522897e-07,
+        1.1479829545456744e-07,
+        1.146742424242681e-07,
+        1.1457102272726402e-07,
+        1.1452057926828385e-07,
+        1.1500199335550787e-07,
+        1.1496929824562343e-07,
+        1.1457102272726402e-07,
+        1.1444531864671006e-07,
+        1.1456414103527043e-07,
+        1.145520527858965e-07,
+        1.1428846153846168e-07,
+        1.1433072546232189e-07,
+        1.1442424242418285e-07,
+        1.1458712121205968e-07
+      ],
+      "median_high_width_s": 1.1457102272726402e-07
+    },
+    "2": {
+      "edges": [
+        {
+          "time_s": 9.799999999980831e-09,
+          "kind": "fall"
+        },
+        {
+          "time_s": 1.7989247311830242e-08,
+          "kind": "rise"
+        }
+      ],
+      "sample_interval_s": 4e-09,
+      "high_widths_s": [],
+      "median_high_width_s": null
+    },
+    "3": {
+      "edges": [
+        {
+          "time_s": -7.029540384615384e-05,
+          "kind": "fall"
+        },
+        {
+          "time_s": -2.5166666666666285e-07,
+          "kind": "rise"
+        },
+        {
+          "time_s": 9.705290909090914e-06,
+          "kind": "fall"
+        },
+        {
+          "time_s": 9.493650000000004e-05,
+          "kind": "rise"
+        }
+      ],
+      "sample_interval_s": 4e-09,
+      "high_widths_s": [
+        9.956957575757577e-06
+      ],
+      "median_high_width_s": 9.956957575757577e-06
+    },
+    "4": {
+      "edges": [
+        {
+          "time_s": -2.183098591550074e-09,
+          "kind": "rise"
+        },
+        {
+          "time_s": 9.49056621621622e-05,
+          "kind": "fall"
+        }
+      ],
+      "sample_interval_s": 4e-09,
+      "high_widths_s": [
+        9.490784526075376e-05
+      ],
+      "median_high_width_s": 9.490784526075376e-05
+    }
+  },
+  "sck_rises_before_header_done": 8,
+  "cs_fall_minus_header_done_s": 1.1983098591530905e-08,
+  "sck_rises_before_cs_fall": 8,
+  "first_sck_rise_after_cs_minus_cs_s": 9.837606250000025e-06
+}

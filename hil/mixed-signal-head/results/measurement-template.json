@@ -1,0 +1,12 @@
+{
+  "stage": 1,
+  "status": "NOT_RUN",
+  "pcb_revision": null,
+  "operator": null,
+  "timestamp_utc": null,
+  "instrument": null,
+  "probe_connections": {},
+  "measurements": [],
+  "evidence_files": [],
+  "issues": []
+}

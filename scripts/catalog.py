@@ -7,9 +7,10 @@ entries = json.loads((R/'catalog/components.json').read_text())['components']
 imports = json.loads((R/'reports/imports-2026.9.0.json').read_text())['components']
 buildfile = R/'reports/builds-2026.9.0.json'
 builds = json.loads(buildfile.read_text())['examples'] if buildfile.exists() else {}
-coverage = {'cpld-soft-i2c':['moduliq_cpld_soft_i2c'], 'cpld-serprog':['moduliq_serprog'], 'cpld-readout':['moduliq_cpld_i2c'], 'cpld-gpio':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
+coverage = {'mixed-signal-coexistence-hil':['spi','addrspi','addrspi2','mcp3208','dacx0504','spi_shift_register'], 'mixed-signal-head':['spi','addrspi','addrspi2','mcp3208','dacx0504','spi_shift_register'], 'mixed-signal-parallel-only':['spi','addrspi','mcp3208','dacx0504','spi_shift_register'], 'cpld-soft-i2c':['moduliq_cpld_soft_i2c'], 'cpld-serprog':['moduliq_serprog'], 'cpld-readout':['moduliq_cpld_i2c'], 'cpld-gpio':['moduliq_cpld_i2c','moduliq_cpld_gpio'], 'cpld-adc-flash':['moduliq_cpld_i2c','moduliq_cpld_gpio','moduliq_cpld_flash'], 'rtd':['rtd'], 'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
             'ads8166':['ads8166'], 'dacx0504':['dacx0504'], 'max112xx':['max112xx'], 'mcp3208':['mcp3208']}
 desc = {
+ 'spi_shift_register':'HC165/HC595 przez buforowane SPI; kontrola poprawnej polaryzacji LOAD',
  'moduliq_cpld_soft_i2c':'I²C przez GPIO CPLD: cztery pary open-drain na bank',
  'moduliq_serprog':'serprog TCP: surowe SPI dla flashrom, polityka targetu w YAML',
  'moduliq_cpld_i2c':'CPLD I²C: identyfikacja/statusy/liczniki i opcjonalny ADC',
@@ -60,12 +61,15 @@ lines += ['', '## Wybór wariantów i zależności', '',
  '- Archiwalne LAN865x, spi_test i resistance_sampler są poza `components/`.',
  '  Wymagają oddzielnej oceny zgodności/dependencji; nie są częścią baseline.', '',
  '## Znane problemy', '', '[MMC5983: co drugi odczyt błędny — zgłoszenie użytkownika, bez diagnozy](../docs/known-issues.md).', '[Porównanie ADS124S08 i znalezione problemy](../docs/ads124s08-comparison.md).', '', '## Sprzęt i autorstwo', '',
- 'W tej operacji nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/',
+ '[Mixed-signal head + równoległy magnetometr: walidacja ESPHome](../reports/mixed-signal-head-hil-2026-10-02.json).',
+ 'PASS dotyczy transportu, dwóch loopbacków ADC/DAC i koegzystencji z osobnym driverem MMC;',
+ 'fizyczne GPIO pozostają częściowo niezweryfikowane. CPLD nie programowano.', '',
+ 'Podczas pierwotnego importu nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/',
  '`ads124s08_base` na module0 i dwóch ADC są opisane w',
  '[raporcie HIL](https://github.com/codex-hil/esphome-hil/blob/631bf39/reports/ads124s08-mux-2026-09-29.json).',
  'Dotyczyły MUX/CRC i diagnostyki, z IDAC wyłączonym; nie potwierdzają pomiaru',
  'temperatury lub fizycznej dokładności prądu. Pozostałe komponenty nie mają tutaj',
- 'nadanej walidacji sprzętowej.', '',
+ 'nadanej walidacji sprzętowej poza zakresami jawnie opisanymi w raportach.', '',
  'Oryginalne `CODEOWNERS` pozostają w źródłach i [manifeście](components.json).',
  'Główne pochodzenie dodatków: Wizath, mirror i integracja: gkasprow; oryginalni',
  'autorzy ESPHome zachowują swoje oznaczenia. Pełne licencje: [LICENSE.md](../LICENSE.md).', '',

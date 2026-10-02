@@ -30,6 +30,9 @@ class ADDRSPI2SPIDelegate : public spi::SPIDelegate {
   bool is_ready() override;
 
  protected:
+  void exchange_(const uint8_t *tx, uint8_t *rx, size_t length);
+  bool active_{false};
+  bool frame_sent_{false};
   uint8_t address_;
   spi::SPIDelegate *delegate_;
 };
@@ -40,8 +43,10 @@ class ADDRSPI2Component : public Component,
  public:
   void setup() override;
   void dump_config() override;
-  float get_setup_priority() const override { return setup_priority::DATA; }
+  float get_setup_priority() const override { return setup_priority::IO; }
 
+  void set_shared_device(bool shared) { shared_device_ = shared; }
+  void set_max_data_rate(uint32_t rate) { max_data_rate_ = rate; }
   void register_channel(ADDRSPI2Channel *channel) { this->channels_.push_back(channel); }
   spi::SPIDelegate *register_upstream_device(spi::SPIClient *device, spi::SPIMode mode, spi::SPIBitOrder bit_order,
                                              uint32_t data_rate, GPIOPin *cs_pin, bool release_device, bool write_only);
@@ -51,6 +56,8 @@ class ADDRSPI2Component : public Component,
   void transfer_transaction(uint8_t address, const uint8_t *tx_payload, uint8_t *rx_payload, size_t length);
 
  protected:
+  bool shared_device_{false};
+  uint32_t max_data_rate_{0};
   static const size_t STACK_PAYLOAD_SIZE = 16;
 
   std::vector<ADDRSPI2Channel *> channels_;

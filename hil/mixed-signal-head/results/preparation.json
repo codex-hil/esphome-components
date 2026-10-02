@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-10-02T08:24:34.096097+00:00",
+  "status": "PREPARED_NOT_HW_VALIDATED",
+  "input": {
+    "path": "inputs/MOD-SH-MAG_COMP-36.PDF",
+    "sha256": "d97273a77ccc6aa33e4d6846e8b7195490ad3f9b0d00b2743adcf12dc71bb4ca"
+  },
+  "scope": "ESP32 only; CPLD untouched",
+  "build": {
+    "status": "PASS",
+    "idf": "5.5.5",
+    "nix_flake": "/home/codex-hil/workspaces/esp-idf-environment",
+    "nix_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5",
+    "log": "results/build.log",
+    "binary_sha256": "d139f8e8191a343e52e96dd88dfa8fd61e902e8e87d6c4284f0bea5033896df9",
+    "bytes": 194912,
+    "wiring_verified": false,
+    "gpio_defaults": -1
+  },
+  "source_sha256": {
+    "firmware/CMakeLists.txt": "25e86285a4192f0ddc439e0338d82b1dd580621fd2f80f93197d49b386fa5849",
+    "firmware/README.md": "732c392a5d6003d6cf97e8487887e126274f4efdbc5afe25c8c71b50b5926099",
+    "firmware/main/CMakeLists.txt": "cb5139457fcc72ed9f964f1107e1487c77a9a1b2cc754851b28bb80be0c758d0",
+    "firmware/main/Kconfig.projbuild": "9df1fb2be43ce714ae14ad43715642ad1d51ee7487e00b33e828f9a065c8bc64",
+    "firmware/main/main.c": "a7d30040e2bd9fd1de6ab8a294c0c9e746247ef32799c85f9651bcf46c1d6278",
+    "firmware/sdkconfig.defaults": "9859dc3efc168f0535c4f24d5ee1b7497dd109121b45bc6800f25446cbe7cbf8"
+  },
+  "datasheets_sha256": {
+    "cd74hc138.pdf": "e9951080680654469cd0827680387df1212420d85c4dca9c7e5171d84d0bac4b",
+    "cd74hc4520.pdf": "2f94d1df506d1a7b9de72fae83d69fc1b9a0c60c94ad2af768c6fd48f31528db",
+    "dac80504.pdf": "66feb81f28eb3a23323ff422f1fb10c61ec01dddc7cafe373cc562200770e8c1",
+    "mcp3208.pdf": "89bc1e17c35e2bb1c7b8fbf0b775b3729ce9fe4d27f7e9c052a774757afc0c20",
+    "sn74hc595.pdf": "f71523bbfe5c94333749001796e5406583115413bf5043663960445e45482eb6"
+  },
+  "datasheets_consulted_web": [
+    "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc6820.pdf",
+    "https://assets.nexperia.com/documents/data-sheet/74HC_HCT165.pdf?hkey=EF798316E3902B6ED9A73243A3159BB0"
+  ],
+  "download_limitations": {
+    "ltc6820": "local download timeout; web PDF consulted",
+    "hc165": "local download 403; web PDF consulted"
+  },
+  "hardware_status": "NOT_RUN",
+  "flash_performed": false,
+  "spi_transactions": 0,
+  "pending": [
+    "confirmed module and chip addresses",
+    "ESP32 wiring and port",
+    "actual fitted ICs and R24/C13/straps",
+    "power-off/power-up measurements",
+    "four scope probes and loopback map"
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "timestamp_utc": "2026-10-02T14:32:05.353633+00:00",
+  "DAC_channel": 2,
+  "DAC3_common_code": "8000",
+  "reference_V_nominal_not_measured": 3.0,
+  "loopback_user": "VOUTC_N to INC_N; VOUTC_P to INC_P",
+  "loopback_ADC_connectivity": "unconfirmed: schematic IN_P/N not ADC inputs",
+  "DMM_connection": "disconnected (user confirmed after test)",
+  "CPLD_modified": false,
+  "points": [
+    {
+      "code": 0,
+      "DAC_register_readback": "PASS",
+      "DAC_P_expected_V_nominal": 0.0,
+      "DAC_P_minus_common_expected_V_nominal": -1.5,
+      "DMM_V": -0.0004677433,
+      "ADC3": [
+        {
+          "channel": 0,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 1,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 2,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 3,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 4,
+          "raw_nominal_12bit": 2046,
+          "validated": false
+        },
+        {
+          "channel": 5,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 6,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 7,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        }
+      ],
+      "frames": [
+        {
+          "tx": "050A0000",
+          "rx": "000B8000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A0000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A0000"
+        },
+        {
+          "tx": "04060000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04064000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04068000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000007FE"
+        },
+        {
+          "tx": "04074000",
+          "rx": "FFFFE000"
+        },
+        {
+          "tx": "04078000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0407C000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "code": 16384,
+      "DAC_register_readback": "PASS",
+      "DAC_P_expected_V_nominal": 0.75,
+      "DAC_P_minus_common_expected_V_nominal": -0.75,
+      "DMM_V": 0.001261975,
+      "ADC3": [
+        {
+          "channel": 0,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 1,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 2,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 3,
+          "raw_nominal_12bit": 1022,
+          "validated": false
+        },
+        {
+          "channel": 4,
+          "raw_nominal_12bit": 2046,
+          "validated": false
+        },
+        {
+          "channel": 5,
+          "raw_nominal_12bit": 1,
+          "validated": false
+        },
+        {
+          "channel": 6,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 7,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        }
+      ],
+      "frames": [
+        {
+          "tx": "050A4000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A4000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A4000"
+        },
+        {
+          "tx": "04060000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04064000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04068000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "000003FE"
+        },
+        {
+          "tx": "04070000",
+          "rx": "FFFFE7FE"
+        },
+        {
+          "tx": "04074000",
+          "rx": "FFFFE001"
+        },
+        {
+          "tx": "04078000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0407C000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "code": 32768,
+      "DAC_register_readback": "PASS",
+      "DAC_P_expected_V_nominal": 1.5,
+      "DAC_P_minus_common_expected_V_nominal": 0.0,
+      "DMM_V": -0.0003008283,
+      "ADC3": [
+        {
+          "channel": 0,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 1,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 2,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 3,
+          "raw_nominal_12bit": 2045,
+          "validated": false
+        },
+        {
+          "channel": 4,
+          "raw_nominal_12bit": 2046,
+          "validated": false
+        },
+        {
+          "channel": 5,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 6,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 7,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        }
+      ],
+      "frames": [
+        {
+          "tx": "050A8000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A8000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A8000"
+        },
+        {
+          "tx": "04060000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04064000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04068000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "000007FD"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000007FE"
+        },
+        {
+          "tx": "04074000",
+          "rx": "FFFFE000"
+        },
+        {
+          "tx": "04078000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0407C000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "code": 49152,
+      "DAC_register_readback": "PASS",
+      "DAC_P_expected_V_nominal": 2.25,
+      "DAC_P_minus_common_expected_V_nominal": 0.75,
+      "DMM_V": -0.0007443297,
+      "ADC3": [
+        {
+          "channel": 0,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 1,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 2,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 3,
+          "raw_nominal_12bit": 3069,
+          "validated": false
+        },
+        {
+          "channel": 4,
+          "raw_nominal_12bit": 2046,
+          "validated": false
+        },
+        {
+          "channel": 5,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 6,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 7,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        }
+      ],
+      "frames": [
+        {
+          "tx": "050AC000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000AC000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8AC000"
+        },
+        {
+          "tx": "04060000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04064000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04068000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000BFD"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000007FE"
+        },
+        {
+          "tx": "04074000",
+          "rx": "FFFFE000"
+        },
+        {
+          "tx": "04078000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0407C000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "code": 65535,
+      "DAC_register_readback": "PASS",
+      "DAC_P_expected_V_nominal": 2.9999542236328125,
+      "DAC_P_minus_common_expected_V_nominal": 1.4999542236328125,
+      "DMM_V": -0.00059003,
+      "ADC3": [
+        {
+          "channel": 0,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 1,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 2,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 3,
+          "raw_nominal_12bit": 4093,
+          "validated": false
+        },
+        {
+          "channel": 4,
+          "raw_nominal_12bit": 2046,
+          "validated": false
+        },
+        {
+          "channel": 5,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 6,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        },
+        {
+          "channel": 7,
+          "raw_nominal_12bit": 0,
+          "validated": false
+        }
+      ],
+      "frames": [
+        {
+          "tx": "050AFFFF",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000AFFFF"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8AFFFF"
+        },
+        {
+          "tx": "04060000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04064000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "04068000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000FFD"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000007FE"
+        },
+        {
+          "tx": "04074000",
+          "rx": "FFFFE000"
+        },
+        {
+          "tx": "04078000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "0407C000",
+          "rx": "00000000"
+        }
+      ]
+    }
+  ],
+  "DMM_ID": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04679690,1.7.16a",
+  "final_DAC2_DAC3_codes": "8000 / 8000 (nominal differential 0 V)",
+  "DMM_connection_user_confirmed": "DISCONNECTED_DURING_TESTS",
+  "DMM_readings_valid_for_DAC": false
+}

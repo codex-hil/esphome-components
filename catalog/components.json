@@ -61,13 +61,16 @@
       "codeowners": [
         "@wizath"
       ],
-      "status": "collected",
+      "status": "partial-hil; see mixed-signal-head-hil-2026-10-02.json",
       "files_sha256": {
-        "__init__.py": "985331302865f0e240d81561980b6543ff624c772fd553e3ef473939b644a906",
-        "addrspi2.cpp": "f364b1327747686a151eb54086d55f7806ce67d64370bdbd1577d924be97e03a",
-        "addrspi2.h": "addf3837d963071147e2360f21bccc260e30dc04cbe79880e99d1534848b3059"
+        "__init__.py": "19f8064cb88223c5975b1b970d5222eef0b646abf7be577da18779cc5e058f38",
+        "addrspi2.cpp": "92dbd71db00f4384220d7986ad8b787cf7b2b15f7848d3336495cedcb3b1b875",
+        "addrspi2.h": "2cb1e658a97411fe68b08d718230633116b43be629a862686fcfaf71e3af72b2"
       },
-      "local_changes": []
+      "local_changes": [
+        "Optional serial-header layer over unchanged parallel addrspi; one buffered hardware burst, discard header RX, aligned stack buffers and router schema guards.",
+        "Optional shared_device mode uses one physical head handle across all serial targets, preserving parallel-only peers and validating identical rates. HIL mixed-signal+MMC coexistence passed; GPIO pins remain partly unvalidated."
+      ]
     },
     {
       "name": "ads124s08",
@@ -170,14 +173,16 @@
       "codeowners": [
         "@wizath"
       ],
-      "status": "collected",
+      "status": "partial-hil; see mixed-signal-head-hil-2026-10-02.json",
       "files_sha256": {
-        "__init__.py": "080986840b0b3031a45bb0139d43a2ac57fd2590631bb97ce983f01562c75151",
-        "dacx0504.cpp": "eb1f8914ecbf84b1a051db088729501f0a4c5eab2c4208a04b69a5eb5a95a3fb",
-        "dacx0504.h": "4421d6fec02d53e5f2809d55dfe4294ac2d986f3c17c4d585387a1598bee1acf",
-        "output.py": "83148b989e25a6d16f5bee3f735c1dc2eb4752386a85f1c33fcfac194e9221d2"
+        "__init__.py": "0b149b2c57a49441fd11767cd3a9f2529ff2a89ea3d957b1b7da802b72a53a6f",
+        "dacx0504.cpp": "d24a46b0d68becd87aec8b2ff76290d15d06600bf3a450cef482202a559d31e9",
+        "dacx0504.h": "93fdd6e073a311e806d867a1fc5f8a3bb521b92c15d26be3327f7390e1b88717",
+        "output.py": "973318b119a41340b15d5030686c3ab5225131b7e198a904c33ea00caede943a"
       },
-      "local_changes": []
+      "local_changes": [
+        "Buffered native frames, safe external-reference initialization without reset, register verification, voltage scaling and synchronous commit."
+      ]
     },
     {
       "name": "hc138",
@@ -234,14 +239,17 @@
       "codeowners": [
         "@wizath"
       ],
-      "status": "collected",
+      "status": "partial-hil; see mixed-signal-head-hil-2026-10-02.json",
       "files_sha256": {
-        "__init__.py": "b2c9386dadd06c373cb3da4da1928afa3af22f6e109d111e9f0a453d0a344915",
-        "mcp3208.cpp": "5748b0b56f358d7287cdeeb3ba2b2b8f6016f56efda2da3e1aeefa732c890bf2",
-        "mcp3208.h": "dbf66071c3f174fc207812e54ba4ba5a4e122d12446a9f3b493b331f6c1c6a21",
-        "sensor.py": "f5b6f9b27e11dad06959f4d771ccac41974a3cb231a4f7c47ca64eb0a20aab27"
+        "__init__.py": "bc53402278973c81c1f567dc1dbe0519cd6b53b8c8770eff2180287b1074385c",
+        "mcp3208.cpp": "6fda4848ea6cf8bfdcb1867a4fe571d747d916049145dd44baad6cc18aed985b",
+        "mcp3208.h": "1408759123b23235fe2508abe7384e9885c460afcf8aa10c35c7d1e66278413d",
+        "sensor.py": "446ae7f0a041405a98145370ef8f4a489d57b35189a568d8f7615fcf3c255b09"
       },
-      "local_changes": []
+      "local_changes": [
+        "Single buffered native transfer; VREF/4096 scaling and optional round-robin sampling independent of publication interval.",
+        "HighFrequencyLoopRequester prevents default 16ms ESPHome cadence from capping requested sampling; measured final 100Hz timing and DAC2/3 loopbacks, other inputs range-checked only."
+      ]
     },
     {
       "name": "mmc5983",
@@ -586,6 +594,25 @@
       },
       "local_changes": [
         "Standard I2CBus on up to four reserved open-drain pairs per CPLD bank; see docs/moduliq-cpld-soft-i2c.md."
+      ]
+    },
+    {
+      "name": "spi_shift_register",
+      "path": "components/spi_shift_register",
+      "source": {
+        "kind": "local"
+      },
+      "codeowners": [],
+      "status": "SPI waveform/software validated; physical GPIO pending",
+      "files_sha256": {
+        "__init__.py": "4a1ad15437511bc68c22b9cc0a17f0ae910a44433115123f717479eb55a15e68",
+        "binary_sensor.py": "7acf7a186fb7321e8f6f5836d65e54460a7ce31f9fe3c615bb5a928cb2f4e9c6",
+        "output.py": "53a2b4dbd46b684bfd6944400430a04b6bd7532b498d29df99525e7dcf38c0fc",
+        "spi_shift_register.cpp": "0d4afeb0fb31c781c83728f7cd86341fc862ae1b9c48da2a2988853d89dda904",
+        "spi_shift_register.h": "5ee05cc16dc3716e343c4e6b778a92f1055bd501aa3448d24433a163be379c68"
+      },
+      "local_changes": [
+        "Dedicated buffered SPI HC165/HC595 driver with explicit HC165 load-polarity verification gate."
       ]
     }
   ]

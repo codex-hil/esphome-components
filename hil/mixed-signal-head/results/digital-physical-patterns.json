@@ -1,0 +1,49 @@
+{
+  "observed_output_only": "B (QB)",
+  "other_outputs": "NOT_OBSERVED",
+  "GPIO_IN_reads": "none during this test",
+  "patterns": [
+    {
+      "OUT_code": "00",
+      "observed_pin": "DIS B = IC9 QB pin1",
+      "expected_bit": 0,
+      "median_V": 0.12,
+      "min_V": 0.0,
+      "max_V": 0.32,
+      "status": "PASS",
+      "capture": "gpio-pattern-00.json"
+    },
+    {
+      "OUT_code": "55",
+      "observed_pin": "DIS B = IC9 QB pin1",
+      "expected_bit": 0,
+      "median_V": 0.12,
+      "min_V": 0.0,
+      "max_V": 0.32,
+      "status": "PASS",
+      "capture": "gpio-pattern-55.json"
+    },
+    {
+      "OUT_code": "AA",
+      "observed_pin": "DIS B = IC9 QB pin1",
+      "expected_bit": 1,
+      "median_V": 3.3200000000000003,
+      "min_V": 3.12,
+      "max_V": 3.48,
+      "status": "PASS",
+      "capture": "gpio-pattern-aa.json"
+    },
+    {
+      "OUT_code": "FF",
+      "observed_pin": "DIS B = IC9 QB pin1",
+      "expected_bit": 1,
+      "median_V": 3.3200000000000003,
+      "min_V": 3.12,
+      "max_V": 3.48,
+      "status": "PASS",
+      "capture": "gpio-pattern-ff.json"
+    }
+  ],
+  "final_OUT_command": "00",
+  "CPLD_modified": false
+}

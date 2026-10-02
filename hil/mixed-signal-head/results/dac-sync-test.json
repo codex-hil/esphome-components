@@ -1,0 +1,14 @@
+{
+  "before_trigger_ADC3_CH3_CH4": [
+    2045,
+    2046
+  ],
+  "after_trigger_ADC3_CH3_CH4": [
+    1022,
+    3069
+  ],
+  "status": "PASS_BUFFER_HOLD_AND_SOFTWARE_LDAC_UPDATE",
+  "analog_simultaneity_skew": "NOT_MEASURED",
+  "final_DAC2_DAC3": "8000 / 8000",
+  "final_SYNC": "0F00"
+}

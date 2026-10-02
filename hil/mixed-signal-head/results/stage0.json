@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2026-09-30T21:35:48.726963+00:00",
+  "stage": 0,
+  "status": "BLOCKED",
+  "serial_ports": {
+    "ttyUSB0": "Lattice HW-USBN-2B interface 0",
+    "ttyUSB1": "Lattice HW-USBN-2B interface 1",
+    "ttyUSB2": "CP2102 serial 0001; candidate only",
+    "ttyACM0": "QinHeng 1a86:55d3 serial 5C93016778"
+  },
+  "historical_esp32": {
+    "source": "/home/codex-hil/workspaces/bridge-spi-inspection/NOTES.md",
+    "chip": "ESP32-D0WD-V3 rev 3.1",
+    "mac": "68:25:dd:4c:49:e4",
+    "current_head_connection_verified": false
+  },
+  "instruments_identified_now": {
+    "scope": {
+      "host": "192.168.2.9",
+      "port": 4000,
+      "idn": "TEKTRONIX,MSO4104,C020817,CF:91.1CT FV:v2.68 DPO4AUTO:V1.00 DPO4COMP:V1.00 DPO4USB:V1.00"
+    },
+    "dmm": {
+      "host": "192.168.2.10",
+      "port": 5025,
+      "idn": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04679690,1.7.16a"
+    }
+  },
+  "pcb_measurements": {},
+  "blockers": [
+    "No matching head schematic/BOM identified in searched workspace paths",
+    "New head connection and ESP32 SPI pins unverified",
+    "Instrument probe wiring unverified",
+    "Power-off and power-up measurements missing"
+  ],
+  "flash_performed": false,
+  "spi_transactions_performed": 0
+}

@@ -1,0 +1,135 @@
+{
+  "timestamp_utc": "2026-10-02T14:45:13.923767+00:00",
+  "user_DMM_connection": "GND to connector pin18; connector identity pending",
+  "DAC_channel": 3,
+  "points": [
+    {
+      "code": 0,
+      "expected_V_nominal": 0.0,
+      "ADC3_CH4_code": 0,
+      "DMM_V": -0.000827573,
+      "frames": [
+        {
+          "tx": "050B0000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000B0000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8B0000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "code": 16384,
+      "expected_V_nominal": 0.75,
+      "ADC3_CH4_code": 1022,
+      "DMM_V": -0.0007104464,
+      "frames": [
+        {
+          "tx": "050B4000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000B4000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8B4000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000003FE"
+        }
+      ]
+    },
+    {
+      "code": 32768,
+      "expected_V_nominal": 1.5,
+      "ADC3_CH4_code": 2046,
+      "DMM_V": 9.478168e-05,
+      "frames": [
+        {
+          "tx": "050B8000",
+          "rx": "FF000000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000B8000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8B8000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "000007FE"
+        }
+      ]
+    },
+    {
+      "code": 49152,
+      "expected_V_nominal": 2.25,
+      "ADC3_CH4_code": 3070,
+      "DMM_V": -0.001050671,
+      "frames": [
+        {
+          "tx": "050BC000",
+          "rx": "FF000000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000BC000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8BC000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "00000BFE"
+        }
+      ]
+    },
+    {
+      "code": 65535,
+      "expected_V_nominal": 2.9999542236328125,
+      "ADC3_CH4_code": 4094,
+      "DMM_V": -0.000197451,
+      "frames": [
+        {
+          "tx": "050BFFFF",
+          "rx": "FF000000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000BFFFF"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8BFFFF"
+        },
+        {
+          "tx": "04070000",
+          "rx": "00000FFE"
+        }
+      ]
+    }
+  ],
+  "CPLD_modified": false,
+  "DMM_ID": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04679690,1.7.16a",
+  "DMM_terminals": "FRON",
+  "DMM_original_range": "1",
+  "DMM_original_autorange": "1",
+  "DAC2_DAC3_final": "8000 / 8000",
+  "DMM_connection": "Keithley disconnected: user meant Keysight SMU",
+  "DMM_readings_valid_for_DAC": false
+}

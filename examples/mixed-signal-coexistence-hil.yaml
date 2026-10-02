@@ -1,0 +1,180 @@
+# LAB ONLY: power stage disconnected, DAC2/3 looped to ADC Z CH3/4.
+# Uses existing validated MMC driver without modifying its source.
+# HC165 intentionally omitted: /PL hardware fix pending. Six logical clients, two shared physical handles.
+esphome:
+  name: moduliq-coexistence-hil
+  includes:
+  - ../tests/hil/mixed_signal_coexistence.h
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    version: 5.5.5
+logger:
+  level: INFO
+external_components:
+- source:
+    type: local
+    path: ../components
+  components:
+  - spi
+  - addrspi
+  - addrspi2
+  - mcp3208
+  - dacx0504
+  - spi_shift_register
+- source:
+    type: git
+    url: https://github.com/codex-hil/esphome-components.git
+    ref: ead227b55cbcb71cd21383191e22b187c3299a26
+  components:
+  - mmc5983_spi
+spi:
+  id: wire_spi
+  interface: hardware
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+addrspi:
+- id: module_selector
+  spi_id: wire_spi
+  address_pins:
+  - GPIO2
+  - GPIO4
+  - GPIO13
+  - GPIO18
+  channels:
+  - bus_id: module_zero
+    channel: 0
+- id: cpld_chip_selector
+  spi_id: module_zero
+  address_pins:
+  - GPIO16
+  - GPIO17
+  channels:
+  - bus_id: hub_channel_two
+    channel: 2
+  - bus_id: hub_channel_one
+    channel: 1
+addrspi2:
+  shared_device: true
+  id: head
+  max_data_rate: 200kHz
+  spi_id: hub_channel_two
+  cs_pin: &id001
+    number: GPIO15
+    allow_other_uses: true
+  data_rate: 100kHz
+  spi_mode: MODE0
+  devices:
+  - bus_id: head_inputs
+    address: 0
+  - bus_id: head_outputs
+    address: 1
+  - bus_id: head_adc_x
+    address: 2
+  - bus_id: head_adc_y
+    address: 3
+  - bus_id: head_adc_z
+    address: 4
+  - bus_id: head_dac
+    address: 5
+mcp3208:
+- id: adc_x
+  spi_id: head_adc_x
+  cs_pin: *id001
+  data_rate: 100kHz
+  reference_voltage: 3V
+- id: adc_y
+  spi_id: head_adc_y
+  cs_pin: *id001
+  data_rate: 100kHz
+  reference_voltage: 3V
+- id: adc_z
+  spi_id: head_adc_z
+  cs_pin: *id001
+  data_rate: 100kHz
+  reference_voltage: 3V
+sensor:
+- platform: mcp3208
+  mcp3208_id: adc_z
+  channel: 3
+  name: Z VOUT P
+  update_interval: 1s
+- platform: mcp3208
+  mcp3208_id: adc_z
+  channel: 4
+  name: Z VOUT N
+  update_interval: 1s
+- platform: mcp3208
+  mcp3208_id: adc_z
+  channel: 6
+  name: Z ERROR before divider
+  update_interval: 1s
+  filters:
+  - multiply: 2.0
+- platform: mmc5983_spi
+  mmc5983_spi_id: mag
+  field_strength_x:
+    id: mag_x
+    name: mag_x
+  field_strength_y:
+    id: mag_y
+    name: mag_y
+  field_strength_z:
+    id: mag_z
+    name: mag_z
+  temperature:
+    id: mag_temp
+    name: mag_temp
+dacx0504:
+  id: dac
+  spi_id: head_dac
+  cs_pin: *id001
+  model: DAC80504
+  spi_mode: MODE0
+  data_rate: 100kHz
+  reference: EXTERNAL
+  reference_voltage: 3V
+  reference_divider: 2
+  gain: 2
+  fast_sdo: true
+  verify_registers: true
+  synchronous_update: true
+  initial_values:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+spi_shift_register:
+- id: gpio_out
+  spi_id: head_outputs
+  cs_pin: *id001
+  model: HC595
+  initial_value: 7
+output:
+- platform: dacx0504
+  id: z_voltage
+  dacx0504_id: dac
+  channel: 2
+  min_voltage: 0V
+  max_voltage: 3V
+- platform: dacx0504
+  id: common_voltage
+  dacx0504_id: dac
+  channel: 3
+  min_voltage: 0V
+  max_voltage: 3V
+mmc5983_spi:
+  id: mag
+  spi_id: hub_channel_one
+  cs_pin:
+    number: GPIO15
+    allow_other_uses: true
+  spi_mode: MODE0
+  data_rate: 100kHz
+  update_interval: never
+interval:
+- interval: 200ms
+  then:
+  - lambda: mixed_signal_hil_step(id(adc_x),id(adc_y),id(adc_z),id(dac),id(gpio_out),id(mag),id(mag_x),id(mag_y),id(mag_z),id(mag_temp));

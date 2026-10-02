@@ -1,0 +1,15 @@
+{
+  "SMU": {
+    ":OUTP?": "0",
+    ":OUTP:OFF:MODE?": "HIZ",
+    ":SYST:ERR?": "+0,\"No error\""
+  },
+  "scope_acquisition": "0",
+  "timestamp_utc": "2026-10-02T17:57:24.159728+00:00",
+  "ESP32": "ROM bootloader, --no-stub --after no_reset; test application stopped",
+  "MAC": "68:25:dd:4c:49:e4",
+  "serial_connection": "closed",
+  "test_processes": "none running",
+  "DAC2_DAC3_last_confirmed": "8000 / 8000",
+  "CPLD_modified": false
+}

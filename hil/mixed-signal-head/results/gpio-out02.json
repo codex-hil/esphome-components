@@ -1,0 +1,73 @@
+{
+  "timestamp_utc": "2026-10-02T13:38:57Z",
+  "idn": "TEKTRONIX,MSO4104,C020817,CF:91.1CT FV:v2.68 DPO4AUTO:V1.00 DPO4COMP:V1.00 DPO4USB:V1.00",
+  "action": "read",
+  "probe_map": {
+    "1": "SCK",
+    "2": "CSn_HC165",
+    "3": "MOSI",
+    "4": "DIS_B_to_OK_A"
+  },
+  "channels": {
+    "1": {
+      "preamble": {
+        "dt_s": 4e-09,
+        "xzero": -0.0002,
+        "pt_off": 0.0,
+        "ymult": 0.04,
+        "yoff": 0.0,
+        "yzero": 0.0
+      },
+      "n": 100000,
+      "min_V": -0.36,
+      "max_V": 3.52,
+      "probe_gain": "100.0000E-3",
+      "clipped": false
+    },
+    "2": {
+      "preamble": {
+        "dt_s": 4e-09,
+        "xzero": -0.0002,
+        "pt_off": 0.0,
+        "ymult": 0.04,
+        "yoff": 0.0,
+        "yzero": 0.0
+      },
+      "n": 100000,
+      "min_V": -0.36,
+      "max_V": 4.0,
+      "probe_gain": "100.0000E-3",
+      "clipped": false
+    },
+    "3": {
+      "preamble": {
+        "dt_s": 4e-09,
+        "xzero": -0.0002,
+        "pt_off": 0.0,
+        "ymult": 0.04,
+        "yoff": 0.0,
+        "yzero": 0.0
+      },
+      "n": 100000,
+      "min_V": -0.56,
+      "max_V": 3.44,
+      "probe_gain": "100.0000E-3",
+      "clipped": false
+    },
+    "4": {
+      "preamble": {
+        "dt_s": 4e-09,
+        "xzero": -0.0002,
+        "pt_off": 0.0,
+        "ymult": 0.04,
+        "yoff": 0.0,
+        "yzero": 0.0
+      },
+      "n": 100000,
+      "min_V": 0.0,
+      "max_V": 3.88,
+      "probe_gain": "100.0000E-3",
+      "clipped": false
+    }
+  }
+}

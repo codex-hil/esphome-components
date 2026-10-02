@@ -56,6 +56,9 @@
     "moduliq_cpld_i2c": {
       "result": "PASS"
     },
+    "moduliq_cpld_soft_i2c": {
+      "result": "PASS"
+    },
     "moduliq_serprog": {
       "result": "PASS"
     },
@@ -65,13 +68,13 @@
     "spi": {
       "result": "PASS"
     },
+    "spi_shift_register": {
+      "result": "PASS"
+    },
     "tca9548a": {
       "result": "PASS"
     },
     "tmc5130": {
-      "result": "PASS"
-    },
-    "moduliq_cpld_soft_i2c": {
       "result": "PASS"
     }
   }

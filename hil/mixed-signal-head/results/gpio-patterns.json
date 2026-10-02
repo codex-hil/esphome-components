@@ -1,0 +1,96 @@
+{
+  "status": "DIGITAL_LOOPBACK_NOT_VALIDATED",
+  "frames": [
+    {
+      "n": 1,
+      "module": 0,
+      "chip": 2,
+      "tx": "0100",
+      "rx": "8000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 2,
+      "module": 0,
+      "chip": 2,
+      "tx": "0000",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 3,
+      "module": 0,
+      "chip": 2,
+      "tx": "0155",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 4,
+      "module": 0,
+      "chip": 2,
+      "tx": "0000",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 5,
+      "module": 0,
+      "chip": 2,
+      "tx": "01AA",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 6,
+      "module": 0,
+      "chip": 2,
+      "tx": "0000",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 7,
+      "module": 0,
+      "chip": 2,
+      "tx": "01FF",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 8,
+      "module": 0,
+      "chip": 2,
+      "tx": "0000",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 9,
+      "module": 0,
+      "chip": 2,
+      "tx": "0102",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 10,
+      "module": 0,
+      "chip": 2,
+      "tx": "0000",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    },
+    {
+      "n": 11,
+      "module": 0,
+      "chip": 2,
+      "tx": "0100",
+      "rx": "0000",
+      "driver_error": "ESP_OK"
+    }
+  ],
+  "interpretation": "Expected GPIO_IN bit0 to follow GPIO_OUT bit1 for stated loopback. Physical output not yet observed; cannot attribute zero input uniquely until CH4 is on loopback.",
+  "out_physical": "NOT_RUN",
+  "cpld_modified": false
+}

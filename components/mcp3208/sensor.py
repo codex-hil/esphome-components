@@ -44,3 +44,5 @@ async def to_code(config):
     cg.add(var.set_parent(parent))
     cg.add(var.set_channel(config[CONF_CHANNEL]))
     cg.add(var.set_differential(config[CONF_DIFFERENTIAL]))
+
+    cg.add(parent.register_channel(config[CONF_CHANNEL], config[CONF_DIFFERENTIAL]))

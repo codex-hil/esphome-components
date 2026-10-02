@@ -1,0 +1,462 @@
+{
+  "timestamp_utc": "2026-10-02T14:24:14.109125+00:00",
+  "DAC_SPI": "PASS_ID_AND_CONFIG_READBACK_AFTER_FSDO_1",
+  "DAC_ID": "0497",
+  "DAC_CONFIG_written_and_read": "0500",
+  "DAC_GAIN_read": "0000",
+  "DAC_voltage_sweep": "PENDING_LOOPBACK_AND_OUTPUT_CONNECTION_IDENTIFICATION",
+  "ADC": "FAIL_UNVALIDATED_ZERO_RESULTS",
+  "CPLD_modified": false,
+  "transactions": [
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04060000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 0,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04064000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 1,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04068000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 2,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "0406C000",
+      "rx": "00000007",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 3,
+      "raw_nominal_12bit": 7,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04070000",
+      "rx": "FFFFE007",
+      "header_rx_discard": "FF",
+      "adc_address": 4,
+      "channel": 4,
+      "raw_nominal_12bit": 7,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04074000",
+      "rx": "FFFFE000",
+      "header_rx_discard": "FF",
+      "adc_address": 4,
+      "channel": 5,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "04078000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 6,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc3-initial-uart.log",
+      "tx": "0407C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 7,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02060000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 0,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02064000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 1,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02068000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 2,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0206C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 3,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02070000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 4,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02074000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 5,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "02078000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 6,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0207C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 2,
+      "channel": 7,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03060000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 0,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03064000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 1,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03068000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 2,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0306C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 3,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03070000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 4,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03074000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 5,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "03078000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 6,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0307C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 3,
+      "channel": 7,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04060000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 0,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04064000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 1,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04068000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 2,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0406C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 3,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04070000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 4,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04074000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 5,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "04078000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 6,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "adc-all-baseline-uart.log",
+      "tx": "0407C000",
+      "rx": "00000000",
+      "header_rx_discard": "00",
+      "adc_address": 4,
+      "channel": 7,
+      "raw_nominal_12bit": 0,
+      "measurement_validated": false
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05810000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05000000",
+      "rx": "00C0824B",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05830000",
+      "rx": "FF000000",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05000000",
+      "rx": "00C18000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05840000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-initial-readback-uart.log",
+      "tx": "05000000",
+      "rx": "00C20000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-fsdo-readback-uart.log",
+      "tx": "05030500",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-fsdo-readback-uart.log",
+      "tx": "05830000",
+      "rx": "00030500",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-fsdo-readback-uart.log",
+      "tx": "05000000",
+      "rx": "FF830500",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-fsdo-readback-uart.log",
+      "tx": "05810000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-fsdo-readback-uart.log",
+      "tx": "05000000",
+      "rx": "FF810497",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05830000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05000000",
+      "rx": "FF830500",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05840000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05000000",
+      "rx": "FF840000",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05820000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-confirm-readback-uart.log",
+      "tx": "05000000",
+      "rx": "FF820F00",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-status-channel2-uart.log",
+      "tx": "05870000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-status-channel2-uart.log",
+      "tx": "05000000",
+      "rx": "FF870001",
+      "header_rx_discard": "FF"
+    },
+    {
+      "log": "dac-status-channel2-uart.log",
+      "tx": "058A0000",
+      "rx": "00000000",
+      "header_rx_discard": "00"
+    },
+    {
+      "log": "dac-status-channel2-uart.log",
+      "tx": "05000000",
+      "rx": "FF8A8000",
+      "header_rx_discard": "FF"
+    }
+  ],
+  "DAC_STATUS": "0001: REF-ALM asserted",
+  "DAC_channel2_code_read": "8000",
+  "DMM_connection_user_confirmed": "DISCONNECTED_DURING_TESTS",
+  "DMM_readings_valid_for_DAC": false
+}

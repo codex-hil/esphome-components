@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2026-10-02T13:20:48Z",
+  "subnet": "192.168.2.0/24",
+  "ports": [
+    4000,
+    5025
+  ],
+  "results": [
+    {
+      "host": "192.168.2.21",
+      "port": 5025,
+      "idn": "Rohde&Schwarz,SMB100A,1406.6000k02/102842,3.1.19.15-3.20.390.24"
+    },
+    {
+      "host": "192.168.2.27",
+      "port": 5025,
+      "idn": "KEITHLEY INSTRUMENTS,MODEL DMM7510,04679690,1.7.16a"
+    },
+    {
+      "host": "192.168.2.26",
+      "port": 5025,
+      "idn": "Rohde&Schwarz,NGP814,5601.4007k04/100847,02.015 00055E66A5"
+    },
+    {
+      "host": "192.168.2.30",
+      "port": 5025,
+      "idn": "Keysight Technologies,N9918B,MY61262871,A.12.38"
+    },
+    {
+      "host": "192.168.2.35",
+      "port": 5025,
+      "idn": "Keysight Technologies,B2910BL,MY63320305,5.0.2429.8966"
+    },
+    {
+      "host": "192.168.2.32",
+      "port": 5025,
+      "idn": "Rohde&Schwarz,SMB100A,1406.6000k03/181769,4.20.028.58"
+    }
+  ]
+}

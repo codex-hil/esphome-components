@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-10-02T13:17:36Z",
+  "status": "FLASH_AND_UART_PASS",
+  "expected_mac": "68:25:dd:4c:49:e4",
+  "port": "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+  "artifacts_sha256": {
+    "bootloader/bootloader.bin": "038e71e31ca345f3ec7d7d74bc0573df4eb58d3e33014f3a773fb375b2630484",
+    "partition_table/partition-table.bin": "7f00b6c042a89b15b0cac534f82ed988caf29278ff5700b0c511eb1b5bb7c820",
+    "moduliq_head_probe.bin": "689b4097868b4917cdfec94bcdd19ad286e5fb68aea5da42a8e88c533c919e53"
+  },
+  "command": [
+    "/nix/store/s66hh4ayblf0p65y25nl1c23fnl2svc9-hil-idf-python-2026-09-24/bin/python",
+    "-m",
+    "esptool",
+    "--chip",
+    "esp32",
+    "--port",
+    "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+    "--baud",
+    "460800",
+    "--after",
+    "hard_reset",
+    "write_flash",
+    "--flash_mode",
+    "dio",
+    "--flash_size",
+    "4MB",
+    "--flash_freq",
+    "40m",
+    "0x1000",
+    "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/build/bootloader/bootloader.bin",
+    "0x8000",
+    "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/build/partition_table/partition-table.bin",
+    "0x10000",
+    "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/build/moduliq_head_probe.bin"
+  ],
+  "cpld_modified": false,
+  "spi_transactions": 0,
+  "runtime_log": "runtime-idle.log",
+  "runtime": "ESP-IDF 5.5.5; probe app started; STATS attempts=0 errors=0"
+}

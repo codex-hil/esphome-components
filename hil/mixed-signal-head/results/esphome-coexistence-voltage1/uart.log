@@ -1,0 +1,69 @@
+
+BšâI (13) boot: ESP-IDF v5.5.5 2nd stage bootloader
+I (13) boot: Multicore bootloader
+I (13) boot: chip revision: v3.1
+I (14) boot.esp32: SPI Speed      : 40MHz
+I (16) boot.esp32: SPI Mode       : DIO
+I (19) boot.esp32: SPI Flash Size : 4MB
+I (23) boot: Enabling RNG early entropy source...
+I (28) boot: Partition Table:
+I (30) boot: ## Label            Usage          Type ST Offset   Length
+I (36) boot:  0 otadata          OTA data         01 00 00009000 00002000
+I (43) boot:  1 phy_init         RF data          01 01 0000b000 00001000
+I (50) boot:  2 app0             OTA app          00 10 00010000 001c0000
+I (56) boot:  3 app1             OTA app          00 11 001d0000 001c0000
+I (63) boot:  4 nvs              WiFi data        01 02 00390000 00070000
+I (69) boot: End of partition table
+I (72) boot: No factory image, trying OTA 0
+I (76) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c2a0h ( 49824) map
+I (101) esp_image: segment 1: paddr=0001c2c8 vaddr=3ffb0000 size=0273ch ( 10044) load
+I (105) esp_image: segment 2: paddr=0001ea0c vaddr=40080000 size=0160ch (  5644) load
+I (107) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=216ach (136876) map
+I (159) esp_image: segment 4: paddr=000416d4 vaddr=4008160c size=08448h ( 33864) load
+I (173) esp_image: segment 5: paddr=00049b24 vaddr=50000000 size=00020h (    32) load
+I (178) boot: Loaded app from partition at offset 0x10000
+I (194) boot: Set actual ota_seq=1 in otadata[0]
+I (194) boot: Disabling RNG early entropy source...
+[0;32m[I][logger:127]: Log initialized[0m
+[0;32m[I][app:060]: Running through setup()[0m
+[0;32m[I][app:117]: setup() finished successfully![0m
+[0;32m[I][app:151]: ESPHome version 2026.9.0 compiled on 2026-10-02 18:09:21 +0100[0m
+[0;32m[I][app:158]: ESP32 Chip: ESP32 rev3.1, 2 core(s)[0m
+[0;33m[W][app:171]: Chip rev >= 3.0 detected. Set minimum_chip_revision: "3.1" under esp32 > framework > advanced to reduce binary size[0m
+[0;33m[W][app:198]: Bootloader supports SRAM1 as IRAM (+40KB). Set sram1_as_iram: true under esp32 > framework > advanced[0m
+[0;32m[I][coexist_hil:015]: GPIO pattern=00 tick=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=0 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:015]: GPIO pattern=55 tick=1[0m
+[0;32m[I][coexist_hil:032]: MAG tick=1 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:015]: GPIO pattern=AA tick=2[0m
+[0;32m[I][coexist_hil:032]: MAG tick=2 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:015]: GPIO pattern=FF tick=3[0m
+[0;32m[I][coexist_hil:032]: MAG tick=3 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:015]: GPIO pattern=07 tick=4[0m
+[0;32m[I][coexist_hil:032]: MAG tick=4 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:018]: SWEEP_SET point=0 code2=0 code3=32768[0m
+[0;32m[I][coexist_hil:032]: MAG tick=5 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:025]: SWEEP point=0 code2=0 code3=32768 adc_p=0.000000 adc_n=1.498535[0m
+[0;32m[I][coexist_hil:032]: MAG tick=6 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=7 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:018]: SWEEP_SET point=1 code2=16384 code3=32768[0m
+[0;32m[I][coexist_hil:032]: MAG tick=8 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:025]: SWEEP point=1 code2=16384 code3=32768 adc_p=0.748535 adc_n=1.498535[0m
+[0;32m[I][coexist_hil:032]: MAG tick=9 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=10 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:018]: SWEEP_SET point=2 code2=32768 code3=32768[0m
+[0;32m[I][coexist_hil:032]: MAG tick=11 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:025]: SWEEP point=2 code2=32768 code3=32768 adc_p=1.495605 adc_n=1.498535[0m
+[0;32m[I][coexist_hil:032]: MAG tick=12 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=13 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:018]: SWEEP_SET point=3 code2=49152 code3=32768[0m
+[0;32m[I][coexist_hil:032]: MAG tick=14 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:025]: SWEEP point=3 code2=49152 code3=32768 adc_p=2.247070 adc_n=1.498535[0m
+[0;32m[I][coexist_hil:032]: MAG tick=15 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=16 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:018]: SWEEP_SET point=4 code2=65535 code3=32768[0m
+[0;32m[I][coexist_hil:032]: MAG tick=17 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:025]: SWEEP point=4 code2=65535 code3=32768 adc_p=2.997070 adc_n=1.498535[0m
+[0;32m[I][coexist_hil:032]: MAG tick=18 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:032]: MAG tick=19 pid=30 errors=0[0m
+[0;32m[I][coexist_hil:029]: FINAL PASS voltage_sweep=5 gpio_patterns=00,55,AA,FF physical_gpio=REQUIRES_SCOPE mag_errors=0 dac2=8000 dac3=8000 gpio=07[0m

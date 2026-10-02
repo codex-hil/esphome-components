@@ -2,7 +2,7 @@ from esphome import pins
 import esphome.codegen as cg
 from esphome.components import spi
 import esphome.config_validation as cv
-from esphome.const import CONF_ID, CONF_MODEL
+from esphome.const import CONF_ID, CONF_MODEL, CONF_REFERENCE_VOLTAGE
 
 DEPENDENCIES = ["spi"]
 CODEOWNERS = ["@wizath"]
@@ -33,7 +33,16 @@ REFERENCE = {
     "EXTERNAL": DACX0504Reference.DACX0504_EXTERNAL_REFERENCE,
 }
 
-CONFIG_SCHEMA = (
+def validate_reference(config):
+    if CONF_REFERENCE_VOLTAGE not in config:
+        if str(config[CONF_REFERENCE]) == "EXTERNAL":
+            raise cv.Invalid("External reference requires reference_voltage")
+        config[CONF_REFERENCE_VOLTAGE] = 2.5
+    if str(config[CONF_REFERENCE]) == "INTERNAL" and config[CONF_REFERENCE_VOLTAGE] != 2.5:
+        raise cv.Invalid("Internal reference is 2.5 V")
+    return config
+
+CONFIG_SCHEMA = cv.All(
     cv.Schema(
         {
             cv.GenerateID(): cv.declare_id(DACX0504),
@@ -45,11 +54,17 @@ CONFIG_SCHEMA = (
             ),
             cv.Optional(CONF_REFERENCE_DIVIDER, default=1): cv.one_of(1, 2, int=True),
             cv.Optional(CONF_GAIN, default=1): cv.one_of(1, 2, int=True),
+            cv.Optional(CONF_REFERENCE_VOLTAGE): cv.All(cv.voltage, cv.Range(min=0.1, max=5.5)),
+            cv.Optional("fast_sdo", default=False): cv.boolean,
+            cv.Optional("verify_registers", default=False): cv.boolean,
+            cv.Optional("synchronous_update", default=False): cv.boolean,
+            cv.Optional("initial_values"): cv.All(cv.ensure_list(cv.float_range(min=0, max=1)), cv.Length(min=4, max=4)),
             cv.Optional(CONF_LDAC_PIN): pins.gpio_output_pin_schema,
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
-    .extend(spi.spi_device_schema(cs_pin_required=True, default_mode="MODE1"))
+    .extend(spi.spi_device_schema(cs_pin_required=True, default_mode="MODE1")),
+    validate_reference,
 )
 
 
@@ -62,6 +77,12 @@ async def to_code(config):
     cg.add(var.set_reference(config[CONF_REFERENCE]))
     cg.add(var.set_reference_divider(config[CONF_REFERENCE_DIVIDER]))
     cg.add(var.set_gain(config[CONF_GAIN]))
+    cg.add(var.set_reference_voltage(config[CONF_REFERENCE_VOLTAGE]))
+    cg.add(var.set_fast_sdo(config["fast_sdo"]))
+    cg.add(var.set_verify_registers(config["verify_registers"]))
+    cg.add(var.set_synchronous_update(config["synchronous_update"]))
+    if "initial_values" in config:
+        cg.add(var.set_initial_values(config["initial_values"]))
 
     if CONF_LDAC_PIN in config:
         pin = await cg.gpio_pin_expression(config[CONF_LDAC_PIN])

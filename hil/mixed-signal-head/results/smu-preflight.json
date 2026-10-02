@@ -1,0 +1,26 @@
+{
+  "host": "192.168.2.35",
+  "identity": "Keysight B2910BL MY63320305",
+  "user_connection": "GND to channel3 connector pin18",
+  "last_fetch_before_measure": 10.00316,
+  "spot_measure_result": 9.91e+37,
+  "measurement_status": "INVALID_OVERFLOW_NO_VALID_VOLTAGE",
+  "safe_commands_sent": [
+    "OUTP:ON:AUTO OFF",
+    "OUTP:OFF:MODE HIZ",
+    "OUTP OFF"
+  ],
+  "state_queries": {
+    ":OUTP:ON:AUTO?": "timed out",
+    ":OUTP:OFF:MODE?": "timed out",
+    ":OUTP:STAT?": "timed out",
+    ":SOUR:CURR:LEV:IMM:AMPL?": "timed out",
+    ":SENS:VOLT:PROT?": "timed out",
+    ":SYST:ERR?": "-241,\"Hardware missing; To recover channel, execute *TST?; Channel1\""
+  },
+  "output_off_readback_verified": false,
+  "status": "BLOCKED_SMU_CHANNEL_HARDWARE_MISSING",
+  "actual_meter_user_confirmed": "Keysight B2910BL",
+  "connector_user_confirmed": "channel3 pin18",
+  "SCPI_error": "-241,\"Hardware missing; To recover channel, execute *TST?; Channel1\""
+}

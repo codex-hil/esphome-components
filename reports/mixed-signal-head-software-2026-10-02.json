@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-02",
+  "esphome": "2026.9.0",
+  "esp_idf": "5.5.5",
+  "scope": "Software tests and compilation; no flashing or CPLD changes",
+  "addrspi_unchanged": true,
+  "tests": {
+    "native_driver_and_transport": "PASS",
+    "schema_validation": "PASS (3 test methods, 12 configuration cases)",
+    "all_component_imports": "PASS"
+  },
+  "hardware_validation_new_firmware": "NOT RUN",
+  "hc165": "Blocked until inverter fitted and load/shift timing verified",
+  "examples": {
+    "mixed-signal-head": {
+      "result": "PASS",
+      "configuration_sha256": "4c7e5cf195ab6b97559547327c7a2b7ba5e80fcb34401b3f7094350e57f779da",
+      "compiler_log_sha256": "95842bd05bdb4df59d5d7c9a7bb45ca904d6250121f539488af6837035144576",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "2227f28c0bc12d303d4d112416b487965f392e818e8e49aa899a9b9b21415391",
+          "bytes": 298912
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "d1333717c5c2171626d3f1df42a5529fd03421090dfa1aff454326a4a5a8c10e",
+          "bytes": 233376
+        }
+      ]
+    },
+    "mixed-signal-parallel-only": {
+      "result": "PASS",
+      "configuration_sha256": "fd20e20fd2c36cfaf30db3a8c4bc6cb2cde586f73892495ddaff111ddb25d98c",
+      "compiler_log_sha256": "2168a2f2650cf91ba422a6850b2ff0b3ba1f4106e85c43d44bd3342b41c66877",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "d00465c0ed34525d89497273a49e26822f7ffdb32c4148deeccf8ea74b518a92",
+          "bytes": 295744
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "c6b7b33029a9b9dc7acedd9484819ea7087638c14995452012897aebd75d2aee",
+          "bytes": 230208
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "components/addrspi/__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
+    "components/addrspi/addrspi.cpp": "9bf3acb2879dd2ee0c07e6d9fa459e12e22b9f1f6b2de0df0d6d1ada68bd6f06",
+    "components/addrspi/addrspi.h": "43eac6febf655fc2b8c8c566ff451832181d842384abfd15903ae0571c323e66",
+    "components/addrspi2/__init__.py": "fa0902fc195fbd8f5c2ce8892e86448f4a6e1f11de0513ee72542756b2f92eab",
+    "components/addrspi2/addrspi2.cpp": "7045a52185211b9ec5a4925d1ad30b60123ecae1c76240da750d7548b40f649f",
+    "components/addrspi2/addrspi2.h": "5cc661a055f75ef6bc35d29ec7d7b59ffc10b2ecaefc651686342fc69233903a",
+    "components/mcp3208/__init__.py": "bc53402278973c81c1f567dc1dbe0519cd6b53b8c8770eff2180287b1074385c",
+    "components/mcp3208/mcp3208.cpp": "592112a1c7d4f64c2973f7c4681e605f79981e07c05a657c6636ffca2ff78569",
+    "components/mcp3208/mcp3208.h": "4b26673342505b68d136093fe8a32bdce542cb45b60ea60b057556e2f49cf0ae",
+    "components/mcp3208/sensor.py": "446ae7f0a041405a98145370ef8f4a489d57b35189a568d8f7615fcf3c255b09",
+    "components/dacx0504/__init__.py": "0b149b2c57a49441fd11767cd3a9f2529ff2a89ea3d957b1b7da802b72a53a6f",
+    "components/dacx0504/dacx0504.cpp": "d24a46b0d68becd87aec8b2ff76290d15d06600bf3a450cef482202a559d31e9",
+    "components/dacx0504/dacx0504.h": "93fdd6e073a311e806d867a1fc5f8a3bb521b92c15d26be3327f7390e1b88717",
+    "components/dacx0504/output.py": "973318b119a41340b15d5030686c3ab5225131b7e198a904c33ea00caede943a",
+    "components/spi_shift_register/__init__.py": "4a1ad15437511bc68c22b9cc0a17f0ae910a44433115123f717479eb55a15e68",
+    "components/spi_shift_register/binary_sensor.py": "7acf7a186fb7321e8f6f5836d65e54460a7ce31f9fe3c615bb5a928cb2f4e9c6",
+    "components/spi_shift_register/output.py": "53a2b4dbd46b684bfd6944400430a04b6bd7532b498d29df99525e7dcf38c0fc",
+    "components/spi_shift_register/spi_shift_register.cpp": "0d4afeb0fb31c781c83728f7cd86341fc862ae1b9c48da2a2988853d89dda904",
+    "components/spi_shift_register/spi_shift_register.h": "5ee05cc16dc3716e343c4e6b778a92f1055bd501aa3448d24433a163be379c68"
+  }
+}

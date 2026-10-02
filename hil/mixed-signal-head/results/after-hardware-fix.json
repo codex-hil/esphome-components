@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-10-02T13:55:52.114647+00:00",
+  "user_confirmed": {
+    "C13_installed": true,
+    "C13_value": "unknown",
+    "SLOW": "HIGH",
+    "GPIO_input_divider": "1.2k : 2.87k; orientation unconfirmed"
+  },
+  "SCK_HIGH_s": 1.02756e-06,
+  "wrong_HC165_CS_on_OUT": "not detected at 4 ns/sample",
+  "IN_read_preserves_OUT_B": true,
+  "IN_payload_hex": "00",
+  "GPIO_IN_status": "FAIL_LOOPBACK_PENDING_INPUT_PIN_AND_PL_MEASUREMENT",
+  "ADC_DAC": "NOT_RUN",
+  "OUT_B_final": "HIGH",
+  "captures": [
+    "after-fix-out02",
+    "after-fix-in02"
+  ]
+}

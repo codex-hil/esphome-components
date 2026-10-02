@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-02",
+  "scope": "Publication portability check, NO hardware access",
+  "result": "PASS",
+  "esphome": "2026.9.0",
+  "configuration_sha256": "d59ec1eca8897ea95c2ede0a9af862f67c4b2c3608cf920b881a4b90f623720d",
+  "compiler_log_sha256": "a980d3ba8043337cc18e8b2ca33cd98dc4a88e818b5550cc1ee5a5c5988672a7",
+  "MMC_source_commit": "ead227b55cbcb71cd21383191e22b187c3299a26",
+  "MMC_cpp_h_byte_identical_to_HIL_snapshot": true,
+  "hardware": "NOT FLASHED: fixture now fetches same driver by Git SHA instead of adjacent local checkout",
+  "software_tests": "PASS: C++ transport/driver tests, 4 schema methods / 14 configurations",
+  "firmware": [
+    {
+      "filename": "firmware.factory.bin",
+      "sha256": "4df44ef0a94e99ea73e4f0b3b0726d6c6c164bbc4e09aa83c55080aec94defa3",
+      "bytes": 305408
+    },
+    {
+      "filename": "firmware.ota.bin",
+      "sha256": "9627a07cd6de8462006c073f8545343841a13ff6b348152fa5a7b03b74ba9b36",
+      "bytes": 239872
+    }
+  ]
+}

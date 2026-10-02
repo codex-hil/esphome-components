@@ -1,0 +1,53 @@
+menu "Moduliq head probe — confirmed wiring only"
+config HEAD_WIRING_VERIFIED
+    bool "Wiring, port and power-up checks verified for this head"
+    default n
+config HEAD_SCK
+    int "ESP32 SCK GPIO"
+    range -1 33
+    default -1
+config HEAD_MOSI
+    int "ESP32 MOSI GPIO"
+    range -1 33
+    default -1
+config HEAD_MISO
+    int "ESP32 MISO GPIO"
+    range -1 39
+    default -1
+config HEAD_CS
+    int "ESP32 physical CS GPIO"
+    range -1 33
+    default -1
+config HEAD_MOD0
+    int "Module address bit 0 GPIO"
+    range -1 33
+    default -1
+config HEAD_MOD1
+    int "Module address bit 1 GPIO"
+    range -1 33
+    default -1
+config HEAD_MOD2
+    int "Module address bit 2 GPIO"
+    range -1 33
+    default -1
+config HEAD_MOD3
+    int "Module address bit 3 GPIO"
+    range -1 33
+    default -1
+config HEAD_CHIP0
+    int "CPLD chip address bit 0 GPIO"
+    range -1 33
+    default -1
+config HEAD_CHIP1
+    int "CPLD chip address bit 1 GPIO"
+    range -1 33
+    default -1
+config HEAD_SPI_MODE
+    int "ESP32 SPI mode (verify both LTC6820 ends and local timing)"
+    range 0 3
+    default 0
+config HEAD_SPI_HZ
+    int "Hardware SPI clock Hz"
+    range 10000 1000000
+    default 100000
+endmenu

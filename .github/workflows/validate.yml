@@ -28,3 +28,8 @@ jobs:
         run: ./tests/run-serprog-software.sh "$PWD/.venv/bin/python"
       - name: Test CPLD software I2C, pin ownership and normal I2C device codegen
         run: ./tests/run-soft-i2c-software.sh "$PWD/.venv/bin/python"
+
+      - name: Test addressed SPI frames, nested routing, scaling and YAML
+        run: |
+          bash tests/run-addressed-spi.sh
+          .venv/bin/python tests/test_addressed_spi_schema.py

@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-10-02T15:27:01.558241+00:00",
+  "user_confirmed": {
+    "DIS_B_OK_A_jumper_removed": true,
+    "scope_CH4": "DIS B output, former jumper location"
+  },
+  "P5A_pin2_external_5V": "independent of DIS B after jumper removal",
+  "HC165_D0_directly_measured": false,
+  "required_next_probe": "CH4 at HC165 D0 pin11 (post-divider OK A)",
+  "GPIO_IN_previous_status": "FAIL_ALL_8_READS_ZERO"
+}

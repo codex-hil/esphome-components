@@ -1,0 +1,53 @@
+{
+  "DAC_SPI": "PASS",
+  "DAC_reference_alarm_after_GAIN_010F": "CLEARED",
+  "DAC_CONFIG": "0500",
+  "DAC_GAIN": "010F",
+  "analog_loopback": "PASS_DAC2_TO_ADC3_CH3_AND_DAC3_TO_ADC3_CH4",
+  "regression_frames": 1090,
+  "regression_driver_errors": 0,
+  "regression_value_failures": [],
+  "max_loopback_error_codes": 3.0,
+  "DMM": "NOT_RUN_METER_DISCONNECTED",
+  "ADC_other_inputs": "READ_BUT_NOT_VALIDATED_WITH_KNOWN_SIGNALS",
+  "GPIO_IN": "UNRESOLVED",
+  "CPLD_modified": false,
+  "final_DAC2_DAC3": "8000 / 8000",
+  "SYNC": {
+    "before_trigger_ADC3_CH3_CH4": [
+      2045,
+      2046
+    ],
+    "after_trigger_ADC3_CH3_CH4": [
+      1022,
+      3069
+    ],
+    "status": "PASS_BUFFER_HOLD_AND_SOFTWARE_LDAC_UPDATE",
+    "analog_simultaneity_skew": "NOT_MEASURED",
+    "final_DAC2_DAC3": "8000 / 8000",
+    "final_SYNC": "0F00"
+  },
+  "DMM_connection_user_confirmed": "DISCONNECTED_DURING_TESTS",
+  "DMM_readings_valid_for_DAC": false,
+  "SMU_after_reset": {
+    "instrument_status": "RESPONSIVE_NO_ERROR",
+    "pin18_voltage_tracking": "FAIL",
+    "ADC3_CH4_tracking": "PASS",
+    "evidence": "smu-pin18-sweep.json",
+    "output_final": "OFF/HIZ",
+    "required_connection_check": "Force HI/LO and channel3 P5 pin12 vs pin18"
+  },
+  "absolute_voltage_validation": {
+    "status": "PASS",
+    "DAC_channel": 2,
+    "ADC3_channel": 3,
+    "meter": "Keysight B2910BL MY63320305, Force HI/LO",
+    "physical_point_user_label": "channel3 connector pin18",
+    "evidence": "smu-pin18-dac2-sweep.json",
+    "max_error_from_nominal_V": 0.001054223632812601,
+    "VREF_direct_measurement": "NOT_RUN",
+    "DAC3_absolute_voltage": "NOT_RUN",
+    "SMU_final_output": "0",
+    "SMU_final_off_mode": "HIZ"
+  }
+}

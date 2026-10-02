@@ -1,0 +1,56 @@
+{
+  "timestamp_utc": "2026-10-02T15:24:46.396624+00:00",
+  "SMU_host": "192.168.2.35",
+  "user_connection": "GND to channel3 connector pin18",
+  "mode": "current source 0 A / voltage measurement, local sense",
+  "VREF_nominal_V": 3.0,
+  "VREF_directly_measured": false,
+  "voltage_tolerance_V": 0.01,
+  "points": [
+    {
+      "DAC_code": 0,
+      "ADC3_CH4": 0,
+      "expected_V_nominal": 0.0,
+      "SMU_V": 1.49921,
+      "error_from_nominal_V": 1.49921,
+      "status": "FAIL",
+      "frames": [
+        {
+          "tx": "050B0000",
+          "rx": "000B8000"
+        },
+        {
+          "tx": "058B0000",
+          "rx": "000B0000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8B0000"
+        },
+        {
+          "tx": "04070000",
+          "rx": "00000000"
+        }
+      ]
+    }
+  ],
+  "CPLD_modified": false,
+  "status": "FAIL_VOLTAGE_TRACKING",
+  "IDN": "Keysight Technologies,B2910BL,MY63320305,5.0.2429.8966",
+  "initial_error": "+0,\"No error\"",
+  "setup_readback": {
+    ":OUTP?": "0",
+    ":OUTP:ON:AUTO?": "0",
+    ":OUTP:OFF:MODE?": "HIZ",
+    ":SOUR:FUNC:MODE?": "CURR",
+    ":SOUR:CURR?": "+0.00000000E+000",
+    ":SOUR:CURR:RANG?": "+1.00000000E-008",
+    ":SENS:REM?": "0",
+    ":SENS:VOLT:PROT?": "+3.30000000E+000",
+    ":SYST:ERR?": "+0,\"No error\""
+  },
+  "SMU_final_output": "0",
+  "SMU_final_off_mode": "HIZ",
+  "SMU_final_error": "+0,\"No error\"",
+  "DAC2_DAC3_final": "8000 / 8000"
+}

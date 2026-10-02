@@ -1,0 +1,74 @@
+{
+  "timestamp_utc": "2026-10-02T15:13:02.132672+00:00",
+  "user_stimulus": "5 V on P5A pin2",
+  "divider": "R13 1.2k series, R12 2.87k to GND (schematic)",
+  "nominal_D0_voltage_V": 3.525798525798526,
+  "D0_directly_measured": true,
+  "expected_payload": "01 if only D0 high and shifting valid",
+  "observed_payloads": [
+    "00",
+    "00",
+    "00",
+    "00",
+    "00",
+    "00",
+    "00",
+    "00"
+  ],
+  "frames": [
+    {
+      "tx": "0000",
+      "rx": "0000"
+    },
+    {
+      "tx": "0000",
+      "rx": "0000"
+    },
+    {
+      "tx": "0000",
+      "rx": "0000"
+    },
+    {
+      "tx": "0000",
+      "rx": "0000"
+    },
+    {
+      "tx": "00FF",
+      "rx": "0000"
+    },
+    {
+      "tx": "00FF",
+      "rx": "0000"
+    },
+    {
+      "tx": "00FF",
+      "rx": "0000"
+    },
+    {
+      "tx": "00FF",
+      "rx": "0000"
+    }
+  ],
+  "status": "FAIL_HIGH_D0_CONFIRMED_ALL_READS_ZERO",
+  "schematic_issue": "HC165 /PL tied to selected /CS: LOW throughout payload inhibits shift",
+  "OUT_writes_in_test": false,
+  "old_DIS_B_OK_A_jumper_removed": true,
+  "CPLD_modified": false,
+  "scope_CH4_during_test": "DIS B output; does not measure HC165 D0",
+  "D0_measured_V_user": 3.57,
+  "D0_measurement_source": "user, pin11 IC2",
+  "retest_frames": [
+    [
+      "0000",
+      "0000"
+    ],
+    [
+      "0000",
+      "0000"
+    ],
+    [
+      "0000",
+      "0000"
+    ]
+  ]
+}

@@ -1,0 +1,2 @@
+# Preserve captured UART bytes, including native CR and whitespace.
+hil/mixed-signal-head/results/**/*.log -text whitespace=-trailing-space

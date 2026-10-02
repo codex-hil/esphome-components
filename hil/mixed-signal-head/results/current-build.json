@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-10-02T13:20:25Z",
+  "idf": "5.5.5",
+  "build": "PASS",
+  "configured_pins": {
+    "sck": 14,
+    "mosi": 12,
+    "miso": 34,
+    "cs": 15,
+    "module": [
+      2,
+      4,
+      13,
+      18
+    ],
+    "chip": [
+      16,
+      17
+    ]
+  },
+  "spi_mode_candidate": 0,
+  "spi_hz": 100000,
+  "actual_spi_transactions": 0,
+  "sdkconfig_sha256": "a729d7487ae59085685c511bca9069d214423f641b6c7dc6b8a2fa93d78cb9ad",
+  "binary_sha256": "689b4097868b4917cdfec94bcdd19ad286e5fb68aea5da42a8e88c533c919e53",
+  "source_sha256": "a7d30040e2bd9fd1de6ab8a294c0c9e746247ef32799c85f9651bcf46c1d6278",
+  "flash_report": "flash.json",
+  "cpld_modified": false
+}

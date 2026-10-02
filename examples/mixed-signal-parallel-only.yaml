@@ -1,0 +1,61 @@
+# COMPILE ONLY: illustrative conventional SPI targets behind a GPIO mux.
+# This is NOT wiring for the serial-header mixed-signal head.
+esphome:
+  name: moduliq-parallel-only-fixture
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [spi, addrspi, mcp3208, dacx0504, spi_shift_register]
+spi:
+  id: physical_spi
+  interface: hardware
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+addrspi:
+  id: parallel_mux
+  spi_id: physical_spi
+  address_pins: [GPIO16, GPIO17]
+  channels:
+    - bus_id: adc_bus
+      channel: 0
+    - bus_id: dac_bus
+      channel: 1
+    - bus_id: out_bus
+      channel: 2
+mcp3208:
+  id: adc
+  spi_id: adc_bus
+  cs_pin: &cs
+    number: GPIO27
+    allow_other_uses: true
+  reference_voltage: 3V
+sensor:
+  - platform: mcp3208
+    mcp3208_id: adc
+    channel: 0
+    name: "ADC conventional SPI"
+dacx0504:
+  id: dac
+  spi_id: dac_bus
+  cs_pin: *cs
+  reference: INTERNAL
+  reference_divider: 1
+  gain: 1
+spi_shift_register:
+  id: gpio_out
+  spi_id: out_bus
+  cs_pin: *cs
+  model: HC595
+output:
+  - platform: dacx0504
+    dacx0504_id: dac
+    id: conventional_voltage
+    channel: 0
+    max_voltage: 2.5V

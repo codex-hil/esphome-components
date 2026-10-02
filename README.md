@@ -5,6 +5,7 @@ i prac HIL nad ADS124S08. Źródła są w tym repozytorium: nie trzeba mieć kop
 forków ani plików z komputera laboratoryjnego. To biblioteka komponentów,
 nie kolejny fork całego ESPHome ani repozytorium toolchainów.
 
+- [Mixed-signal head: równoległe + opcjonalne szeregowe adresowanie SPI](docs/mixed-signal-head.md).
 - [Katalog i statusy](catalog/README.md): autorzy, pochodzenie, zależności, testy.
 - [Przypięte źródła i sumy plików](catalog/components.json).
 - [Gałęzie i warianty](catalog/source-branches.json): zachowujemy informację

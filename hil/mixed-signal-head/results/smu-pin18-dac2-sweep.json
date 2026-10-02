@@ -1,0 +1,170 @@
+{
+  "timestamp_utc": "2026-10-02T15:25:28.264919+00:00",
+  "SMU_host": "192.168.2.35",
+  "user_connection": "GND to channel3 connector pin18",
+  "DAC_channel": 2,
+  "ADC3_channel": 3,
+  "mode": "current source 0 A / voltage measurement, local sense",
+  "VREF_nominal_V": 3.0,
+  "VREF_directly_measured": false,
+  "voltage_tolerance_V": 0.01,
+  "points": [
+    {
+      "DAC_code": 0,
+      "ADC_code": 0,
+      "ADC3_channel": 3,
+      "expected_V_nominal": 0.0,
+      "SMU_V": -0.00017,
+      "error_from_nominal_V": -0.00017,
+      "status": "PASS",
+      "frames": [
+        {
+          "tx": "050A0000",
+          "rx": "000B8000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A0000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A0000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000000"
+        }
+      ]
+    },
+    {
+      "DAC_code": 16384,
+      "ADC_code": 1022,
+      "ADC3_channel": 3,
+      "expected_V_nominal": 0.75,
+      "SMU_V": 0.74934,
+      "error_from_nominal_V": -0.0006599999999999939,
+      "status": "PASS",
+      "frames": [
+        {
+          "tx": "050A4000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A4000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A4000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "000003FE"
+        }
+      ]
+    },
+    {
+      "DAC_code": 32768,
+      "ADC_code": 2045,
+      "ADC3_channel": 3,
+      "expected_V_nominal": 1.5,
+      "SMU_V": 1.49923,
+      "error_from_nominal_V": -0.0007699999999999374,
+      "status": "PASS",
+      "frames": [
+        {
+          "tx": "050A8000",
+          "rx": "FF000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000A8000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8A8000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "000007FD"
+        }
+      ]
+    },
+    {
+      "DAC_code": 49152,
+      "ADC_code": 3069,
+      "ADC3_channel": 3,
+      "expected_V_nominal": 2.25,
+      "SMU_V": 2.24909,
+      "error_from_nominal_V": -0.0009100000000001884,
+      "status": "PASS",
+      "frames": [
+        {
+          "tx": "050AC000",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000AC000"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8AC000"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000BFD"
+        }
+      ]
+    },
+    {
+      "DAC_code": 65535,
+      "ADC_code": 4095,
+      "ADC3_channel": 3,
+      "expected_V_nominal": 2.9999542236328125,
+      "SMU_V": 2.9989,
+      "error_from_nominal_V": -0.001054223632812601,
+      "status": "PASS",
+      "frames": [
+        {
+          "tx": "050AFFFF",
+          "rx": "00000000"
+        },
+        {
+          "tx": "058A0000",
+          "rx": "000AFFFF"
+        },
+        {
+          "tx": "05000000",
+          "rx": "FF8AFFFF"
+        },
+        {
+          "tx": "0406C000",
+          "rx": "00000FFF"
+        }
+      ]
+    }
+  ],
+  "CPLD_modified": false,
+  "status": "PASS",
+  "IDN": "Keysight Technologies,B2910BL,MY63320305,5.0.2429.8966",
+  "initial_error": "+0,\"No error\"",
+  "setup_readback": {
+    ":OUTP?": "0",
+    ":OUTP:ON:AUTO?": "0",
+    ":OUTP:OFF:MODE?": "HIZ",
+    ":SOUR:FUNC:MODE?": "CURR",
+    ":SOUR:CURR?": "+0.00000000E+000",
+    ":SOUR:CURR:RANG?": "+1.00000000E-008",
+    ":SENS:REM?": "0",
+    ":SENS:VOLT:PROT?": "+3.30000000E+000",
+    ":SYST:ERR?": "+0,\"No error\""
+  },
+  "SMU_final_output": "0",
+  "SMU_final_off_mode": "HIZ",
+  "SMU_final_error": "+0,\"No error\"",
+  "DAC2_DAC3_final": "8000 / 8000",
+  "connection_user_confirmed": "Force HI/LO",
+  "physical_point_user_label": "pin18 of channel3 connector",
+  "functional_mapping_measured": "follows DAC2, not DAC3"
+}

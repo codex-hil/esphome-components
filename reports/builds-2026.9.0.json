@@ -212,6 +212,63 @@
       "report": "reports/cpld-soft-i2c-software-2026-10-02.json",
       "environment": "pinned Nix ESPHome 2026.9.0 / ESP-IDF 5.5.5",
       "hardware": "NOT RUN"
+    },
+    "mixed-signal-head": {
+      "result": "PASS",
+      "configuration_sha256": "7b59b381b21239d5bb23f3f1dbfb220fc3dbeac3a8a70fef09d00e1e19ef8199",
+      "compiler_log_sha256": "720a9e2d29ac45e414926d2359738bc8649d12165e143187ba3b73b79d0d82b1",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "4504649d73aa92816832c837541caddc597225ea1ae4809938e3586cc45cc9c4",
+          "bytes": 299232
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "d562f6cf0e061d2b7d7dcf150a9a9a04a629854e66043f1bd3955ca842c5df00",
+          "bytes": 233696
+        }
+      ],
+      "report": "reports/mixed-signal-head-hil-2026-10-02.json",
+      "hardware": "NOT_FLASHED_THIS_CONFIGURATION"
+    },
+    "mixed-signal-parallel-only": {
+      "result": "PASS",
+      "configuration_sha256": "fd20e20fd2c36cfaf30db3a8c4bc6cb2cde586f73892495ddaff111ddb25d98c",
+      "compiler_log_sha256": "6aee1b71dd0e82d11efdacea2d814639b4cf41bcbcc16d9887e7fba191524ba9",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "fbf2c048b0e3d3b4326fec5ccebc68db36ce3e1de9ecfd3b3872d498c59d1009",
+          "bytes": 295888
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "af36695cc448dc99519954f2c602c98d8f1059de10e742695731a7e31e520965",
+          "bytes": 230352
+        }
+      ],
+      "report": "reports/mixed-signal-head-hil-2026-10-02.json",
+      "hardware": "NOT_FLASHED_THIS_CONFIGURATION"
+    },
+    "mixed-signal-coexistence-hil": {
+      "result": "PASS",
+      "report": "reports/mixed-signal-publication-2026-10-02.json",
+      "hardware": "NOT_FLASHED_PACKAGING_CHANGE; prior HIL in reports/mixed-signal-head-hil-2026-10-02.json",
+      "configuration_sha256": "d59ec1eca8897ea95c2ede0a9af862f67c4b2c3608cf920b881a4b90f623720d",
+      "compiler_log_sha256": "a980d3ba8043337cc18e8b2ca33cd98dc4a88e818b5550cc1ee5a5c5988672a7",
+      "firmware": [
+        {
+          "filename": "firmware.factory.bin",
+          "sha256": "4df44ef0a94e99ea73e4f0b3b0726d6c6c164bbc4e09aa83c55080aec94defa3",
+          "bytes": 305408
+        },
+        {
+          "filename": "firmware.ota.bin",
+          "sha256": "9627a07cd6de8462006c073f8545343841a13ff6b348152fa5a7b03b74ba9b36",
+          "bytes": 239872
+        }
+      ]
     }
   },
   "nix_identity": {

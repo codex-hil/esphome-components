@@ -1,0 +1,394 @@
+{
+  "date": "2026-10-02",
+  "status": "PASS_ADDRESSED_SPI_ADC_DAC_AND_PARALLEL_MAG_COEXISTENCE; GPIO_HARDWARE_PARTIAL",
+  "ESP32_MAC": "68:25:dd:4c:49:e4",
+  "port": "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+  "cpld_modified": false,
+  "addrspi_source_unchanged": true,
+  "route": {
+    "module": 0,
+    "head_chip": 2,
+    "head_serial_targets": {
+      "GPIO_IN": 0,
+      "GPIO_OUT": 1,
+      "ADC_X": 2,
+      "ADC_Y": 3,
+      "ADC_Z": 4,
+      "DAC": 5
+    },
+    "mag_chip": 1,
+    "mag_serial_header": false
+  },
+  "SPI": {
+    "mode": 0,
+    "rate_Hz": 100000,
+    "head_shared_device": true,
+    "physical_handles_head_plus_mag": 2
+  },
+  "magnetometer_driver": {
+    "checkout": "/home/codex-hil/workspaces/esphome-components-mmc",
+    "commit": "ead227b55cbcb71cd21383191e22b187c3299a26",
+    "modified": false,
+    "note": "Validated peer snapshot; legacy mmc5983_spi in the main collection was NOT tested."
+  },
+  "final_regression": {
+    "status": "PASS",
+    "cycles": 125,
+    "explicit_SPI_transactions_min": 7631,
+    "all_ADC_inputs_read": 24,
+    "loopback_known_channels": [
+      "DAC2 -> ADC_Z CH3",
+      "DAC3 -> ADC_Z CH4"
+    ],
+    "ADC_tolerance_codes": 6,
+    "DAC_registers": {
+      "ID": "0497",
+      "CONFIG": "0500",
+      "GAIN": "010F",
+      "SYNC": "0F0F",
+      "STATUS": "0000"
+    },
+    "communication_errors_detected": 0,
+    "mag_startup_errors": 0,
+    "mag_runtime_errors": 0,
+    "sync_hold_commit": "PASS",
+    "ADC_sample_rate_parameter": 100,
+    "sensor_update_interval_s": 1,
+    "source_sha256": {
+      "components/spi/__init__.py": "a21138ab3c0e3cf48dd734bc7e20586f1af4d7d80b1f0b9ff5c2fa2004c6427f",
+      "components/spi/spi.cpp": "83f9d294b65a9822ff7f9b7e69f9198c3fe8662c7be15e27641834c6d0e0ad22",
+      "components/spi/spi.h": "bad6a7d95fb7240ea6914aaf1f267640ebb866e030abc290c333a793be73de97",
+      "components/spi/spi_arduino.cpp": "099fbac2e63b2dcae08fcbaf65b657dc56558faf89238055a4eb0177831f867b",
+      "components/spi/spi_esp_idf.cpp": "d8b22d7a53c226fb5bd703e60323f248c94a8479120590c7e0c6f3c9fbfce4cc",
+      "components/addrspi/__init__.py": "b0e10f0fe6468e497726d7500a2d91621f11cd1b46b5e4f13728a171bb0e25a8",
+      "components/addrspi/addrspi.cpp": "9bf3acb2879dd2ee0c07e6d9fa459e12e22b9f1f6b2de0df0d6d1ada68bd6f06",
+      "components/addrspi/addrspi.h": "43eac6febf655fc2b8c8c566ff451832181d842384abfd15903ae0571c323e66",
+      "components/addrspi2/__init__.py": "19f8064cb88223c5975b1b970d5222eef0b646abf7be577da18779cc5e058f38",
+      "components/addrspi2/addrspi2.cpp": "92dbd71db00f4384220d7986ad8b787cf7b2b15f7848d3336495cedcb3b1b875",
+      "components/addrspi2/addrspi2.h": "2cb1e658a97411fe68b08d718230633116b43be629a862686fcfaf71e3af72b2",
+      "components/mcp3208/__init__.py": "bc53402278973c81c1f567dc1dbe0519cd6b53b8c8770eff2180287b1074385c",
+      "components/mcp3208/mcp3208.cpp": "6fda4848ea6cf8bfdcb1867a4fe571d747d916049145dd44baad6cc18aed985b",
+      "components/mcp3208/mcp3208.h": "1408759123b23235fe2508abe7384e9885c460afcf8aa10c35c7d1e66278413d",
+      "components/mcp3208/sensor.py": "446ae7f0a041405a98145370ef8f4a489d57b35189a568d8f7615fcf3c255b09",
+      "components/dacx0504/__init__.py": "0b149b2c57a49441fd11767cd3a9f2529ff2a89ea3d957b1b7da802b72a53a6f",
+      "components/dacx0504/dacx0504.cpp": "d24a46b0d68becd87aec8b2ff76290d15d06600bf3a450cef482202a559d31e9",
+      "components/dacx0504/dacx0504.h": "93fdd6e073a311e806d867a1fc5f8a3bb521b92c15d26be3327f7390e1b88717",
+      "components/dacx0504/output.py": "973318b119a41340b15d5030686c3ab5225131b7e198a904c33ea00caede943a",
+      "components/spi_shift_register/__init__.py": "4a1ad15437511bc68c22b9cc0a17f0ae910a44433115123f717479eb55a15e68",
+      "components/spi_shift_register/binary_sensor.py": "7acf7a186fb7321e8f6f5836d65e54460a7ce31f9fe3c615bb5a928cb2f4e9c6",
+      "components/spi_shift_register/output.py": "53a2b4dbd46b684bfd6944400430a04b6bd7532b498d29df99525e7dcf38c0fc",
+      "components/spi_shift_register/spi_shift_register.cpp": "0d4afeb0fb31c781c83728f7cd86341fc862ae1b9c48da2a2988853d89dda904",
+      "components/spi_shift_register/spi_shift_register.h": "5ee05cc16dc3716e343c4e6b778a92f1055bd501aa3448d24433a163be379c68",
+      "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/__init__.py": "769ab6852dca68fda8b1928db6c19d091c04b35829a714137db6b99449f625d3",
+      "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/mmc5983_spi.cpp": "e0d589a5b7c63212a983dbb7ac92308f0638f5c1fef76f925ef9a10ccff233ab",
+      "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/mmc5983_spi.h": "519551b94c9fd32b4bcfdab972e685c31d4deb7277914c178d3bf1bfda3455f5",
+      "/home/codex-hil/workspaces/esphome-components-mmc/components/mmc5983_spi/sensor.py": "570eef808731305d3fa3a9a6cda1a6318fd80da5e454edfb079bca0a6a8e9a10"
+    },
+    "firmware_sha256": {
+      "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexistence-hil/build/bootloader/bootloader.bin": "4f1d06dd8a028d8e968e4cfa79fb4cb72492838adc9db7fb6960f0234f48e294",
+      "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexistence-hil/build/moduliq-coexistence-hil.bin": "16306a939970d5bd9214a9b1d5b3bf1d4271314e5493fee6bbd5e679f57a7f7d",
+      "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexistence-hil/build/partition_table/partition-table.bin": "45e2c4086233cc7a1167262b7ad6d44288e6b131e7b7f0061ddd2438997b807d",
+      "/home/codex-hil/workspaces/esphome-components/examples/.esphome/build/moduliq-coexistence-hil/build/ota_data_initial.bin": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    }
+  },
+  "passed_full_regression_runs": 3,
+  "explicit_transactions_in_passed_full_runs_min": 22893,
+  "SMU_sweep": {
+    "status": "PASS",
+    "model": "Keysight Technologies,B2910BL,MY63320305,5.0.2429.8966",
+    "channel": 2,
+    "points": [
+      {
+        "point": 0,
+        "dac2_code": 0,
+        "dac3_code": 32768,
+        "adc_z3_V": 0.0,
+        "adc_z4_V": 1.498535,
+        "SMU_V": -0.00012,
+        "nominal_V": 0.0,
+        "error_V": -0.00012,
+        "status": "PASS"
+      },
+      {
+        "point": 1,
+        "dac2_code": 16384,
+        "dac3_code": 32768,
+        "adc_z3_V": 0.749268,
+        "adc_z4_V": 1.498535,
+        "SMU_V": 0.74939,
+        "nominal_V": 0.75,
+        "error_V": -0.0006099999999999994,
+        "status": "PASS"
+      },
+      {
+        "point": 2,
+        "dac2_code": 32768,
+        "dac3_code": 32768,
+        "adc_z3_V": 1.498535,
+        "adc_z4_V": 1.498535,
+        "SMU_V": 1.49928,
+        "nominal_V": 1.5,
+        "error_V": -0.0007200000000000539,
+        "status": "PASS"
+      },
+      {
+        "point": 3,
+        "dac2_code": 49152,
+        "dac3_code": 32768,
+        "adc_z3_V": 2.244141,
+        "adc_z4_V": 1.498535,
+        "SMU_V": 2.24913,
+        "nominal_V": 2.25,
+        "error_V": -0.0008699999999999264,
+        "status": "PASS"
+      },
+      {
+        "point": 4,
+        "dac2_code": 65535,
+        "dac3_code": 32768,
+        "adc_z3_V": 2.999268,
+        "adc_z4_V": 1.498535,
+        "SMU_V": 2.99896,
+        "nominal_V": 2.9999542236328125,
+        "error_V": -0.000994223632812652,
+        "status": "PASS"
+      }
+    ],
+    "max_nominal_error_V": 0.000994223632812652,
+    "final": {
+      ":OUTP?": "0",
+      ":OUTP:OFF:MODE?": "HIZ",
+      ":SYST:ERR?": "+0,\"No error\""
+    }
+  },
+  "waves": {
+    "driver-full-adc-frame": {
+      "capture": "driver-full-adc-frame",
+      "frames": [
+        {
+          "start_s": -6.679687499953554e-09,
+          "clocks": 32,
+          "tx_hex": "04070000",
+          "period_min_s": 9.99872049745824e-06,
+          "period_max_s": 1.000084262233142e-05,
+          "header_payload_boundary_period_s": 9.99985074626869e-06
+        }
+      ],
+      "sample_interval_s": 1e-08,
+      "SCK_median_HIGH_s": 1.0267948426572956e-06,
+      "HC165_PL_min_V": 3.2,
+      "CH4_min_V": -0.08,
+      "CH4_max_V": 0.24,
+      "interframe_period_s": [],
+      "uncertainty": "Threshold 1.65V, cable/channel skew not calibrated; no direct CS_HEAD/local ADC CS/MISO probe.",
+      "CH4_connected": false,
+      "CH4_interpretation": "Disconnected probe; do not interpret as GPIO output voltage"
+    },
+    "esphome-coexistence-voltage-shared-gpio": {
+      "capture": "esphome-coexistence-voltage-shared-gpio",
+      "frames": [
+        {
+          "start_s": -8.774509803965123e-09,
+          "clocks": 16,
+          "tx_hex": "01AA",
+          "period_min_s": 9.99792517006803e-06,
+          "period_max_s": 1.0002500797193811e-05,
+          "header_payload_boundary_period_s": 9.999776556776576e-06
+        }
+      ],
+      "sample_interval_s": 1e-08,
+      "SCK_median_HIGH_s": 1.0246116339091785e-06,
+      "HC165_PL_min_V": 3.24,
+      "CH4_min_V": -0.08,
+      "CH4_max_V": 0.24,
+      "interframe_period_s": [],
+      "uncertainty": "Threshold 1.65V, cable/channel skew not calibrated; no direct CS_HEAD/local ADC CS/MISO probe.",
+      "CH4_connected": false,
+      "CH4_interpretation": "Disconnected probe; do not interpret as GPIO output voltage"
+    },
+    "driver-adc-rate-before": {
+      "capture": "driver-adc-rate-before",
+      "frames": [
+        {
+          "start_s": -0.01700020120481928,
+          "clocks": 32,
+          "tx_hex": "04078000",
+          "period_min_s": 9.990152439021127e-06,
+          "period_max_s": 1.0009818445896185e-05,
+          "header_payload_boundary_period_s": 9.992636684302836e-06
+        },
+        {
+          "start_s": -2.0117647058989774e-07,
+          "clocks": 32,
+          "tx_hex": "0406C000",
+          "period_min_s": 9.99015320541502e-06,
+          "period_max_s": 1.0007454819275369e-05,
+          "header_payload_boundary_period_s": 1.0004790940765229e-05
+        },
+        {
+          "start_s": 0.016999806097560976,
+          "clocks": 32,
+          "tx_hex": "04070000",
+          "period_min_s": 9.992577536886704e-06,
+          "period_max_s": 1.0007332128872393e-05,
+          "header_payload_boundary_period_s": 1.0007332128872393e-05
+        }
+      ],
+      "sample_interval_s": 4e-07,
+      "SCK_median_HIGH_s": 7.929680297374259e-07,
+      "HC165_PL_min_V": 3.24,
+      "CH4_min_V": -0.04,
+      "CH4_max_V": 0.24,
+      "interframe_period_s": [
+        0.01700000002834869,
+        0.017000007274031566
+      ],
+      "uncertainty": "Threshold 1.65V, cable/channel skew not calibrated; no direct CS_HEAD/local ADC CS/MISO probe.",
+      "CH4_connected": false,
+      "CH4_interpretation": "Disconnected probe; do not interpret as GPIO output voltage"
+    },
+    "driver-adc-rate-final": {
+      "capture": "driver-adc-rate-final",
+      "frames": [
+        {
+          "start_s": -0.01999939880952381,
+          "clocks": 32,
+          "tx_hex": "0406C000",
+          "period_min_s": 9.990361445784413e-06,
+          "period_max_s": 1.0009668302838476e-05,
+          "header_payload_boundary_period_s": 1.0002393857271724e-05
+        },
+        {
+          "start_s": -0.010000189285714287,
+          "clocks": 32,
+          "tx_hex": "04070000",
+          "period_min_s": 9.987878342639436e-06,
+          "period_max_s": 1.0009846794587635e-05,
+          "header_payload_boundary_period_s": 9.99257753688497e-06
+        },
+        {
+          "start_s": -2.0120481927787814e-07,
+          "clocks": 32,
+          "tx_hex": "04078000",
+          "period_min_s": 9.99272700558454e-06,
+          "period_max_s": 1.0007446197991127e-05,
+          "header_payload_boundary_period_s": 9.995180722893737e-06
+        },
+        {
+          "start_s": 0.01001579879518072,
+          "clocks": 32,
+          "tx_hex": "0406C000",
+          "period_min_s": 9.987545180722979e-06,
+          "period_max_s": 1.0007546296295772e-05,
+          "header_payload_boundary_period_s": 1.0002484191504873e-05
+        }
+      ],
+      "sample_interval_s": 4e-07,
+      "SCK_median_HIGH_s": 1.1901355421685064e-06,
+      "HC165_PL_min_V": 3.24,
+      "CH4_min_V": -0.08,
+      "CH4_max_V": 0.28,
+      "interframe_period_s": [
+        0.009999209523809524,
+        0.009999988080895009,
+        0.010015999999999997
+      ],
+      "uncertainty": "Threshold 1.65V, cable/channel skew not calibrated; no direct CS_HEAD/local ADC CS/MISO probe.",
+      "CH4_connected": false,
+      "CH4_interpretation": "Disconnected probe; do not interpret as GPIO output voltage"
+    }
+  },
+  "diagnosed_issues": [
+    {
+      "issue": "First regression failed ADC tolerance with SMU ON",
+      "cause_evidence": "693 diagnostic rows / 2772 readouts: attached positive branch broadens from 2045..2046 codes with SMU OFF to 2040..2051 with SMU ON; negative branch remains stable. MAG PID and conversions with SMU OFF do not reproduce it. Exact electrical coupling mechanism unmeasured.",
+      "resolution": "SMU OFF/HIZ for strict ADC test; separate external voltage sweep. ADC tolerance unchanged; failed run retained."
+    },
+    {
+      "issue": "Requested ADC 100Hz produced frame intervals ~17ms under default ESPHome loop",
+      "resolution": "HighFrequencyLoopRequester only during sampling; actual final capture periods 9.999..10.016ms."
+    },
+    {
+      "issue": "Six local targets plus magnetometer can exceed six ESP-IDF handles",
+      "resolution": "Optional shared_device=true uses one head handle, requires identical client/hub rate; unchanged addrspi. Fake-bus test covers eight serial targets plus peer with two registrations."
+    },
+    {
+      "issue": "Pre-existing MMC initial ID FF",
+      "evidence": "One invalid initial ID recovered and counted in the first failed (SMU-connected) run. No retries required in final run.",
+      "status": "NOT_FIXED; bounded identity retry from existing MMC driver, no sensor writes before valid ID."
+    }
+  ],
+  "GPIO": {
+    "OUT_SPI_frame": "PASS: 01AA,16 clocks, continuous header/payload",
+    "OUT_physical": "NOT_VALIDATED: owner confirmed CH4 disconnected; observed LOW is not a GPIO fault indication",
+    "IN": "NOT_TESTED: inverter /PL fix pending"
+  },
+  "limitations": [
+    "Other 22 ADC inputs read and range-checked without known reference signals.",
+    "DAC3 absolute voltage and calibrated magnetic accuracy unmeasured.",
+    "No power-cycle test; ROM/software resets used for commissioning.",
+    "Four-probe layout cannot independently verify CS_HEAD, local ADC/DAC CS, MISO or every possible wrong-CS glitch.",
+    "MCP sampling is best effort on shared bus; blocking magnetometer conversion can add jitter."
+  ],
+  "final_state": {
+    "firmware": "moduliq-coexistence-hil (final HighFrequencyLoopRequester + shared head handle)",
+    "DAC2_DAC3": "8000 / 8000",
+    "GPIO_OUT_command": "07; physical pin state not confirmed",
+    "SMU": "OFF/HIZ"
+  },
+  "runs": {
+    "esphome-coexistence-run1": {
+      "status": "FAIL",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-run1/report.json",
+      "report_sha256": "019235ea3b17e8a23aa0c646b9236a711507a8f633cf2db923c9ed5b1319de5e",
+      "uart_sha256": "aa3c30f8812f089d894e7174af48457e43e8e1492ea52c8b77e4354b5a8e8056",
+      "final_line": "\u001b[1;31m[E][coexist_hil:032]: FINAL FAIL reason=sweep_loopback ticks=35 frames_min=111 errors=1 mag_errors=1\u001b[0m"
+    },
+    "esphome-coexistence-diag1": {
+      "status": "DIAGNOSTIC_CAPTURED",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-diag1/report.json",
+      "report_sha256": "531692f75b622a140e5d9c9fab19cb70ad2b4c91f1fa760e29caa9ec88cf7178",
+      "uart_sha256": "9261102efd7b3273d50b870db4f28f4c9bd5abc6c158cf41f8a6d9d4b8823785",
+      "final_line": "\u001b[0;32m[I][coexist_diag:015]: FINAL DIAG_DONE samples=700 mag_errors=0\u001b[0m"
+    },
+    "esphome-coexistence-run2": {
+      "status": "PASS",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-run2/report.json",
+      "report_sha256": "b8cf60579377ef52b619b9e75193211a507732424c0bfc1c8ca52876a6bb59cf",
+      "uart_sha256": "19279f34d2fef4ce4975acc3ec2c9abb0c82d249161d6e68bb60299cdaa56bcb",
+      "final_line": "\u001b[0;32m[I][coexist_hil:128]: FINAL PASS cycles=125 frames_min=7631 errors=0 mag_startup_errors=0 mag_runtime_errors=0 hc165=NOT_TESTED dac2=8000 dac3=8000 gpio=07\u001b[0m"
+    },
+    "esphome-coexistence-shared1": {
+      "status": "PASS",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-shared1/report.json",
+      "report_sha256": "8f486114cc36156ddae6668424baa7693d175bd23e35dbe4a785aa83c03d1929",
+      "uart_sha256": "2fe6faafa38197ad0cfa3e4e2fa83936531d3bff08a6660f20922b0d09253b1f",
+      "final_line": "\u001b[0;32m[I][coexist_hil:128]: FINAL PASS cycles=125 frames_min=7631 errors=0 mag_startup_errors=0 mag_runtime_errors=0 hc165=NOT_TESTED dac2=8000 dac3=8000 gpio=07\u001b[0m"
+    },
+    "esphome-coexistence-voltage-shared": {
+      "status": "PASS",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-voltage-shared/report.json",
+      "report_sha256": "a12ef8bdb4fa78f5bfa7f68589f30de0aab7762cd91fcc0db44f428d8d991a4b",
+      "uart_sha256": "4775a22ea9eab0f4977070077f3a0aa7a746bb0aaedf570ede47a523e7e35bf8",
+      "final_line": "\u001b[0;32m[I][coexist_hil:032]: FINAL PASS voltage_sweep=5 gpio_patterns=00,55,AA,FF physical_gpio=REQUIRES_SCOPE mag_errors=0 dac2=8000 dac3=8000 gpio=07\u001b[0m"
+    },
+    "esphome-coexistence-final": {
+      "status": "PASS",
+      "report": "/home/codex-hil/workspaces/moduliq-mixed-signal-bringup/results/esphome-coexistence-final/report.json",
+      "report_sha256": "c73f6c0f24315b048ccdf9756dab136b4ceaf705284a5e0bfaadacc458f7d63e",
+      "uart_sha256": "f272269850ac85e5b49f6a6bb112ccde91b28210fb94280cd031b3df6437ebf8",
+      "final_line": "\u001b[0;32m[I][coexist_hil:128]: FINAL PASS cycles=125 frames_min=7631 errors=0 mag_startup_errors=0 mag_runtime_errors=0 hc165=NOT_TESTED dac2=8000 dac3=8000 gpio=07\u001b[0m"
+    }
+  },
+  "software_checks": {
+    "C++ real drivers and transport": "PASS: frames, routing, no frame allocation, scaling, high-frequency request lifecycle, shared handle ownership",
+    "schema": "PASS: 4 methods / 14 configuration cases",
+    "all_component_imports": "PASS",
+    "source_manifest": "PASS: 28 components / 115 files",
+    "head_and_parallel_only_compilation": "PASS ESPHome 2026.9.0 / ESP-IDF 5.5.5"
+  },
+  "probe_confirmation": {
+    "CH4": "DISCONNECTED",
+    "source": "Owner confirmation after validation"
+  }
+}

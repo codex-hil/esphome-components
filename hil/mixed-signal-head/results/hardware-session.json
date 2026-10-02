@@ -1,0 +1,154 @@
+{
+  "timestamp_utc": "2026-10-02T13:42:53Z",
+  "routing_confirmed_by_waveform": {
+    "module": 0,
+    "chip": 2,
+    "local_header_address": 0
+  },
+  "instruments": {
+    "scope": {
+      "host": "192.168.2.4",
+      "serial": "C020817"
+    },
+    "dmm": {
+      "host": "192.168.2.27",
+      "serial": "04679690"
+    }
+  },
+  "idle": {
+    "status": "PARTIAL_PASS",
+    "CSn_HC165": "HIGH 3.24..3.60 V",
+    "Header_done": "LOW -0.08..0.24 V",
+    "all_other_CS": "not directly observed"
+  },
+  "router": {
+    "status": "FAIL",
+    "header_clock_count": 8,
+    "CS_fall_after_Header_done_s": 1.1459361393335084e-08,
+    "first_payload_after_CS_s": 9.839843035343044e-06,
+    "wrong_CS_HC165_on_target01_glitch_s": 8.189247311849411e-09,
+    "glitch_sample_interval_s": 4e-09,
+    "clock_HIGH_s": 1.1447083333333361e-07,
+    "high_resolution_sample_interval_s": 2e-10,
+    "timing_accuracy_note": "Threshold 1.65 V; cable/channel skew not calibrated. Full frame 4 ns/sample; local zoom 0.2 ns/sample."
+  },
+  "digital_loopback": {
+    "status": "FAIL_INPUT_READ_CORRUPTS_OUTPUT",
+    "OUT_patterns_sent": [
+      "00",
+      "55",
+      "AA",
+      "FF",
+      "02"
+    ],
+    "IN_response_all": "00",
+    "expected_IN_bit0_for_OUT_02_AA_FF": 1,
+    "OUT_physical_verification": "PASS on B/QB only, patterns 00/55 LOW and AA/FF HIGH",
+    "final_OUT_command": "00",
+    "driver_errors": 0,
+    "other_OUT_bits": "NOT_OBSERVED",
+    "LOW_median_V": 0.12,
+    "HIGH_median_V": 3.32,
+    "OUT02_update_after_first_SCK_s": 0.000165062,
+    "OUT02_update_after_last_SCK_s": 1.4947e-05,
+    "input_read_causes_OUT_fall_after_first_SCK_s": 7.017761842105266e-05,
+    "input_read_payload_begins_after_first_SCK_s": 8e-05,
+    "input_read_result": "00",
+    "attribution": "Observed output clobber at header boundary is consistent with false GPIO_OUT CS/latch during decode. /PL topology remains a separate unresolved issue; cannot attribute the earlier zero reads solely to /PL.",
+    "physical_pattern_report": "digital-physical-patterns.json"
+  },
+  "ADC_clock": {
+    "status": "FAIL",
+    "measured_HIGH_s": 1.1447083333333361e-07,
+    "required_min_HIGH_s": 2.5e-07,
+    "ADC_traffic_sent": false
+  },
+  "DAC_traffic_sent": false,
+  "SPI_transactions_this_session": 23,
+  "CPLD_modified": false,
+  "next_hardware_work": [
+    "C13 proposed 47 pF C0G; awaiting confirmation of actual installation",
+    "SLOW strap proposed HIGH after disconnecting R19 from GND; awaiting installation",
+    "CH4 on digital loopback requested for OUT physical verification",
+    "GPIO_IN PL topology needs verification/correction if loopback voltage is present"
+  ],
+  "scope_probes": {
+    "CH1": "SCK",
+    "CH2": "CSn_HC165",
+    "CH3": "MOSI",
+    "CH4": "DIS B to OK A; owner confirmed moved"
+  },
+  "canonical_transaction_logs": [
+    "router00-uart.log",
+    "router01-uart.log",
+    "router00-detail-uart.log",
+    "gpio-patterns-uart.log",
+    "gpio-low-uart.log",
+    "gpio-out02-uart.log",
+    "gpio-in-after02-uart.log",
+    "gpio-pattern-00-uart.log",
+    "gpio-pattern-55-uart.log",
+    "gpio-pattern-aa-uart.log",
+    "gpio-pattern-ff-uart.log",
+    "gpio-restored-zero-uart.log"
+  ],
+  "invalid_capture_notes": {
+    "gpio-low.json": "Initial idle acquisition may have reused old NUMACQ/record; superseded by gpio-pattern-00.json with enforced settling for fresh AUTO acquisition."
+  },
+  "latest_analog_validation": {
+    "DAC_SPI": "PASS",
+    "DAC_reference_alarm_after_GAIN_010F": "CLEARED",
+    "DAC_CONFIG": "0500",
+    "DAC_GAIN": "010F",
+    "analog_loopback": "PASS_DAC2_TO_ADC3_CH3_AND_DAC3_TO_ADC3_CH4",
+    "regression_frames": 1090,
+    "regression_driver_errors": 0,
+    "regression_value_failures": [],
+    "max_loopback_error_codes": 3.0,
+    "DMM": "NOT_RUN_METER_DISCONNECTED",
+    "ADC_other_inputs": "READ_BUT_NOT_VALIDATED_WITH_KNOWN_SIGNALS",
+    "GPIO_IN": "UNRESOLVED",
+    "CPLD_modified": false,
+    "final_DAC2_DAC3": "8000 / 8000",
+    "SYNC": {
+      "before_trigger_ADC3_CH3_CH4": [
+        2045,
+        2046
+      ],
+      "after_trigger_ADC3_CH3_CH4": [
+        1022,
+        3069
+      ],
+      "status": "PASS_BUFFER_HOLD_AND_SOFTWARE_LDAC_UPDATE",
+      "analog_simultaneity_skew": "NOT_MEASURED",
+      "final_DAC2_DAC3": "8000 / 8000",
+      "final_SYNC": "0F00"
+    },
+    "DMM_connection_user_confirmed": "DISCONNECTED_DURING_TESTS",
+    "DMM_readings_valid_for_DAC": false,
+    "SMU_after_reset": {
+      "instrument_status": "RESPONSIVE_NO_ERROR",
+      "pin18_voltage_tracking": "FAIL",
+      "ADC3_CH4_tracking": "PASS",
+      "evidence": "smu-pin18-sweep.json",
+      "output_final": "OFF/HIZ",
+      "required_connection_check": "Force HI/LO and channel3 P5 pin12 vs pin18"
+    },
+    "absolute_voltage_validation": {
+      "status": "PASS",
+      "DAC_channel": 2,
+      "ADC3_channel": 3,
+      "meter": "Keysight B2910BL MY63320305, Force HI/LO",
+      "physical_point_user_label": "channel3 connector pin18",
+      "evidence": "smu-pin18-dac2-sweep.json",
+      "max_error_from_nominal_V": 0.001054223632812601,
+      "VREF_direct_measurement": "NOT_RUN",
+      "DAC3_absolute_voltage": "NOT_RUN",
+      "SMU_final_output": "0",
+      "SMU_final_off_mode": "HIZ"
+    }
+  },
+  "latest_analog_evidence": "analog-validation-summary.json",
+  "DMM_connection_user_confirmed": "DISCONNECTED_DURING_TESTS",
+  "DMM_readings_valid_for_DAC": false
+}

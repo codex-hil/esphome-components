@@ -7,20 +7,20 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | Komponent | Funkcja | Schematy | Kompilacja przykładu | Źródło |
 |---|---|---|---|---|
 | [ad9959](../components/ad9959) | DDS, cztery kanały | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/ad9959) |
-| [addrspi](../components/addrspi) | SPI z wyborem adresu na GPIO | PASS | [bridge-adc](../examples/bridge-adc.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/addrspi) |
-| [addrspi2](../components/addrspi2) | Adresowane kanały SPI z nagłówkiem protokołu | PASS | [addrspi2](../examples/addrspi2.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/addrspi2) |
+| [addrspi](../components/addrspi) | SPI z wyborem adresu na GPIO | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS; [bridge-adc](../examples/bridge-adc.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/addrspi) |
+| [addrspi2](../components/addrspi2) | Adresowane kanały SPI z nagłówkiem protokołu | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [addrspi2](../examples/addrspi2.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/addrspi2) |
 | [ads124s08](../components/ads124s08) | ADC + kanały temperatury z forka Wizatha | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/ads124s08) |
 | [ads8166](../components/ads8166) | Wielokanałowy ADC SPI | PASS | [ads8166](../examples/ads8166.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/ads8166) |
 | [as6500](../components/as6500) | Konwerter czasu TDC | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/as6500) |
 | [dac8775](../components/dac8775) | DAC | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/dac8775) |
-| [dacx0504](../components/dacx0504) | Rodzina DACx0504 | PASS | [dacx0504](../examples/dacx0504.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/dacx0504) |
+| [dacx0504](../components/dacx0504) | Rodzina DACx0504 | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS; [dacx0504](../examples/dacx0504.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/dacx0504) |
 | [hc138](../components/hc138) | Dekoder wyboru kanału SPI | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/hc138) |
 | [max112xx](../components/max112xx) | Rodzina ADC MAX112xx | PASS | [max112xx](../examples/max112xx.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/max112xx) |
-| [mcp3208](../components/mcp3208) | Ośmiokanałowy ADC | PASS | [mcp3208](../examples/mcp3208.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mcp3208) |
+| [mcp3208](../components/mcp3208) | Ośmiokanałowy ADC | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS; [mcp3208](../examples/mcp3208.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mcp3208) |
 | [mmc5983](../components/mmc5983) | Magnetometr; [zgłoszony problem odczytów](../docs/known-issues.md) | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983) |
 | [mmc5983_spi](../components/mmc5983_spi) | Magnetometr SPI; [zgłoszony problem odczytów](../docs/known-issues.md) | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/mmc5983_spi) |
 | [tmc5130](../components/tmc5130) | Sterownik silnika krokowego | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/tmc5130) |
-| [spi](../components/spi) | Zmodyfikowana warstwa SPI dla magistral adresowanych | PASS | [bridge-adc](../examples/bridge-adc.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/spi) |
+| [spi](../components/spi) | Zmodyfikowana warstwa SPI dla magistral adresowanych | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS; [bridge-adc](../examples/bridge-adc.yaml): PASS | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/spi) |
 | [tca9548a](../components/tca9548a) | Multiplekser I²C; wariant zgodności z external_components | PASS | nie testowano | [wizath/esphome@16cb61e6](https://github.com/wizath/esphome/tree/16cb61e697b712d1ac20be9fb2b0b0fdcc37930c/esphome/components/tca9548a) |
 | [max6966](../components/max6966) | Sterownik wyjść LED/PWM | PASS | nie testowano | [wizath/esphome@fdd5c666](https://github.com/wizath/esphome/tree/fdd5c666286da9e90be05ef6d182b99aff3d7d51/esphome/components/max6966) |
 | [ads124s08_base](../components/ads124s08_base) | ADC, kanały napięciowe MUX/IDAC i diagnostyka CRC z HIL | PASS | [bridge-adc](../examples/bridge-adc.yaml): PASS | [codex-hil/esphome-hil@631bf398](https://github.com/codex-hil/esphome-hil/tree/631bf39899a496578a0cafe1fc34cdad07509158/components/ads124s08_base) |
@@ -33,6 +33,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [moduliq_cpld_flash](../components/moduliq_cpld_flash) | CPLD CS2: współdzielona Flash, transport i acquire/release przez CS3 | PASS | [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_flash) |
 | [moduliq_serprog](../components/moduliq_serprog) | serprog TCP: surowe SPI dla flashrom, polityka targetu w YAML | PASS | [cpld-serprog](../examples/cpld-serprog.yaml): PASS | [Rozwój lokalny](../components/moduliq_serprog) |
 | [moduliq_cpld_soft_i2c](../components/moduliq_cpld_soft_i2c) | I²C przez GPIO CPLD: cztery pary open-drain na bank | PASS | [cpld-soft-i2c](../examples/cpld-soft-i2c.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_soft_i2c) |
+| [spi_shift_register](../components/spi_shift_register) | HC165/HC595 przez buforowane SPI; kontrola poprawnej polaryzacji LOAD | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS | [Rozwój lokalny](../components/spi_shift_register) |
 
 ## Wybór wariantów i zależności
 
@@ -60,12 +61,16 @@ DAC, ADC, TDC, SPI MUX i magnetometru. Gałęzie i alternatywne drzewa zachowuje
 
 ## Sprzęt i autorstwo
 
-W tej operacji nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/
+[Mixed-signal head + równoległy magnetometr: walidacja ESPHome](../reports/mixed-signal-head-hil-2026-10-02.json).
+PASS dotyczy transportu, dwóch loopbacków ADC/DAC i koegzystencji z osobnym driverem MMC;
+fizyczne GPIO pozostają częściowo niezweryfikowane. CPLD nie programowano.
+
+Podczas pierwotnego importu nie programowano sprzętu. Wcześniejsze testy `spi`/`addrspi`/
 `ads124s08_base` na module0 i dwóch ADC są opisane w
 [raporcie HIL](https://github.com/codex-hil/esphome-hil/blob/631bf39/reports/ads124s08-mux-2026-09-29.json).
 Dotyczyły MUX/CRC i diagnostyki, z IDAC wyłączonym; nie potwierdzają pomiaru
 temperatury lub fizycznej dokładności prądu. Pozostałe komponenty nie mają tutaj
-nadanej walidacji sprzętowej.
+nadanej walidacji sprzętowej poza zakresami jawnie opisanymi w raportach.
 
 Oryginalne `CODEOWNERS` pozostają w źródłach i [manifeście](components.json).
 Główne pochodzenie dodatków: Wizath, mirror i integracja: gkasprow; oryginalni

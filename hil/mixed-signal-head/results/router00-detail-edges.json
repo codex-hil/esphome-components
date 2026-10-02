@@ -1,0 +1,65 @@
+{
+  "capture": "router00-detail",
+  "threshold_V": 1.65,
+  "uncertainty": "Sample interval recorded; probe/channel skew and analog accuracy not calibrated.",
+  "channels": {
+    "1": {
+      "edges": [
+        {
+          "time_s": -1.487166666666675e-07,
+          "kind": "rise"
+        },
+        {
+          "time_s": -3.426249999999974e-08,
+          "kind": "fall"
+        },
+        {
+          "time_s": 9.85115e-06,
+          "kind": "rise"
+        },
+        {
+          "time_s": 9.9656375e-06,
+          "kind": "fall"
+        }
+      ],
+      "sample_interval_s": 2e-10,
+      "high_widths_s": [
+        1.1445416666666776e-07,
+        1.1448749999999947e-07
+      ],
+      "median_high_width_s": 1.1447083333333361e-07
+    },
+    "2": {
+      "edges": [
+        {
+          "time_s": 1.805499999999927e-08,
+          "kind": "fall"
+        }
+      ],
+      "sample_interval_s": 2e-10,
+      "high_widths_s": [],
+      "median_high_width_s": null
+    },
+    "3": {
+      "edges": [],
+      "sample_interval_s": 2e-10,
+      "high_widths_s": [],
+      "median_high_width_s": null
+    },
+    "4": {
+      "edges": [
+        {
+          "time_s": -1.250000000002741e-10,
+          "kind": "rise"
+        }
+      ],
+      "sample_interval_s": 2e-10,
+      "high_widths_s": [],
+      "median_high_width_s": null
+    }
+  },
+  "sck_rises_before_header_done": 1,
+  "cs_fall_minus_header_done_s": 1.8179999999999545e-08,
+  "sck_rises_before_cs_fall": 1,
+  "first_sck_rise_after_cs_minus_cs_s": 9.833095e-06
+}

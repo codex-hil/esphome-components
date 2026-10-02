@@ -1,0 +1,10 @@
+esptool.py v4.12.0
+Serial port /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0
+Connecting......
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 68:25:dd:4c:49:e4
+Enabling default SPI flash mode...
+MAC: 68:25:dd:4c:49:e4
+Staying in bootloader.
