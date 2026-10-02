@@ -39,6 +39,8 @@ struct SPIBus : spi::SPIComponent {
   std::vector<std::unique_ptr<Delegate>> delegates;
   bool ignore_release=false, ignore_data=false;
   int corrupt_cfg_reads=0, corrupt_after_acquire=0;
+  std::function<void(uint8_t,uint8_t)> gpio_write;
+  std::function<uint8_t(uint8_t)> gpio_read;
   std::function<void()> during_flash, before_begin;
   std::function<uint8_t(const std::vector<uint8_t> &)> flash_read;
   std::function<void(const std::vector<uint8_t> &)> flash_end;
@@ -79,16 +81,18 @@ uint8_t Delegate::transfer(uint8_t value) {
   uint8_t command=frame.tx[0];
   static const uint8_t reads[]={0x21,0x22,0x23,0x26,0x27,0x28,0x29};
   if(command>=0x10 && command<=0x16) {
-    if(command==0x10 && bus->ignore_data) return 0;
+    if((command==0x10 || command==0x11) && bus->ignore_data) return 0;
     if(command==0x12) {
       if(bus->ignore_release && !(value&1)) return 0;
       if(value&1) bus->corrupt_cfg_reads=bus->corrupt_after_acquire;
     }
     bus->reg[reads[command-0x10]]=value;
+    if (bus->gpio_write) bus->gpio_write(command,value);
     return 0;
   }
   if(command==0x24) return bus->straps | ((bus->reg[0x23]&1)<<3);
   if(command==0x23 && bus->corrupt_cfg_reads>0) { bus->corrupt_cfg_reads--; return bus->reg[command]^1; }
+  if (bus->gpio_read && (command==0x20 || command==0x25)) return bus->gpio_read(command);
   return bus->reg[command];
 }
 struct Fixture {

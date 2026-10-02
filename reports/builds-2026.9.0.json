@@ -206,6 +206,12 @@
         }
       ],
       "compiler_log_sha256": "b91b4defed871bb4e0f252d9aa34cfb4fa85078851b0b8e6fda13c048a94bc06"
+    },
+    "cpld-soft-i2c": {
+      "result": "PASS",
+      "report": "reports/cpld-soft-i2c-software-2026-10-02.json",
+      "environment": "pinned Nix ESPHome 2026.9.0 / ESP-IDF 5.5.5",
+      "hardware": "NOT RUN"
     }
   },
   "nix_identity": {

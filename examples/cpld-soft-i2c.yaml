@@ -1,0 +1,108 @@
+# Compile-only fixture: replace ESP pins, GA, I2C parts and addresses for the actual PCB.
+esphome:
+  name: cpld-soft-i2c
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+  level: DEBUG
+external_components:
+- source:
+    type: local
+    path: ../components
+  components:
+  - spi
+  - addrspi
+  - moduliq_cpld_i2c
+  - moduliq_cpld_gpio
+  - moduliq_cpld_soft_i2c
+spi:
+  id: bridge_spi
+  clk_pin: GPIO14
+  mosi_pin: GPIO12
+  miso_pin: GPIO34
+addrspi:
+- id: module_mux
+  spi_id: bridge_spi
+  address_pins:
+  - GPIO2
+  - GPIO4
+  - GPIO13
+  - GPIO18
+  channels:
+  - bus_id: module0
+    channel: 0
+- id: mux
+  spi_id: module0
+  address_pins:
+  - GPIO16
+  - GPIO17
+  channels:
+  - bus_id: mux_ch3
+    channel: 3
+i2c:
+  id: bridge_i2c
+  sda: GPIO33
+  scl: GPIO32
+  scan: false
+moduliq_cpld_gpio:
+  id: bridge_gpio
+  spi_id: mux_ch3
+  cs_pin:
+    number: GPIO15
+  module_address: 0
+  upper_input_mask: 0
+  enabled: true
+moduliq_cpld_i2c:
+  id: readout
+  i2c_id: bridge_i2c
+  module_address: 0
+  upper_gpio:
+    name: CPLD upper pads
+  lower_gpio:
+    name: CPLD lower pads
+  status:
+    name: CPLD readout status
+moduliq_cpld_soft_i2c:
+- id: head_bus_0
+  gpio_id: bridge_gpio
+  sda: 8
+  scl: 9
+  frequency: 1kHz
+  stretch_timeout: 10ms
+  scan: false
+- id: head_bus_1
+  gpio_id: bridge_gpio
+  sda: 10
+  scl: 11
+  frequency: 1kHz
+  stretch_timeout: 10ms
+  scan: false
+- id: head_bus_2
+  gpio_id: bridge_gpio
+  sda: 12
+  scl: 13
+  frequency: 1kHz
+  stretch_timeout: 10ms
+  scan: false
+- id: head_bus_3
+  gpio_id: bridge_gpio
+  sda: 14
+  scl: 15
+  frequency: 1kHz
+  stretch_timeout: 10ms
+  scan: false
+pca9554:
+- id: head_io_0
+  i2c_id: head_bus_0
+  address: 32
+- id: head_io_1
+  i2c_id: head_bus_1
+  address: 32
+- id: head_io_2
+  i2c_id: head_bus_2
+  address: 32
+- id: head_io_3
+  i2c_id: head_bus_3
+  address: 32

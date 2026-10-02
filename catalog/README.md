@@ -32,6 +32,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [moduliq_cpld_gpio](../components/moduliq_cpld_gpio) | CPLD CS3: dwa banki GPIO, DIR/OD i wspólny CFG | PASS | [cpld-gpio](../examples/cpld-gpio.yaml): PASS; [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_gpio) |
 | [moduliq_cpld_flash](../components/moduliq_cpld_flash) | CPLD CS2: współdzielona Flash, transport i acquire/release przez CS3 | PASS | [cpld-adc-flash](../examples/cpld-adc-flash.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_flash) |
 | [moduliq_serprog](../components/moduliq_serprog) | serprog TCP: surowe SPI dla flashrom, polityka targetu w YAML | PASS | [cpld-serprog](../examples/cpld-serprog.yaml): PASS | [Rozwój lokalny](../components/moduliq_serprog) |
+| [moduliq_cpld_soft_i2c](../components/moduliq_cpld_soft_i2c) | I²C przez GPIO CPLD: cztery pary open-drain na bank | PASS | [cpld-soft-i2c](../examples/cpld-soft-i2c.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_soft_i2c) |
 
 ## Wybór wariantów i zależności
 

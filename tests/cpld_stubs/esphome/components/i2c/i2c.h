@@ -1,14 +1,8 @@
 #pragma once
 #include <cstdint>
+#include "i2c_bus.h"
 #include <cstddef>
 namespace esphome::i2c {
-enum ErrorCode { ERROR_OK, ERROR_UNKNOWN };
-class I2CBus {
- public:
-  virtual ~I2CBus() = default;
-  virtual ErrorCode read_register(uint8_t address, uint8_t reg, uint8_t *data, size_t size)=0;
-  virtual ErrorCode write_register(uint8_t address, uint8_t reg, const uint8_t *data, size_t size)=0;
-};
 class I2CDevice {
  public:
   void set_i2c_bus(I2CBus *bus) { bus_=bus; }

@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-02",
+  "status": "software pass; physical validation pending",
+  "base_revision": "8fda096",
+  "environment": {
+    "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+    "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+    "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+  },
+  "esphome": "2026.9.0",
+  "framework": "ESP-IDF 5.5.5",
+  "tests": {
+    "electrical_model": "PASS: actual CPLD GPIO + addrspi + software bus, emulated slave",
+    "yaml_and_codegen_tests": 9,
+    "cpld_regression_scenario_groups": 29,
+    "cpld_schema_tests": 14,
+    "serprog_regression": "PASS: protocol, TCP lifecycle and 5 YAML tests"
+  },
+  "coverage": [
+    "write/read and repeated START",
+    "ACK/NACK and last-byte NACK",
+    "four pairs preserve unrelated bits",
+    "lower and upper bank register routes",
+    "physical SCL timeout and finite stretch",
+    "stuck SDA recovery and nine pulse limit",
+    "500ms transfer deadline",
+    "GPIO/ADC/Flash ownership conflicts",
+    "disabled GPIO causes no SPI access",
+    "re-enable generation restores OD",
+    "failed SPI write invalidates bank",
+    "normal PCA9554 codegen with four equal addresses",
+    "codegen without a native I2C bus",
+    "setup priority override support"
+  ],
+  "build": {
+    "operation": "build",
+    "status": "pass",
+    "exit_code": 0,
+    "seconds": 20.36,
+    "esphome_version": "2026.9.0",
+    "configuration": "/home/codex-hil/workspaces/esphome-components/examples/cpld-soft-i2c.yaml",
+    "framework": "see run.log",
+    "target": "see run.log",
+    "configuration_sha256": "948581b108e4adffe3ad82fd9f89f080200d3d9fbc951470f23f69de8b0a86ac",
+    "environment": "nix",
+    "commissioning_status": "PENDING_PHYSICAL_AND_REPRODUCTION",
+    "nix_identity": {
+      "bundle": "/nix/store/i2v59mi76ylwvrrsvjgn6gmh48lnssyz-esphome-idf-5.5.5-bundle",
+      "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+      "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+    },
+    "state_directory": "/home/codex-hil/workspaces/esphome-hil/.state/nix",
+    "firmware": [
+      {
+        "path": "/home/codex-hil/workspaces/esphome-hil/.state/nix/build/cpld-soft-i2c/build/firmware.factory.bin",
+        "sha256": "22a0e21ee4ede2b6d17bf467ed78181503204a001767da24dda6d71a35ffa422",
+        "bytes": 316448
+      },
+      {
+        "path": "/home/codex-hil/workspaces/esphome-hil/.state/nix/build/cpld-soft-i2c/build/firmware.ota.bin",
+        "sha256": "976d027e5a4510d86947caa020bec2d39c1850d7d53dfe57a2f8c5e443d5ae3a",
+        "bytes": 250912
+      }
+    ],
+    "log": "/home/codex-hil/workspaces/esphome-hil/artifacts/20261002T070204.767721Z-build/run.log"
+  },
+  "limits": {
+    "addressing": "7-bit single-master",
+    "frequency_hz": [
+      100,
+      1000
+    ],
+    "max_total_data_bytes": 32,
+    "transaction_deadline_ms": 500,
+    "cleanup_additional_timeout": "up to stretch_timeout"
+  },
+  "hardware": {
+    "reset": false,
+    "flash": false,
+    "read": false,
+    "validation": "NOT RUN"
+  },
+  "source_sha256": {
+    "components/moduliq_cpld_soft_i2c/__init__.py": "7aefcb1e7ef4673b0dae43231ef7b97dd2acc677497783bbe7b046f0065ae727",
+    "components/moduliq_cpld_soft_i2c/moduliq_cpld_soft_i2c.cpp": "7e5a78f7192ba6e233c776dbd62c79b428801e7a452ff8e7c67b1f07704f285a",
+    "components/moduliq_cpld_soft_i2c/moduliq_cpld_soft_i2c.h": "67311504794d38fafd21900b48fc023a9f8e8bd4e08742785e5a51fd370f9d77",
+    "components/moduliq_cpld_gpio/moduliq_cpld_gpio.cpp": "1c781d31dd4e47db573b745bf77fccbb1a427740c71c2a17397c9c6b9caf65f8",
+    "components/moduliq_cpld_gpio/moduliq_cpld_gpio.h": "e7d7c4407878ae1bfa30e4efd97d3f0a4fbd7c8c8305edd49b57f5bb5d1c5bca"
+  }
+}

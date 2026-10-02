@@ -153,3 +153,11 @@ klienta flashrom przez istniejący driver Flash. YAML wybiera aktywację po
 PROJECT_ID, potwierdza gotowość targetu i zakończenie operacji pamięci przed jej
 oddaniem. [Przykład](examples/cpld-serprog.yaml) jest domyślnie wyłączony.
 Testy obejmują rzeczywisty klient flashrom i emulowaną NOR; sprzętu nie programowano.
+
+## I²C na GPIO CPLD
+
+[`moduliq_cpld_soft_i2c`](docs/moduliq-cpld-soft-i2c.md) wystawia zwykłe magistrale
+I²C ESPHome przez open-drain CPLD. Cztery niezależne pary mieszczą się na jednym
+banku. [Przykład](examples/cpld-soft-i2c.yaml) ma cztery standardowe PCA9554 pod
+jednakowym adresem na różnych busach. Testy software i kompilacja są oddzielone
+od jeszcze niewykonanej walidacji sprzętowej.

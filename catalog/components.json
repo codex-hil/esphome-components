@@ -520,11 +520,12 @@
       "status": "software-tested; hardware pending",
       "files_sha256": {
         "__init__.py": "362ef822b3c1bc6fc387b9cddc5bc876d90f1aef01788dbeba58966a3d798d41",
-        "moduliq_cpld_gpio.cpp": "f9e44c7d436ce73ac9701510b710f82cdcdb7d2d9491bed2418a5a72ebd80de1",
-        "moduliq_cpld_gpio.h": "d6b0b9e37ee2248a644671edb4d11c9e71d14c15dc3796dae8b4354163eced65"
+        "moduliq_cpld_gpio.cpp": "1c781d31dd4e47db573b745bf77fccbb1a427740c71c2a17397c9c6b9caf65f8",
+        "moduliq_cpld_gpio.h": "e7d7c4407878ae1bfa30e4efd97d3f0a4fbd7c8c8305edd49b57f5bb5d1c5bca"
       },
       "local_changes": [
-        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json."
+        "Independent CPLD blocks with explicit YAML/runtime activation; no temperature ADC or DRDY policy. See docs/cpld-components-usage.md and reports/cpld-independent-software-2026-09-30.json.",
+        "Reserved pin masks, shared bank writes and setup generation tracking for software I2C."
       ]
     },
     {
@@ -566,6 +567,25 @@
       },
       "local_changes": [
         "Optional serprog v1 TCP with raw SPI, YAML readiness and deferred release; see docs/moduliq-serprog.md."
+      ]
+    },
+    {
+      "name": "moduliq_cpld_soft_i2c",
+      "path": "components/moduliq_cpld_soft_i2c",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/moduliq_cpld_soft_i2c"
+      },
+      "codeowners": [],
+      "status": "software-tested; hardware pending",
+      "files_sha256": {
+        "__init__.py": "7aefcb1e7ef4673b0dae43231ef7b97dd2acc677497783bbe7b046f0065ae727",
+        "moduliq_cpld_soft_i2c.cpp": "7e5a78f7192ba6e233c776dbd62c79b428801e7a452ff8e7c67b1f07704f285a",
+        "moduliq_cpld_soft_i2c.h": "67311504794d38fafd21900b48fc023a9f8e8bd4e08742785e5a51fd370f9d77"
+      },
+      "local_changes": [
+        "Standard I2CBus on up to four reserved open-drain pairs per CPLD bank; see docs/moduliq-cpld-soft-i2c.md."
       ]
     }
   ]

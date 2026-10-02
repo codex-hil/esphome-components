@@ -12,6 +12,7 @@ class CPLDGPIO : public Component,
   void dump_config() override;
   void set_initial_enabled(bool enabled) { enabled_ = enabled; }
   bool set_enabled(bool enabled);
+  uint32_t generation() const { return generation_; }
   bool is_enabled() const { return enabled_; }
   void register_pin(uint8_t pin, gpio::Flags flags);
   void write_registered_pin(uint8_t pin, bool value);
@@ -20,6 +21,12 @@ class CPLDGPIO : public Component,
   bool configure_pin(uint8_t pin, gpio::Flags flags, int initial_value = -1);
   bool write_pin(uint8_t pin, bool value);
   bool read_pin(uint8_t pin, bool &value);
+  bool reserve_pins(const void *owner, uint16_t mask);
+  bool configure_reserved(const void *owner, uint16_t mask);
+  bool write_reserved(const void *owner, uint16_t mask, uint16_t levels);
+  bool read_bank(uint8_t bank, uint8_t &value);
+  bool begin_pin_transaction(const void *owner);
+  void end_pin_transaction(const void *owner);
   bool reserve_upper(const void *owner);
   void release_upper(const void *owner);
   bool upper_reserved() const { return upper_owner_ != nullptr; }
@@ -39,6 +46,7 @@ class CPLDGPIO : public Component,
   bool write_bank_(uint8_t bank, uint8_t command, uint8_t read_command, uint8_t value);
   bool update_cfg_(uint8_t mask, uint8_t value);
   bool pin_available_(uint8_t pin);
+  uint32_t generation_{0};
   uint8_t data_[2]{}, dir_[2]{}, od_[2]{}, input_mask_[2]{};
   uint8_t cfg_{0};
   gpio::Flags registered_flags_[16]{};
@@ -46,6 +54,8 @@ class CPLDGPIO : public Component,
   bool enabled_{false}, setup_done_{false}, spi_initialized_{false};
   bool bank_valid_[2]{true, true};
   bool ready_{false}, flash_mode_{false}, cfg_busy_{false};
+  const void *pin_owners_[16]{};
+  const void *pin_transaction_{nullptr};
   const void *upper_owner_{nullptr};
   const void *flash_owner_{nullptr};
 };

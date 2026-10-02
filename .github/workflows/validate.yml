@@ -26,3 +26,5 @@ jobs:
         run: ./tests/run-cpld-software.sh "$PWD/.venv/bin/python"
       - name: Test serprog protocol, TCP lifecycle and YAML (software only)
         run: ./tests/run-serprog-software.sh "$PWD/.venv/bin/python"
+      - name: Test CPLD software I2C, pin ownership and normal I2C device codegen
+        run: ./tests/run-soft-i2c-software.sh "$PWD/.venv/bin/python"

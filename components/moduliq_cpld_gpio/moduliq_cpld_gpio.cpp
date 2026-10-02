@@ -29,7 +29,7 @@ void CPLDGPIO::setup() {
 }
 bool CPLDGPIO::set_enabled(bool enabled) {
   if (!enabled) {
-    if (upper_owner_ || flash_owner_) return false;
+    if (upper_owner_ || flash_owner_ || pin_transaction_) return false;
     enabled_ = false; ready_ = false;
     return true;  // Disable software access; do not silently change physical pin levels.
   }
@@ -38,12 +38,12 @@ bool CPLDGPIO::set_enabled(bool enabled) {
   return ready() || initialize_();
 }
 void CPLDGPIO::register_pin(uint8_t pin, gpio::Flags flags) {
-  if (pin > 15) return;
+  if (pin > 15 || pin_owners_[pin]) return;
   registered_[pin] = true; registered_flags_[pin] = flags;
   if (ready()) configure_pin(pin, flags);
 }
 void CPLDGPIO::write_registered_pin(uint8_t pin, bool value) {
-  if (pin > 15) return;
+  if (pin > 15 || pin_owners_[pin]) return;
   if (!enabled_) {
     pending_data_[pin] = value; pending_data_valid_[pin] = true;
     return;  // Remember YAML initial output state without a bus transaction.
@@ -71,6 +71,7 @@ bool CPLDGPIO::initialize_() {
     dir_[bank] = safe;
   }
   bank_valid_[0] = bank_valid_[1] = true;
+  generation_++;
   ready_ = true;
   for (uint8_t pin = 0; pin < 16; pin++) {
     if (registered_[pin] && !configure_pin(pin, registered_flags_[pin],
@@ -101,7 +102,7 @@ bool CPLDGPIO::pin_available_(uint8_t pin) {
   return true;
 }
 bool CPLDGPIO::configure_pin(uint8_t pin, gpio::Flags flags, int initial_value) {
-  if (!pin_available_(pin)) return false;
+  if (pin > 15 || pin_owners_[pin] || !pin_available_(pin)) return false;
   uint8_t bank = pin / 8, bit = 1U << (pin % 8);
   bool output = (flags & gpio::FLAG_OUTPUT) != 0;
   if ((flags & ~(gpio::FLAG_INPUT | gpio::FLAG_OUTPUT | gpio::FLAG_OPEN_DRAIN)) != 0 ||
@@ -126,7 +127,7 @@ bool CPLDGPIO::configure_pin(uint8_t pin, gpio::Flags flags, int initial_value) 
   return true;
 }
 bool CPLDGPIO::write_pin(uint8_t pin, bool value) {
-  if (!pin_available_(pin)) return false;
+  if (pin > 15 || pin_owners_[pin] || !pin_available_(pin)) return false;
   uint8_t bank = pin / 8, bit = 1U << (pin % 8);
   uint8_t data = (data_[bank] & ~bit) | (value ? bit : 0);
   if (!write_bank_(bank, 0x10 + bank, 0x21 + bank, data)) return false;
@@ -139,8 +140,65 @@ bool CPLDGPIO::read_pin(uint8_t pin, bool &value) {
   value = (read_reg_(pin >= 8 ? 0x20 : 0x25) & (1U << (pin % 8))) != 0;
   return true;
 }
+bool CPLDGPIO::reserve_pins(const void *owner, uint16_t mask) {
+  if (!owner || !mask) return false;
+  for (uint8_t p = 0; p < 16; p++) if (mask & (1U << p)) {
+    if ((pin_owners_[p] && pin_owners_[p] != owner) || registered_[p] ||
+        (input_mask_[p / 8] & (1U << (p % 8))) || (p >= 8 && upper_owner_) ||
+        (flash_mode_ && p >= 1 && p <= 4)) return false;
+  }
+  for (uint8_t p = 0; p < 16; p++) if (mask & (1U << p)) pin_owners_[p] = owner;
+  return true;
+}
+bool CPLDGPIO::configure_reserved(const void *owner, uint16_t mask) {
+  if (!ready() || !mask) return false;
+  for (uint8_t p = 0; p < 16; p++) if ((mask & (1U << p)) &&
+      (pin_owners_[p] != owner || !pin_available_(p))) return false;
+  for (uint8_t b = 0; b < 2; b++) {
+    uint8_t m = mask >> (8 * b);
+    if (!m) continue;
+    uint8_t disconnected = dir_[b] & ~m;
+    if (!write_bank_(b, 0x13+b, 0x26+b, disconnected)) return false;
+    dir_[b] = disconnected;
+    uint8_t data = data_[b] | m, od = od_[b] | m;
+    if (!write_bank_(b, 0x10+b, 0x21+b, data)) return false;
+    data_[b] = data;
+    if (!write_bank_(b, 0x15+b, 0x28+b, od)) return false;
+    od_[b] = od;
+    if (!write_bank_(b, 0x13+b, 0x26+b, disconnected | m)) return false;
+    dir_[b] = disconnected | m;
+  }
+  return true;
+}
+bool CPLDGPIO::write_reserved(const void *owner, uint16_t mask, uint16_t levels) {
+  if (!mask) return false;
+  for (uint8_t p = 0; p < 16; p++) if ((mask & (1U << p)) &&
+      (pin_owners_[p] != owner || !pin_available_(p))) return false;
+  for (uint8_t b = 0; b < 2; b++) {
+    uint8_t m = mask >> (8*b);
+    if (!m) continue;
+    uint8_t data = (data_[b] & ~m) | ((levels >> (8*b)) & m);
+    if (data == data_[b]) continue;
+    if (!write_bank_(b, 0x10+b, 0x21+b, data)) return false;
+    data_[b] = data;
+  }
+  return true;
+}
+bool CPLDGPIO::read_bank(uint8_t bank, uint8_t &value) {
+  if (!ready() || bank > 1 || !bank_valid_[bank]) return false;
+  value = read_reg_(bank ? 0x20 : 0x25);
+  return true;
+}
+bool CPLDGPIO::begin_pin_transaction(const void *owner) {
+  if (!ready() || !owner || pin_transaction_) return false;
+  pin_transaction_ = owner; return true;
+}
+void CPLDGPIO::end_pin_transaction(const void *owner) {
+  if (pin_transaction_ == owner) pin_transaction_ = nullptr;
+}
 bool CPLDGPIO::reserve_upper(const void *owner) {
   if (!ready() || owner == nullptr || (upper_owner_ != nullptr && upper_owner_ != owner)) return false;
+  for (uint8_t pin = 8; pin < 16; pin++) if (pin_owners_[pin]) return false;
   upper_owner_ = owner; return true;
 }
 void CPLDGPIO::release_upper(const void *owner) { if (owner == upper_owner_) upper_owner_ = nullptr; }

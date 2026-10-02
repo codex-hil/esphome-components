@@ -70,6 +70,9 @@
     },
     "tmc5130": {
       "result": "PASS"
+    },
+    "moduliq_cpld_soft_i2c": {
+      "result": "PASS"
     }
   }
 }
