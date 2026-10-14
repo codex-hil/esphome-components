@@ -10,6 +10,7 @@ builds = json.loads(buildfile.read_text())['examples'] if buildfile.exists() els
 coverage = {'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
             'ads8166':['ads8166'], 'dacx0504':['dacx0504'], 'max112xx':['max112xx'], 'mcp3208':['mcp3208']}
 desc = {
+ 'scpi':'SCPI TCP dla jawnie mapowanych encji ESPHome; [ESP32 IPC HIL](../docs/esp32-ipc-scpi.md)',
  'ad9959':'DDS, cztery kanały', 'addrspi':'SPI z wyborem adresu na GPIO',
  'addrspi2':'Adresowane kanały SPI z nagłówkiem protokołu',
  'ads124s08':'ADC + kanały temperatury z forka Wizatha',
@@ -34,7 +35,7 @@ for e in entries:
  imp=imports.get(name,{}).get('result','nie testowano')
  checks=[f"[{example}]({ '../examples/'+example+'.yaml' }): {builds[example]['result']}" for example,names in coverage.items() if name in names and example in builds]
  compile='; '.join(checks) or 'nie testowano'
- source=f"[{s['repository']}@{s['revision'][:8]}](https://github.com/{s['repository']}/tree/{s['revision']}/{s['path']})"
+ source = (f"local Git `{s['revision'][:8]}`; [snapshot](../{e['path']})" if s.get("kind") == "local" else f"[{s['repository']}@{s['revision'][:8]}](https://github.com/{s['repository']}/tree/{s['revision']}/{s['path']})")
  lines.append(f"| [{name}](../{e['path']}) | {desc[name]} | {imp} | {compile} | {source} |")
 lines += ['', '## Wybór wariantów i zależności', '',
  'Bazą większości importów jest `wizath/esphome:esphome26.3` przy pełnym SHA',

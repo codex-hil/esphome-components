@@ -1,0 +1,93 @@
+esphome:
+  name: esp32-ipc-scpi
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    version: 5.5.5
+logger:
+  level: DEBUG
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk:
+    pin: GPIO0
+    mode: CLK_EXT_IN
+  power_pin: GPIO5
+  phy_addr: 1
+switch:
+  - platform: gpio
+    id: relay15
+    internal: true
+    pin: GPIO15
+    restore_mode: ALWAYS_OFF
+  - platform: gpio
+    id: relay2
+    internal: true
+    pin: GPIO2
+    restore_mode: ALWAYS_OFF
+uart:
+  id: rs485_bus
+  rx_pin: GPIO16
+  tx_pin: GPIO17
+  flow_control_pin: GPIO12
+  baud_rate: 19200
+  rx_buffer_size: 2048
+binary_sensor:
+  - platform: gpio
+    id: input1
+    internal: true
+    pin:
+      number: GPIO33
+      mode: INPUT
+      inverted: true
+  - platform: gpio
+    id: input2
+    internal: true
+    pin:
+      number: GPIO32
+      mode: INPUT
+      inverted: true
+
+# Existing component from the SCPI for ESPHome thread.
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [scpi]
+socket:
+  implementation: bsd_sockets
+script:
+  - id: pulse_first
+    mode: single
+    then:
+      - switch.turn_on: relay15
+      - delay: 800ms
+      - switch.turn_off: relay15
+  - id: pulse_second
+    mode: single
+    then:
+      - switch.turn_on: relay2
+      - delay: 800ms
+      - switch.turn_off: relay2
+button:
+  - platform: template
+    id: trigger_first
+    internal: true
+    on_press:
+      - script.execute: pulse_first
+  - platform: template
+    id: trigger_second
+    internal: true
+    on_press:
+      - script.execute: pulse_second
+scpi:
+  idn: 'Lab,ESP32_32E_IPC_V1.1,209BA98C8FAC,0.1.0'
+  commands:
+    - {command: 'OUTPut:FIRSt', type: switch, entity_id: relay15, writable: false}
+    - {command: 'OUTPut:SECond', type: switch, entity_id: relay2, writable: false}
+    - {command: 'INPut:FIRSt', type: binary_sensor, entity_id: input1}
+    - {command: 'INPut:SECond', type: binary_sensor, entity_id: input2}
+    - {command: 'PULSe:FIRSt', type: button, entity_id: trigger_first}
+    - {command: 'PULSe:SECond', type: button, entity_id: trigger_second}
