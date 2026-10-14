@@ -55,6 +55,9 @@
     },
     "tmc5130": {
       "result": "PASS"
+    },
+    "scpi": {
+      "result": "PASS"
     }
   }
 }

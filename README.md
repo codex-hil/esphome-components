@@ -112,3 +112,10 @@ dostępu; nie opisują bieżącego wymogu uwierzytelniania.
 
 Anonimowe pobieranie publicznego źródła przez ESPHome potwierdzono z pustym HOME
 i wyłączoną konfiguracją uwierzytelniania Git: [raport](reports/public-source-2026-09-29.json).
+
+## ESP32 IPC z SCPI
+
+[Konfiguracja i komendy](docs/esp32-ipc-scpi.md) dla `ESP32_32E_IPC_V1.1`:
+Ethernet LAN8720A, dwa przekaźniki, dwa wejścia i RS485. Istniejący komponent
+SCPI został zaimportowany bez zmian; impulsy i wejścia przeszły testy fizyczne.
+Kwalifikacja stanów podczas startu nadal pozostaje do wykonania.

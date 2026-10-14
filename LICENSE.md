@@ -19,3 +19,6 @@ license or grant additional redistribution rights.
 Collection scripts/docs authored for this MODULIQ collection do not alter
 the licenses of imported code. No upstream examples containing environment
 configuration, firmware, credentials or toolchain installations were imported.
+
+`scpi` reuses the existing ESPHome SCPI component unchanged from local source
+commit `d6c85a82d6340809a3983c0da843da1815572d39`. It is MIT licensed; see [SCPI license](licenses/SCPI-MIT-LICENSE).

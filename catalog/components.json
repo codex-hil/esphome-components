@@ -462,6 +462,25 @@
         "lan865x_reg.h": "d1af13affc4a9b8f226b411d97d00626c226e80894764640e0ba2780865748e5"
       },
       "local_changes": []
+    },
+    {
+      "name": "scpi",
+      "path": "components/scpi",
+      "source": {
+        "kind": "local",
+        "repository": "existing ESPHome SCPI thread (local Git repository)",
+        "revision": "d6c85a82d6340809a3983c0da843da1815572d39",
+        "path": "components/scpi"
+      },
+      "codeowners": [],
+      "status": "ESP32 IPC compile and physical TCP/relay/input HIL PASS 2026-10-14; boot transients NOT_RUN",
+      "files_sha256": {
+        "__init__.py": "185a73d1cf9358afdccd88ccd2d70d25ae31e4fcfb5d8259d8db1826bb8809f8",
+        "protocol.h": "ca856df1d40d4943286b1c6d79a56affd79296930b13614a47aefe347d7677ec",
+        "scpi.cpp": "02fee9dcf1d3f3fd7190644dcf7209a7105fb688bc0070130df0b1e69fcd0d7e",
+        "scpi.h": "b19bcb20fda07fe7841434fbbe6e90e02d50a3d25de73c7f932a3b7c135211e0"
+      },
+      "local_changes": []
     }
   ]
 }
