@@ -49,3 +49,10 @@ connections are used. Reports: [software](reports/sinara-sampler-software.json)
 and [HDL generation](reports/sinara-sampler-kasli-elaboration.json).
 
 Licenses: [GPL-3.0-only for C++ runtime; MIT for Python/Rust/docs](LICENSE.md).
+
+## Sinara Urukul
+
+[Urukul CPLD8 support and STM/Kasli pinmux](support/sinara-urukul): Python host
+code, portable Migen pinmux, simulation examples and offline tests. This is
+controller integration support, not a native ESPHome C++ component. No hardware
+validation or DDS/frequency/RF-enable support is claimed.
