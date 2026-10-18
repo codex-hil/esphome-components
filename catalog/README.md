@@ -27,6 +27,9 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [resistance_sampler](../archive/resistance_sampler/components/resistance_sampler) | Historyczny interfejs próbkowania rezystancji | nie testowano | nie testowano | [gkasprow/esphome@fecae2f7](https://github.com/gkasprow/esphome/tree/fecae2f740c597d8d5348a2e79f04ab48102ffb5/esphome/components/resistance_sampler) |
 | [spi_test](../archive/spi_test/components/spi_test) | Eksperymentalny generator transakcji SPI | nie testowano | nie testowano | [wizath/esphome@fdd5c666](https://github.com/wizath/esphome/tree/fdd5c666286da9e90be05ef6d182b99aff3d7d51/esphome/components/spi_test) |
 | [ethernet_lan865x](../archive/lan865x/components/ethernet) | Historyczny wariant Ethernet LAN865x | nie testowano | nie testowano | [wizath/esphome@80169059](https://github.com/wizath/esphome/tree/80169059ab6354651981ee582d2cf95b57728ead/esphome/components/ethernet) |
+| [sinara_gpio_endpoint](../components/sinara_gpio_endpoint) | Shared STM/Kasli GPIO register endpoint (host) | PASS | nie testowano | [codex-hil/esphome-components@62fc3f39](https://github.com/codex-hil/esphome-components/tree/62fc3f394e940c66b6c01d36e6eec9e5119d0956/components/sinara_gpio_endpoint) |
+| [sinara_sampler](../components/sinara_sampler) | Sampler ADC/PGIA sibling; source dependency, no HIL | PASS | nie testowano | [codex-hil/esphome-components@62fc3f39](https://github.com/codex-hil/esphome-components/tree/62fc3f394e940c66b6c01d36e6eec9e5119d0956/components/sinara_sampler) |
+| [sinara_zotino](../components/sinara_zotino) | Zotino AD5372 DAC/LED; [build/runtime tests](../docs/sinara-zotino.md), no HIL | PASS | nie testowano | [codex-hil/esphome-components@62fc3f39](https://github.com/codex-hil/esphome-components/tree/62fc3f394e940c66b6c01d36e6eec9e5119d0956/components/sinara_zotino) |
 
 ## Wybór wariantów i zależności
 

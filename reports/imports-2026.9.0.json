@@ -47,6 +47,15 @@
     "mmc5983_spi": {
       "result": "PASS"
     },
+    "sinara_gpio_endpoint": {
+      "result": "PASS"
+    },
+    "sinara_sampler": {
+      "result": "PASS"
+    },
+    "sinara_zotino": {
+      "result": "PASS"
+    },
     "spi": {
       "result": "PASS"
     },

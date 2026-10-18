@@ -1,0 +1,11 @@
+{
+  "scope": "portable examples, synthetic GPIO/DAC models",
+  "hardware_tested": false,
+  "results": {
+    "stm": "PASS",
+    "kasli": "PASS"
+  },
+  "native_cpp": "PASS",
+  "esphome": "2026.9.0",
+  "source_commit": "62fc3f3"
+}
