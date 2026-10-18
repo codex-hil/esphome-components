@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-18",
+  "clean_checkout": true,
+  "python_unit_tests": {
+    "run": 30,
+    "skipped": 0,
+    "result": "PASS"
+  },
+  "stm_simulation": "PASS",
+  "kasli_simulation": "PASS",
+  "integrated": {
+    "stm_csr_master_urukul_routes": "PASS",
+    "kasli_csr_master_urukul_routes": "PASS",
+    "stm_target_elaboration": "PASS",
+    "hardware_tested": false,
+    "scope": "CPLD8/attenuation only; logical EEM map; no physical adapter validation"
+  },
+  "hardware_tested": false
+}

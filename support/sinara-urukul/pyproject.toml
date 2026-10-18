@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "sinara-urukul-support"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6,<7", "jsonschema>=4,<5", "migen==0.9.2", "packaging>=23", "pyserial>=3.5,<4"]
+license = {text = "GPL-3.0-only"}
+[project.scripts]
+sinara-slow = "sinara_slow.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.setuptools.package-data]
+sinara_slow = ["schemas/*.json"]

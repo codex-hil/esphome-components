@@ -1,0 +1,26 @@
+name: Sinara Urukul offline tests
+on:
+  push:
+    paths: ['support/sinara-urukul/**', '.github/workflows/sinara-urukul.yml']
+  pull_request:
+    paths: ['support/sinara-urukul/**', '.github/workflows/sinara-urukul.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: support/sinara-urukul
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install package and test logical routing
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -e .
+          .venv/bin/python -m unittest discover -s tests -v
+          .venv/bin/python -m sinara_slow.cli simulate examples/urukul.yaml --connection examples/stm.simulation.yaml
+          .venv/bin/python -m sinara_slow.cli simulate examples/urukul.yaml --connection examples/kasli.simulation.yaml
