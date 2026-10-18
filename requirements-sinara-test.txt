@@ -1,0 +1,3 @@
+esphome==2026.9.0
+migen @ git+https://github.com/m-labs/migen.git@e19524c963a8342952840983047557707fbe0b6a
+litex @ git+https://github.com/enjoy-digital/litex.git@b2759f69bcae8be0357fb2ee5eebe216365d1f00

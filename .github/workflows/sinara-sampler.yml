@@ -1,0 +1,19 @@
+name: Sinara Sampler software checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  software:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install pinned test dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r requirements-sinara-test.txt
+      - name: Compile driver and ESPHome; test simulated STM/Kasli transports
+        run: PATH="$PWD/.venv/bin:$PATH" bash scripts/test-sinara.sh
+      - name: Generate Kasli eight-pair Sampler GPIO HDL (no synthesis/HIL)
+        run: .venv/bin/python scripts/generate-sinara-sampler-kasli.py

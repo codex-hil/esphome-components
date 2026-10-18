@@ -1,0 +1,25 @@
+{
+  "sha256": {
+    "components/sinara_gpio_endpoint/__init__.py": "bfdf85a1cdfe77c8f0e0767af8bf0f928b32501192d84e30572e871723c6e13b",
+    "components/sinara_gpio_endpoint/register_protocol.h": "24a463459185142f6857b6c4ad0a0a1d3bbe765ed24d4a6efa00bfea7b70b029",
+    "components/sinara_gpio_endpoint/sampler_core.h": "8d3eff72a07fc0a648feab4baac9af908b11a1f0fb960a0380ea73d5ba280a43",
+    "components/sinara_gpio_endpoint/sinara_gpio_endpoint.cpp": "e6ac667f4b7282536934e46fdedf7900cc66a7479e5a4aaddc03f44b3613f7a2",
+    "components/sinara_gpio_endpoint/sinara_gpio_endpoint.h": "30ebf00382bb7cbbf7e74a4ab454661d8d4269fdab1b9f832db2cfea046af74d",
+    "components/sinara_gpio_endpoint/zotino_core.h": "5e2c64134b452d084d0526e9d384bde715a32687a5034ae0ea223614fe1121da",
+    "components/sinara_sampler/__init__.py": "e6cb7ca5d926aa0aa7f7ffba643acf5bdbf87459879b353f5ec08a75dd119e75",
+    "components/sinara_sampler/sensor/__init__.py": "8ca7f4214df7979aef619390790587b1c2ab7e2505fa7a35cfb3c6c373a18bfb",
+    "components/sinara_sampler/sinara_sampler.cpp": "8241177c5fd877fc5751b4d44e06924486f0733449f5f68592adaf3752412ef4",
+    "components/sinara_sampler/sinara_sampler.h": "245b22f4755ac9735ca10e057c74fecafc7cfe9ca6f1e45c64c000f7a4b175cd",
+    "firmware/sinara-stm-gateway/Cargo.lock": "41708780ed1e50ac2b50aa10c3552cd16a072504c773f533eafc44ac0337ad81",
+    "firmware/sinara-stm-gateway/Cargo.toml": "8c0e4046bf994e3b4bc28ab1b8ab571cef7f33166b4cd89cce89a2c9e34684bd",
+    "firmware/sinara-stm-gateway/examples/stdio_simulator.rs": "833b2e8361666f28081c2565b173e6460466263b31d6b4ce957c715b1d438c9c",
+    "firmware/sinara-stm-gateway/src/lib.rs": "b8737dcecce91ee9a6778d0870362a1c83ec7b6b45f8b416a086e3860f429fdd",
+    "gateware/gpio.py": "2c514800b15a324f75c926ae7a621f8ce7e000029476445f828f8b13c4a7867c",
+    "gateware/kasli_uart_gpio.py": "a3dfc839d6234367fd6b0e7d39bf6917831aa6def496ccaf5f4d1026218e5c24",
+    "gateware/sinara_pinmaps.py": "292172dc339bfcdf6f834416c647db5e7211ebf77ab040906105699ceda7d1a2",
+    "scripts/generate-sinara-sampler-kasli.py": "0a99f4d9bde1bf0b39bec8c631b74b14ed6ae0b72c7740c0bac893990ec6ef42",
+    "scripts/test-sinara.sh": "e9e314692f0d98b3a39f5eee948e56bea11e169b0f8476bac97ed30296fe9cde",
+    "tests/sinara_sampler_core.cpp": "3c213cb5d7fbdd1c21c4500a1af135995c05401b8b6d67d7b9b7e7b183c2e15a",
+    "tests/test_sinara_sampler_esphome.py": "8952f9232d8f0ac8070922c333b510fef4611d256b2ab9c47de9f133aaf87c06"
+  }
+}

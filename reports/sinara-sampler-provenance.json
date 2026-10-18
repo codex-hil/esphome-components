@@ -1,0 +1,121 @@
+{
+  "upstream_protocol_references": {
+    "artiq": "https://github.com/m-labs/artiq/tree/7d7b85f377e0c172ae3496f0c03cfb6cb85ba022",
+    "stm": "https://github.com/elhep/stm_system_board_gateware/tree/46f14f81d6a29c664f72d8c7373f4d346b43970d"
+  },
+  "source_project": "Unified Sinara Slow Control",
+  "source_worktree_was_uncommitted": true,
+  "files": [
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/__init__.py",
+      "destination": "components/sinara_gpio_endpoint/__init__.py",
+      "source_sha256": "59405480bfffca6411f817b8e95b3f2c8ef5e15ea7e167146d2e32ed808f0171"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/register_protocol.h",
+      "destination": "components/sinara_gpio_endpoint/register_protocol.h",
+      "source_sha256": "9a455d0ad8b130fc0f29c7ce391c26db6b92bffddbc5c0a74563bcf520ac4a6a"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/sampler_core.h",
+      "destination": "components/sinara_gpio_endpoint/sampler_core.h",
+      "source_sha256": "f4540d8c83ab9a4723d555d458ca0ccb9b33d6e3a147324e375e82b3026ded1e"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/sinara_gpio_endpoint.cpp",
+      "destination": "components/sinara_gpio_endpoint/sinara_gpio_endpoint.cpp",
+      "source_sha256": "8a878fd5dc4765e9715501745855a895cdcb2793490dd0499d7a9e5f3eb4b67c"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/sinara_gpio_endpoint.h",
+      "destination": "components/sinara_gpio_endpoint/sinara_gpio_endpoint.h",
+      "source_sha256": "5cb078e0fc3d9a758c0468ba8b1069b3c150df94b1fb1de8c4c20c16b382ff4a"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_gpio_endpoint/zotino_core.h",
+      "destination": "components/sinara_gpio_endpoint/zotino_core.h",
+      "source_sha256": "9a1a41b68b7fcb5f13fa60bfabbcf1adebfbc8763b1c1864a6b405198c966d69"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_sampler/__init__.py",
+      "destination": "components/sinara_sampler/__init__.py",
+      "source_sha256": "54dd5304d09c9fd968d80a7c2dc01e0b4fa75de81c8e81fab53c275129ae6add"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_sampler/sensor/__init__.py",
+      "destination": "components/sinara_sampler/sensor/__init__.py",
+      "source_sha256": "af86a4d5e567516225599be26934c2ceaa2976911d5b42417afd3bbc1e406e0f"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_sampler/sinara_sampler.cpp",
+      "destination": "components/sinara_sampler/sinara_sampler.cpp",
+      "source_sha256": "f89cd1d65b01cbb1d87b201dc9b542589c2a2dd42f388ffa8c3f8dfb1eb0af8b"
+    },
+    {
+      "source": "integrations/esphome/components/sinara_sampler/sinara_sampler.h",
+      "destination": "components/sinara_sampler/sinara_sampler.h",
+      "source_sha256": "0c67b956bccc70087a2005423757cb756b9fb05bdf3db9b9b308963fc4563490"
+    },
+    {
+      "source": "integrations/esphome/examples/sampler-stm-simulation.yaml",
+      "destination": "examples/sinara-sampler-stm-simulation.yaml",
+      "source_sha256": "87be95dcffca56274889e7b4aabddd6faed7f8228ee95fb56af9416dae6f8507"
+    },
+    {
+      "source": "integrations/esphome/examples/sampler-kasli-simulation.yaml",
+      "destination": "examples/sinara-sampler-kasli-simulation.yaml",
+      "source_sha256": "02c5ac75fe53ffa9f13f05ee35aaf04a7d7b5444b833c6c6d2d3b0383eda626b"
+    },
+    {
+      "source": "tests/sampler_core_test.cpp",
+      "destination": "tests/sinara_sampler_core.cpp",
+      "source_sha256": "c42248522c1bb39db12e2064f12bcf51d0f08de533e394adb92476bd657c6f3c"
+    },
+    {
+      "source": "tools/test_sampler_esphome.py",
+      "destination": "tests/test_sinara_sampler_esphome.py",
+      "source_sha256": "bf4a1ae451d972d7ae7c9f0b7955bb42f2ebea3c6b074e01e5e5408060684d76"
+    },
+    {
+      "source": "firmware/stm-service/Cargo.toml",
+      "destination": "firmware/sinara-stm-gateway/Cargo.toml",
+      "source_sha256": "8c0e4046bf994e3b4bc28ab1b8ab571cef7f33166b4cd89cce89a2c9e34684bd"
+    },
+    {
+      "source": "firmware/stm-service/Cargo.lock",
+      "destination": "firmware/sinara-stm-gateway/Cargo.lock",
+      "source_sha256": "41708780ed1e50ac2b50aa10c3552cd16a072504c773f533eafc44ac0337ad81"
+    },
+    {
+      "source": "firmware/stm-service/src/lib.rs",
+      "destination": "firmware/sinara-stm-gateway/src/lib.rs",
+      "source_sha256": "857629c323818c553869178f0eb019b5b3c4833964585e7ca52387cb0d2edfde"
+    },
+    {
+      "source": "firmware/stm-service/examples/stdio_simulator.rs",
+      "destination": "firmware/sinara-stm-gateway/examples/stdio_simulator.rs",
+      "source_sha256": "f8b866262c38ce3ac8299ced9f6d293d12de10c84311ba7e7a3f5b259fe4f32d"
+    },
+    {
+      "source": "gateware/gpio.py",
+      "destination": "gateware/gpio.py",
+      "source_sha256": "6c12c05b9a1b48ad0c729d14046a37b71a0800a4a5ec0b356613157c2ef2053a"
+    },
+    {
+      "source": "gateware/kasli_uart_gpio.py",
+      "destination": "gateware/kasli_uart_gpio.py",
+      "source_sha256": "19c1db726e286ba51ab891b4537355d8c7d66bfb956f5a3f91b007cdb1df5c63"
+    },
+    {
+      "source": "tools/generate_sampler_kasli.py",
+      "destination": "scripts/generate-sinara-sampler-kasli.py",
+      "source_sha256": "55a4d1778192d5df816f845d937ca4119ec0b0c10052fc1e59d740537d11dde4"
+    }
+  ],
+  "publication_changes": [
+    "SPDX license headers and explicit open-source licenses",
+    "Self-contained repository-relative examples, test harness and pinned dependencies",
+    "Gateware imports made local; CLI limited to included legacy/Sampler profiles",
+    "Latest explicit {slot, line} GPIO references retained"
+  ]
+}
