@@ -1,0 +1,217 @@
+# Compile-only example: GPIO numbers are illustrative, not verified wiring.
+esphome:
+  name: switch-matrix
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+logger:
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [switch_matrix_32_2]
+spi:
+  id: matrix_spi
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+switch_matrix_32_2:
+  id: matrix
+  spi_id: matrix_spi
+  cs_a_pin: GPIO16
+  cs_b_pin: GPIO17
+  oe_pin: GPIO21
+  startup_state: BYPASS
+  break_before_make: 10ms
+select:
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 1
+    id: matrix_ch1
+    name: "Channel 01"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 2
+    id: matrix_ch2
+    name: "Channel 02"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 3
+    id: matrix_ch3
+    name: "Channel 03"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 4
+    id: matrix_ch4
+    name: "Channel 04"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 5
+    id: matrix_ch5
+    name: "Channel 05"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 6
+    id: matrix_ch6
+    name: "Channel 06"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 7
+    id: matrix_ch7
+    name: "Channel 07"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 8
+    id: matrix_ch8
+    name: "Channel 08"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 9
+    id: matrix_ch9
+    name: "Channel 09"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 10
+    id: matrix_ch10
+    name: "Channel 10"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 11
+    id: matrix_ch11
+    name: "Channel 11"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 12
+    id: matrix_ch12
+    name: "Channel 12"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 13
+    id: matrix_ch13
+    name: "Channel 13"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 14
+    id: matrix_ch14
+    name: "Channel 14"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 15
+    id: matrix_ch15
+    name: "Channel 15"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 16
+    id: matrix_ch16
+    name: "Channel 16"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 17
+    id: matrix_ch17
+    name: "Channel 17"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 18
+    id: matrix_ch18
+    name: "Channel 18"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 19
+    id: matrix_ch19
+    name: "Channel 19"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 20
+    id: matrix_ch20
+    name: "Channel 20"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 21
+    id: matrix_ch21
+    name: "Channel 21"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 22
+    id: matrix_ch22
+    name: "Channel 22"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 23
+    id: matrix_ch23
+    name: "Channel 23"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 24
+    id: matrix_ch24
+    name: "Channel 24"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 25
+    id: matrix_ch25
+    name: "Channel 25"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 26
+    id: matrix_ch26
+    name: "Channel 26"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 27
+    id: matrix_ch27
+    name: "Channel 27"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 28
+    id: matrix_ch28
+    name: "Channel 28"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 29
+    id: matrix_ch29
+    name: "Channel 29"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 30
+    id: matrix_ch30
+    name: "Channel 30"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 31
+    id: matrix_ch31
+    name: "Channel 31"
+  - platform: switch_matrix_32_2
+    matrix_id: matrix
+    channel: 32
+    id: matrix_ch32
+    name: "Channel 32"
+button:
+  - platform: template
+    name: "CH1 A"
+    on_press:
+      - select.set:
+          id: matrix_ch1
+          option: "A"
+  - platform: template
+    name: "All bypass"
+    on_press:
+      - switch_matrix_32_2.bypass_all:
+          id: matrix
+  - platform: template
+    name: "Example masks"
+    on_press:
+      - switch_matrix_32_2.set_masks:
+          id: matrix
+          mask_a: "0x00000005"
+          mask_b: "0x8000000A"
+# Native API access needs a network transport, supplied by the actual device.
+# api:
+#   actions:
+#     - action: set_matrix_masks
+#       variables:
+#         mask_a: string
+#         mask_b: string
+#       then:
+#         - switch_matrix_32_2.set_masks:
+#             id: matrix
+#             mask_a: !lambda 'return mask_a;'
+#             mask_b: !lambda 'return mask_b;'

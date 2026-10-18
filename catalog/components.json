@@ -614,6 +614,26 @@
       "local_changes": [
         "Dedicated buffered SPI HC165/HC595 driver with explicit HC165 load-polarity verification gate."
       ]
+    },
+    {
+      "name": "switch_matrix_32_2",
+      "path": "components/switch_matrix_32_2",
+      "source": {
+        "kind": "local",
+        "repository": "codex-hil/esphome-components",
+        "path": "components/switch_matrix_32_2"
+      },
+      "codeowners": [],
+      "status": "software-tested; ESP32 compiled; hardware pending",
+      "files_sha256": {
+        "__init__.py": "4b7c5d5644f12433fbab27ef89910f3f0a1b68912cc587fed3890bc810e89aab",
+        "select.py": "6b8e21a83d4e07bd071d2489246bb7a002031737efdebb9ae2ceb103aa71dc77",
+        "switch_matrix_32_2.cpp": "0b6a0793b72049c35079585ed57a52e39ffc6ef9363fccbe933a3123a0f14d13",
+        "switch_matrix_32_2.h": "dc05eccc93b92cd8ab1ce408a5bcd074d94656295f155aa960b0851f5d0033be"
+      },
+      "local_changes": [
+        "Switch Matrix 32:2 dual 595 chains, per-channel A/B/BYPASS, hex masks and break-before-make. See docs/switch-matrix-32-2.md."
+      ]
     }
   ]
 }

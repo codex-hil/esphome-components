@@ -162,3 +162,10 @@ I²C ESPHome przez open-drain CPLD. Cztery niezależne pary mieszczą się na je
 banku. [Przykład](examples/cpld-soft-i2c.yaml) ma cztery standardowe PCA9554 pod
 jednakowym adresem na różnych busach. Testy software i kompilacja są oddzielone
 od jeszcze niewykonanej walidacji sprzętowej.
+
+## Switch Matrix 32:2
+
+[`switch_matrix_32_2`](docs/switch-matrix-32-2.md): 32 niezależne wybory A/B/BYPASS,
+dwa zatrzaski SPI i wspólne /OE, maski 32-bitowe i natywne API.
+[Pełny YAML](examples/switch-matrix-32-2.yaml). Testy software i kompilacja ESP32;
+walidacja fizycznej karty pozostaje do wykonania.

@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-17",
+  "scope": "software and compile only; no upload or physical relay validation",
+  "versions": {
+    "esphome": "2026.9.0",
+    "esp_idf": "5.5.5",
+    "xtensa_gcc": "14.2.0"
+  },
+  "component_source_sha256": {
+    "__init__.py": "4b7c5d5644f12433fbab27ef89910f3f0a1b68912cc587fed3890bc810e89aab",
+    "select.py": "6b8e21a83d4e07bd071d2489246bb7a002031737efdebb9ae2ceb103aa71dc77",
+    "switch_matrix_32_2.cpp": "0b6a0793b72049c35079585ed57a52e39ffc6ef9363fccbe933a3123a0f14d13",
+    "switch_matrix_32_2.h": "dc05eccc93b92cd8ab1ce408a5bcd074d94656295f155aa960b0851f5d0033be"
+  },
+  "host_tests": {
+    "result": "PASS",
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "runner": "bash tests/run-switch-matrix.sh",
+    "coverage": [
+      "shared shift-register clock and separate latches",
+      "all 32 bits",
+      "A/B exclusion",
+      "break phase",
+      "commands during pending transition",
+      "invalid command preserves target",
+      "hex parsing",
+      "select state",
+      "string action arguments",
+      "shutdown"
+    ]
+  },
+  "yaml_tests": {
+    "result": "PASS",
+    "count": 9,
+    "runner": "<ESPHome python> tests/test_switch_matrix_schema.py"
+  },
+  "examples": {
+    "switch-matrix-32-2": {
+      "result": "PASS",
+      "config_sha256": "a37a95ac9dc622df6e81aeeab1782074f28f1ac3f266f0b9539cbc4b2d4592d8",
+      "log_sha256": "a16ba9e7cebe2a2a726ad6032bba7d883cc11ef7103e1228055f7b16263d1d0e"
+    }
+  },
+  "native_api_compile": {
+    "result": "PASS",
+    "fixture_generator": "tests/prepare-switch-matrix-build.py",
+    "configuration_sha256": "2ecdff0fb82f8ca3f14b2531e6cb866b8ff0f26950ecb0e611139c925cd22248",
+    "log_sha256": "c938f3f110be1f77e4d9956d7556390edd766cb105f2ba69d65ea3a47824d79c",
+    "firmware": [
+      {
+        "filename": "firmware.factory.bin",
+        "bytes": 794224,
+        "sha256": "a88da211335b3d5949479240bb61f3157e7621ce720dcd1d525236cabbe52a86"
+      },
+      {
+        "filename": "firmware.ota.bin",
+        "bytes": 728688,
+        "sha256": "86fec6427adc7c9d7a6da97cd1b23a3b434a84995a4befba6c49728221b2d723"
+      },
+      {
+        "filename": "firmware.elf",
+        "bytes": 11908600,
+        "sha256": "b56d840e296d2d86c05955e488a31451cd13151d90f4e8bae73d41b0db7ab6a0"
+      }
+    ]
+  },
+  "hardware": "NOT_RUN",
+  "repository_manifest_check": {
+    "result": "PASS",
+    "scope": "isolated publication checkout; original workspace retains unrelated max6966 edits"
+  }
+}
