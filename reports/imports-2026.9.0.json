@@ -76,6 +76,9 @@
     },
     "tmc5130": {
       "result": "PASS"
+    },
+    "switch_matrix_32_2": {
+      "result": "PASS"
     }
   }
 }

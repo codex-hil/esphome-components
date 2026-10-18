@@ -33,3 +33,8 @@ jobs:
         run: |
           bash tests/run-addressed-spi.sh
           .venv/bin/python tests/test_addressed_spi_schema.py
+
+      - name: Test Switch Matrix 32:2 routing, shared chains and YAML
+        run: |
+          bash tests/run-switch-matrix.sh
+          .venv/bin/python tests/test_switch_matrix_schema.py

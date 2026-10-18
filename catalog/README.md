@@ -34,6 +34,7 @@ konkretny przykład, nie wszystkie ustawienia ani działanie sprzętu.
 | [moduliq_serprog](../components/moduliq_serprog) | serprog TCP: surowe SPI dla flashrom, polityka targetu w YAML | PASS | [cpld-serprog](../examples/cpld-serprog.yaml): PASS | [Rozwój lokalny](../components/moduliq_serprog) |
 | [moduliq_cpld_soft_i2c](../components/moduliq_cpld_soft_i2c) | I²C przez GPIO CPLD: cztery pary open-drain na bank | PASS | [cpld-soft-i2c](../examples/cpld-soft-i2c.yaml): PASS | [Rozwój lokalny](../components/moduliq_cpld_soft_i2c) |
 | [spi_shift_register](../components/spi_shift_register) | HC165/HC595 przez buforowane SPI; kontrola poprawnej polaryzacji LOAD | PASS | [mixed-signal-coexistence-hil](../examples/mixed-signal-coexistence-hil.yaml): PASS; [mixed-signal-head](../examples/mixed-signal-head.yaml): PASS; [mixed-signal-parallel-only](../examples/mixed-signal-parallel-only.yaml): PASS | [Rozwój lokalny](../components/spi_shift_register) |
+| [switch_matrix_32_2](../components/switch_matrix_32_2) | 32 kanały A/B/BYPASS, dwa zatrzaski SPI, maski i break-before-make | PASS | [switch-matrix-32-2](../examples/switch-matrix-32-2.yaml): PASS | [Rozwój lokalny](../components/switch_matrix_32_2) |
 
 ## Wybór wariantów i zależności
 
