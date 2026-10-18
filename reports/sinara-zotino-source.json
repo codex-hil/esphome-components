@@ -1,0 +1,21 @@
+{
+  "source_project": "Unified Sinara Slow Control",
+  "snapshot_date": "2026-10-18",
+  "artiq_revision": "7d7b85f377e0c172ae3496f0c03cfb6cb85ba022",
+  "source_files_sha256": {
+    "integrations/esphome/components/sinara_gpio_endpoint/register_protocol.h": "9a455d0ad8b130fc0f29c7ce391c26db6b92bffddbc5c0a74563bcf520ac4a6a",
+    "integrations/esphome/components/sinara_gpio_endpoint/sinara_gpio_endpoint.cpp": "8a878fd5dc4765e9715501745855a895cdcb2793490dd0499d7a9e5f3eb4b67c",
+    "integrations/esphome/components/sinara_gpio_endpoint/__init__.py": "59405480bfffca6411f817b8e95b3f2c8ef5e15ea7e167146d2e32ed808f0171",
+    "integrations/esphome/components/sinara_gpio_endpoint/sinara_gpio_endpoint.h": "5cb078e0fc3d9a758c0468ba8b1069b3c150df94b1fb1de8c4c20c16b382ff4a",
+    "integrations/esphome/components/sinara_gpio_endpoint/sampler_core.h": "f4540d8c83ab9a4723d555d458ca0ccb9b33d6e3a147324e375e82b3026ded1e",
+    "integrations/esphome/components/sinara_gpio_endpoint/zotino_core.h": "9a1a41b68b7fcb5f13fa60bfabbcf1adebfbc8763b1c1864a6b405198c966d69",
+    "integrations/esphome/components/sinara_sampler/__init__.py": "54dd5304d09c9fd968d80a7c2dc01e0b4fa75de81c8e81fab53c275129ae6add",
+    "integrations/esphome/components/sinara_sampler/sinara_sampler.h": "0c67b956bccc70087a2005423757cb756b9fb05bdf3db9b9b308963fc4563490",
+    "integrations/esphome/components/sinara_sampler/sinara_sampler.cpp": "f89cd1d65b01cbb1d87b201dc9b542589c2a2dd42f388ffa8c3f8dfb1eb0af8b",
+    "integrations/esphome/components/sinara_sampler/sensor/__init__.py": "af86a4d5e567516225599be26934c2ceaa2976911d5b42417afd3bbc1e406e0f",
+    "integrations/esphome/components/sinara_zotino/__init__.py": "950186ecd6144cf806ec58fa4ff50defa9151c47f9ba7f8a5eabdef8acfa40e0",
+    "integrations/esphome/components/sinara_zotino/sinara_zotino.h": "3fd516ee47ef7fe3e0370b95bdd8149e39180715f34e35537dc1becae51de5c2",
+    "integrations/esphome/components/sinara_zotino/output/__init__.py": "03c7c10c50f89d08dbd1018e09cba6867ceab668fa7b3e3fc80513af78132221"
+  },
+  "hardware_tested": false
+}

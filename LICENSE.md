@@ -19,3 +19,15 @@ license or grant additional redistribution rights.
 Collection scripts/docs authored for this MODULIQ collection do not alter
 the licenses of imported code. No upstream examples containing environment
 configuration, firmware, credentials or toolchain installations were imported.
+
+## Sinara slow-control components
+
+`components/sinara_gpio_endpoint`, `components/sinara_sampler`,
+`components/sinara_zotino`, their new tests and examples are distributed under
+GNU GPL version 3 or later; see [full text](licenses/SINARA-GPL-3).
+Copyright 2026 codex-hil contributors. The Zotino AD5372 protocol implementation
+was adapted from M-Labs ARTIQ `zotino.py` and `ad53xx.py` at revision
+`7d7b85f377e0c172ae3496f0c03cfb6cb85ba022` (LGPLv3+ source project;
+see https://github.com/m-labs/artiq/blob/7d7b85f377e0c172ae3496f0c03cfb6cb85ba022/LICENSE).
+This GPL distribution preserves attribution; it does not change the license
+of ARTIQ upstream. Pin maps also follow that revision's `gateware/eem.py`.

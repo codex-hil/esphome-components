@@ -20,3 +20,5 @@ jobs:
           .venv/bin/python -m pip install 'esphome==2026.9.0'
       - name: Check component schema imports
         run: .venv/bin/python scripts/import-check.py
+      - name: Build and run synthetic Sinara Zotino examples
+        run: .venv/bin/python scripts/test-sinara-zotino.py

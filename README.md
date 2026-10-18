@@ -112,3 +112,11 @@ dostępu; nie opisują bieżącego wymogu uwierzytelniania.
 
 Anonimowe pobieranie publicznego źródła przez ESPHome potwierdzono z pustym HOME
 i wyłączoną konfiguracją uwierzytelniania Git: [raport](reports/public-source-2026-09-29.json).
+
+## Sinara Zotino (STM/Kasli)
+
+Portable C++17 AD5372/LED driver, ESPHome hub and 32 standard outputs using
+the shared GPIO register endpoint. Includes synthetic STM/Kasli examples and
+native fault-injection tests. Linux host transport; native STM/Kasli runtime
+and physical DAC validation remain pending.
+[Usage, pinout and tests](docs/sinara-zotino.md).

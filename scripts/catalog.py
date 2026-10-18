@@ -10,6 +10,9 @@ builds = json.loads(buildfile.read_text())['examples'] if buildfile.exists() els
 coverage = {'bridge-adc': ['spi','addrspi','ads124s08_base'], 'addrspi2':['addrspi2'],
             'ads8166':['ads8166'], 'dacx0504':['dacx0504'], 'max112xx':['max112xx'], 'mcp3208':['mcp3208']}
 desc = {
+ 'sinara_gpio_endpoint':'Shared STM/Kasli GPIO register endpoint (host)',
+ 'sinara_sampler':'Sampler ADC/PGIA sibling; source dependency, no HIL',
+ 'sinara_zotino':'Zotino AD5372 DAC/LED; [build/runtime tests](../docs/sinara-zotino.md), no HIL',
  'ad9959':'DDS, cztery kanały', 'addrspi':'SPI z wyborem adresu na GPIO',
  'addrspi2':'Adresowane kanały SPI z nagłówkiem protokołu',
  'ads124s08':'ADC + kanały temperatury z forka Wizatha',
