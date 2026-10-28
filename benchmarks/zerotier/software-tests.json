@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-28",
+  "esphome": "2026.9.0",
+  "tests": {
+    "schema": "PASS",
+    "full_yaml": "PASS",
+    "full_yaml_reject_adc": "PASS",
+    "upstream_materialization": "PASS",
+    "frame_bounds_routes_asan_ubsan": "PASS",
+    "identity_nvs_fault_injection_asan_ubsan": "PASS"
+  },
+  "hardware": "PENDING"
+}

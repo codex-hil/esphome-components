@@ -1,0 +1,68 @@
+# Experimental native ZeroTier endpoint. Use ESPHome 2026.9.0 / ESP-IDF 5.5.5.
+# GPIO profile: hardware-verified Waveshare ESP32-P4 ETH PoE, rev3.2 / IP101.
+esphome:
+  name: p4-zerotier
+  min_version: 2026.9.0
+
+esp32:
+  variant: esp32p4
+  engineering_sample: false
+  flash_size: 16MB
+  cpu_frequency: 400MHz
+  framework:
+    type: esp-idf
+    version: 5.5.5
+
+psram:
+  mode: hex
+  speed: 200MHz
+  ignore_not_found: false
+
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [zerotier]
+
+ethernet:
+  id: eth
+  type: IP101
+  mdc_pin: GPIO31
+  mdio_pin: GPIO52
+  phy_addr: 1
+  power_pin: GPIO51
+  clk:
+    pin: GPIO50
+    mode: CLK_EXT_IN
+
+logger:
+  hardware_uart: UART0
+  baud_rate: 115200
+  level: INFO
+
+zerotier:
+  network_id: !secret zerotier_network_id
+  ethernet_id: eth
+  storage: nvs
+  interface: ethernet
+  entropy: sar_adc  # Reserves internal SAR ADC. adc sensor platform is rejected.
+  node_id:
+    name: ZeroTier Node ID
+  address:
+    name: ZeroTier Address
+  connected:
+    name: ZeroTier Configured
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+  reboot_timeout: 0s
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    update_interval: 5s

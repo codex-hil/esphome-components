@@ -1,0 +1,350 @@
+diff --git a/node/Bond.cpp b/node/Bond.cpp
+index 8f91304..e0e5f73 100644
+--- a/node/Bond.cpp
++++ b/node/Bond.cpp
+@@ -137,6 +137,9 @@ bool Bond::setMtuByTuple(uint16_t mtu, const std::string& ifStr, const std::stri
+ 
+ SharedPtr<Bond> Bond::createBond(const RuntimeEnvironment* renv, const SharedPtr<Peer>& peer)
+ {
++#ifdef ESP_PLATFORM
++	return SharedPtr<Bond>();
++#else
+ 	Mutex::Lock _l(_bonds_m);
+ 	int64_t identity = peer->identity().address().toInt();
+ 	Bond* bond = nullptr;
+@@ -189,6 +192,7 @@ SharedPtr<Bond> Bond::createBond(const RuntimeEnvironment* renv, const SharedPtr
+ 		return bond;
+ 	}
+ 	return SharedPtr<Bond>();
++#endif
+ }
+ 
+ void Bond::destroyBond(uint64_t peerId)
+@@ -215,6 +219,9 @@ void Bond::startBond()
+ 
+ SharedPtr<Link> Bond::getLinkBySocket(const std::string& policyAlias, uint64_t localSocket, bool createIfNeeded = false)
+ {
++#ifdef ESP_PLATFORM
++	return SharedPtr<Link>();
++#else
+ 	Mutex::Lock _l(_links_m);
+ 	char ifname[ZT_MAX_PHYSIFNAME] = {};
+ 	_binder->getIfName((PhySocket*)((uintptr_t)localSocket), ifname, sizeof(ifname) - 1);
+@@ -233,6 +240,7 @@ SharedPtr<Link> Bond::getLinkBySocket(const std::string& policyAlias, uint64_t l
+ 	else {
+ 		return search->second;
+ 	}
++#endif
+ }
+ 
+ SharedPtr<Link> Bond::getLinkByName(const std::string& policyAlias, const std::string& ifname)
+@@ -340,7 +348,9 @@ void Bond::nominatePathToBond(const SharedPtr<Path>& path, int64_t now)
+ 						_paths[i].ipvPref = sl->ipvPref();
+ 						_paths[i].mode = sl->mode();
+ 						_paths[i].enabled = sl->enabled();
+-						_paths[i].localPort = _phy->getLocalPort((PhySocket*)((uintptr_t)path->localSocket()));
++						#ifndef ESP_PLATFORM
++                        _paths[i].localPort = _phy->getLocalPort((PhySocket*)((uintptr_t)path->localSocket()));
++#endif
+ 						_paths[i].onlyPathOnLink = ! bFoundCommonLink;
+ 					}
+ 				}
+@@ -586,7 +596,7 @@ int32_t Bond::generateQoSPacket(int pathIdx, int64_t now, char* qosBuffer)
+ 	int32_t len = 0;
+ 	std::map<uint64_t, uint64_t>::iterator it = _paths[pathIdx].qosStatsIn.begin();
+ 	int i = 0;
+-	int numRecords = std::min(_paths[pathIdx].packetsReceivedSinceLastQoS, ZT_QOS_TABLE_SIZE);
++	int numRecords = std::min<int32_t>(_paths[pathIdx].packetsReceivedSinceLastQoS, ZT_QOS_TABLE_SIZE);
+ 	// debug("numRecords=%3d, packetsReceivedSinceLastQoS=%3d, _paths[pathIdx].qosStatsIn.size()=%3zu", numRecords, _paths[pathIdx].packetsReceivedSinceLastQoS, _paths[pathIdx].qosStatsIn.size());
+ 	while (i < numRecords && it != _paths[pathIdx].qosStatsIn.end()) {
+ 		uint64_t id = it->first;
+@@ -605,7 +615,7 @@ int32_t Bond::generateQoSPacket(int pathIdx, int64_t now, char* qosBuffer)
+ bool Bond::assignFlowToBondedPath(SharedPtr<Flow>& flow, int64_t now, bool reassign = false)
+ {
+ 	if (! _numBondedPaths) {
+-		debug("unable to assign flow %x (bond has no links)", flow->id);
++		debug("unable to assign flow %x (bond has no links)", static_cast<unsigned int>(flow->id));
+ 		return false;
+ 	}
+ 	unsigned int bondedIdx = ZT_MAX_PEER_NETWORK_PATHS;
+@@ -623,7 +633,7 @@ bool Bond::assignFlowToBondedPath(SharedPtr<Flow>& flow, int64_t now, bool reass
+ 		int nextBestQualIdx = ZT_MAX_PEER_NETWORK_PATHS;
+ 
+ 		if (reassign) {
+-			log("attempting to re-assign out-flow %04x previously on idx %d (%u / %zu flows)", flow->id, flow->assignedPath, _paths[_realIdxMap[flow->assignedPath]].assignedFlowCount, _flows.size());
++			log("attempting to re-assign out-flow %04x previously on idx %d (%u / %zu flows)", static_cast<unsigned int>(flow->id), flow->assignedPath, _paths[_realIdxMap[flow->assignedPath]].assignedFlowCount, _flows.size());
+ 		}
+ 		else {
+ 			debug("attempting to assign flow for the first time");
+@@ -648,7 +658,7 @@ bool Bond::assignFlowToBondedPath(SharedPtr<Flow>& flow, int64_t now, bool reass
+ 				continue;
+ 			}
+ 			if (! _paths[_realIdxMap[bondedIdx]].shouldAvoid && randomLinkCapacity <= _paths[_realIdxMap[bondedIdx]].relativeLinkCapacity) {
+-				// debug("  assign out-flow %04x to link %s (%u / %zu flows)", flow->id, pathToStr(_paths[_realIdxMap[bondedIdx]].p).c_str(), _paths[_realIdxMap[bondedIdx]].assignedFlowCount, _flows.size());
++				// debug("  assign out-flow %04x to link %s (%u / %zu flows)", static_cast<unsigned int>(flow->id), pathToStr(_paths[_realIdxMap[bondedIdx]].p).c_str(), _paths[_realIdxMap[bondedIdx]].assignedFlowCount, _flows.size());
+ 				break;	 // Acceptable -- No violation of quality spec
+ 			}
+ 			if (_paths[_realIdxMap[bondedIdx]].relativeQuality > bestQuality) {
+@@ -673,18 +683,18 @@ bool Bond::assignFlowToBondedPath(SharedPtr<Flow>& flow, int64_t now, bool reass
+ 	}
+ 	if (_policy == ZT_BOND_POLICY_ACTIVE_BACKUP) {
+ 		if (_abPathIdx == ZT_MAX_PEER_NETWORK_PATHS) {
+-			log("unable to assign out-flow %x (no active backup link)", flow->id);
++			log("unable to assign out-flow %x (no active backup link)", static_cast<unsigned int>(flow->id));
+ 		}
+ 		flow->assignPath(_abPathIdx, now);
+ 	}
+-	log("assign out-flow %04x to link %s (%u / %zu flows)", flow->id, pathToStr(_paths[flow->assignedPath].p).c_str(), _paths[flow->assignedPath].assignedFlowCount, _flows.size());
++	log("assign out-flow %04x to link %s (%u / %zu flows)", static_cast<unsigned int>(flow->id), pathToStr(_paths[flow->assignedPath].p).c_str(), _paths[flow->assignedPath].assignedFlowCount, _flows.size());
+ 	return true;
+ }
+ 
+ SharedPtr<Bond::Flow> Bond::createFlow(int pathIdx, int32_t flowId, unsigned char entropy, int64_t now)
+ {
+ 	if (! _numBondedPaths) {
+-		debug("unable to assign flow %04x (bond has no links)", flowId);
++		debug("unable to assign flow %04x (bond has no links)", static_cast<unsigned int>(flowId));
+ 		return SharedPtr<Flow>();
+ 	}
+ 	if (_flows.size() >= ZT_FLOW_MAX_COUNT) {
+@@ -701,7 +711,7 @@ SharedPtr<Bond::Flow> Bond::createFlow(int pathIdx, int32_t flowId, unsigned cha
+ 	if (pathIdx != ZT_MAX_PEER_NETWORK_PATHS) {
+ 		flow->assignPath(pathIdx, now);
+ 		_paths[pathIdx].assignedFlowCount++;
+-		debug("assign in-flow %04x to link %s (%u / %zu)", flow->id, pathToStr(_paths[pathIdx].p).c_str(), _paths[pathIdx].assignedFlowCount, _flows.size());
++		debug("assign in-flow %04x to link %s (%u / %zu)", static_cast<unsigned int>(flow->id), pathToStr(_paths[pathIdx].p).c_str(), _paths[pathIdx].assignedFlowCount, _flows.size());
+ 	}
+ 	/**
+ 	 * Add a flow when no path was provided. This means that it is an outgoing packet
+@@ -1860,7 +1870,7 @@ void Bond::setBondParameters(int policy, SharedPtr<Bond> templateBond, bool useT
+ 	_policy = (policy <= ZT_BOND_POLICY_NONE || policy > ZT_BOND_POLICY_BALANCE_AWARE) ? _defaultPolicy : policy;
+ 
+ 	// Check if non-leaf to prevent spamming infrastructure
+-	ZT_PeerRole role;
++	ZT_PeerRole role = ZT_PEER_ROLE_LEAF;
+ 	if (_peer) {
+ 		role = RR->topology->role(_peer->address());
+ 	}
+diff --git a/node/Bond.hpp b/node/Bond.hpp
+index 5c7396d..e89843a 100644
+--- a/node/Bond.hpp
++++ b/node/Bond.hpp
+@@ -9,8 +9,12 @@
+ #ifndef ZT_BOND_HPP
+ #define ZT_BOND_HPP
+ 
++#ifndef ESP_PLATFORM
+ #include "../osdep/Binder.hpp"
+ #include "../osdep/Phy.hpp"
++#else
++namespace ZeroTier { class Binder; template<class T> class Phy; }
++#endif
+ #include "Packet.hpp"
+ #include "Path.hpp"
+ #include "RuntimeEnvironment.hpp"
+diff --git a/node/Constants.hpp b/node/Constants.hpp
+index 6baf8c7..24afaba 100644
+--- a/node/Constants.hpp
++++ b/node/Constants.hpp
+@@ -152,6 +152,20 @@
+ #endif
+ #endif
+ 
++// ESP-IDF/newlib exposes _BYTE_ORDER and GCC exposes __BYTE_ORDER__.
++// Undefined legacy macros compare equal (0 == 0), selecting both endian paths.
++#ifdef ESP_PLATFORM
++#ifndef __BYTE_ORDER
++#define __BYTE_ORDER __BYTE_ORDER__
++#endif
++#ifndef __LITTLE_ENDIAN
++#define __LITTLE_ENDIAN __ORDER_LITTLE_ENDIAN__
++#endif
++#ifndef __BIG_ENDIAN
++#define __BIG_ENDIAN __ORDER_BIG_ENDIAN__
++#endif
++#endif
++
+ // Assume little endian if not defined
+ #if (defined(__APPLE__) || defined(__WINDOWS__)) && (! defined(__BYTE_ORDER))
+ #undef __BYTE_ORDER
+diff --git a/node/Identity.cpp b/node/Identity.cpp
+index 86f0052..223330f 100644
+--- a/node/Identity.cpp
++++ b/node/Identity.cpp
+@@ -7,6 +7,9 @@
+  */
+ 
+ #include "Identity.hpp"
++#ifdef ESP_PLATFORM
++extern "C" void ztp_crypto_yield(void);
++#endif
+ 
+ #include "Constants.hpp"
+ #include "ECC.hpp"
+@@ -40,7 +43,10 @@ static inline void _computeMemoryHardHash(const void* publicKey, unsigned int pu
+ 	Salsa20 s20(digest, (char*)digest + 32);
+ 	s20.crypt20((char*)genmem, (char*)genmem, 64);
+ 	for (unsigned long i = 64; i < ZT_IDENTITY_GEN_MEMORY; i += 64) {
+-		unsigned long k = i - 64;
++		#ifdef ESP_PLATFORM
++        if ((i & 65535UL) == 0) ztp_crypto_yield();
++#endif
++        unsigned long k = i - 64;
+ 		*((uint64_t*)((char*)genmem + i)) = *((uint64_t*)((char*)genmem + k));
+ 		*((uint64_t*)((char*)genmem + i + 8)) = *((uint64_t*)((char*)genmem + k + 8));
+ 		*((uint64_t*)((char*)genmem + i + 16)) = *((uint64_t*)((char*)genmem + k + 16));
+@@ -54,7 +60,10 @@ static inline void _computeMemoryHardHash(const void* publicKey, unsigned int pu
+ 
+ 	// Render final digest using genmem as a lookup table
+ 	for (unsigned long i = 0; i < (ZT_IDENTITY_GEN_MEMORY / sizeof(uint64_t));) {
+-		unsigned long idx1 = (unsigned long)(Utils::ntoh(((uint64_t*)genmem)[i++]) % (64 / sizeof(uint64_t)));
++		#ifdef ESP_PLATFORM
++        if ((i & 8191UL) == 0) ztp_crypto_yield();
++#endif
++        unsigned long idx1 = (unsigned long)(Utils::ntoh(((uint64_t*)genmem)[i++]) % (64 / sizeof(uint64_t)));
+ 		unsigned long idx2 = (unsigned long)(Utils::ntoh(((uint64_t*)genmem)[i++]) % (ZT_IDENTITY_GEN_MEMORY / sizeof(uint64_t)));
+ 		uint64_t tmp = ((uint64_t*)genmem)[idx2];
+ 		((uint64_t*)genmem)[idx2] = ((uint64_t*)digest)[idx1];
+diff --git a/node/Metrics.cpp b/node/Metrics.cpp
+index dd49d86..48e3a34 100644
+--- a/node/Metrics.cpp
++++ b/node/Metrics.cpp
+@@ -15,7 +15,9 @@ namespace prometheus {
+ namespace simpleapi {
+ std::shared_ptr<Registry> registry_ptr = std::make_shared<Registry>();
+ Registry& registry = *registry_ptr;
++#ifndef ESP_PLATFORM
+ SaveToFile saver;
++#endif
+ }	// namespace simpleapi
+ }	// namespace prometheus
+ 
+diff --git a/node/Mutex.hpp b/node/Mutex.hpp
+index cdcd759..ef735fd 100644
+--- a/node/Mutex.hpp
++++ b/node/Mutex.hpp
+@@ -11,7 +11,7 @@
+ 
+ #include "Constants.hpp"
+ 
+-#ifdef __UNIX_LIKE__
++#if defined(__UNIX_LIKE__) || defined(ESP_PLATFORM)
+ 
+ #include <pthread.h>
+ #include <stdlib.h>
+diff --git a/node/Network.cpp b/node/Network.cpp
+index 425941f..83fe01c 100644
+--- a/node/Network.cpp
++++ b/node/Network.cpp
+@@ -1,3 +1,4 @@
++#include "../osdep/OSUtils.hpp"
+ /* This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+diff --git a/node/NetworkConfig.cpp b/node/NetworkConfig.cpp
+index d388f57..2067539 100644
+--- a/node/NetworkConfig.cpp
++++ b/node/NetworkConfig.cpp
+@@ -7,6 +7,9 @@
+  */
+ 
+ #include "NetworkConfig.hpp"
++#ifdef ESP_PLATFORM
++#include "esp_attr.h"
++#endif
+ 
+ #include "DNS.hpp"
+ 
+@@ -365,7 +368,11 @@ bool NetworkConfig::toDictionary(Dictionary<ZT_NETWORKCONFIG_DICT_CAPACITY>& d,
+ 
+ bool NetworkConfig::fromDictionary(const Dictionary<ZT_NETWORKCONFIG_DICT_CAPACITY>& d)
+ {
+-	static const NetworkConfig NIL_NC;
++	#ifdef ESP_PLATFORM
++    static EXT_RAM_BSS_ATTR const NetworkConfig NIL_NC;
++#else
++    static const NetworkConfig NIL_NC;
++#endif
+ 	Buffer<ZT_NETWORKCONFIG_DICT_CAPACITY>* tmp = new Buffer<ZT_NETWORKCONFIG_DICT_CAPACITY>();
+ 
+ 	try {
+diff --git a/node/PacketMultiplexer.cpp b/node/PacketMultiplexer.cpp
+index d396dca..aa9b497 100644
+--- a/node/PacketMultiplexer.cpp
++++ b/node/PacketMultiplexer.cpp
+@@ -1,3 +1,4 @@
++#include "../osdep/OSUtils.hpp"
+ /* This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+diff --git a/node/Peer.cpp b/node/Peer.cpp
+index 65199ba..06b9052 100644
+--- a/node/Peer.cpp
++++ b/node/Peer.cpp
+@@ -1,3 +1,4 @@
++#include "../osdep/OSUtils.hpp"
+ /* This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+diff --git a/node/Switch.cpp b/node/Switch.cpp
+index efa6c0b..492d430 100644
+--- a/node/Switch.cpp
++++ b/node/Switch.cpp
+@@ -492,7 +492,12 @@ void Switch::onLocalEthernet(void* tPtr, const SharedPtr<Network>& network, cons
+ 					// this prevents problems related to trying to do rx while inside of doing tx, such as acquiring same lock recursively
+ 					//
+ 
++#ifdef ESP_PLATFORM
++// IDF adapter callback only copies/enqueues RX; never re-enters the node.
++RR->node->putFrame(tPtr, network->id(), network->userPtr(), peerMac, from, ZT_ETHERTYPE_IPV6, 0, adv, 72);
++#else
+ 					std::thread([=]() { RR->node->putFrame(tPtr, network->id(), network->userPtr(), peerMac, from, ZT_ETHERTYPE_IPV6, 0, adv, 72); }).detach();
++#endif
+ 
+ 					return;	  // NDP emulation done. We have forged a "fake" reply, so no need to send actual NDP query.
+ 				}	// else no NDP emulation
+@@ -527,7 +532,12 @@ void Switch::onLocalEthernet(void* tPtr, const SharedPtr<Network>& network, cons
+ 		//
+ 		// same pattern as putFrame call above
+ 		//
++#ifdef ESP_PLATFORM
++// IDF adapter callback only copies/enqueues RX; never re-enters the node.
++RR->node->putFrame(tPtr, network->id(), network->userPtr(), from, to, etherType, vlanId, data, len);
++#else
+ 		std::thread([=]() { RR->node->putFrame(tPtr, network->id(), network->userPtr(), from, to, etherType, vlanId, data, len); }).detach();
++#endif
+ 	}
+ 	else if (to[0] == MAC::firstOctetForNetwork(network->id())) {
+ 		// Destination is another ZeroTier peer on the same network
+diff --git a/node/Utils.cpp b/node/Utils.cpp
+index 705b6bd..67d05a2 100644
+--- a/node/Utils.cpp
++++ b/node/Utils.cpp
+@@ -7,6 +7,9 @@
+  */
+ 
+ #include "Constants.hpp"
++#ifdef ESP_PLATFORM
++extern "C" void ztp_secure_random(void *, unsigned int);
++#endif
+ 
+ #include <stdarg.h>
+ #include <stdio.h>
+@@ -211,6 +214,9 @@ char* Utils::decimal(unsigned long n, char s[24])
+ 
+ void Utils::getSecureRandom(void* buf, unsigned int bytes)
+ {
++#ifdef ESP_PLATFORM
++	ztp_secure_random(buf, bytes);
++#else
+ 	static Mutex globalLock;
+ 	static Salsa20 s20;
+ 	static bool s20Initialized = false;
+@@ -296,6 +302,7 @@ void Utils::getSecureRandom(void* buf, unsigned int bytes)
+ 	}
+ 
+ #endif	 // __WINDOWS__ or not
++#endif
+ }
+ 
+ }	// namespace ZeroTier
