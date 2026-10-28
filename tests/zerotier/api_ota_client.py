@@ -29,6 +29,7 @@ async def probe(host, seconds=15):
     try:
         await asyncio.wait_for(client.connect(login=True), 20)
         info = await asyncio.wait_for(client.device_info(), 10)
+        print(json.dumps({'phase': 'encrypted_api_connected', 'host': host, 'mac': info.mac_address}), flush=True)
         assert info.mac_address.lower() == args.mac.lower(), 'Wrong MAC'
         entities, _ = await asyncio.wait_for(client.list_entities_services(), 10)
         names = {e.key: e.name for e in entities}

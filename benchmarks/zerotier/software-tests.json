@@ -9,5 +9,5 @@
     "frame_bounds_routes_asan_ubsan": "PASS",
     "identity_nvs_fault_injection_asan_ubsan": "PASS"
   },
-  "hardware": "PENDING"
+  "hardware": "See hil.json; data plane blocked"
 }

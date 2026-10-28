@@ -1,5 +1,13 @@
 # Native ZeroTier on ESP32-P4 (experimental)
 
+**Current acceptance status: blocked on overlay reachability.** The pinned Nix
+build, physical boot, controller join/address assignment, encrypted LAN API
+and two authenticated/encrypted LAN OTA updates passed. API/OTA over ZeroTier
+has **not** passed. The unchanged, previously passing standalone PoC now fails
+from the same peer too: five LAN application rounds passed, five overlay
+rounds failed. See [evidence](../benchmarks/zerotier/hil.json) and
+[remaining checks](zerotier-blockers.md). This is not production-ready.
+
 External component `components/zerotier`; example `examples/zerotier-p4-ethernet.yaml`.
 Requires ESPHome 2026.9.0, ESP-IDF 5.5.5 and working PSRAM. This is an endpoint,
 not a router or bridge. The example uses the verified Waveshare P4 ETH PoE
@@ -51,7 +59,9 @@ fetch; offline builds must prefetch this pinned checkout.
 One FreeRTOS task owns the node. UDP/9993 binds to the physical Ethernet IPv4
 address. A separate lwIP netif receives virtual Ethernet frames; bounded TX
 queues avoid calling the node from `tcpip_thread`. Netif updates and removal
-run through lwIP synchronization. Standard BSD sockets, including existing
+run through a queued lwIP callback with explicit completion acknowledgement.
+This works with ESPHome core locking enabled; `netifapi` alone is not a queue
+barrier in that mode. Standard BSD sockets, including existing
 ESPHome API and OTA listeners, can receive connections on the virtual IP.
 The physical Ethernet remains the default route.
 
@@ -66,7 +76,11 @@ Ethernet link/IP changes cause automatic UDP rebinding and virtual interface
 updates. Fatal node/storage errors stop only this component; they do not erase
 identity or deliberately reboot the whole device. Inspect the error log before
 restarting. Existing private identity cannot silently be replaced by a new one
-following a failed NVS read or write.
+following a failed NVS read or write handled by this adapter. However, ESPHome
+preferences initialization can erase the shared default NVS partition on an
+open failure, and factory reset also erases it. That happens outside this
+component. A dedicated identity NVS partition is recommended before production;
+shared-NVS recovery and factory reset may require reauthorization.
 
 ## Resources and entropy
 
@@ -77,6 +91,12 @@ allocation in the whole application and must be checked with other components.
 The build also enables lwIP IPv6 definitions because upstream `InetAddress`
 uses `sockaddr_in6` unconditionally. This does not implement IPv6 in the virtual
 interface; its assigned addresses and transport remain restricted to IPv4.
+
+The ESPHome diagnostic runs measured a minimum 315,064 bytes free internal
+RAM and 27,322,904 bytes free PSRAM; the lowest observed unused worker stack
+was 37,448 bytes. These samples cover LAN API/OTA and ZeroTier control-plane
+traffic, **not working overlay application traffic**. The final application
+image is 1,043,808 bytes. See [CSV samples](../benchmarks/zerotier/memory.csv).
 
 The earlier standalone ESP-IDF PoC measured a 1,087,344-byte firmware,
 264,020 bytes minimum free internal RAM, 27,325,008 bytes minimum free PSRAM,

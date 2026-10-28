@@ -3,6 +3,7 @@
 #include "esphome/core/hal.h"
 #include "lwip/inet.h"
 #include "lwip/sockets.h"
+#include "esp_heap_caps.h"
 namespace esphome::zerotier {
 static const char *const TAG = "zerotier";
 void ZeroTierComponent::setup() {
@@ -41,6 +42,16 @@ void ZeroTierComponent::loop() {
     char addr[INET_ADDRSTRLEN]; inet_ntop(AF_INET, &s.ipv4, addr, sizeof(addr));
     ESP_LOGI(TAG, "Overlay address: %s", addr);
     if (this->address_sensor_) this->address_sensor_->publish_state(s.ipv4 ? addr : "");
+  }
+  if (millis() - this->last_metrics_ >= 10000) {
+    this->last_metrics_ = millis();
+    ESP_LOGI(TAG, "wire_tx=%u wire_rx=%u rx_frames=%u tx_frames=%u rx_drop=%u tx_drop=%u online=%d",
+             (unsigned) s.wire_tx, (unsigned) s.wire_rx, (unsigned) s.rx_frames,
+             (unsigned) s.tx_frames, (unsigned) s.rx_drop, (unsigned) s.tx_drop, s.online);
+    ESP_LOGI(TAG, "heap_internal=%u psram=%u stack_free=%u min_internal=%u min_psram=%u",
+             (unsigned) s.internal_free, (unsigned) s.psram_free, (unsigned) s.stack_free,
+             (unsigned) heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL),
+             (unsigned) heap_caps_get_minimum_free_size(MALLOC_CAP_SPIRAM));
   }
   bool ready = s.active && this->ethernet_->is_connected();
   if (ready) this->status_clear_warning();

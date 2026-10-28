@@ -88,8 +88,8 @@ try:
     print('ESPHome flashed; independent API/OTA client window open', flush=True)
     text = capture('esphome-serial.log', 720, client=True)
     result['panic'] = bool(re.search(r'Guru Meditation|abort\(\)|Stack smashing|Task watchdog got triggered', text))
-    result['node_ids'] = re.findall(r'node=([0-9a-f]{10})', text)
-    result['overlay_ips'] = re.findall(r'overlay=([0-9.]+)/\d+', text)
+    result['node_ids'] = re.findall(r'(?:node=|Node ID: )([0-9a-f]{10})', text)
+    result['overlay_ips'] = re.findall(r'(?:overlay=|Overlay address: )([0-9.]+)', text)
     result['memory_lines'] = [re.sub(r'\x1b\[[0-9;]*m', '', line) for line in text.splitlines() if 'heap_internal=' in line]
     result['client'] = json.loads((root/'client-done.json').read_text()) if (root/'client-done.json').exists() else {'status': 'NOT_COMPLETED'}
     result['status'] = 'PASS' if not result['panic'] and result['node_ids'] and set(result['node_ids']) == {'6e31ab38dc'} and result['client']['status'] == 'PASS' else 'FAIL'

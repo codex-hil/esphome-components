@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-28",
+  "status": "BLOCKED_ZERO_TIER_DATA_PLANE",
+  "hardware": {
+    "board": "Waveshare ESP32-P4 ETH PoE",
+    "revision": "3.2",
+    "flash_bytes": 33554432,
+    "psram_bytes": 33554432
+  },
+  "esphome": {
+    "boot": "PASS",
+    "crypto_known_answer_tests": "PASS",
+    "controller_online": "PASS",
+    "assigned_ipv4": "PASS",
+    "encrypted_api_lan": "PASS",
+    "encrypted_api_zerotier": "FAIL: ARP resolution/host unreachable",
+    "authenticated_encrypted_ota_lan": "PASS, two updates",
+    "ota_zerotier": "NOT_RUN: overlay unreachable",
+    "identity_preserved_after_lan_ota": "PASS",
+    "panic": false
+  },
+  "memory": {
+    "scope": "67 samples across three diagnostic boots; LAN API/OTA and ZeroTier control plane, not working overlay application traffic",
+    "minimum_internal_free_bytes": 315064,
+    "minimum_psram_free_bytes": 27322904,
+    "minimum_worker_stack_free_bytes": 37448,
+    "worker_stack_reserved_bytes": 131072
+  },
+  "unchanged_standalone_poc_regression": {
+    "lan_pass_rounds": 5,
+    "overlay_fail_rounds": 5,
+    "meaning": "Same reachability failure reproduces with the previously passing binary; cause outside ESPHome-specific changes remains to be isolated."
+  },
+  "restoration": {
+    "firmware": "resbox16",
+    "flash_verified": true,
+    "lan_ping": "PASS",
+    "tcp_80": "PASS",
+    "tcp_5025": "PASS"
+  },
+  "not_run": [
+    "different-NAT test",
+    "P2P versus relay classification",
+    "24-hour soak",
+    "CPU utilization",
+    "overlay API/OTA acceptance",
+    "power-loss OTA recovery"
+  ]
+}

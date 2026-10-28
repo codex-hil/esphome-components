@@ -26,7 +26,7 @@ class ZeroTierComponent : public Component {
   text_sensor::TextSensor *address_sensor_{nullptr};
   binary_sensor::BinarySensor *connected_sensor_{nullptr};
   uint64_t network_id_{0}, last_node_{0};
-  uint32_t last_poll_{0}, last_ip_{0};
+  uint32_t last_poll_{0}, last_ip_{0}, last_metrics_{0};
   bool started_{false}, stopping_{false}, ready_{false};
 };
 }

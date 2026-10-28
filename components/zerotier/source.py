@@ -1,4 +1,5 @@
 """Materialize a pinned upstream + reviewed patch in the generated build tree."""
+import filecmp
 import hashlib
 import io
 import json
@@ -50,6 +51,11 @@ def prepare_component():
         shutil.rmtree(upstream / ".git")
         (staging / ".recipe.json").write_text(json.dumps(stamp, indent=2) + "\n")
         if dest.exists():
+            # Keep unchanged translation units' mtimes for incremental IDF builds.
+            for path in staging.rglob("*"):
+                old = dest / path.relative_to(staging)
+                if path.is_file() and old.is_file() and filecmp.cmp(path, old, shallow=False):
+                    shutil.copystat(old, path)
             shutil.rmtree(dest)  # Only our generated, marked component.
         staging.rename(dest)
     return dest
