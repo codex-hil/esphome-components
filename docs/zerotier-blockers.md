@@ -1,3 +1,40 @@
+# ZeroTier acceptance update — 2026-10-30
+
+Encrypted ESPHome API over LAN and ZeroTier, actual OTA through ZeroTier and
+post-OTA API recovery passed. The same Node ID and virtual address survived.
+Upload took 9.01 seconds; upload-to-completed-recovery-check took 34.64 seconds,
+including the 15-second API observation period (not a pure reconnect latency).
+The final previously built image was reused without source changes.
+
+- [Current HIL evidence](../benchmarks/zerotier/hil-20261030.json)
+- [Independent API/OTA observations](../benchmarks/zerotier/api-ota-20261030.json)
+
+Memory samples across the API/OTA trial show minimum free internal RAM 313,152
+bytes, PSRAM 27,322,904 bytes, unused worker stack 37,580 bytes. This does not
+represent the combined production HTTP/SCPI application.
+
+A 24-hour encrypted API and UART/memory soak started on 2026-10-30. It is
+**RUNNING, not passed**. A POWERON boot was observed when opening the soak UART
+capture, and the first overlay API probe failed during that startup. Keep the
+failure in the results; do not classify the capture as uninterrupted uptime.
+The serial port stays open for the remaining capture. No automatic firmware
+restoration is configured: the owner requested retaining ZeroTier firmware.
+
+The prior 30-minute PoC test had 56/56 overlay failures while LAN passed.
+On the following morning four paired rounds passed without re-flashing.
+Immediately before the ESPHome trial, overlay SCPI passed but TCP/UDP/HTTP
+failed in a paired round. Exact discovery/reachability cause remains unknown;
+waiting alone has not been established as the fix.
+
+Remaining checks: completed soak, Ethernet link loss/recovery, different NATs,
+direct versus relay classification, CPU and sustained throughput, production
+HTTP/SCPI coexistence, dedicated secure identity storage and fuzz testing.
+
+The following report is historical; its restoration and blocked-status claims
+apply only to the 2026-10-28 trials.
+
+---
+
 # ZeroTier ESPHome acceptance — 2026-10-28
 
 The external component is implemented and builds in the board repository's

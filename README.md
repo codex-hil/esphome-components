@@ -63,6 +63,6 @@ validation or DDS/frequency/RF-enable support is claimed.
 [example YAML](examples/zerotier-p4-ethernet.yaml),
 [HIL results and remaining checks](docs/zerotier-blockers.md).
 The ESP-IDF node uses system lwIP and persistent NVS identity. Build, Ethernet,
-controller join, encrypted LAN API and LAN OTA passed. Overlay API/OTA
-acceptance remains blocked; the same reachability failure now reproduces with
-the earlier standalone PoC. No production-readiness claim.
+controller join, encrypted API over LAN and ZeroTier, and OTA through ZeroTier
+passed. A 24-hour stability test is running; intermittent reachability and
+production acceptance checks remain open. No production-readiness claim.

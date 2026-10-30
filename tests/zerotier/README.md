@@ -39,3 +39,21 @@ Secrets, firmware and full serial logs stay outside this repository.
 The OTA test uploads the same tested application; successful upload plus
 uptime reset and subsequent encrypted API access prove the update/reboot path,
 not a different application version. Power-loss OTA recovery is not tested.
+
+## Persistent firmware trials and soak
+
+The owner explicitly requested leaving ZeroTier firmware installed on
+2026-10-29. The 2026-10-30 station trial used a private variant of the guarded
+runner: it verified/captured current flash, retained current NVS identity,
+verified the new image and omitted automatic original-firmware restoration.
+The legacy `hil_station2.py` above still restores firmware; do not use it
+unchanged when retention is required.
+
+`api_soak.py` runs bounded encrypted API checks simultaneously over LAN and
+ZeroTier, recording JSONL status, live uptime and device-info request latency.
+It performs no OTA or reset. Use the pinned Nix Python, private `--secrets`
+file, a fresh `--output`, and explicit `--lan`, `--overlay`, `--mac`, `--node`.
+Default duration is 86400 seconds, interval 60 seconds. Run under a persistent
+user service with the station holding the DUT lease and capturing UART/memory.
+API request latency is not ICMP RTT or a throughput measurement. Preserve
+failed startup rounds and identify unexpected uptime decreases separately.

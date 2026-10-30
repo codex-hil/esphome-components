@@ -1,12 +1,13 @@
 # Native ZeroTier on ESP32-P4 (experimental)
 
-**Current acceptance status: blocked on overlay reachability.** The pinned Nix
-build, physical boot, controller join/address assignment, encrypted LAN API
-and two authenticated/encrypted LAN OTA updates passed. API/OTA over ZeroTier
-has **not** passed. The unchanged, previously passing standalone PoC now fails
-from the same peer too: five LAN application rounds passed, five overlay
-rounds failed. See [evidence](../benchmarks/zerotier/hil.json) and
-[remaining checks](zerotier-blockers.md). This is not production-ready.
+**API and OTA over ZeroTier passed on 2026-10-30.** Encrypted API worked
+simultaneously over Ethernet and ZeroTier. An authenticated/encrypted OTA
+upload to the overlay address completed in 9.01 seconds; after reboot both
+API paths recovered with the same Node ID and overlay address. See
+[evidence](../benchmarks/zerotier/hil-20261030.json) and
+[remaining checks](zerotier-blockers.md). A 24-hour API/memory soak is running,
+not passed. Earlier intermittent reachability failures remain unexplained;
+this is not production-ready.
 
 External component `components/zerotier`; example `examples/zerotier-p4-ethernet.yaml`.
 Requires ESPHome 2026.9.0, ESP-IDF 5.5.5 and working PSRAM. This is an endpoint,

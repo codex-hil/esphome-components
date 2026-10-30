@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-30",
+  "status": "PASS_API_AND_OVERLAY_OTA",
+  "firmware_sha256": "3e8df88fd98d472f9a19bae93d556d0bc05db5ebc9fb1bf557debbde5625dc28",
+  "esphome": "2026.9.0",
+  "encrypted_api_lan": "PASS",
+  "encrypted_api_overlay": "PASS",
+  "overlay_ota": "PASS",
+  "ota_seconds": 9.010400600032881,
+  "recovery_seconds_including_15s_api_observation": 34.63961667800322,
+  "identity_preserved": true,
+  "panic": false,
+  "firmware_retained": "p4-zerotier",
+  "original_restored": false,
+  "memory": {
+    "samples": 8,
+    "minimum_internal_free_bytes": 313152,
+    "minimum_psram_free_bytes": 27322904,
+    "minimum_unused_worker_stack_bytes": 37580
+  },
+  "soak_24h": "RUNNING_NOT_PASSED",
+  "direct_or_relay": "UNKNOWN",
+  "not_tested": [
+    "different NAT",
+    "physical link loss recovery",
+    "CPU utilization",
+    "sustained TCP/UDP throughput",
+    "combined production HTTP/SCPI workload"
+  ]
+}
