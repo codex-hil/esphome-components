@@ -56,3 +56,13 @@ Licenses: [GPL-3.0-only for C++ runtime; MIT for Python/Rust/docs](LICENSE.md).
 code, portable Migen pinmux, simulation examples and offline tests. This is
 controller integration support, not a native ESPHome C++ component. No hardware
 validation or DDS/frequency/RF-enable support is claimed.
+
+## Native ZeroTier on ESP32-P4 (experimental)
+
+[External component and configuration](docs/zerotier.md),
+[example YAML](examples/zerotier-p4-ethernet.yaml),
+[HIL results and remaining checks](docs/zerotier-blockers.md).
+The ESP-IDF node uses system lwIP and persistent NVS identity. Build, Ethernet,
+controller join, encrypted API over LAN and ZeroTier, and OTA through ZeroTier
+passed. A 24-hour stability test is running; intermittent reachability and
+production acceptance checks remain open. No production-readiness claim.
