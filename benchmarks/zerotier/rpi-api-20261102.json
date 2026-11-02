@@ -1,0 +1,72 @@
+{
+  "origin": "presence-sensor, wlan0 192.168.1.131, ZeroTier 192.168.192.215",
+  "destination": "192.168.192.216:6053",
+  "method": "Noise-encrypted ESPHome API through SSH local forwarding; RPi opens target TCP through its ZeroTier interface; no API secret copied to RPi",
+  "direct_or_relay": "UNKNOWN",
+  "rounds": [
+    {
+      "round": 1,
+      "unix": 1793603394.187558,
+      "status": "PASS",
+      "observations": {
+        "ZeroTier Configured": [
+          true
+        ],
+        "Uptime": [
+          244567.71875,
+          244572.71875,
+          244577.71875
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "192.168.192.216"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "unix": 1793603406.3837655,
+      "status": "PASS",
+      "observations": {
+        "ZeroTier Configured": [
+          true
+        ],
+        "Uptime": [
+          244577.71875,
+          244582.71875,
+          244587.71875,
+          244592.71875
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "192.168.192.216"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "unix": 1793603418.5953264,
+      "status": "PASS",
+      "observations": {
+        "ZeroTier Configured": [
+          true
+        ],
+        "Uptime": [
+          244592.71875,
+          244597.71875,
+          244602.71875
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "192.168.192.216"
+        ]
+      }
+    }
+  ]
+}

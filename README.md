@@ -64,5 +64,5 @@ validation or DDS/frequency/RF-enable support is claimed.
 [HIL results and remaining checks](docs/zerotier-blockers.md).
 The ESP-IDF node uses system lwIP and persistent NVS identity. Build, Ethernet,
 controller join, encrypted API over LAN and ZeroTier, and OTA through ZeroTier
-passed. A 24-hour stability test is running; intermittent reachability and
-production acceptance checks remain open. No production-readiness claim.
+passed. The 24-hour test completed: LAN 1440/1440, ZeroTier 1439/1440 (one startup
+failure). API from a second site also passed; production checks remain open. No production-readiness claim.

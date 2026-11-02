@@ -1,0 +1,26 @@
+[
+  {
+    "unix": 1793603209.8085825,
+    "log": "\u001b[0;32m[I][zerotier:048]: wire_tx=454200 wire_rx=147116 rx_frames=40572 tx_frames=18654 rx_drop=0 tx_drop=0 online=1\u001b[0m"
+  },
+  {
+    "unix": 1793603209.8497438,
+    "log": "\u001b[0;32m[I][zerotier:051]: heap_internal=306711 psram=28682732 stack_free=11032 min_internal=289064 min_psram=26585576\u001b[0m"
+  },
+  {
+    "unix": 1793603219.890025,
+    "log": "\u001b[0;32m[I][zerotier:048]: wire_tx=454220 wire_rx=147128 rx_frames=40573 tx_frames=18654 rx_drop=0 tx_drop=0 online=1\u001b[0m"
+  },
+  {
+    "unix": 1793603219.8905528,
+    "log": "\u001b[0;32m[I][zerotier:051]: heap_internal=306159 psram=28682732 stack_free=11032 min_internal=289064 min_psram=26585576\u001b[0m"
+  },
+  {
+    "unix": 1793603229.9711099,
+    "log": "\u001b[0;32m[I][zerotier:048]: wire_tx=454245 wire_rx=147133 rx_frames=40574 tx_frames=18654 rx_drop=0 tx_drop=0 online=1\u001b[0m"
+  },
+  {
+    "unix": 1793603229.9716268,
+    "log": "\u001b[0;32m[I][zerotier:051]: heap_internal=306575 psram=28682732 stack_free=11032 min_internal=289064 min_psram=26585576\u001b[0m"
+  }
+]

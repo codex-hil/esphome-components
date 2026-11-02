@@ -5,8 +5,8 @@ simultaneously over Ethernet and ZeroTier. An authenticated/encrypted OTA
 upload to the overlay address completed in 9.01 seconds; after reboot both
 API paths recovered with the same Node ID and overlay address. See
 [evidence](../benchmarks/zerotier/hil-20261030.json) and
-[remaining checks](zerotier-blockers.md). A 24-hour API/memory soak is running,
-not passed. Earlier intermittent reachability failures remain unexplained;
+[remaining checks](zerotier-blockers.md). The 24-hour API/memory soak completed: LAN 1440/1440, overlay 1439/1440
+(one startup failure, then all passed). Earlier intermittent reachability failures remain unexplained;
 this is not production-ready.
 
 External component `components/zerotier`; example `examples/zerotier-p4-ethernet.yaml`.

@@ -1,3 +1,39 @@
+# Acceptance update — 2026-11-02
+
+The 24-hour API/UART test completed. LAN passed 1440/1440 probes. ZeroTier
+passed 1439/1440; the only failure was the first startup probe. No uptime
+decreases after startup, no panic or task-watchdog markers in the complete
+86400-second UART capture. This is sampled API availability, not a continuous
+packet-delivery guarantee. See [soak evidence](../benchmarks/zerotier/soak-20261031.json).
+
+On 2026-11-02, paired encrypted API probes again passed with about 244,000
+seconds uptime (67.9 hours). API telemetry showed no adapter queue drops,
+minimum internal free RAM 289,064 bytes, minimum PSRAM 26,585,576 bytes, and
+minimum unused worker stack 11,032 bytes. Current free PSRAM is about 28.68 MB;
+minima are lifetime low-water marks, not proof of a memory leak. Do not reduce
+the 128 KiB worker stack. Extra production workload and worst-case packet paths
+need measurement before claiming sufficient stack margin.
+
+RPi presence-sensor in another city has physical address 192.168.1.131 and
+overlay 192.168.192.215. Its route to P4 uses ZeroTier. ICMP passed 10/10;
+three encrypted API sessions passed with expected MAC, Node ID and live uptime.
+The API client ran on Optiplex through SSH forwarding: RPi opened the target
+TCP connection through its ZeroTier interface, and the API key stayed on
+Optiplex. No camera services were changed. RTT varied from 4.78 to 447.37 ms.
+Direct versus relay is not classified; privileged ZeroTier CLI access was
+unavailable on RPi. See [ping](../benchmarks/zerotier/rpi-ping-20261102.json)
+and [API evidence](../benchmarks/zerotier/rpi-api-20261102.json).
+
+Pending: identify the managed switch and exact P4 port before link-loss tests;
+production HTTP/SCPI load, CPU/throughput and malformed-packet tests; dedicated
+identity storage and provisioned key protection. Owner chose P4 only.
+Classic ESP32 compile passed in an isolated diagnostic fixture, but runtime
+support is not enabled; the no-PSRAM ADC/DAC board was not touched.
+
+Earlier reports below retain their dated scope; RUNNING labels are historical.
+
+---
+
 # ZeroTier acceptance update — 2026-10-30
 
 Encrypted ESPHome API over LAN and ZeroTier, actual OTA through ZeroTier and
