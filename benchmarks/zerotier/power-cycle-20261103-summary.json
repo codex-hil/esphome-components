@@ -1,0 +1,51 @@
+{
+  "test": "manual power interruption and automatic API recovery",
+  "power_removed": "owner-reported; no independent voltage measurement",
+  "power_restoration_timestamp": "not measured",
+  "expected_mac": "e8:f6:0a:e7:fe:3f",
+  "expected_node": "6e31ab38dc",
+  "expected_overlay": "192.168.192.216",
+  "verification": "PASS rows require MAC, Node ID, virtual address, configured state and increasing uptime",
+  "paths": {
+    "192.168.192.216": {
+      "rounds": 12,
+      "initial_failures": 5,
+      "successful_rounds": 7,
+      "failures_after_first_success": 0,
+      "first_success": {
+        "host": "192.168.192.216",
+        "utc": "2026-11-03T15:16:34.778607+00:00",
+        "device_info_ms": 23.894206155091524,
+        "status": "PASS",
+        "uptime_seconds": 32.66400146484375
+      },
+      "last_success": {
+        "host": "192.168.192.216",
+        "utc": "2026-11-03T15:18:04.797584+00:00",
+        "device_info_ms": 24.11857503466308,
+        "status": "PASS",
+        "uptime_seconds": 122.66400146484375
+      }
+    },
+    "192.168.2.22": {
+      "rounds": 12,
+      "initial_failures": 4,
+      "successful_rounds": 8,
+      "failures_after_first_success": 0,
+      "first_success": {
+        "host": "192.168.2.22",
+        "utc": "2026-11-03T15:16:19.776561+00:00",
+        "device_info_ms": 1.0870511177927256,
+        "status": "PASS",
+        "uptime_seconds": 17.663999557495117
+      },
+      "last_success": {
+        "host": "192.168.2.22",
+        "utc": "2026-11-03T15:18:04.797337+00:00",
+        "device_info_ms": 10.821087984368205,
+        "status": "PASS",
+        "uptime_seconds": 122.66400146484375
+      }
+    }
+  }
+}

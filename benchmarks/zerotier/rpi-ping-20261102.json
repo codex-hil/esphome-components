@@ -1,0 +1,20 @@
+{
+  "origin_host": "presence-sensor",
+  "origin_lan": "192.168.1.131/24",
+  "origin_gateway": "192.168.1.1",
+  "origin_overlay": "192.168.192.215",
+  "destination_overlay": "192.168.192.216",
+  "interface": "zt2lrvpzc4",
+  "target_mac": "8e:44:a7:7b:f6:1d",
+  "transmitted": 10,
+  "received": 10,
+  "loss_percent": 0,
+  "rtt_ms": {
+    "min": 4.781,
+    "avg": 71.896,
+    "max": 447.37,
+    "mdev": 141.146
+  },
+  "path_classification": "UNKNOWN_DIRECT_OR_RELAY",
+  "location": "Different city per owner; independent physical subnet verified"
+}

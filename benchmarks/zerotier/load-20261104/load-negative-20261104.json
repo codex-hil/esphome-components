@@ -1,0 +1,85 @@
+{
+  "scope": "bounded malformed application requests and 36 deterministic random/truncated outer UDP datagrams; not exhaustive protocol fuzzing",
+  "application_cases": [
+    {
+      "host": "192.168.2.22",
+      "protocol": "http",
+      "input_bytes": 37,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.2.22",
+      "protocol": "http",
+      "input_bytes": 600,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.2.22",
+      "protocol": "scpi",
+      "input_bytes": 11,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.2.22",
+      "protocol": "scpi",
+      "input_bytes": 600,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "http",
+      "input_bytes": 37,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "http",
+      "input_bytes": 600,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "scpi",
+      "input_bytes": 11,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "scpi",
+      "input_bytes": 600,
+      "rejection": "PASS",
+      "recovery": "PASS"
+    }
+  ],
+  "udp_packets_sent": 36,
+  "udp_corpus_sha256": "4f6172ed2388b8946a1d05657be54fb64655b252fc63cccace9937a5348b1771",
+  "post_udp_recovery": [
+    {
+      "host": "192.168.2.22",
+      "protocol": "http",
+      "status": "PASS"
+    },
+    {
+      "host": "192.168.2.22",
+      "protocol": "scpi",
+      "status": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "http",
+      "status": "PASS"
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "scpi",
+      "status": "PASS"
+    }
+  ]
+}

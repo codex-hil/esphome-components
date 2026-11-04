@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "esphome": "2026.9.0",
+  "esp_idf": "5.5.5",
+  "image_bytes": 1043808,
+  "image_sha256": "3e8df88fd98d472f9a19bae93d556d0bc05db5ebc9fb1bf557debbde5625dc28",
+  "nix": {
+    "bundle": "/nix/store/3jyqsm0l3crhx24jfd3dql0hfcf0z4dc-esphome-idf-5.5.5-bundle",
+    "esphome": "/nix/store/acgxwnwvbxr9kb0n9dyj0v5wp46kn61n-esphome-hil-python-2026-09-24",
+    "flake_lock_sha256": "3635ad71d5aaf6e6129eb701947f55c8bc8dfcc5b7d8092d401eb98f89793bf5"
+  },
+  "upstream_recipe": {
+    "upstream": "899352e38405968516bb12a770f0ac02f6058fa8",
+    "recipe_sha256": "f101ed1e342c60a47a9230f7c5a68d7dc3d4390fb8b24b3415d085ddaa382cd0"
+  },
+  "clean_final_replay": "NOT_RUN; final build is incremental in a fresh pinned Nix workspace"
+}

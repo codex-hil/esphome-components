@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-31",
+  "scope": "24h ESPHome encrypted API over LAN and ZeroTier with UART memory capture",
+  "lan": {
+    "passed": 1440,
+    "total": 1440
+  },
+  "zerotier": {
+    "passed": 1439,
+    "total": 1440,
+    "failures": "one initial SocketAPIError during startup; all subsequent rounds passed"
+  },
+  "uptime_decreases": 0,
+  "uart_capture_seconds": 86400.01769304276,
+  "panic_lines": 0,
+  "watchdog_markers": 0,
+  "memory_samples": 8570,
+  "minimum_internal_free_bytes": 289064,
+  "minimum_psram_free_bytes": 27292692,
+  "minimum_unused_worker_stack_bytes": 11032,
+  "firmware_retained": true,
+  "limits": [
+    "different NAT not tested",
+    "direct versus relay unknown",
+    "physical link loss recovery not tested",
+    "combined production HTTP/SCPI workload not tested",
+    "CPU and sustained throughput not measured",
+    "secure identity storage remains production work"
+  ]
+}

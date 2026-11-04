@@ -1,0 +1,26 @@
+[
+  {
+    "host": "192.168.2.22",
+    "port": 8080,
+    "connect_errno": 111,
+    "listening": false
+  },
+  {
+    "host": "192.168.2.22",
+    "port": 5025,
+    "connect_errno": 111,
+    "listening": false
+  },
+  {
+    "host": "192.168.192.216",
+    "port": 8080,
+    "connect_errno": 111,
+    "listening": false
+  },
+  {
+    "host": "192.168.192.216",
+    "port": 5025,
+    "connect_errno": 111,
+    "listening": false
+  }
+]

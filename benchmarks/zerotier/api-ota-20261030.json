@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "lan": "192.168.2.22",
+  "overlay": "192.168.192.216",
+  "started_unix": 1793358676.7147865,
+  "before": {
+    "lan": {
+      "status": "PASS",
+      "mac": "E8:F6:0A:E7:FE:3F",
+      "esphome": "2026.9.0",
+      "observations": {
+        "ZeroTier Configured": [
+          true
+        ],
+        "Uptime": [
+          17.562000274658203,
+          22.562000274658203,
+          27.562000274658203,
+          32.5620002746582
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "192.168.192.216"
+        ]
+      }
+    },
+    "overlay": {
+      "status": "PASS",
+      "mac": "E8:F6:0A:E7:FE:3F",
+      "esphome": "2026.9.0",
+      "observations": {
+        "ZeroTier Configured": [
+          true
+        ],
+        "Uptime": [
+          17.562000274658203,
+          22.562000274658203,
+          27.562000274658203,
+          32.5620002746582
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "192.168.192.216"
+        ]
+      }
+    }
+  },
+  "ota": {
+    "exit_code": 0,
+    "address": "192.168.192.216",
+    "seconds": 9.010400600032881
+  },
+  "after": {
+    "lan": {
+      "status": "PASS",
+      "mac": "E8:F6:0A:E7:FE:3F",
+      "esphome": "2026.9.0",
+      "observations": {
+        "ZeroTier Configured": [
+          false,
+          true
+        ],
+        "Uptime": [
+          7.4639997482299805,
+          12.46399974822998,
+          17.464000701904297,
+          22.464000701904297
+        ],
+        "ZeroTier Node ID": [
+          "",
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "",
+          "192.168.192.216"
+        ]
+      }
+    },
+    "overlay": {
+      "status": "PASS",
+      "mac": "E8:F6:0A:E7:FE:3F",
+      "esphome": "2026.9.0",
+      "observations": {
+        "ZeroTier Configured": [
+          false,
+          true
+        ],
+        "Uptime": [
+          7.4639997482299805,
+          12.46399974822998,
+          17.464000701904297,
+          22.464000701904297
+        ],
+        "ZeroTier Node ID": [
+          "6e31ab38dc"
+        ],
+        "ZeroTier Address": [
+          "",
+          "192.168.192.216"
+        ]
+      }
+    }
+  },
+  "recovery_seconds_including_probe": 34.63961667800322
+}
