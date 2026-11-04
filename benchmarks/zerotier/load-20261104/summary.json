@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-04",
+  "scope": "Diagnostic read-only HTTP /status and SCPI *IDN? fixture with encrypted ESPHome API; not production resbox16",
+  "status": "PASS_BOUNDED_APPLICATION_LOAD",
+  "firmware_sha256": "b0f0a29c732b2ae3254c0ab1a539240bcb35470acd6c279d7e874f8625913f5e",
+  "firmware_bytes": 1046736,
+  "sdk": "ESPHome 2026.9.0 / ESP-IDF 5.5.5, pinned board Nix environment",
+  "low_load_seconds": 30,
+  "high_load_seconds": 60,
+  "successful_application_requests": 11544,
+  "failed_application_requests": 0,
+  "encrypted_api_pass": 20,
+  "encrypted_api_total": 20,
+  "sampled_minimum_internal_free_bytes": 269491,
+  "sampled_minimum_psram_free_bytes": 28240416,
+  "minimum_unused_worker_stack_observed_this_run": 37576,
+  "historical_minimum_unused_worker_stack": 11032,
+  "stack_reserved_bytes": 131072,
+  "final_adapter_rx_drop": 0,
+  "final_adapter_tx_drop": 0,
+  "limitations": [
+    "Short synthetic read-only fixture, not full production workload",
+    "Response payload goodput not maximum TCP/UDP bandwidth",
+    "CPU utilization unmeasured",
+    "Small deterministic malformed-input corpus, not exhaustive fuzzing",
+    "Static stack frames are not whole-call-chain proof",
+    "No hardware action or GPIO/SCPI control"
+  ],
+  "restored_firmware_sha256": "3e8df88fd98d472f9a19bae93d556d0bc05db5ebc9fb1bf557debbde5625dc28",
+  "restoration": {
+    "encrypted_api_lan_and_overlay": "4/4 PASS",
+    "test_ports_8080_5025": "connection refused on both addresses",
+    "node_identity": "preserved"
+  }
+}

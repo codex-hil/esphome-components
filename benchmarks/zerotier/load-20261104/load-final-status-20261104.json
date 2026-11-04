@@ -1,0 +1,20 @@
+{
+  "192.168.2.22": {
+    "fixture": "zt-load-v1",
+    "uptime_ms": 187214,
+    "internal_free": 283447,
+    "psram_free": 28682788,
+    "zt_stack_free": 37576,
+    "rx_drop": 0,
+    "tx_drop": 0
+  },
+  "192.168.192.216": {
+    "fixture": "zt-load-v1",
+    "uptime_ms": 187221,
+    "internal_free": 283447,
+    "psram_free": 28682788,
+    "zt_stack_free": 37576,
+    "rx_drop": 0,
+    "tx_drop": 0
+  }
+}

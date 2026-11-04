@@ -1,3 +1,23 @@
+# Concurrent load update — 2026-11-04
+
+Bounded HTTP/SCPI/API coexistence passed: 11544 verified application requests,
+zero failures, 20/20 concurrent encrypted API observations. This uses a read-only
+test fixture, not the complete production application. Static and runtime stack
+analysis retains the historical 11032-byte minimum unused margin. See
+[load report and limitations](zerotier-load-test.md).
+
+Manual recovery trials on 2026-11-03 also passed subsequent API checks.
+Owner reported Ethernet unplug/replug for twenty-some seconds: 5/5 paired
+API rounds after reconnection, uptime near 100h. The outage itself was not
+captured. Owner confirmed removal of both USB and PoE in the power test;
+recorded API failures were followed by rebooted uptime and successful LAN
+(8 rounds) and ZeroTier (7 rounds), with the same identity. Physical reconnect
+time was not synchronized with probes; no exact cold-start latency is claimed.
+Evidence: `benchmarks/zerotier/manual-link-20261103.jsonl` and
+`benchmarks/zerotier/power-cycle-20261103-summary.json`.
+
+---
+
 # Acceptance update — 2026-11-02
 
 The 24-hour API/UART test completed. LAN passed 1440/1440 probes. ZeroTier

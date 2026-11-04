@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "kind": "application request workload, not maximum TCP throughput or ICMP RTT",
+  "interval_seconds_per_worker": 0.02,
+  "results": [
+    {
+      "host": "192.168.2.22",
+      "protocol": "http",
+      "elapsed_seconds": 60.005001398036256,
+      "pass": 2867,
+      "fail": 0,
+      "errors": [],
+      "response_payload_bytes": 385529,
+      "response_payload_bps": 51399.58217051113,
+      "request_ms_mean": 3.105060812339244,
+      "request_ms_p95": 4.336237208917737,
+      "request_ms_max": 201.02370786480606,
+      "memory_minimum": {
+        "internal_free": 269491,
+        "psram_free": 28240416,
+        "zt_stack_free": 37576
+      },
+      "first_status": {
+        "fixture": "zt-load-v1",
+        "uptime_ms": 68353,
+        "internal_free": 282043,
+        "psram_free": 28682788,
+        "zt_stack_free": 37576,
+        "rx_drop": 0,
+        "tx_drop": 0
+      },
+      "last_status": {
+        "fixture": "zt-load-v1",
+        "uptime_ms": 128335,
+        "internal_free": 279367,
+        "psram_free": 28682788,
+        "zt_stack_free": 37576,
+        "rx_drop": 0,
+        "tx_drop": 0
+      }
+    },
+    {
+      "host": "192.168.2.22",
+      "protocol": "scpi",
+      "elapsed_seconds": 60.00836384505965,
+      "pass": 2867,
+      "fail": 0,
+      "errors": [],
+      "response_payload_bytes": 65941,
+      "response_payload_bps": 8790.907903472695,
+      "request_ms_mean": 2.897070765944882,
+      "request_ms_p95": 4.232208011671901,
+      "request_ms_max": 208.1355859991163
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "http",
+      "elapsed_seconds": 60.01624105894007,
+      "pass": 2592,
+      "fail": 0,
+      "errors": [],
+      "response_payload_bytes": 348580,
+      "response_payload_bps": 46464.75605263856,
+      "request_ms_mean": 17.47917989646171,
+      "request_ms_p95": 22.008982952684164,
+      "request_ms_max": 1295.087086968124,
+      "memory_minimum": {
+        "internal_free": 276775,
+        "psram_free": 28682676,
+        "zt_stack_free": 37576
+      },
+      "first_status": {
+        "fixture": "zt-load-v1",
+        "uptime_ms": 68362,
+        "internal_free": 282379,
+        "psram_free": 28682788,
+        "zt_stack_free": 37576,
+        "rx_drop": 0,
+        "tx_drop": 0
+      },
+      "last_status": {
+        "fixture": "zt-load-v1",
+        "uptime_ms": 128353,
+        "internal_free": 282487,
+        "psram_free": 28682788,
+        "zt_stack_free": 37576,
+        "rx_drop": 0,
+        "tx_drop": 0
+      }
+    },
+    {
+      "host": "192.168.192.216",
+      "protocol": "scpi",
+      "elapsed_seconds": 60.02014069608413,
+      "pass": 2628,
+      "fail": 0,
+      "errors": [],
+      "response_payload_bytes": 60444,
+      "response_payload_bps": 8056.495609507097,
+      "request_ms_mean": 17.72679916954751,
+      "request_ms_p95": 23.035874823108315,
+      "request_ms_max": 1069.8927009943873
+    }
+  ]
+}

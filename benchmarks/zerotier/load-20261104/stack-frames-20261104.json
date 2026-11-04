@@ -1,0 +1,131 @@
+{
+  "scope": "GCC per-function frames; not whole-call-chain bounds",
+  "functions": 1300,
+  "largest_frames": [
+    {
+      "bytes": 57040,
+      "function": "Multicaster.cpp:143:6:void ZeroTier::Multicaster::send(void*, int64_t, const ZeroTier::SharedPtr<ZeroTier::Network>&, const ZeroTier::Address&, const ZeroTier::MulticastGroup&, const ZeroTier::MAC&, unsigned int, const void*, unsigned int)",
+      "kind": "static"
+    },
+    {
+      "bytes": 36480,
+      "function": "Packet.cpp:1276:6:bool ZeroTier::Packet::compress()",
+      "kind": "static"
+    },
+    {
+      "bytes": 32416,
+      "function": "Network.cpp:652:1:ZeroTier::Network::Network(const ZeroTier::RuntimeEnvironment*, void*, uint64_t, void*, const ZeroTier::NetworkConfig*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 32352,
+      "function": "Network.cpp:1223:5:int ZeroTier::Network::setConfiguration(void*, const ZeroTier::NetworkConfig&, bool)",
+      "kind": "static"
+    },
+    {
+      "bytes": 32336,
+      "function": "Node.cpp:471:15:ZT_ResultCode ZeroTier::Node::leave(uint64_t, void**, void*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 32288,
+      "function": "Network.cpp:721:1:ZeroTier::Network::~Network()",
+      "kind": "static"
+    },
+    {
+      "bytes": 32288,
+      "function": "Network.cpp:1843:6:void ZeroTier::Network::_sendUpdateEvent(void*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 17360,
+      "function": "Topology.cpp:39:1:ZeroTier::Topology::Topology(const ZeroTier::RuntimeEnvironment*, void*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 17232,
+      "function": "Topology.cpp:366:6:void ZeroTier::Topology::addMoon(void*, uint64_t, const ZeroTier::Address&)",
+      "kind": "static"
+    },
+    {
+      "bytes": 16144,
+      "function": "Multicaster.cpp:59:14:unsigned int ZeroTier::Multicaster::gather(const ZeroTier::Address&, uint64_t, const ZeroTier::MulticastGroup&, ZeroTier::Buffer<10024>&, unsigned int) const",
+      "kind": "static"
+    },
+    {
+      "bytes": 12928,
+      "function": "IncomingPacket.cpp:166:6:bool ZeroTier::IncomingPacket::_doERROR(const ZeroTier::RuntimeEnvironment*, void*, const ZeroTier::SharedPtr<ZeroTier::Peer>&)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11520,
+      "function": "Bond.cpp:894:6:void ZeroTier::Bond::sendQOS_MEASUREMENT(void*, int, int64_t, const ZeroTier::InetAddress&, int64_t)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11408,
+      "function": "ECC.cpp:2522:6:static bool ZeroTier::ECC::verify(const Public&, const void*, unsigned int, const void*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11264,
+      "function": "Network.cpp:924:5:int ZeroTier::Network::filterIncomingPacket(void*, const ZeroTier::SharedPtr<ZeroTier::Peer>&, const ZeroTier::Address&, const ZeroTier::MAC&, const ZeroTier::MAC&, const uint8_t*, unsigned int, unsigned int, unsigned int)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11248,
+      "function": "Network.cpp:735:6:bool ZeroTier::Network::filterOutgoingPacket(void*, bool, const ZeroTier::Address&, const ZeroTier::Address&, const ZeroTier::MAC&, const ZeroTier::MAC&, const uint8_t*, unsigned int, unsigned int, unsigned int, uint8_t&)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11184,
+      "function": "Membership.cpp:28:6:void ZeroTier::Membership::pushCredentials(const ZeroTier::RuntimeEnvironment*, void*, int64_t, const ZeroTier::Address&, const ZeroTier::NetworkConfig&)",
+      "kind": "static"
+    },
+    {
+      "bytes": 11120,
+      "function": "Network.cpp:1278:6:void ZeroTier::Network::requestConfiguration(void*)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10528,
+      "function": "IncomingPacket.cpp:362:6:bool ZeroTier::IncomingPacket::_doHELLO(const ZeroTier::RuntimeEnvironment*, void*, bool)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10448,
+      "function": "Switch.cpp:266:6:void ZeroTier::Switch::onLocalEthernet(void*, const ZeroTier::SharedPtr<ZeroTier::Network>&, const ZeroTier::MAC&, const ZeroTier::MAC&, unsigned int, unsigned int, const void*, unsigned int)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10384,
+      "function": "Peer.cpp:295:6:void ZeroTier::Peer::introduce(void*, int64_t, const ZeroTier::SharedPtr<ZeroTier::Peer>&) const",
+      "kind": "static"
+    },
+    {
+      "bytes": 10240,
+      "function": "Network.cpp:1072:10:uint64_t ZeroTier::Network::handleConfigChunk(void*, uint64_t, const ZeroTier::Address&, const ZeroTier::Buffer<10024>&, unsigned int)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10240,
+      "function": "IncomingPacket.cpp:669:6:bool ZeroTier::IncomingPacket::_doWHOIS(const ZeroTier::RuntimeEnvironment*, void*, const ZeroTier::SharedPtr<ZeroTier::Peer>&)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10224,
+      "function": "Trace.cpp:64:6:void ZeroTier::Trace::peerConfirmingUnknownPath(void*, uint64_t, ZeroTier::Peer&, const ZeroTier::SharedPtr<ZeroTier::Path>&, uint64_t, ZeroTier::Packet::Verb)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10224,
+      "function": "Trace.cpp:107:6:void ZeroTier::Trace::peerLearnedNewPath(void*, uint64_t, ZeroTier::Peer&, const ZeroTier::SharedPtr<ZeroTier::Path>&, uint64_t)",
+      "kind": "static"
+    },
+    {
+      "bytes": 10224,
+      "function": "Node.cpp:783:6:virtual void ZeroTier::Node::ncSendConfig(uint64_t, uint64_t, const ZeroTier::Address&, const ZeroTier::NetworkConfig&, bool)",
+      "kind": "static"
+    }
+  ]
+}
