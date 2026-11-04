@@ -1,4 +1,4 @@
-# Experimental native ZeroTier endpoint. Use ESPHome 2026.9.0 / ESP-IDF 5.5.5.
+# Native ZeroTier endpoint; validated P4 baseline. Use ESPHome 2026.9.0 / ESP-IDF 5.5.5.
 # GPIO profile: hardware-verified Waveshare ESP32-P4 ETH PoE, rev3.2 / IP101.
 esphome:
   name: p4-zerotier
@@ -19,9 +19,7 @@ psram:
   ignore_not_found: false
 
 external_components:
-  - source:
-      type: local
-      path: ../components
+  - source: github://codex-hil/esphome-components@main
     components: [zerotier]
 
 ethernet:

@@ -57,7 +57,7 @@ code, portable Migen pinmux, simulation examples and offline tests. This is
 controller integration support, not a native ESPHome C++ component. No hardware
 validation or DDS/frequency/RF-enable support is claimed.
 
-## Native ZeroTier on ESP32-P4 (experimental)
+## Native ZeroTier on ESP32-P4
 
 [External component and configuration](docs/zerotier.md),
 [example YAML](examples/zerotier-p4-ethernet.yaml),

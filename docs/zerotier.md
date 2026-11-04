@@ -1,4 +1,4 @@
-# Native ZeroTier on ESP32-P4 (experimental)
+# Native ZeroTier on ESP32-P4
 
 **API and OTA over ZeroTier passed on 2026-10-30.** Encrypted API worked
 simultaneously over Ethernet and ZeroTier. An authenticated/encrypted OTA
@@ -7,7 +7,9 @@ API paths recovered with the same Node ID and overlay address. See
 [evidence](../benchmarks/zerotier/hil-20261030.json) and
 [remaining checks](zerotier-blockers.md). The 24-hour API/memory soak completed: LAN 1440/1440, overlay 1439/1440
 (one startup failure, then all passed). Earlier intermittent reachability failures remain unexplained;
-this is not production-ready.
+the owner accepted this P4 baseline on 2026-11-04. Further qualification belongs
+to each concrete system; the documented storage, stack and protocol limitations
+still apply.
 
 External component `components/zerotier`; example `examples/zerotier-p4-ethernet.yaml`.
 Requires ESPHome 2026.9.0, ESP-IDF 5.5.5 and working PSRAM. This is an endpoint,
@@ -16,9 +18,7 @@ IP101 wiring; Ethernet configuration stays in the board YAML.
 
 ```yaml
 external_components:
-  - source:
-      type: local
-      path: /path/to/esphome-components/components
+  - source: github://codex-hil/esphome-components@main
     components: [zerotier]
 
 zerotier:
@@ -34,6 +34,10 @@ zerotier:
   connected:
     name: ZeroTier Configured
 ```
+
+For reproducible deployments, replace `main` with a reviewed full commit SHA.
+The validated component code is available at
+`15b5524025611f2b5d1831aadb76e13217978b0c`.
 
 Quote the 16-digit network ID in `secrets.yaml`. Authorize the logged public
 Node ID in your private controller. No controller API token belongs on the
